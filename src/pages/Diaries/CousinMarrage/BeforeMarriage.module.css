@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap');
+
+.container {
+    font-family: 'Caveat', cursive;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.container * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.backgroundAnimation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: float 15s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.notebookContainer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.notebook {
+    position: relative;
+    width: 90vw;
+    max-width: 380px;
+    height: 85vh;
+    max-height: 600px;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fffef7;
+    background-image:
+        linear-gradient(90deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 182, 193, 0.15) 5px, transparent 5px),
+        repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(173, 216, 230, 0.2) 24px, rgba(173, 216, 230, 0.2) 25px);
+    border-radius: 8px 0 0 8px;
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        inset 0 0 20px rgba(0, 0, 0, 0.05);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 30px;
+    padding-left: 45px;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #2c3e50;
+    overflow-y: auto;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    /* Added subtle border for better definition */
+}
+
+/* Scrollbar styling */
+.page::-webkit-scrollbar {
+    width: 6px;
+}
+
+.page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.page::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+/* Cover Page */
+.cover {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    background-image:
+        linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%),
+        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9InRleHR1cmUiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3RleHR1cmUpIi8+PC9zdmc+');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: #d63031;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-size: cover, 60px 60px;
+    gap: 15px;
+}
+
+.coverSubtitle {
+    font-size: 18px;
+    font-family: 'Caveat', cursive;
+    color: #e17055;
+    font-weight: 400;
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+
+.pageNumber {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 16px;
+    color: #bdc3c7;
+    font-weight: 700;
+}
+
+.pageContent {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Z-index Stacking - Assuming max 6 pages as per original */
+.page:nth-child(2) {
+    z-index: 11;
+}
+
+/* Cover uses index 0 in React logic usually, but here checking structure... spiral is first child in markup usually */
+/* Will handle z-index dynamically or manually via classes if needed, 
+   but for now mapping standard stacking context from CSS */
+
+/* Spiral Binding */
+.spiral {
+    position: absolute;
+    left: -12px;
+    top: 0;
+    width: 24px;
+    height: 100%;
+    background: linear-gradient(to right, #95a5a6 0%, #bdc3c7 50%, #95a5a6 100%);
+    border-radius: 12px;
+    box-shadow:
+        inset 0 0 8px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 12;
+}
+
+.spiralRing {
+    position: absolute;
+    left: 50%;
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle, #ecf0f1 0%, #95a5a6 100%);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.3),
+        0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.controls {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 13;
+    display: flex;
+    gap: 15px;
+}
+
+.button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    min-width: 90px;
+    transition: all 0.3s ease;
+    font-family: 'Caveat', cursive;
+    letter-spacing: 0.5px;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.button:disabled {
+    background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.emoji {
+    display: inline-block;
+    font-size: 24px;
+    margin: 0 5px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.highlight {
+    background: linear-gradient(120deg, rgba(255, 223, 0, 0.3) 0%, rgba(255, 223, 0, 0.5) 100%);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .notebook {
+        width: 95vw;
+        height: 80vh;
+        max-height: 550px;
+    }
+
+    .page {
+        font-size: 18px;
+        padding: 20px;
+        padding-left: 40px;
+    }
+
+    .cover {
+        font-size: 28px;
+    }
+
+    .coverSubtitle {
+        font-size: 16px;
+    }
+
+    .controls {
+        bottom: -55px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 15px;
+        min-width: 80px;
+    }
+}
+
+@media (max-height: 600px) {
+    .notebook {
+        height: 75vh;
+    }
+
+    .controls {
+        bottom: -50px;
+    }
+}

@@ -1,0 +1,501 @@
+/* Spiral.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap');
+
+.container {
+    font-family: 'Caveat', cursive;
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px 10px 100px 10px;
+    overflow-y: auto;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    animation: float 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.notebookContainer {
+    position: relative;
+    z-index: 10;
+}
+
+.notebook {
+    position: relative;
+    width: 90vw;
+    max-width: 380px;
+    height: 75vh;
+    max-height: 550px;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+}
+
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fffef7;
+    background-image:
+        linear-gradient(90deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 182, 193, 0.15) 5px, transparent 5px),
+        repeating-linear-gradient(0deg, transparent, transparent 24px, rgba(173, 216, 230, 0.2) 24px, rgba(173, 216, 230, 0.2) 25px);
+    border-radius: 8px 0 0 8px;
+    box-shadow:
+        0 8px 16px rgba(0, 0, 0, 0.15),
+        inset 0 0 20px rgba(0, 0, 0, 0.05);
+    transform-origin: left center;
+
+    /* Default Transition: Instant Z-index change when flipping back (Normal state) */
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1), z-index 0s 0s;
+
+    padding: 30px;
+    padding-left: 45px;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #2c3e50;
+    overflow-y: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Custom Scrollbar for pages */
+.page::-webkit-scrollbar {
+    width: 6px;
+}
+
+.page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.page::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.page.cover {
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    background-image:
+        linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%),
+        url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='texture' patternUnits='userSpaceOnUse' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1' fill='rgba(255,255,255,0.3)'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23texture)'/%3E%3C/svg%3E");
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: 700;
+    color: #d63031;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    background-size: cover, 60px 60px;
+    gap: 15px;
+}
+
+.coverSubtitle {
+    font-size: 18px;
+    font-family: 'Caveat', cursive;
+    color: #e17055;
+    font-weight: 400;
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+    z-index: 1 !important;
+    /* Force lower z-index when flipped */
+
+    /* Delayed Transition: Wait for transform to finish before dropping Z-index */
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1), z-index 0s 0.9s;
+}
+
+/* Z-Index Stacking - Adjusted for Child Order (.spiral is 1st child) */
+.page:nth-child(2) {
+    z-index: 20;
+}
+
+/* Cover */
+.page:nth-child(3) {
+    z-index: 19;
+}
+
+/* Page 1 */
+.page:nth-child(4) {
+    z-index: 18;
+}
+
+/* Page 2 */
+.page:nth-child(5) {
+    z-index: 17;
+}
+
+/* Page 3 */
+.page:nth-child(6) {
+    z-index: 16;
+}
+
+/* Page 4 */
+
+.pageNumber {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 16px;
+    color: #bdc3c7;
+    font-weight: 700;
+}
+
+.pageContent {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Spiral Binding */
+.spiral {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 40px;
+    height: 100%;
+    z-index: 50;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px 0;
+}
+
+.spiralRing {
+    position: relative;
+    width: 100%;
+    height: 24px;
+}
+
+.spiralRing::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    width: 38px;
+    height: 6px;
+    background: linear-gradient(0deg, #95a5a6, #ecf0f1 40%, #7f8c8d 100%);
+    border-radius: 3px;
+    transform: translateY(-50%) rotate(-12deg);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+
+.spiralRing::after {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: #2d3436;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+/* Controls */
+.controls {
+    position: absolute;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 60;
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    min-width: 90px;
+    transition: all 0.3s ease;
+    font-family: 'Caveat', cursive;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.btn:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    background: linear-gradient(135deg, #bdc3c7 0%, #95a5a6 100%);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.emoji {
+    display: inline-block;
+    font-size: 24px;
+    margin: 0 5px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.highlight {
+    background: linear-gradient(120deg, rgba(255, 223, 0, 0.3) 0%, rgba(255, 223, 0, 0.5) 100%);
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px auto;
+    display: block;
+}
+
+/* Butterflies */
+.butterfliesContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.butterfly {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    opacity: 0;
+    z-index: 0;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.butterflyWings {
+    transform-origin: center;
+    animation: flutter 0.18s infinite alternate ease-in-out;
+}
+
+.butterflyBody {
+    fill: rgba(0, 0, 0, 0.6);
+}
+
+.butterflyAntennae {
+    fill: none;
+    stroke: rgba(0, 0, 0, 0.6);
+    stroke-width: 1;
+    stroke-linecap: round;
+}
+
+@keyframes flutter {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(60deg);
+    }
+}
+
+@keyframes fly {
+    0% {
+        transform: translate(-10vw, 110vh) rotate(45deg) scale(0.6);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.9;
+        transform: translate(5vw, 90vh) rotate(45deg) scale(0.8);
+    }
+
+    25% {
+        transform: translate(25vw, 75vh) rotate(35deg) scale(0.9);
+    }
+
+    50% {
+        transform: translate(50vw, 50vh) rotate(55deg) scale(0.8);
+    }
+
+    75% {
+        transform: translate(75vw, 25vh) rotate(40deg) scale(0.9);
+    }
+
+    90% {
+        opacity: 0.9;
+        transform: translate(95vw, 5vh) rotate(45deg) scale(0.8);
+    }
+
+    100% {
+        transform: translate(110vw, -10vh) rotate(45deg) scale(0.6);
+        opacity: 0;
+    }
+}
+
+/* Butterfly Animations */
+.butterfly1 {
+    left: 10%;
+    animation: fly 18s linear infinite;
+    animation-delay: 0s;
+}
+
+.butterfly2 {
+    left: 30%;
+    animation: fly 23s linear infinite;
+    animation-delay: 5s;
+}
+
+.butterfly3 {
+    left: 70%;
+    animation: fly 16s linear infinite;
+    animation-delay: 9s;
+}
+
+.butterfly4 {
+    left: 50%;
+    animation: fly 26s linear infinite;
+    animation-delay: 2s;
+}
+
+.butterfly5 {
+    left: 85%;
+    animation: fly 21s linear infinite;
+    animation-delay: 13s;
+}
+
+.butterfly6 {
+    left: 15%;
+    animation: fly 29s linear infinite;
+    animation-delay: 7s;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 15px 5px 100px 5px;
+    }
+
+    .notebook {
+        width: 95vw;
+        height: 70vh;
+        max-height: 480px;
+    }
+
+    .page {
+        font-size: 18px;
+        padding: 20px;
+        padding-left: 40px;
+    }
+
+    .page.cover {
+        font-size: 28px;
+    }
+
+    .coverSubtitle {
+        font-size: 16px;
+    }
+
+    .controls {
+        bottom: -65px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 15px;
+        min-width: 80px;
+    }
+}
+
+@media (max-height: 700px) {
+    .container {
+        padding: 10px 5px 90px 5px;
+    }
+
+    .notebook {
+        height: 65vh;
+        max-height: 420px;
+    }
+
+    .controls {
+        bottom: -60px;
+    }
+}
+
+@media (max-height: 600px) {
+    .container {
+        padding: 10px 5px 80px 5px;
+    }
+
+    .notebook {
+        height: 60vh;
+        max-height: 380px;
+    }
+
+    .page {
+        font-size: 16px;
+        padding: 15px;
+        padding-left: 35px;
+    }
+
+    .controls {
+        bottom: -55px;
+    }
+}

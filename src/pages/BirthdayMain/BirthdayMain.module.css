@@ -1,0 +1,461 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600;700&display=swap');
+
+/* Main Container */
+.pageContainer {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fbcfe8, #e9d5ff, #fff1f2);
+    min-height: 100vh;
+    overflow: hidden;
+    color: #4a042e;
+    /* --text-main */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    position: relative;
+}
+
+/* Animations */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fallSway {
+    0% {
+        transform: translateY(0) rotate(0deg) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(60vh) rotate(180deg) translateX(50px);
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(120vh) rotate(360deg) translateX(-20px);
+        opacity: 0;
+    }
+}
+
+@keyframes pulseFade {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: scale(1.1) rotate(0deg);
+    }
+
+    25% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(10deg);
+    }
+
+    75% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Music Control */
+.musicBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    color: #ec4899;
+    /* --primary */
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    animation: float 3s ease-in-out infinite;
+    user-select: none;
+}
+
+.musicBtn:hover {
+    transform: scale(1.1);
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(236, 72, 153, 0.3);
+}
+
+.musicBtn.playing {
+    animation: spin 3s linear infinite;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.5);
+}
+
+/* Particles */
+.particlesContainer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.feather {
+    position: absolute;
+    top: -10vh;
+    font-size: 24px;
+    opacity: 0.6;
+    animation: fallSway 12s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Stage System */
+.stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: scale(0.95) translateY(20px);
+    z-index: 10;
+}
+
+.stage.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: scale(1) translateY(0);
+}
+
+.stage.exit {
+    opacity: 0;
+    transform: scale(1.05) translateY(-20px);
+}
+
+/* Glass Card */
+.glassBox {
+    background: rgba(255, 255, 255, 0.65);
+    /* --glass-bg */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.glassBox.center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glassBox h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #be185d, #7c3aed);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    text-shadow: 0 4px 12px rgba(190, 24, 93, 0.1);
+    margin-top: 0;
+}
+
+.glassBox p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #831843;
+    /* --text-light */
+}
+
+/* Controls */
+.backBtn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(4px);
+    color: #4a042e;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.backBtn:hover {
+    transform: scale(1.1);
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.backBtn:active {
+    transform: scale(0.95);
+}
+
+.btnPrimary {
+    margin-top: 1.5rem;
+    padding: 14px 40px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px -5px rgba(236, 72, 153, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+
+.btnPrimary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.btnPrimary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(236, 72, 153, 0.5);
+}
+
+.btnPrimary:hover::before {
+    opacity: 1;
+}
+
+.btnPrimary:active {
+    transform: translateY(-1px);
+}
+
+/* Stage 1: Entrance */
+.fairyContainer {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.fairyContainer:hover {
+    transform: scale(1.1);
+}
+
+.fairy {
+    font-size: 6rem;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.6));
+    animation: float 3s ease-in-out infinite;
+}
+
+.tapHint {
+    margin-top: 20px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0.8;
+    animation: pulseFade 2s infinite;
+}
+
+/* Stage 2: Typed Message */
+.typedContainer {
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 10px;
+    text-align: left;
+    position: relative;
+    padding-right: 10px;
+}
+
+.typedContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.typedContainer::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 4px;
+}
+
+.typedContainer::-webkit-scrollbar-thumb {
+    background: rgba(236, 72, 153, 0.3);
+    border-radius: 4px;
+}
+
+.typedText {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+    color: #4a042e;
+}
+
+.cursor {
+    display: inline-block;
+    color: #ec4899;
+    animation: blink 0.8s infinite;
+    margin-left: 2px;
+}
+
+/* Stage 3: Gift */
+.giftBox {
+    margin: 40px auto;
+    font-size: 6rem;
+    cursor: pointer;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: float 4s ease-in-out infinite;
+    user-select: none;
+}
+
+.giftBox:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.giftBox.open {
+    animation: shake 0.8s ease-in-out forwards;
+}
+
+.cardsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.cardsGrid.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rewardCard {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    padding: 20px 10px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.rewardCard.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rewardCard:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.2);
+}
+
+.rewardCard .icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.rewardCard .label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #4a042e;
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #f00;
+    animation: confettiFall 3s linear forwards;
+    top: 50%;
+    left: 50%;
+    z-index: 100;
+    opacity: 0;
+}

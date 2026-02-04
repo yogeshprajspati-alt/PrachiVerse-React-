@@ -1,0 +1,430 @@
+/* WinterEdition.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap');
+
+.winterEditionContainer {
+    font-family: 'Caveat', cursive;
+    background: linear-gradient(180deg, #1a1f3a 0%, #2d1b4e 50%, #4a2c5e 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px 10px 90px 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.winterEditionContainer * {
+    box-sizing: border-box;
+}
+
+/* Northern Lights Effect */
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+    pointer-events: none;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 255, 150, 0.2) 25%,
+            rgba(100, 200, 255, 0.2) 50%,
+            rgba(200, 100, 255, 0.2) 75%,
+            transparent 100%);
+    animation: aurora 15s ease-in-out infinite;
+}
+
+@keyframes aurora {
+
+    0%,
+    100% {
+        transform: translateX(-50%) skewX(-5deg);
+        opacity: 0.2;
+    }
+
+    50% {
+        transform: translateX(50%) skewX(5deg);
+        opacity: 0.4;
+    }
+}
+
+/* Snowfall Container */
+.snowfall {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    color: #fff;
+    font-size: 1em;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(110vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Notebook Container */
+.notebookContainer {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 400px;
+}
+
+.notebook {
+    position: relative;
+    width: 100%;
+    height: 75vh;
+    max-height: 600px;
+    perspective: 1500px;
+    transform-style: preserve-3d;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* Frosted Glass Effect on Pages */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(245, 248, 255, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 12px 0 0 12px;
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.37),
+        inset 0 0 30px rgba(255, 255, 255, 0.3),
+        inset -2px 0 10px rgba(100, 150, 255, 0.2);
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    padding: 25px 20px;
+    padding-left: 40px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #2c3e50;
+    overflow-y: auto;
+    overflow-x: hidden;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Snowflake Watermark Pattern */
+.page::before {
+    content: '❄';
+    position: absolute;
+    font-size: 120px;
+    color: rgba(180, 210, 255, 0.08);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    pointer-events: none;
+}
+
+.page::-webkit-scrollbar {
+    width: 4px;
+}
+
+.page::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.page::-webkit-scrollbar-thumb {
+    background: rgba(100, 150, 200, 0.3);
+    border-radius: 2px;
+}
+
+/* Cover Page - Winter Theme */
+.cover {
+    background: linear-gradient(135deg,
+            rgba(200, 220, 255, 0.95) 0%,
+            rgba(150, 180, 230, 0.9) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 36px;
+    font-weight: 700;
+    color: #2d4a6e;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+    gap: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.cover::before {
+    content: '❄';
+    font-size: 80px;
+    animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.coverSubtitle {
+    font-size: 20px;
+    font-family: 'Caveat', cursive;
+    color: #5a7ba6;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Flipped State */
+.flipped {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Page Number */
+.pageNumber {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 14px;
+    color: #95a5b8;
+    font-weight: 700;
+}
+
+/* Content Animation */
+.pageContent {
+    animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Z-index Stacking */
+.page:nth-child(1) {
+    z-index: 11;
+}
+
+.page:nth-child(2) {
+    z-index: 10;
+}
+
+.page:nth-child(3) {
+    z-index: 9;
+}
+
+.page:nth-child(4) {
+    z-index: 8;
+}
+
+.page:nth-child(5) {
+    z-index: 7;
+}
+
+.page:nth-child(6) {
+    z-index: 6;
+}
+
+/* Spiral Binding - Winter Style */
+.spiral {
+    position: absolute;
+    left: -18px;
+    top: 0;
+    width: 36px;
+    height: 100%;
+    z-index: 12;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px 0;
+}
+
+.spiralRing {
+    position: relative;
+    width: 100%;
+    height: 20px;
+}
+
+.spiralRing::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    width: 32px;
+    height: 5px;
+    background: linear-gradient(0deg, #b0c4de, #e6f2ff 40%, #8fa9c4 100%);
+    border-radius: 3px;
+    transform: translateY(-50%) rotate(-12deg);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    z-index: 2;
+}
+
+.spiralRing::after {
+    content: '';
+    position: absolute;
+    right: 2px;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    background: #4a6178;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Text Styling */
+.emoji {
+    display: inline-block;
+    font-size: 22px;
+    margin: 0 4px;
+}
+
+.highlight {
+    background: linear-gradient(120deg, rgba(135, 206, 250, 0.3) 0%, rgba(173, 216, 230, 0.5) 100%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    border-left: 3px solid rgba(100, 150, 255, 0.5);
+}
+
+.page p {
+    margin-bottom: 14px;
+    text-align: left;
+}
+
+.page img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Frost Effect on Images */
+.page img:hover {
+    box-shadow: 0 6px 20px rgba(100, 150, 255, 0.4);
+}
+
+/* Nav Hint */
+.navHint {
+    position: fixed;
+    bottom: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    animation: bounce 2.5s infinite;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+.navHint.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-out;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 480px) {
+    .winterEditionContainer {
+        padding: 10px 5px 85px 5px;
+    }
+
+    .notebook {
+        height: 70vh;
+        max-height: 550px;
+    }
+
+    .page {
+        font-size: 17px;
+        padding: 20px 15px;
+        padding-left: 35px;
+    }
+
+    .page.cover {
+        font-size: 32px;
+    }
+
+    .coverSubtitle {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 15px;
+        min-width: 90px;
+    }
+
+    .navHint {
+        bottom: 70px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-height: 700px) {
+    .notebook {
+        height: 65vh;
+    }
+}
