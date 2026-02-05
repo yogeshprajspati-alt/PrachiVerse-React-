@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import styles from './NewYear2026.module.css';
@@ -194,23 +194,42 @@ Happy New Year Prachiii✨`;
             }, 300);
 
             // Auto hearts
+            // Fix: Properly store the interval ID for cleanup even if it starts later
+            let randomInterval;
             const autoHeartsTimeout = setTimeout(() => {
-                const randomInterval = setInterval(() => {
+                randomInterval = setInterval(() => {
                     if (Math.random() < 0.3) createFloatingHeart();
                 }, 2000);
-
-                // Cleanup randomInterval when effect unmounts
-                return () => clearInterval(randomInterval);
             }, 2000);
 
             return () => {
                 clearInterval(interval);
                 clearTimeout(autoHeartsTimeout);
+                if (randomInterval) clearInterval(randomInterval);
             };
         }
 
         return () => { mounted = false; };
     }, [stage]);
+
+    // Optimize Particles Options to avoid re-renders on every state change (typing effect)
+    const particlesOptions = useMemo(() => ({
+        particles: {
+            number: { value: 40, density: { enable: true, value_area: 800 } }, // Reduced count slightly for mobile
+            color: { value: ['#ec4899', '#8b5cf6', '#fcd34d'] },
+            shape: { type: 'circle' },
+            opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.1 } },
+            size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.5 } },
+            move: { enable: true, speed: 1.2, direction: 'none', random: true, out_mode: 'out' }
+        },
+        interactivity: {
+            detectsOn: "canvas",
+            events: { onHover: { enable: true, mode: 'bubble' }, onClick: { enable: false } },
+            modes: { bubble: { distance: 120, size: 4, duration: 2, opacity: 0.8 } }
+        },
+        fpsLimit: 40, // Reduced from 60 to 40 for stability
+        detectRetina: false // CRITICAL: Disable retina to prevent 4x-9x pixel rendering on mobile
+    }), []);
 
     // Stage 1: Envelope Click
     const handleEnvelopeClick = (e) => {
@@ -292,21 +311,7 @@ Happy New Year Prachiii✨`;
                 <Particles
                     id="tsparticles"
                     className={styles.particles}
-                    options={{
-                        particles: {
-                            number: { value: 60, density: { enable: true, value_area: 800 } },
-                            color: { value: ['#ec4899', '#8b5cf6', '#fcd34d'] },
-                            shape: { type: 'circle' },
-                            opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.8, opacity_min: 0.1 } },
-                            size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.5 } },
-                            move: { enable: true, speed: 1.2, direction: 'none', random: true, out_mode: 'out' }
-                        },
-                        interactivity: {
-                            detectsOn: "canvas",
-                            events: { onHover: { enable: true, mode: 'bubble' }, onClick: { enable: false } },
-                            modes: { bubble: { distance: 120, size: 4, duration: 2, opacity: 0.8 } }
-                        }
-                    }}
+                    options={particlesOptions}
                 />
             )}
 
