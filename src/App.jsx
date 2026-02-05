@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import MainLayout from './layouts/MainLayout';
@@ -31,6 +31,7 @@ import MockTest1 from './pages/NeetStuff/MockTest1';
 import MockTest2 from './pages/NeetStuff/MockTest2';
 import NeetBuddy from './pages/Additional/NeetBuddyManual';
 import NeetBuddyManual from './pages/Additional/NeetBuddyManual';
+import PrachiNeetApp from './pages/Additional/PrachiNeetApp';
 import Spiral from './pages/Diaries/SpiralDesign/Spiral';
 import ApologyDairy from './pages/Diaries/ApologyDiary/ApologyDairy';
 import ExplanationDairy from './pages/Diaries/ExplanationDaies/ExplanationDairy';
@@ -38,7 +39,7 @@ import ExplanationDairy from './pages/Diaries/ExplanationDaies/ExplanationDairy'
 function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
 
@@ -70,6 +71,7 @@ function App() {
               <Route path="/neet-stuff/mock-test-1" element={<MockTest1 />} />
               <Route path="/neet-stuff/mock-test-2" element={<MockTest2 />} />
               <Route path="/neet-buddy" element={<NeetBuddyManual />} />
+              <Route path="/prachi-neet-app" element={<PrachiNeetApp />} />
               <Route path="/diaries/spiral-design" element={<Spiral />} />
               <Route path="/diaries/apology-diary" element={<ApologyDairy />} />
               <Route path="/diaries/explanation-diary" element={<ExplanationDairy />} />
@@ -84,7 +86,7 @@ function App() {
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }

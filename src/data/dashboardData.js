@@ -298,8 +298,18 @@ export const dashboardData = [
                 date: "NEET",
                 badge: "Abondened",
                 link: "neet-buddy",
-                isExternal: true,
-                isAbsolute: true
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
+                title: "Prachi's Neet App",
+                icon: "🤖",
+                description: "Visual Guide & Screens of Prachi Neet App",
+                date: "NEET",
+                badge: "Abondened",
+                link: "/prachi-neet-app",
+                isExternal: false,
+                isAbsolute: false
             }
         ]
     }
