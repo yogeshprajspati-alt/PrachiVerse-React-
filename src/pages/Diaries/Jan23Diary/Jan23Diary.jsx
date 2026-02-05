@@ -222,9 +222,6 @@ const Jan23Diary = () => {
                                 tum sochti ho, not in romantic way.... , not in a tharak wali way.... trun the pages to know how
                                 different it is."</div>
                             <p></p>
-                            <img src={IMG_MAIN} alt="new id" width="300" style={{ maxWidth: '100%' }} />
-                            <div className={styles.highlightBox}>"Ab dekhlo, tarak to aisi jagah aati h🗿🗿 🦥🦥"</div>
-                            <p>Or nhi hamara kuch nhi chal rha🦥🙂‍↔️😂...!!</p>
                         </div>
                     </div>
 
@@ -236,9 +233,7 @@ const Jan23Diary = () => {
                         <div className={`${styles.cornerFlower} ${styles.topRight}`}></div>
                         <div className={styles.pageContent}>
                             <div className={styles.journalHeader}>Just For You</div>
-                            <p>Ummmmmmmmmmmmmm...... mera intention khud ki saaf image kharab karne ka nhi h, Foreigners to hote
-                                hi h fast 😂Pata nhi ye dairy likhte time mene snap khol liye poorane jo dekhe nhi thee. Maybe
-                                it is also a Co-incident.</p>
+                            <p>Ummmmmmmmmmmmmm...... mera intention khud ki saaf image kharab karne ka nhi h.</p>
                             <p>Me bs itna bata rha hu ki, if I say I love you, it doesn't mean I want you in my life in a way
                                 you think, it just means I love you for who you are, and I want you to be happy, even if it's
                                 not with me.</p>
