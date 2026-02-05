@@ -24,6 +24,13 @@ const GoldenStarlight = () => {
             delay: Math.random() * 5
         }));
         setParticles(p);
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     const startDiary = () => {

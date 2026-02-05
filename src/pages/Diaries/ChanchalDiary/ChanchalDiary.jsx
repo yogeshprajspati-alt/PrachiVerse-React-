@@ -49,6 +49,13 @@ const ChanchalDiary = () => {
         if (audioRef.current) {
             audioRef.current.volume = 0.5;
         }
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     const openDiary = () => {

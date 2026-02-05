@@ -29,6 +29,13 @@ const ExplanationDairy = () => {
             delay: Math.random() * 10
         }));
         setHearts(h);
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     const openDiary = () => {

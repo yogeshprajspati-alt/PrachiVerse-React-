@@ -28,6 +28,13 @@ const CrystalChronicles = () => {
             delay: Math.random() * 10
         }));
         setWisps(w);
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     const openDiary = () => {

@@ -34,6 +34,13 @@ export default function LavenderMist() {
 
             container.appendChild(p);
         }
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     /* PAGE STACKING */

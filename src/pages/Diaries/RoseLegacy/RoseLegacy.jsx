@@ -20,6 +20,13 @@ const RoseLegacy = () => {
             delay: Math.random() * 5
         }));
         setPetals(p);
+
+        return () => {
+            if (audioRef.current) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+            }
+        };
     }, []);
 
     const startDiary = () => {
