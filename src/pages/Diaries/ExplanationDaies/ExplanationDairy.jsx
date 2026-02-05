@@ -167,13 +167,14 @@ const ExplanationDairy = () => {
                             <div className={styles.highlightBox}>Or wo 23 ko bhi me bs poochne aya tha lekin shyd firse misunderstanding create ho gai or me already gusse me tha to portray waise ho gai cheezen.</div>
                             <p>Are bhai me bura nhi hu 👉👈 aur tumhari nazron me banna bhi nhi chahta bhale sabse ladna pade. Mene pahle bhi kaha tha tum mere liye sabse jyada important ho, aur tum kisi bhi ladki se poochogi to koi mujhe defame nhi karegi.</p>
 
-                            <p>Chalo chhoro ye topic(or me is vishay me baat nhi karunga kyuki tume fir wo cheezen trigger hongi or tumko accha nhi lagega), farak mujhe padhle nhi padta tha, lekin ab padta h kyuki she belongs to you. </p>
+                            <p>Chalo chhoro ye topic(or me is vishay me baat nhi karunga kyuki tume fir wo cheezen trigger hongi or tumko accha nhi lagega), farak mujhe pahle nhi padta tha, lekin ab padta h kyuki she is associated to you. </p>
 
                             <div className={styles.highlightBox}>Aur mujhe mujhe yaad h, us raat tumne last me kaha tha tum or chanchal dono hi bhasad me ho. Me nhi janta wo kya dikkaten h, your hearts might be as heavy as a stone. Ye time waise bhi tum dono ke liye bohot critical h, both of you girls are struggling badly. Me sab samajhta hu prachiii, family pressure, dostlog se milte hoge to alag dukh hota h ki kitna time nikal gaya. Or sabse badi baat ye h ki tum dono akeli ho. Tum ladkiyon ko bohot cheezon ka dar hoga.</div>
                             <div className={styles.highlightBox}>Tum dono bohot brave ho, acche se taiyaari karo, me baat bhale na karu... lekin cheer to kar sakta hu, waise bhi restrictions mere upar h baat na karne ke, tumhare upar nhi h 🦥tum mere se har tareeke ki cheezen pooch sakti ho share kar sakti ho. Me to tumhari kisi dost wagerah ko janta bhi nhi, to kisi cheeez ka dar bhi nhi h. Aur sabse important mujhe tumhare gusse se hi dar lagta h to kisi ko kya bolunga me, jyada se yada ye hannah ko pata chalega bs 😂 aur kaun hi h jise me kuch batau.</div>
                             <p>Mene isiliye tumhare samne wo weekly, monthly, yearly wali cheez rakhi thi. Mujhe kaafi time se lag rha tha, lag hii rha tha bs. Isiliye is baar execute kar diya.</p>
                             <p>Me janta tha you need some space and air, isiliye I offered.</p>
-                            <p>Me bhi ab notifications off kar chuka, bohot kaam h re 👉😂👈 pressure wala time chal rhaaa........ to time bhi km hi h.</p>
+                            <p>Me bhi ab notifications off kar chuka, bohot kaam h re 👉😂👈 pressure wala time chal rhaaa........ to time bhi km hi h. Lekin Billu Badmash ke liye me 24 ghante free hu🦥🐼</p>
+                            <p>Or me wait karunga...., however long it takes. 🐻‍❄️🐻</p>
 
 
 
@@ -192,9 +193,10 @@ const ExplanationDairy = () => {
                             <div className={styles.journalHeader}>Perspective</div>
                             <p>Oh come-on me pahle bata to chuka tha tumko, ki meri kisi bhi feeling se tumhe koi harm nhi hone dunga me. </p>
                             <div className={styles.highlightBox}>
-                                "Wo Aishwarya ki behen psycologist thi. Aishwarya ne mujhe promise kiya tha meri help karegi moveon karne me. Kyuki tum har baar same reason se naraz hoti thi, halan ki mene in saalon me khudse kosishen kari thi, mujhe laga ki moveon ho jayega to shyd prachiii ko doobara insecure hone se bacha lunga. Tumhe accha kaha lagta tha. Ab mene socha ye help kar rhi h, wo to memories kharab karne ki kosishen karne me lagi thi. To mene band kar diya sunna. Bhaad me jaaye..!!"
+                                "Wo Aishwarya ki behen psycologist thi. Aishwarya ne mujhe promise kiya tha meri help karegi moveon karne me. Kyuki tum har baar same reason se naraz hoti thi, halan ki mene in saalon me khudse kosishen kari thi, mujhe laga ki moveon ho jayega to shyd prachiii ko doobara insecure hone se bacha lunga. Tumhe accha kaha lagta tha. Ab mene socha ye help kar rhi h, wo to memories kharab karne ki kosishen karne me lagi thi. To mene band kar diya sunna. Bhaad me jaaye..!! Mujhe accha nhi lagta tha har baar tumhe disappoint karke. Isiliye socha tha bana hi lu kisi ko 🙃🦥 lekin me kya karu accept nhi kar pata....!! Kosishen jaari h. Zaroorat bhi nhi h kher mujhe 😂 fir daily time dena padega, or me dunga nhiiiii.... kher phaltoo baaten h ye."
                             </div>
                             <p>Jaise tum chanchal ke baare me ek shabd nhi sun sakti me tumhare baare me nhi sun sakta. Lad hi lunga lekin burai nhi sununga..!!</p>
+                            <p>Or tumne kaha tha ki tum bohot ladkon ke saath beth chuki(koi aise nhi karta). To me bhi bohot ladkiyon ke saath beth chukaaaa khel chuka, saath me padh chuka- badmashi kar chuka(Mujhe waise kabhi feel nhi hua okay..!!). Aur jin log ke saath tum bethi ho tum uski crush nhi thi betu 😂 Unki crush ke bagal me bithao fir dekho maje 🫡😂 Aur un ladkon me se ek bhi meri barabari nhi kar sakta, is cheez me to sure hu me bohot..!! Tum bhi bs thoda bohot hi jaanti ho mere baare me. Jab bataunga to shyd tumhe bhi samajh aajaye..........</p>
                             <div style={{ textAlign: 'center', marginTop: '20px' }}>
                                 <button
                                     className={`${styles.magicBtn} ${styles.btnAccept}`}
@@ -203,7 +205,7 @@ const ExplanationDairy = () => {
                                         setOverlayStep(1);
                                     }}
                                 >
-                                    Glimpse The Future
+                                    Chalo ye dekho
                                 </button>
                             </div>
                         </div>
@@ -232,6 +234,7 @@ const ExplanationDairy = () => {
                             <div className={styles.highlightBox}>You are an Absolute Idiot..!! yahi sach h. And this quality makes you different from others. Ab bhale tum katrina nhi ho, lekin tumhari ye innocence or idiot pane ki wajah se tumhari ranking badh jaati h.</div>
                             <p>Or haa tum itni nadaan bholi ho ki tum baat ka batangad bana deti ho😂 gusse me tumhare kaan laal ho jaate h, kabhi check karke dekhna..!!</p>
                             <p>Or haa ye bezzati ke saath wali tareef h😎✌️ Tum kya hi bigad logi mera, me tumse itni door hu ki tum mujhe maar bhi nhi sakti😂 </p>
+                            <p>Or dekho prachi, mene pahle bhi yahi kaha tha ab bhi yahi kahunga, tum jaisi ho bohot bohot bohot perfect ho, nakhre h to kya hua. Jhelo bhai 😂🦥 Usi me to maza ata h.</p>
                             <div className={styles.highlightBox}>Dhyn rakha karo apna, or khush raha karo..!!</div>
                             <div className={styles.highlightBox}>PrachiVerse is now Smoother, or back hone pe wapis login nhi mangega ab..!!</div>
                             <p style={{ textAlign: 'right', fontStyle: 'italic' }}>- Until our stars cross again.</p>
