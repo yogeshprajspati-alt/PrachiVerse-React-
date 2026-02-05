@@ -272,8 +272,8 @@ export const dashboardData = [
                 description: "New Year special with fireworks and celebrations",
                 date: "New Year",
                 badge: "2026",
-                link: "https://yogeshprajspati-alt.github.io/Prachiii-NewYear-2026/",
-                isExternal: true
+                link: "/occasions/new-year-2026",
+                isExternal: false
             }
         ]
     },
