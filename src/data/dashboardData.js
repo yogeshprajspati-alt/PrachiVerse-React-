@@ -16,14 +16,15 @@ export const dashboardData = [
                 isAbsolute: true
             },
             {
-                id: "Velvet Night",
-                title: "Velvet Night",
-                icon: "🍷",
-                description: "Some thoughts are best drowned in deep colors...",
-                date: "27 Feb 2026",
+                id: "Holiii💥",
+                title: "Holiii💥",
+                icon: "💥",
+                description: "Happy holi",
+                date: "04 Mar 2026",
                 badge: "New",
-                link: "/diaries/velvet-night",
-                isExternal: false
+                link: "https://prachiiieee-colours.netlify.app/",
+                isExternal: true,
+                isAbsolute: true
             },
             {
                 id: "3D Experience",
@@ -379,7 +380,17 @@ export const dashboardData = [
                 badge: "2026",
                 link: "https://yogeshprajspati-alt.github.io/Prachiii-NewYear-2026/",
                 isExternal: true
-            }
+            },
+            {
+                title: "Holiii💥",
+                icon: "💥",
+                description: "Happy holi",
+                date: "04 Mar 2026",
+                badge: "New",
+                link: "https://prachiiieee-colours.netlify.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
         ]
     },
     {
@@ -387,6 +398,26 @@ export const dashboardData = [
         icon: "💫",
         count: "More memories",
         items: [
+            {
+                title: "Our Safe and secure place to interact.",
+                icon: "📝",
+                description: "Super personal, super private platform just like our personal whatsapp..!!",
+                date: "2026",
+                badge: "New",
+                link: "https://sidekick-notebook.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
+            {
+                title: "3D Moon for living moon",
+                icon: "🌛",
+                description: "scroll effect",
+                date: "2026",
+                badge: "New",
+                link: "https://voilet-moon.netlify.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
             {
                 title: "Journey Break",
                 icon: "🛩️",
