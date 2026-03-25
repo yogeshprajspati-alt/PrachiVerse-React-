@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './BlossomReverie.module.css';
 import BackButton from '../../../components/BackButton/BackButton';
+import bgMusic from '../../../assets/diariesbgm/blossomreverie.mp3';
 
 const BlossomReverie = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
@@ -248,8 +249,8 @@ const BlossomReverie = () => {
                 </>
             )}
 
-            {/* Using a soft romantic background music placeholder path. Make sure this file exists in your project. */}
-            <audio ref={audioRef} loop src="src\assets\diariesbgm\blossomreverie.mp3" />
+            {/* Background music resolved via Vite import for Vercel production deployment */}
+            <audio ref={audioRef} loop src={bgMusic} />
         </div>
     );
 };
