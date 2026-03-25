@@ -5,6 +5,28 @@ export const dashboardData = [
         count: "3 items",
         items: [
             {
+                id: "Blossom Reverie",
+                title: "Blossom Reverie",
+                icon: "🌸",
+                description: "Just a Simple Diary with non simple sentences.",
+                date: "2026",
+                badge: "New",
+                link: "/diaries/blossom-reverie",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
+                id: "Flourish Flowers",
+                title: "Ummmmm...., appreciative flowers for a strong girl.",
+                icon: "💮",
+                description: "kya hi description ho sakta h iska...",
+                date: "2026",
+                badge: "New",
+                link: "https://prachiii-flowerslider.netlify.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
+            {
                 id: "Side Kick",
                 title: "Our Safe and secure place to interact.",
                 icon: "📝",
@@ -15,28 +37,6 @@ export const dashboardData = [
                 isExternal: true,
                 isAbsolute: true
             },
-            {
-                id: "Holiii💥",
-                title: "Holiii💥",
-                icon: "💥",
-                description: "Happy holi",
-                date: "04 Mar 2026",
-                badge: "New",
-                link: "https://prachiiieee-colours.netlify.app/",
-                isExternal: true,
-                isAbsolute: true
-            },
-            {
-                id: "3D Experience",
-                title: "3D Moon for living moon",
-                icon: "🌛",
-                description: "scroll effect",
-                date: "2026",
-                badge: "New",
-                link: "https://voilet-moon.netlify.app/",
-                isExternal: true,
-                isAbsolute: true
-            }
 
         ]
     },
@@ -75,6 +75,15 @@ export const dashboardData = [
         icon: "📔",
         count: "26 entries",
         items: [
+            {
+                title: "Blossom Reverie",
+                icon: "🌸",
+                description: "A soft, romantic whisper of feelings with falling petals and gentle hues.",
+                date: "25 Mar 2026",
+                badge: "New",
+                link: "/diaries/blossom-reverie",
+                isExternal: false
+            },
             {
                 title: "Velvet Night",
                 icon: "🍷",
@@ -407,6 +416,15 @@ export const dashboardData = [
                 link: "https://sidekick-notebook.vercel.app/",
                 isExternal: true,
                 isAbsolute: true
+            },
+            {
+                title: "Game",
+                icon: "👾",
+                description: "Hit me",
+                date: "02 Feb 2026",
+                badge: "Featured",
+                link: "https://prachiii-s-apology-game.vercel.app/",
+                isExternal: true
             },
             {
                 title: "3D Moon for living moon",

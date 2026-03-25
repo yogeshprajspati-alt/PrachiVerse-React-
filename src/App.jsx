@@ -16,6 +16,7 @@ const Home = lazy(() => import('./pages/Home/Home'));
 const LavenderMist = lazy(() => import('./pages/Diaries/LavenderMist/LavenderMist'));
 const ChanchalDiary = lazy(() => import('./pages/Diaries/ChanchalDiary/ChanchalDiary'));
 const VelvetNight = lazy(() => import('./pages/Diaries/VelvetNight/VelvetNight'));
+const BlossomReverie = lazy(() => import('./pages/Diaries/BlossomReverie/BlossomReverie'));
 const BirthdayMaze = lazy(() => import('./pages/Games/BirthdayMaze/BirthdayMaze'));
 const RoseLegacy = lazy(() => import('./pages/Diaries/RoseLegacy/RoseLegacy'));
 const GoldenStarlight = lazy(() => import('./pages/Diaries/GoldenStarlight/GoldenStarlight'));
@@ -59,6 +60,7 @@ const AnimatedRoutes = () => {
         <Route element={<ProtectedRoute />}>
           <Route element={<MainLayout />}>
             <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+            <Route path="/diaries/blossom-reverie" element={<PageWrapper><BlossomReverie /></PageWrapper>} />
             <Route path="/diaries/lavender-mist" element={<PageWrapper><LavenderMist /></PageWrapper>} />
             <Route path="/diaries/velvet-night" element={<PageWrapper><VelvetNight /></PageWrapper>} />
             <Route path="/diaries/chanchal-diary" element={<PageWrapper><ChanchalDiary /></PageWrapper>} />
