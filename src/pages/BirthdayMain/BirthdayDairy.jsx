@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './BirthdayDairy.module.css';
 
@@ -8,8 +8,7 @@ const BirthdayDairy = () => {
     const [currentPage, setCurrentPage] = useState(0); // 0 = Cover
     const [candleBlown, setCandleBlown] = useState(false);
 
-    // Balloons and Confetti data
-    const [balloons] = useState([...Array(5)].map((_, i) => ({
+    const [balloons] = useState(() => [...Array(5)].map((_, i) => ({
         id: i,
         left: Math.random() * 90 + 5 + '%',
         delay: Math.random() * 5 + 's',
@@ -17,7 +16,7 @@ const BirthdayDairy = () => {
         bg: `rgba(${255}, ${200 + Math.random() * 55}, ${200 + Math.random() * 55}, 0.4)`
     })));
 
-    const [confetti] = useState([...Array(20)].map((_, i) => ({
+    const [confetti] = useState(() => [...Array(20)].map((_, i) => ({
         id: i,
         left: Math.random() * 100 + '%',
         delay: Math.random() * 2 + 's',
@@ -37,8 +36,7 @@ const BirthdayDairy = () => {
         }
     };
 
-    const blowCandle = (e) => {
-        e.stopPropagation();
+    const blowCandle = () => {
         setCandleBlown(true);
     };
 
@@ -134,7 +132,7 @@ const BirthdayDairy = () => {
                             {/* Page 3: Cake Interaction */}
                             <div className={`${styles.page} ${currentPage >= 3 ? styles.flipped : ''}`}
                                 style={{ zIndex: 4 }}
-                                onClick={(e) => { if (currentPage >= 3) flipPage('prev'); else flipPage('next'); }}>
+                                onClick={() => { if (currentPage >= 3) flipPage('prev'); else flipPage('next'); }}>
                                 <div className={styles.pageContent} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                                     <h2>Make a Wish!</h2>
                                     <p style={{ textAlign: 'center' }}>Close your eyes, make a wish, and tap the candle to blow it out!</p>
@@ -157,7 +155,7 @@ const BirthdayDairy = () => {
                             {/* Page 2: Note */}
                             <div className={`${styles.page} ${currentPage >= 2 ? styles.flipped : ''}`}
                                 style={{ zIndex: 5 }}
-                                onClick={(e) => { if (currentPage >= 2) flipPage('prev'); else flipPage('next'); }}>
+                                onClick={() => { if (currentPage >= 2) flipPage('prev'); else flipPage('next'); }}>
                                 <div className={`${styles.sticker} ${styles.heart}`}>💖</div>
                                 <div className={styles.pageContent}>
                                     <h2>Prachiii✨,</h2>

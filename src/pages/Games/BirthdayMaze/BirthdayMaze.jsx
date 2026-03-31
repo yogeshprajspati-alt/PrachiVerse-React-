@@ -99,7 +99,7 @@ const BirthdayMaze = () => {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const ctx = canvas.getContext('2d');
-        const { cellSize, playerSize, checkPointSize, cakeSize, animationFrame, playerPos, collectedCheckpoints, cakeSpawned, cakePos, firstMoveMade } = gameData.current;
+        const { cellSize, playerSize, checkPointSize, cakeSize, animationFrame, playerPos, collectedCheckpoints, cakeSpawned, cakePos } = gameData.current;
 
         // Clear (logical size)
         ctx.clearRect(0, 0, GRID_SIZE * cellSize, GRID_SIZE * cellSize);
@@ -192,6 +192,7 @@ const BirthdayMaze = () => {
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText('🤠', x, y);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [gameState.won]);
 
     // --- Game Loop ---
@@ -302,6 +303,7 @@ const BirthdayMaze = () => {
         };
         window.addEventListener('keydown', handleKey);
         return () => window.removeEventListener('keydown', handleKey);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [popupState.open, gameState.won]);
 
 

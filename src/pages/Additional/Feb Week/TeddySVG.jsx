@@ -1,7 +1,15 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from './TeddyDay.module.css';
 
+// Pre-computed sneeze particle positions (static, generated once)
+const SNEEZE_PARTICLES = [...Array(6)].map(() => ({
+    cx: (Math.random() - 0.5) * 40,
+    cy: Math.random() * 20,
+    r: Math.random() * 3 + 1
+}));
+
 // Emotion constants matching original types.ts
+// eslint-disable-next-line react-refresh/only-export-components
 export const Emotion = {
     NEUTRAL: 'NEUTRAL', HAPPY: 'HAPPY', BLUSH: 'BLUSH', HUG: 'HUG',
     EATING: 'EATING', SLEEP: 'SLEEP', GIGGLE: 'GIGGLE', DIZZY: 'DIZZY',
@@ -97,9 +105,9 @@ export default function TeddySVG({ emotion, hasNote, costume, overlays = {}, onI
     };
 
     // Long press
-    let pressTimer = null;
-    const onDown = () => { pressTimer = setTimeout(onLongPress, 800); };
-    const onUp = () => clearTimeout(pressTimer);
+    const pressTimer = useRef(null);
+    const onDown = () => { pressTimer.current = setTimeout(onLongPress, 800); };
+    const onUp = () => clearTimeout(pressTimer.current);
 
     return (
         <div className={`${styles.teddyWrapper} ${animClass}`} onMouseDown={onDown} onMouseUp={onUp} onTouchStart={onDown} onTouchEnd={onUp}>
@@ -218,7 +226,7 @@ export default function TeddySVG({ emotion, hasNote, costume, overlays = {}, onI
                     </g>
 
                     {/* Sneeze particles */}
-                    {emotion === Emotion.SNEEZE && <g className={styles.sneezeSpray} transform="translate(100,110)">{[...Array(6)].map((_, i) => <circle key={i} cx={(Math.random() - 0.5) * 40} cy={Math.random() * 20} r={Math.random() * 3 + 1} fill="#E1F5FE" opacity="0.8" />)}</g>}
+                    {emotion === Emotion.SNEEZE && <g className={styles.sneezeSpray} transform="translate(100,110)">{SNEEZE_PARTICLES.map((p, i) => <circle key={i} cx={p.cx} cy={p.cy} r={p.r} fill="#E1F5FE" opacity="0.8" />)}</g>}
                     {/* Sleeping Zzz */}
                     {emotion === Emotion.SLEEP && <g className={styles.pulse}><text x="150" y="50" fontSize="30" fill="white" style={{ opacity: 0.9 }}>z</text><text x="175" y="30" fontSize="20" fill="white" style={{ opacity: 0.7 }}>z</text></g>}
                 </g>
@@ -226,7 +234,7 @@ export default function TeddySVG({ emotion, hasNote, costume, overlays = {}, onI
                 {/* Shower overlay */}
                 {isShowering && <g pointerEvents="none">
                     {[...Array(12)].map((_, i) => <line key={`r${i}`} x1={30 + i * 14 + (i % 2) * 5} y1="-20" x2={30 + i * 14 + (i % 2) * 5} y2="5" stroke="#4FC3F7" strokeWidth="2" strokeLinecap="round" className={styles.rain} style={{ animationDelay: `${i * 0.1}s`, opacity: 0.6 }} />)}
-                    {[...Array(6)].map((_, i) => <circle key={`b${i}`} cx={40 + i * 25} cy="220" r={4 + (i % 3) * 3} fill="white" stroke="#E1F5FE" strokeWidth="1" className={styles.bubble} style={{ animationDelay: `${i * 0.4}s` }} />)}
+                    {[...Array(6)].map((_, bi) => <circle key={`b${bi}`} cx={40 + bi * 25} cy="220" r={4 + (bi % 3) * 3} fill="white" stroke="#E1F5FE" strokeWidth="1" className={styles.bubble} style={{ animationDelay: `${bi * 0.4}s` }} />)}
                 </g>}
 
                 {/* Brush overlay */}

@@ -5,29 +5,29 @@ import BackButton from '../../../components/BackButton/BackButton';
 const RoseLegacy = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [petals, setPetals] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
-    const totalPages = 6; // Cover + 4 Content + ?
-
-    useEffect(() => {
-        // Generate petals
-        const p = Array.from({ length: 25 }).map((_, i) => ({
+    const [petals] = useState(() =>
+        Array.from({ length: 25 }).map((_, i) => ({
             id: i,
             size: Math.random() * 10 + 10,
             left: Math.random() * 100,
             duration: Math.random() * 5 + 5,
             delay: Math.random() * 5
-        }));
-        setPetals(p);
+        }))
+    );
 
+    useEffect(() => {
+        const audio = audioRef.current;
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
             }
         };
     }, []);
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+    const totalPages = 6;
 
     const startDiary = () => {
         setIsIntroVisible(false);
@@ -194,3 +194,4 @@ const RoseLegacy = () => {
 };
 
 export default RoseLegacy;
+

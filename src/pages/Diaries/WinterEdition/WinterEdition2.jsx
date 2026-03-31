@@ -1,15 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './WinterEdition.module.css';
 
 const WinterEdition2 = () => {
     const [currentPage, setCurrentPage] = useState(0);
     const totalPages = 5; // Cover + 4 pages
 
-    // Snowflakes state
-    const [snowflakes, setSnowflakes] = useState([]);
-
-    useEffect(() => {
-        // Generate static snowflakes configuration on mount
+    const [snowflakes] = useState(() => {
         const count = 50;
         const flakeArray = [];
         for (let i = 0; i < count; i++) {
@@ -22,8 +18,8 @@ const WinterEdition2 = () => {
                 opacity: Math.random() * 0.6 + 0.4
             });
         }
-        setSnowflakes(flakeArray);
-    }, []);
+        return flakeArray;
+    });
 
     const handleFlip = (direction) => {
         if (direction === 'next' && currentPage < totalPages - 1) {

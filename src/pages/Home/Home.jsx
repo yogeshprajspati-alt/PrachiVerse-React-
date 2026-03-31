@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './Home.module.css';
@@ -86,17 +86,14 @@ const Home = () => {
     const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
 
     // Logic for floating particles
-    const [particles, setParticles] = useState([]);
-
-    useEffect(() => {
-        const newParticles = Array.from({ length: 20 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 20 }).map((_, i) => ({
             id: i,
             left: Math.random() * 100 + '%',
             delay: Math.random() * 20 + 's',
             duration: (15 + Math.random() * 10) + 's'
-        }));
-        setParticles(newParticles);
-    }, []);
+        }))
+    );
 
     return (
         <div className={styles.homeContainer}>

@@ -39,9 +39,7 @@ const BeforeMarriage = () => {
         }
     };
 
-    const handlePageClick = (index, e) => {
-        // Prevent flipping if clicked on controls (handled by propagation check usually, but good practice)
-        // Also don't flip if it's not the active top page
+    const handlePageClick = (index) => {
         if (index === currentPage && currentPage < totalPages - 1) {
             handleFlip('next');
         }
@@ -88,7 +86,7 @@ const BeforeMarriage = () => {
                     <div
                         className={`${getPageClass(0)} ${styles.cover}`}
                         style={{ zIndex: getZIndex(0) }}
-                        onClick={(e) => handlePageClick(0, e)}
+                        onClick={() => handlePageClick(0)}
                     >
                         <div>Billu Bilote ki Book<span className={styles.emoji}>✨</span></div>
                         <div className={styles.coverSubtitle}>Aaiii mene banai h 😒. Thodi tareef to banti h</div>

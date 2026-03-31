@@ -5,6 +5,17 @@ export const dashboardData = [
         count: "3 items",
         items: [
             {
+                id: "1st April",
+                title: "Multiverse Scanner.",
+                icon: "⌛🎰",
+                description: "Finds The Alternate version of my dear prachiii.",
+                date: "2026",
+                badge: "New",
+                link: "https://prachiii-first-april.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
+            {
                 id: "Blossom Reverie",
                 title: "Blossom Reverie",
                 icon: "🌸",
@@ -14,17 +25,6 @@ export const dashboardData = [
                 link: "/diaries/blossom-reverie",
                 isExternal: false,
                 isAbsolute: false
-            },
-            {
-                id: "Flourish Flowers",
-                title: "Ummmmm...., appreciative flowers for a strong girl.",
-                icon: "💮",
-                description: "kya hi description ho sakta h iska...",
-                date: "2026",
-                badge: "New",
-                link: "https://prachiii-flowerslider.netlify.app/",
-                isExternal: true,
-                isAbsolute: true
             },
             {
                 id: "Side Kick",
@@ -397,6 +397,16 @@ export const dashboardData = [
                 date: "04 Mar 2026",
                 badge: "New",
                 link: "https://prachiiieee-colours.netlify.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
+            {
+                title: "1st April",
+                icon: "⌛🎰",
+                description: "Multiverse Scanner",
+                date: "04 Mar 2026",
+                badge: "Exclusive",
+                link: "https://prachiii-first-april.vercel.app/",
                 isExternal: true,
                 isAbsolute: true
             },

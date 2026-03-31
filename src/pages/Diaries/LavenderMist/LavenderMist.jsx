@@ -1,43 +1,33 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './LavenderMist.module.css';
 
 const LavenderMist = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [particles, setParticles] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [apologyState, setApologyState] = useState({ show: false, step: 1 });
-    const audioRef = useRef(null);
-    const [noBtnPosition, setNoBtnPosition] = useState({ top: '0', left: '50%', transform: 'translateX(-50%)' });
-
-    // Total pages: Cover(0), P1(1), P2(2), P3(3), BackCover(4)
-    // Note: The original had customized structure. We'll map it to indices.
-    // 0: Cover
-    // 1: Page 1 (Content)
-    // 2: Page 2 (Reflections + Button)
-    // 3: Page 3 (The End + Images)
-    // 4: Back Cover
-    const totalPages = 5;
-
-    // Background Particle Effect
-    useEffect(() => {
-        const p = Array.from({ length: 30 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 30 }).map((_, i) => ({
             id: i,
             isFirefly: Math.random() > 0.8,
             width: Math.random() * 5 + 2,
             left: Math.random() * 100,
             duration: Math.random() * 10 + 5,
             delay: Math.random() * 5
-        }));
-        setParticles(p);
-    }, []);
+        }))
+    );
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [apologyState, setApologyState] = useState({ show: false, step: 1 });
+    const audioRef = useRef(null);
+    const [noBtnPosition, setNoBtnPosition] = useState({ top: '0', left: '50%', transform: 'translateX(-50%)' });
+
+    const totalPages = 5;
 
     const toggleAudio = () => {
         if (audioRef.current) {
             if (isPlaying) {
                 audioRef.current.pause();
             } else {
-                audioRef.current.play().catch(e => console.log("Audio play failed interaction needed"));
+                audioRef.current.play().catch(() => console.log("Audio play failed interaction needed"));
             }
             setIsPlaying(!isPlaying);
         }

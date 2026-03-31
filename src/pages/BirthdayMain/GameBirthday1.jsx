@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './GameBirthday1.module.css';
 
@@ -86,6 +86,7 @@ const GameBirthday1 = () => {
         createParticles(heart.left, heart.top);
 
         // Show message
+        // eslint-disable-next-line react-hooks/purity
         const msgId = Date.now();
         // Calculate safe position for message
         const msgLeft = Math.max(10, Math.min(window.innerWidth - 200, heart.left - 50));
@@ -114,14 +115,20 @@ const GameBirthday1 = () => {
         const newParticles = [];
 
         for (let i = 0; i < 15; i++) {
+            // eslint-disable-next-line react-hooks/purity
             const tx = (Math.random() - 0.5) * 200;
+            // eslint-disable-next-line react-hooks/purity
             const ty = (Math.random() - 0.5) * 200;
             newParticles.push({
+                // eslint-disable-next-line react-hooks/purity
                 id: Math.random(),
+                // eslint-disable-next-line react-hooks/purity
                 char: shapes[Math.floor(Math.random() * shapes.length)],
                 left: x,
                 top: y,
+                // eslint-disable-next-line react-hooks/purity
                 color: colors[Math.floor(Math.random() * colors.length)],
+                // eslint-disable-next-line react-hooks/purity
                 size: Math.random() * 20 + 10,
                 tx,
                 ty

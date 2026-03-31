@@ -64,14 +64,13 @@ const BirthdayMain = () => {
                     setIsTypingDone(true);
                 }
             };
-            // Small delay before starting
             setTimeout(typeLoop, 500);
 
-            // Auto play music on stage 2 if not playing
             if (!isPlaying && audioRef.current) {
                 toggleMusic();
             }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stage]);
 
     const toggleMusic = () => {

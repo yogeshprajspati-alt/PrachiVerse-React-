@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './SorryPage.module.css';
 
 // Import assets
@@ -9,25 +9,19 @@ import thankYouImg from '../../../assets/sorry/cat-holding-flowers.jpg';
 
 const SorryPage = () => {
     const [currentScreen, setCurrentScreen] = useState('screen1'); // screen1, screen2, screen3, thankyou
-    const [hearts, setHearts] = useState([]);
+    const [hearts] = useState(() => {
+        const heartSymbols = ['💜', '💗', '💖', '💕', '💝', '❤️', '🌸'];
+        return Array.from({ length: 15 }).map((_, i) => ({
+            id: i,
+            symbol: heartSymbols[Math.floor(Math.random() * heartSymbols.length)],
+            left: Math.random() * 100 + '%',
+            animationDelay: Math.random() * 10 + 's',
+            animationDuration: (Math.random() * 5 + 8) + 's',
+        }));
+    });
+
     const [confetti, setConfetti] = useState([]);
     const noBtnRef = useRef(null);
-
-    // Initialize floating hearts
-    useEffect(() => {
-        const heartSymbols = ['💜', '💗', '💖', '💕', '💝', '❤️', '🌸'];
-        const newHearts = [];
-        for (let i = 0; i < 15; i++) {
-            newHearts.push({
-                id: i,
-                symbol: heartSymbols[Math.floor(Math.random() * heartSymbols.length)],
-                left: Math.random() * 100 + '%',
-                animationDelay: Math.random() * 10 + 's',
-                animationDuration: (Math.random() * 5 + 8) + 's',
-            });
-        }
-        setHearts(newHearts);
-    }, []);
 
     const handleAccept = () => {
         setCurrentScreen('thankyou');
@@ -51,7 +45,7 @@ const SorryPage = () => {
         }, 8000);
     };
 
-    const moveButton = (e) => {
+    const moveButton = () => {
         if (currentScreen !== 'screen3') return;
 
         const btn = noBtnRef.current;

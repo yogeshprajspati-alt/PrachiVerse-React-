@@ -5,33 +5,31 @@ import BackButton from '../../../components/BackButton/BackButton';
 const GoldenStarlight = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [particles, setParticles] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
-
-    // Total pages: Cover + 5 Content Pages + Back Cover = 7?
-    // Let's count from HTML content:
-    // Cover, Page 1 to 5, Back Cover. Total 7 pages (0-6)
-    const totalPages = 7;
-
-    useEffect(() => {
-        const p = Array.from({ length: 20 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 20 }).map((_, i) => ({
             id: i,
             isSparkle: Math.random() > 0.7,
             size: Math.random() * 6 + 2,
             left: Math.random() * 100,
             duration: Math.random() * 5 + 5,
             delay: Math.random() * 5
-        }));
-        setParticles(p);
+        }))
+    );
 
+    useEffect(() => {
+        const audio = audioRef.current;
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
             }
         };
     }, []);
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    const totalPages = 7;
 
     const startDiary = () => {
         setIsIntroVisible(false);
@@ -201,3 +199,4 @@ const GoldenStarlight = () => {
 };
 
 export default GoldenStarlight;
+

@@ -254,6 +254,7 @@ const MockTest1 = () => {
         if (!currentQuestion) return <div>Loading...</div>;
 
         const qId = currentQuestion.id;
+        // eslint-disable-next-line no-unused-vars
         const status = questionStatus[qId];
         const selectedOption = answers[qId];
 
@@ -414,7 +415,7 @@ const MockTest1 = () => {
     };
 
     const renderResult = () => {
-        const { score, correct, wrong, unattempted } = calculateScore();
+        const { score, correct, wrong } = calculateScore();
         return (
             <div className={styles.innerContainer}>
                 <div className={styles.resultContainer}>

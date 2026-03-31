@@ -1,34 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './VelvetNight.module.css';
 
 const VelvetNight = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [particles, setParticles] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
-
-    const totalPages = 5;
-
-    useEffect(() => {
-        // Generate floating embers
-        const p = Array.from({ length: 40 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 40 }).map((_, i) => ({
             id: i,
             isSparkle: Math.random() > 0.85,
             width: Math.random() * 4 + 1,
             left: Math.random() * 100,
             duration: Math.random() * 12 + 8,
             delay: Math.random() * 5
-        }));
-        setParticles(p);
-    }, []);
+        }))
+    );
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    const totalPages = 5;
 
     const toggleAudio = () => {
         if (audioRef.current) {
             if (isPlaying) {
                 audioRef.current.pause();
             } else {
-                audioRef.current.play().catch(e => console.log("Audio play failed interaction needed"));
+                audioRef.current.play().catch(() => console.log("Audio play failed interaction needed"));
             }
             setIsPlaying(!isPlaying);
         }

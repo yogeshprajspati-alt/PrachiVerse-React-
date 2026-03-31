@@ -8,15 +8,37 @@ import catFlowerImg from '../../../assets/ApologyDiary/cat-and-flower.gif';
 import angryImg from '../../../assets/ApologyDiary/image.png';
 import thankYouImg from '../../../assets/ApologyDiary/thankyou.png';
 
+// Pre-computed static data - generated once at module load, not on every render
+const FIREFLY_DATA = Array.from({ length: 30 }).map(() => ({
+    left: `${Math.random() * 100}%`,
+    top: `${Math.random() * 100}%`,
+    tx: `${(Math.random() - 0.5) * 200}px`,
+    ty: `${(Math.random() - 0.5) * 100}px`,
+    animationDelay: `${Math.random() * 5}s`,
+    animationDuration: `${Math.random() * 10 + 10}s`
+}));
+
+const STAR_DATA = Array.from({ length: 50 }).map(() => {
+    const size = Math.random() * 2 + 1 + 'px';
+    return {
+        width: size,
+        height: size,
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        duration: `${Math.random() * 2 + 1}s`,
+        animationDelay: `${Math.random() * 2}s`
+    };
+});
+
 const Fireflies = () => {
-    const fireflies = Array.from({ length: 30 }).map((_, i) => {
+    const fireflies = FIREFLY_DATA.map((d, i) => {
         const style = {
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            '--tx': `${(Math.random() - 0.5) * 200}px`,
-            '--ty': `${(Math.random() - 0.5) * 100}px`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${Math.random() * 10 + 10}s`
+            left: d.left,
+            top: d.top,
+            '--tx': d.tx,
+            '--ty': d.ty,
+            animationDelay: d.animationDelay,
+            animationDuration: d.animationDuration
         };
         return <div key={i} className={styles.firefly} style={style} />;
     });
@@ -24,15 +46,14 @@ const Fireflies = () => {
 };
 
 const Stars = () => {
-    const stars = Array.from({ length: 50 }).map((_, i) => {
-        const size = Math.random() * 2 + 1 + 'px';
+    const stars = STAR_DATA.map((d, i) => {
         const style = {
-            width: size,
-            height: size,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            '--duration': `${Math.random() * 2 + 1}s`,
-            animationDelay: `${Math.random() * 2}s`
+            width: d.width,
+            height: d.height,
+            left: d.left,
+            top: d.top,
+            '--duration': d.duration,
+            animationDelay: d.animationDelay
         };
         return <div key={i} className={styles.star} style={style} />;
     });
@@ -62,9 +83,9 @@ const ApologyDairy = () => {
     useEffect(() => {
         audioRef.current.loop = true;
         audioRef.current.volume = 0.5;
-
+        const audio = audioRef.current;
         return () => {
-            audioRef.current.pause();
+            audio.pause();
         };
     }, []);
 
@@ -103,7 +124,6 @@ const ApologyDairy = () => {
         }
     };
 
-    // Keyboard Navigation
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowRight') flipNext();
@@ -111,6 +131,7 @@ const ApologyDairy = () => {
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [flippedIndices]); // Re-bind with updated state
 
     // Interaction Handlers

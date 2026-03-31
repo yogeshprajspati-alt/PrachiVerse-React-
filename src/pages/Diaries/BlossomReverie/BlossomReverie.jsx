@@ -6,31 +6,30 @@ import bgMusic from '../../../assets/diariesbgm/blossomreverie.mp3';
 const BlossomReverie = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [particles, setParticles] = useState([]);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const audioRef = useRef(null);
-
-    // Cover + 5 content pages + Back Cover = 7 pages (0 to 6)
-    const totalPages = 7;
-
-    useEffect(() => {
-        // Generate falling petals
-        const p = Array.from({ length: 30 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 30 }).map((_, i) => ({
             id: i,
             size: Math.random() * 10 + 5,
             left: Math.random() * 100,
             duration: Math.random() * 8 + 6,
             delay: Math.random() * 8
-        }));
-        setParticles(p);
+        }))
+    );
 
+    useEffect(() => {
+        const audio = audioRef.current;
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
             }
         };
     }, []);
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioRef = useRef(null);
+
+    const totalPages = 7;
 
     const startDiary = () => {
         setIsIntroVisible(false);
@@ -256,3 +255,4 @@ const BlossomReverie = () => {
 };
 
 export default BlossomReverie;
+

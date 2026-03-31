@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './RoseDay.module.css';
 
@@ -63,16 +63,15 @@ function Rose({ color, size = 100, className = '' }) {
 }
 
 // ─── Floating Petals ───
+const PETAL_DATA = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    delay: (Math.random() * 20).toFixed(1),
+    x: (Math.random() * 100).toFixed(1),
+    duration: (15 + Math.random() * 10).toFixed(1),
+}));
+
 function FloatingPetals() {
-    const petals = useMemo(
-        () => Array.from({ length: 15 }, (_, i) => ({
-            id: i,
-            delay: (Math.random() * 20).toFixed(1),
-            x: (Math.random() * 100).toFixed(1),
-            duration: (15 + Math.random() * 10).toFixed(1),
-        })),
-        []
-    );
+    const petals = PETAL_DATA;
 
     return (
         <div className={styles.petalsContainer}>
@@ -123,6 +122,13 @@ export default function RoseDay() {
         }
     }, [isMuted]);
 
+    const handleFinalSequence = () => {
+        setFinalPhase(0);
+        setTimeout(() => setFinalPhase(1), 3500);
+        setTimeout(() => setFinalPhase(2), 7000);
+        setTimeout(() => setFinalPhase(3), 10500);
+    };
+
     // Scene sequence logic
     useEffect(() => {
         if (!isPlaying || showFinal) return;
@@ -149,13 +155,6 @@ export default function RoseDay() {
             return () => clearTimeout(finalTimeout);
         }
     }, [isPlaying, currentSceneIndex, showFinal]);
-
-    const handleFinalSequence = () => {
-        setFinalPhase(0);
-        setTimeout(() => setFinalPhase(1), 3500);
-        setTimeout(() => setFinalPhase(2), 7000);
-        setTimeout(() => setFinalPhase(3), 10500);
-    };
 
     const startSequence = () => {
         if (audioRef.current) {

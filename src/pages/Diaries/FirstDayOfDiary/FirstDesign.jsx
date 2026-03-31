@@ -1,14 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './FirstDesign.module.css';
 
 const FirstDesign = () => {
     const [page, setPage] = useState(1);
     const [typingCompleted, setTypingCompleted] = useState(false);
-
-    // Using refs to access DOM elements directly for the typing effect to perform optimally
-    // though React state could work, direct DOM manipulation for typing effect is often smoother
-    // and matches the original JS logic closely.
-    const containerRef = useRef(null);
 
     // Content for each page.
     // Note: The original HTMLs had duplicate content for pages 1-5. 

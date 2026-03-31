@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import styles from './LegacyViewer.module.css';
 import BackButton from '../../components/BackButton/BackButton';
 

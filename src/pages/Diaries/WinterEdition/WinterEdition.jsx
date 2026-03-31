@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './WinterEdition.module.css';
 
 const WinterEdition = () => {
@@ -6,12 +6,9 @@ const WinterEdition = () => {
     const [hintVisible, setHintVisible] = useState(true);
     const totalPages = 5; // Cover + 4 content pages
 
-    // Snowflakes Logic
-    const [snowflakes, setSnowflakes] = useState([]);
-
-    useEffect(() => {
+    const [snowflakes] = useState(() => {
         const flakeCount = 50;
-        const newSnowflakes = Array.from({ length: flakeCount }).map((_, i) => ({
+        return Array.from({ length: flakeCount }).map((_, i) => ({
             id: i,
             left: Math.random() * 100 + '%',
             animationDuration: (Math.random() * 10 + 10) + 's',
@@ -19,14 +16,9 @@ const WinterEdition = () => {
             fontSize: (Math.random() * 1 + 0.5) + 'em',
             opacity: Math.random() * 0.6 + 0.4
         }));
-        setSnowflakes(newSnowflakes);
-    }, []);
+    });
 
-    // Navigation Hint Logic
-    useEffect(() => {
-        if (!hintVisible) return;
-        // In the original, it hides on first interaction
-    }, [hintVisible]);
+    // Navigation Hint Logic - hides on first interaction via hideHint()
 
     const hideHint = () => {
         if (hintVisible) setHintVisible(false);

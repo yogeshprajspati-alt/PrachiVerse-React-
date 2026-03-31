@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './TeddyQuest.module.css';
 
@@ -25,15 +25,16 @@ function shuffle(arr) {
 }
 
 // ─── Floating Hearts Background ───
+const HEART_DATA = Array.from({ length: 10 }, (_, i) => ({
+    id: i,
+    x: (Math.random() * 100).toFixed(0),
+    dur: (12 + Math.random() * 10).toFixed(0),
+    delay: (Math.random() * 15).toFixed(0),
+    size: (16 + Math.random() * 16).toFixed(0),
+}));
+
 function FloatingHearts() {
-    const hearts = useMemo(() =>
-        Array.from({ length: 10 }, (_, i) => ({
-            id: i,
-            x: (Math.random() * 100).toFixed(0),
-            dur: (12 + Math.random() * 10).toFixed(0),
-            delay: (Math.random() * 15).toFixed(0),
-            size: (16 + Math.random() * 16).toFixed(0),
-        })), []);
+    const hearts = HEART_DATA;
 
     return (
         <div className={styles.floatingHearts}>
@@ -102,17 +103,14 @@ function WelcomeScreen({ onStart }) {
 
 // ─── Memory Game ───
 function MemoryGame({ onComplete, addHearts }) {
-    const [cards, setCards] = useState([]);
+    const [cards] = useState(() =>
+        shuffle([...MEMORY_EMOJIS, ...MEMORY_EMOJIS]).map((emoji, i) => ({ id: i, emoji }))
+    );
     const [flipped, setFlipped] = useState([]);
     const [matched, setMatched] = useState([]);
     const [moves, setMoves] = useState(0);
     const [canFlip, setCanFlip] = useState(true);
     const done = matched.length === MEMORY_EMOJIS.length * 2;
-
-    useEffect(() => {
-        const deck = shuffle([...MEMORY_EMOJIS, ...MEMORY_EMOJIS]).map((emoji, i) => ({ id: i, emoji }));
-        setCards(deck);
-    }, []);
 
     const handleFlip = (id) => {
         if (!canFlip || flipped.includes(id) || matched.includes(id)) return;

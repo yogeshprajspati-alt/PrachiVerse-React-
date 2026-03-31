@@ -52,19 +52,19 @@ const particleContainerVariants = {
 
 const SplashScreen = ({ onComplete }) => {
     const [isVisible, setIsVisible] = useState(true);
-    const [particles, setParticles] = useState([]);
-
-    useEffect(() => {
-        // Generate magical, soft glowing particles
-        const newParticles = Array.from({ length: 35 }).map((_, i) => ({
+    const [particles] = useState(() =>
+        Array.from({ length: 35 }).map((_, i) => ({
             id: i,
             left: Math.random() * 100 + '%',
             delay: Math.random() * 2,
             duration: 3 + Math.random() * 3,
-            size: 2 + Math.random() * 5
-        }));
-        setParticles(newParticles);
+            size: 2 + Math.random() * 5,
+            x: Math.random() * 100 - 50,
+            scale: Math.random() + 0.8
+        }))
+    );
 
+    useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
             if (onComplete) {
@@ -115,9 +115,9 @@ const SplashScreen = ({ onComplete }) => {
                                 }}
                                 animate={{
                                     y: [0, -window.innerHeight * 1.2],
-                                    x: [0, Math.random() * 100 - 50],
+                                    x: [0, p.x],
                                     opacity: [0, 1, 0],
-                                    scale: [0, Math.random() + 0.8, 0]
+                                    scale: [0, p.scale, 0]
                                 }}
                                 transition={{
                                     duration: p.duration,

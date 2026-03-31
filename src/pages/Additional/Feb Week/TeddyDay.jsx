@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import TeddySVG, { Emotion } from './TeddySVG';
 import styles from './TeddyDay.module.css';
@@ -42,6 +42,7 @@ export default function TeddyDay() {
     const [flyingFood, setFlyingFood] = useState(null);
     const [isReadingNote, setIsReadingNote] = useState(false);
     const [overlays, setOverlays] = useState({});
+    const foodIdRef = useRef(0);
 
     const closeAllMenus = () => { setIsFoodMenuOpen(false); setIsWardrobeOpen(false); setIsActionsOpen(false); };
 
@@ -113,7 +114,7 @@ export default function TeddyDay() {
 
     // Food
     const handleFeed = (emoji) => {
-        setFlyingFood({ id: Date.now(), emoji }); setEmotion(Emotion.EATING); setSpeechText(null);
+        setFlyingFood({ id: ++foodIdRef.current, emoji }); setEmotion(Emotion.EATING); setSpeechText(null);
         setTimeout(() => {
             setFlyingFood(null); setIsFoodMenuOpen(false);
             const r = FOOD_REACTIONS[Math.floor(Math.random() * FOOD_REACTIONS.length)];

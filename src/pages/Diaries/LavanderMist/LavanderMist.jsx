@@ -35,10 +35,11 @@ export default function LavenderMist() {
             container.appendChild(p);
         }
 
+        const audio = audioRef.current;
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
             }
         };
     }, []);

@@ -3,6 +3,32 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import styles from './NewYear2026.module.css';
 
+class FireworkParticle {
+    constructor(x, y, vx, vy, color, life, ctx) {
+        this.x = x;
+        this.y = y;
+        this.vx = vx;
+        this.vy = vy;
+        this.color = color;
+        this.life = life;
+        this.maxLife = life;
+        this.ctx = ctx;
+    }
+    update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.08;
+        this.life--;
+    }
+    draw() {
+        this.ctx.globalAlpha = this.life / this.maxLife;
+        this.ctx.fillStyle = this.color;
+        this.ctx.beginPath();
+        this.ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+        this.ctx.fill();
+    }
+}
+
 const NewYear2026 = () => {
     const [init, setInit] = useState(false);
     const [stage, setStage] = useState(1);
@@ -41,31 +67,6 @@ const NewYear2026 = () => {
         resize();
         window.addEventListener('resize', resize);
 
-        class Particle {
-            constructor(x, y, vx, vy, color, life) {
-                this.x = x;
-                this.y = y;
-                this.vx = vx;
-                this.vy = vy;
-                this.color = color;
-                this.life = life;
-                this.maxLife = life;
-            }
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-                this.vy += 0.08;
-                this.life--;
-            }
-            draw() {
-                ctx.globalAlpha = this.life / this.maxLife;
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-
         const createFireworkLocal = (x, y) => {
             const colors = ['#ec4899', '#8b5cf6', '#fcd34d', '#fff', '#ff6b6b'];
             const color = colors[Math.floor(Math.random() * colors.length)];
@@ -75,7 +76,7 @@ const NewYear2026 = () => {
                 const speed = 2 + Math.random() * 3;
                 const vx = Math.cos(angle) * speed;
                 const vy = Math.sin(angle) * speed;
-                particles.push(new Particle(x, y, vx, vy, color, 60 + Math.random() * 40));
+                particles.push(new FireworkParticle(x, y, vx, vy, color, 60 + Math.random() * 40, ctx));
             }
         };
 

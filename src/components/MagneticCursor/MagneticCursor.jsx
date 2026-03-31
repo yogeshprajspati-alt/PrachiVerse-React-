@@ -4,17 +4,15 @@ import { motion, useSpring, useReducedMotion } from 'framer-motion';
 const MagneticCursor = () => {
     const shouldReduceMotion = useReducedMotion();
     const [isHovering, setIsHovering] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
+    // Initialize visibility based on pointer type - avoids setState-in-effect
+    const [isVisible] = useState(() => !window.matchMedia("(pointer: coarse)").matches);
 
     // Use springs for smooth following
     const cursorX = useSpring(0, { damping: 25, stiffness: 120, mass: 0.5 });
     const cursorY = useSpring(0, { damping: 25, stiffness: 120, mass: 0.5 });
 
     useEffect(() => {
-        // Check if on mobile (touch device), if so, disable custom cursor
-        if (window.matchMedia("(pointer: coarse)").matches) return;
-
-        setIsVisible(true);
+        if (!isVisible) return;
 
         const moveCursor = (e) => {
             cursorX.set(e.clientX - 16); // Center the 32px cursor
@@ -44,7 +42,7 @@ const MagneticCursor = () => {
             window.removeEventListener('mousemove', moveCursor);
             window.removeEventListener('mouseover', handleMouseOver);
         };
-    }, [cursorX, cursorY]);
+    }, [cursorX, cursorY, isVisible]);
 
     if (shouldReduceMotion || !isVisible) return null;
 

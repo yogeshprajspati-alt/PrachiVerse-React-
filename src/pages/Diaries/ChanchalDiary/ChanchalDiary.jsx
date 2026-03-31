@@ -14,7 +14,16 @@ import bgMusic from '../../../assets/ApologyDiary/background.mp3';
 const ChanchalDiary = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [particles, setParticles] = useState([]);
+    const [particles] = useState(() =>
+        Array.from({ length: 30 }).map((_, i) => ({
+            id: i,
+            left: Math.random() * 100,
+            width: Math.random() * 4 + 2,
+            duration: Math.random() * 10 + 5,
+            delay: Math.random() * 5,
+            isSparkle: Math.random() > 0.7
+        }))
+    );
 
     // Audio State
     const [isPlaying, setIsPlaying] = useState(false);
@@ -25,35 +34,18 @@ const ChanchalDiary = () => {
     const [apologyScreen, setApologyScreen] = useState(1);
     const [showThankYou, setShowThankYou] = useState(false);
 
-    // Total pages mapping (Cover + 5 Content + Back Cover)
-    // 0: Cover
-    // 1: Page 1
-    // 2: Page 2
-    // 3: Page 3
-    // 4: Page 4
-    // 5: Page 5
-    // 6: Back Cover
     const totalPages = 7;
 
     useEffect(() => {
-        const p = Array.from({ length: 30 }).map((_, i) => ({
-            id: i,
-            left: Math.random() * 100,
-            duration: Math.random() * 10 + 5,
-            delay: Math.random() * 5,
-            isSparkle: Math.random() > 0.7
-        }));
-        setParticles(p);
-
         // Initialize audio volume
         if (audioRef.current) {
             audioRef.current.volume = 0.5;
         }
-
+        const audio = audioRef.current;
         return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
             }
         };
     }, []);
@@ -156,8 +148,8 @@ const ChanchalDiary = () => {
                         key={p.id}
                         className={`${styles.particle} ${p.isSparkle ? styles.sparkle : ''}`}
                         style={{
-                            width: `${Math.random() * 4 + 2}px`,
-                            height: `${Math.random() * 4 + 2}px`,
+                            width: `${p.width}px`,
+                            height: `${p.width}px`,
                             left: `${p.left}%`,
                             animationDuration: `${p.duration}s`,
                             animationDelay: `${p.delay}s`

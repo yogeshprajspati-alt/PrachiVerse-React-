@@ -10,7 +10,26 @@ import bgAudio from '../../../assets/diariesbgm/ExplanationDairy.mp3';
 const ExplanationDairy = () => {
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
-    const [hearts, setHearts] = useState([]);
+    const [hearts] = useState(() =>
+        Array.from({ length: 30 }).map((_, i) => ({
+            id: i,
+            left: Math.random() * 100,
+            drift: (Math.random() - 0.5) * 50 + 'px',
+            duration: Math.random() * 10 + 10,
+            delay: Math.random() * 10
+        }))
+    );
+
+    useEffect(() => {
+        const audio = audioRef.current;
+        return () => {
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        };
+    }, []);
+
     const [overlayOpen, setOverlayOpen] = useState(false);
     const [overlayStep, setOverlayStep] = useState(1);
     const [audioPlaying, setAudioPlaying] = useState(false);
@@ -18,25 +37,7 @@ const ExplanationDairy = () => {
     const audioRef = useRef(null);
     const fleeBtnRef = useRef(null);
 
-    const totalPages = 5; // cover + 3 pages + back cover
-
-    useEffect(() => {
-        const h = Array.from({ length: 30 }).map((_, i) => ({
-            id: i,
-            left: Math.random() * 100,
-            drift: (Math.random() - 0.5) * 50 + 'px',
-            duration: Math.random() * 10 + 10,
-            delay: Math.random() * 10
-        }));
-        setHearts(h);
-
-        return () => {
-            if (audioRef.current) {
-                audioRef.current.pause();
-                audioRef.current.currentTime = 0;
-            }
-        };
-    }, []);
+    const totalPages = 5;
 
     const openDiary = () => {
         setIsIntroVisible(false);
@@ -336,3 +337,4 @@ const ExplanationDairy = () => {
 };
 
 export default ExplanationDairy;
+

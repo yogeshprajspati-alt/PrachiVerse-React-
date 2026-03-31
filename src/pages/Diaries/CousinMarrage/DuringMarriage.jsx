@@ -39,8 +39,7 @@ const DuringMarriage = () => {
         }
     };
 
-    const handlePageClick = (index, e) => {
-        // Prevent action when clicking controls
+    const handlePageClick = (index) => {
         if (index === currentPage && currentPage < totalPages - 1) {
             handleFlip('next');
         }

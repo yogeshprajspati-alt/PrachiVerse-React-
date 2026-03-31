@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Jan23Diary.module.css';
 
@@ -17,22 +17,15 @@ const Jan23Diary = () => {
     const [isNotebookClosed, setIsNotebookClosed] = useState(true);
     const [flippedPages, setFlippedPages] = useState([]); // Array of page indices that are flipped
     const [isPlaying, setIsPlaying] = useState(false);
-    const [particles, setParticles] = useState([]);
 
     // Apology Overlay State
     const [showApology, setShowApology] = useState(false);
     const [apologyScreen, setApologyScreen] = useState(1); // 1, 2, 3, or 'thankyou'
     const [noBtnStyle, setNoBtnStyle] = useState({});
 
-    // Refs
-    const audioRef = useRef(new Audio(AUDIO_SRC));
-    const notebookRef = useRef(null);
-
-    // Particle Effect
-    useEffect(() => {
-        const particleCount = 20;
+    const [particles] = useState(() => {
         const newParticles = [];
-        for (let i = 0; i < particleCount; i++) {
+        for (let i = 0; i < 20; i++) {
             newParticles.push({
                 id: i,
                 isSparkle: Math.random() > 0.7,
@@ -42,8 +35,11 @@ const Jan23Diary = () => {
                 delay: Math.random() * 5
             });
         }
-        setParticles(newParticles);
-    }, []);
+        return newParticles;
+    });
+
+    // Refs
+    const audioRef = useRef(new Audio(AUDIO_SRC));
 
     // Audio Control
     const toggleAudio = () => {
@@ -69,14 +65,9 @@ const Jan23Diary = () => {
     };
 
     // Page Flipping Logic
-    const totalPages = 3; // 0 (Cover), 1 (Page 1), 2 (Page 2), 3 (Page 3)
-    // Wait, indices: Cover is 0. 
-    // HTML structure has: Cover, Page 1, Page 2, Page 3. Total 4 "page" divs.
-    // Indices: 0, 1, 2, 3.
-
+    // Pages are stacked z-index. 0 is top (Cover).
     const flipNext = () => {
         // Find first page that is NOT flipped
-        // Pages are stacked z-index. 0 is top (Cover).
         // Actually, logic in HTML was: find first not flipped, flip it.
         const nextToFlip = [0, 1, 2, 3].find(idx => !flippedPages.includes(idx));
 
