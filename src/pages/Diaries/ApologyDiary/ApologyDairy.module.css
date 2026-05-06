@@ -1,0 +1,550 @@
+/* ApologyDairy.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap');
+
+.container {
+    /* MIDNIGHT SERENITY THEME */
+    --bg-night-start: #0f2027;
+    --bg-night-mid: #203a43;
+    --bg-night-end: #2c5364;
+    --midnight-blue: #191970;
+    --star-glow: #ffffff;
+    --firefly-yellow: #fcf6bd;
+    --silver-metallic: linear-gradient(135deg, #e0e0e0, #ffffff, #a9a9a9);
+    --cover-leather: #1a1a1a;
+    --paper-offwhite: #f0f0f0;
+    --text-ink: #2c3e50;
+    --accent-blue: #4682b4;
+
+    background: radial-gradient(ellipse at bottom, var(--bg-night-end) 0%, var(--bg-night-start) 100%);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-ink);
+    position: relative;
+    /* Reset defaults */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- BACKGROUND EFFECTS --- */
+.starsContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle var(--duration, 2s) infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 5px white;
+    }
+}
+
+.fireflyContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.firefly {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: var(--firefly-yellow);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--firefly-yellow);
+    animation: float 10s infinite linear;
+    opacity: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(var(--tx), var(--ty)) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* --- NOTEBOOK CONTAINER --- */
+.notebookContainer {
+    position: relative;
+    z-index: 10;
+    width: 92vw;
+    max-width: 450px;
+    height: 75vh;
+    perspective: 2500px;
+    transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.notebookContainer.closed {
+    transform: translateY(40vh) scale(0.9);
+    opacity: 0;
+}
+
+.notebook {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+/* --- SILVER SPIRAL --- */
+.spiral {
+    position: absolute;
+    left: -12px;
+    top: 3%;
+    bottom: 3%;
+    width: 40px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    pointer-events: none;
+}
+
+.ring {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #555, #ddd, #fff, #555);
+    border-radius: 5px;
+    transform: rotate(-10deg);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- PAGES --- */
+.page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    right: 0;
+    background: var(--paper-offwhite);
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center;
+    transition: transform 0.9s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+    box-shadow:
+        inset 35px 0 30px rgba(0, 0, 0, 0.05),
+        2px 5px 15px rgba(0, 0, 0, 0.2);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.03' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper)' opacity='0.1'/%3E%3C/svg%3E");
+    backface-visibility: hidden;
+    border: 1px solid #dcdcdc;
+}
+
+.page.flipped {
+    transform: rotateY(-180deg);
+    pointer-events: none;
+}
+
+.pageContent {
+    height: 100%;
+    padding: 40px 25px 40px 50px;
+    overflow-y: auto;
+    color: var(--text-ink);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: left;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.pageHeader {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--midnight-blue);
+    text-align: center;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.highlight {
+    background: linear-gradient(to right, transparent, rgba(70, 130, 180, 0.1), transparent);
+    padding: 10px 0;
+    color: #2c3e50;
+    font-style: italic;
+    text-align: center;
+    border-top: 1px solid #b0c4de;
+    border-bottom: 1px solid #b0c4de;
+    margin: 20px 0;
+}
+
+.pageContent p {
+    margin-bottom: 15px;
+}
+
+.cornerDeco {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+    color: var(--midnight-blue);
+    pointer-events: none;
+}
+
+.topRight {
+    top: 15px;
+    right: 15px;
+}
+
+/* --- COVER PAGE --- */
+.cover {
+    background: var(--cover-leather);
+    background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.4'/%3E%3C/svg%3E");
+    color: #dcdcdc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.8);
+    z-index: 50;
+    border: 1px solid #000;
+}
+
+.coverBorder {
+    border: 2px solid #a9a9a9;
+    border-radius: 5px;
+    padding: 20px;
+    width: 85%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.coverTitle {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4rem;
+    background: linear-gradient(45deg, #eee, #999, #fff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8));
+    line-height: 1.2;
+}
+
+.coverSubtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ccc;
+    margin-top: 20px;
+    border-top: 1px solid #555;
+    padding-top: 10px;
+}
+
+/* --- CINEMATIC ENTRANCE --- */
+.introScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 2s ease-in-out;
+}
+
+.introScreen.fade {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.introTitle {
+    font-family: 'Great Vibes';
+    font-size: 5rem;
+    color: #fff;
+    opacity: 0;
+    text-shadow: 0 0 10px #fff, 0 0 20px #4682b4;
+    animation: glowIn 2s forwards 0.5s;
+    margin: 0;
+}
+
+.introSub {
+    font-family: 'Montserrat';
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    color: #aaa;
+    opacity: 0;
+    margin-top: 20px;
+    animation: slideUp 1.5s forwards 2s;
+}
+
+.btnOpen {
+    margin-top: 60px;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards 3s;
+    padding: 12px 50px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.4s;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.btnOpen:hover {
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@keyframes glowIn {
+    0% {
+        opacity: 0;
+        filter: blur(20px);
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- TOUCH ZONES --- */
+.touchZone {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 25%;
+    z-index: 200;
+}
+
+.touchLeft {
+    left: 0;
+}
+
+.touchRight {
+    right: 0;
+}
+
+.helperText {
+    position: absolute;
+    bottom: -50px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    color: #888;
+    opacity: 0.6;
+}
+
+/* --- MUSIC PLAYER --- */
+.musicPlayer {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 1000;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.musicPlayer:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.musicBtn {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* --- Content Wrapper & Interactions --- */
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+.contentWrapper img {
+    max-width: 100%;
+    max-height: 220px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.apologyText {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    color: var(--midnight-blue);
+    margin: 15px 0;
+    line-height: 1.3;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.btnGroup {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.actionBtn {
+    padding: 12px 35px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+}
+
+.actionBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btnAccept {
+    background: linear-gradient(135deg, var(--midnight-blue), var(--bg-night-end));
+    box-shadow: 0 4px 10px rgba(25, 25, 112, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btnReject {
+    background: linear-gradient(135deg, #8baaaa, #5f7a7a);
+    /* Muted teal/grey */
+    box-shadow: 0 4px 10px rgba(95, 122, 122, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btnReject:hover {
+    background: linear-gradient(135deg, #a75d5d, #8a3b3b);
+    /* Turns reddish on hover */
+    box-shadow: 0 4px 10px rgba(167, 93, 93, 0.4);
+}
+
+.btnBack {
+    background: linear-gradient(135deg, var(--bg-night-mid), var(--bg-night-start));
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.angryText {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 2rem;
+    color: #8a3b3b;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 450px) {
+    .introTitle {
+        font-size: 3.5rem;
+    }
+
+    .notebookContainer {
+        width: 90vw;
+        height: 70vh;
+    }
+
+    .pageContent {
+        padding: 30px 20px 30px 40px;
+        font-size: 1rem;
+    }
+
+    .coverTitle {
+        font-size: 3rem;
+    }
+}
+
+/* Z-Index Stacking Helpers (will be applied inline dynamically or via specific classes if static) */
+.page:nth-child(1) {
+    z-index: 100;
+}
+
+/* Spiral */
+/* Other pages z-indices managed by React state or order */

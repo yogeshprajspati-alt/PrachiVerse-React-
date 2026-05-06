@@ -1,0 +1,165 @@
+/* GameBirthday2.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
+
+.container {
+    background: linear-gradient(135deg, #fdf2f8, #e6f7ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+    overflow: hidden;
+    touch-action: none;
+    position: relative;
+    width: 100vw;
+}
+
+.gameContainer {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fffafd;
+}
+
+.gameCanvas {
+    background: #fffafd;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.uiPanel {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 12px;
+    padding: 8px;
+    text-align: center;
+    color: #5a2d4f;
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.messageScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(253, 242, 248, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 10;
+}
+
+.messageText {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #5a2d4f;
+    max-width: 280px;
+}
+
+.btn {
+    background: #ff9ec6;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.winScreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(253, 242, 248, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    z-index: 20;
+}
+
+.winMessage {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #5a2d4f;
+    max-width: 280px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    color: #ff9ec6;
+    margin-top: 10px;
+}
+
+.confettiContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.confettiPiece {
+    position: absolute;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.backBtn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 100;
+    color: #5a2d4f;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}

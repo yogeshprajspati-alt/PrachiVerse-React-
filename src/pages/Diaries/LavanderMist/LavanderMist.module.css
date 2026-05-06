@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Cinzel:wght@400;600&family=Lato:wght@300;400&display=swap');
+
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #2d1b4e, #1a0b2e);
+    overflow: hidden;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+}
+
+.globalTexture {
+    position: fixed;
+    inset: 0;
+    opacity: 0.05;
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    animation: floatOrb 15s infinite alternate ease-in-out;
+}
+
+.orb1 {
+    width: 400px;
+    height: 400px;
+    background: #7b1fa2;
+    top: -100px;
+    left: -100px;
+}
+
+.orb2 {
+    width: 500px;
+    height: 500px;
+    background: #512da8;
+    bottom: -100px;
+    right: -100px;
+}
+
+@keyframes floatOrb {
+    to {
+        transform: translate(30px, 30px) scale(1.1);
+    }
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: .6;
+    animation: rise 10s infinite linear;
+}
+
+.firefly {
+    background: #ffd700;
+    box-shadow: 0 0 10px #ffd700;
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+/* INTRO */
+.intro {
+    position: fixed;
+    inset: 0;
+    background: #120524;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1.5s;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.introTitle {
+    font-family: 'Cinzel', serif;
+    font-size: 3.5rem;
+    color: #e1bee7;
+}
+
+.introBtn {
+    margin-top: 50px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 1px solid #ba68c8;
+    background: none;
+    color: #ba68c8;
+    cursor: pointer;
+}
+
+/* BOOK */
+.bookContainer {
+    width: 90vw;
+    max-width: 440px;
+    height: 75vh;
+    perspective: 2500px;
+    z-index: 10;
+}
+
+.closed {
+    transform: translateY(60vh) scale(.6);
+    opacity: 0;
+}
+
+.book {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.spiral {
+    position: absolute;
+    left: -20px;
+    top: 20px;
+    bottom: 20px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ring {
+    height: 12px;
+    background: linear-gradient(90deg, #555, #ddd, #555);
+    border-radius: 6px;
+}
+
+.page {
+    position: absolute;
+    inset: 0;
+    background: #f3e5f5;
+    transform-origin: left center;
+    transition: transform .9s;
+    backface-visibility: hidden;
+}
+
+.flipped {
+    transform: rotateY(-180deg);
+}
+
+.cover {
+    background: #2e1a47;
+    color: white;
+}
+
+.pageContent {
+    padding: 2rem;
+}
+
+.coverContent {
+    text-align: center;
+}
+
+.coverTitle {
+    font-family: 'Cinzel', serif;
+    font-size: 2.8rem;
+}
+
+.coverDate {
+    letter-spacing: 2px;
+    color: #d1c4e9;
+}
+
+.goodbye {
+    font-family: 'Dancing Script';
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* CONTROLS */
+.helper {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    opacity: .4;
+}
+
+.zone {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.musicBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/* OVERLAY */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(18, 5, 36, .95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.btnGroup {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.btnYes {
+    background: #ab47bc;
+    color: white;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+}
+
+.btnNo {
+    background: #e0e0e0;
+    border: none;
+    padding: 8px 25px;
+    border-radius: 20px;
+}
