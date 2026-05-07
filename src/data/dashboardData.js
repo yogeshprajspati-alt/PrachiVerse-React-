@@ -4,15 +4,15 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
-                id: "1st April",
-                title: "Multiverse Scanner.",
-                icon: "⌛🎰",
-                description: "Finds The Alternate version of my dear prachiii.",
+                id: "Appreciation Gallery",
+                title: "Appreciation Gallery",
+                icon: "💌",
+                description: "Thodi to tareef karne do.",
                 date: "2026",
                 badge: "New",
-                link: "https://prachiii-first-april.vercel.app/",
-                isExternal: true,
-                isAbsolute: true
+                link: "/appreciation",
+                isExternal: false,
+                isAbsolute: false
             },
             {
                 id: "Blossom Reverie",
@@ -252,6 +252,21 @@ export const dashboardData = [
                 date: "Anonmous Date",
                 badge: "Abandoned",
                 link: "/diaries/first-modified",
+                isExternal: false
+            }
+        ]
+    },
+    {
+        title: "Appreciation Gallery",
+        icon: "💌",
+        items: [
+            {
+                title: "Appreciation Gallery",
+                icon: "💌",
+                description: "A collection of heartfelt appreciations, just for you.",
+                date: "Always",
+                badge: "Special",
+                link: "/appreciation",
                 isExternal: false
             }
         ]

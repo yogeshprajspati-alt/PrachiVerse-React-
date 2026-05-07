@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Prachi's Sky 🌅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ─────────────────────────────────────────
+       PERFORMANCE RULES (applied everywhere):
+       ✅ Only transform + opacity in keyframes
+       ✅ will-change on animated elements
+       ✅ NO box-shadow / filter in keyframes
+       ✅ NO filter:hue-rotate on large elements
+       ✅ Static background on .sky (no anim)
+       ✅ Minimal particle count (12)
+       ✅ No backdrop-filter on fixed elements
+    ───────────────────────────────────────── */
+
+    :root {
+      --font-d: 'Playfair Display', Georgia, serif;
+      --font-b: 'Nunito', sans-serif;
+      --dark:   #2a1060;
+      --mid:    #5a3888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-b); min-height: 100vh; overflow-x: hidden; background: #ffe0a0; }
+
+    /* ══ SKY — pure static gradient, zero cost ══ */
+    .sky {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(168deg,
+        #fff8ee  0%, #ffe4b0  7%, #ffcc78 14%,
+        #ffaa50 21%, #ff8848 29%, #ff6888 38%,
+        #e860b8 47%, #be58e0 55%, #9470d0 63%,
+        #72a8ec 72%, #90c0f8 81%, #b8d8ff 90%, #eaf4ff 100%);
+    }
+
+    /* warm glow at top — static */
+    .sky-top-glow {
+      position: fixed; top: 0; left: 0; right: 0; height: 30%;
+      z-index: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 100% at 50% 0%,
+        rgba(255,210,120,.45) 0%, transparent 70%);
+    }
+
+    /* ══ SUN — opacity pulse only ══ */
+    .sun {
+      position: fixed; z-index: 2; pointer-events: none;
+      top: 3%; left: 50%; transform: translateX(-50%);
+      width: 82px; height: 82px; border-radius: 50%;
+      background: radial-gradient(circle at 40% 38%,
+        #fffde0 0%, #ffe060 32%, #ffcc18 58%, #ffaa00 82%, #ff8800 100%);
+      box-shadow:
+        0 0 38px rgba(255,200,50,.68),
+        0 0 88px rgba(255,175,28,.32),
+        0 0 150px rgba(255,148,18,.16);
+      will-change: opacity;
+      animation: sunPulse 7s ease-in-out infinite;
+    }
+    @keyframes sunPulse {
+      0%,100% { opacity: .90; }
+      50%      { opacity: 1;   }
+    }
+
+    /* ══ SUN RAYS — rotate only ══ */
+    .sun-rays {
+      position: fixed; z-index: 1; pointer-events: none;
+      top: 3%; left: 50%;
+      width: 480px; height: 480px;
+      will-change: transform;
+      animation: raysRotate 48s linear infinite;
+    }
+    @keyframes raysRotate { to { transform: translateX(-50%) rotate(360deg); } }
+    .ray {
+      position: absolute; top: 50%; left: 50%;
+      transform-origin: left center;
+      height: 1.5px; border-radius: 1px;
+      background: linear-gradient(to right, rgba(255,225,75,.42), transparent);
+    }
+
+    /* ══ RAINBOW — static, no animation ══ */
+    .rainbow {
+      position: fixed; z-index: 1; pointer-events: none;
+      bottom: 20%; left: -12%; right: -12%;
+      height: 200px;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      background: conic-gradient(from 180deg at 50% 100%,
+        transparent 0deg,
+        rgba(255,60,60,.26)  8deg, rgba(255,148,18,.24) 24deg,
+        rgba(255,228,18,.22) 40deg, rgba(58,208,58,.22)  58deg,
+        rgba(38,148,255,.22) 76deg, rgba(138,58,255,.21) 94deg,
+        transparent 114deg);
+      filter: blur(6px);
+      opacity: .58;
+    }
+
+    /* ══ CLOUDS — translate only ══ */
+    .cloud {
+      position: fixed; z-index: 1; pointer-events: none;
+      top: var(--ct,8%);
+      will-change: transform;
+      animation: cloudSlide var(--cd,60s) linear infinite;
+      animation-delay: var(--cdel,0s);
+    }
+    @keyframes cloudSlide {
+      from { transform: translateX(-28vw); }
+      to   { transform: translateX(118vw); }
+    }
+    /* cloud built from 3 rounded divs */
+    .cloud-body {
+      position: relative;
+      width: var(--cw,150px); height: var(--ch,42px);
+    }
+    .cloud-body::before,
+    .cloud-body::after,
+    .cloud-body i {
+      content: ''; position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255, var(--co,.65));
+      display: block;
+    }
+    .cloud-body::before { width:58%; height:135%; bottom:28%; left:13%; }
+    .cloud-body::after  { width:44%; height:108%; bottom:22%; left:42%; }
+    .cloud-body i       { width:100%; height:76%; bottom:0; left:0; border-radius:50px; }
+
+    /* ══ BIRDS — translate only ══ */
+    .bird {
+      position: fixed; z-index: 2; pointer-events: none;
+      font-size: var(--bfs,.88rem);
+      top: var(--bt,18%); opacity: .68;
+      will-change: transform;
+      animation: birdFly var(--bfd,26s) linear infinite;
+      animation-delay: var(--bdel,0s);
+    }
+    @keyframes birdFly {
+      from { transform: translateX(-10vw); }
+      to   { transform: translateX(112vw); }
+    }
+
+    /* ══ PARTICLES — just 12, translate+opacity ══ */
+    .particles { position: fixed; inset: 0; z-index: 1; pointer-events: none; }
+    .speck {
+      position: absolute;
+      width: var(--sw,4px); height: var(--sw,4px);
+      border-radius: 50%;
+      background: rgba(255,238,110,.88);
+      will-change: transform, opacity;
+      animation: speckUp var(--spd,14s) linear infinite;
+      animation-delay: var(--spdel,0s);
+      opacity: 0;
+    }
+    @keyframes speckUp {
+      0%   { transform: translateY(0) translateX(0); opacity: 0; }
+      8%   { opacity: .78; }
+      88%  { opacity: .28; }
+      100% { transform: translateY(-52vh) translateX(var(--spx,18px)); opacity: 0; }
+    }
+
+    /* ══ PAGE ══ */
+    .page {
+      position: relative; z-index: 10;
+      max-width: 450px; margin: 0 auto;
+      padding: 0 20px calc(90px + env(safe-area-inset-bottom)) 20px;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    /* ══ HEADER ══ */
+    .header { text-align: center; padding: 108px 16px 24px; }
+
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 16px; border-radius: 40px; margin-bottom: 14px;
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.44);
+      font-size: .67rem; font-weight: 700; letter-spacing: .28em;
+      text-transform: uppercase; color: rgba(255,255,255,.9);
+      text-shadow: 0 1px 5px rgba(180,70,10,.35);
+    }
+
+    .header-name {
+      font-family: var(--font-d); font-style: italic; font-weight: 700;
+      font-size: clamp(3.2rem,14vw,4.8rem); line-height: .95;
+      color: white; letter-spacing: .02em;
+      text-shadow:
+        0 1px 0 rgba(255,255,255,.55),
+        0 4px 28px rgba(255,160,28,.6),
+        0 10px 55px rgba(200,78,18,.3);
+    }
+
+    .header-sub {
+      margin-top: 10px; font-size: .76rem; font-weight: 400;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.68);
+    }
+
+    .header-rule {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; margin: 18px auto 0;
+      color: rgba(255,255,255,.48); font-size: .85rem;
+    }
+    .header-rule::before, .header-rule::after {
+      content:''; flex:1; height:1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,.38));
+    }
+    .header-rule::after { transform: scaleX(-1); }
+
+    /* ══ HINT ══ */
+    .hint { text-align: center; margin: 26px 0 0; }
+    .hint-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 20px; border-radius: 40px;
+      background: rgba(255,255,255,.20);
+      border: 1.5px solid rgba(255,255,255,.36);
+      font-size: .71rem; font-weight: 600; letter-spacing: .13em;
+      color: rgba(255,255,255,.80);
+      will-change: transform, opacity;
+      animation: pillFloat 3.2s ease-in-out infinite;
+    }
+    @keyframes pillFloat {
+      0%,100% { transform: translateY(0); opacity: .75; }
+      50%      { transform: translateY(-5px); opacity: 1; }
+    }
+
+    /* ══ ISLANDS ══ */
+    .islands {
+      margin-top: 34px; display: flex; flex-direction: column; gap: 0;
+      /* perspective gives all children a shared 3D space */
+      perspective: 900px;
+      perspective-origin: 50% 30%;
+    }
+
+    .island-block {
+      position: relative; margin-bottom: 50px;
+      /* each island lives in 3D space */
+      transform-style: preserve-3d;
+    }
+
+    /* island tap wrapper */
+    .island-tap {
+      display: block; width: 100%;
+      cursor: pointer; touch-action: manipulation; outline: none;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    .island-tap:focus-visible { outline: 2px solid rgba(255,255,255,.65); outline-offset:6px; border-radius:12px; }
+
+    /* ── 3D ISLAND SVG ──
+       rotateX tilts the island like a floating platform
+       translateY does the float bob
+       All transforms combined — single compositor layer ✅ */
+    .island-svg {
+      width: 100%; display: block;
+      filter:
+        drop-shadow(0 14px 28px rgba(80,40,180,.28))
+        drop-shadow(0 4px 10px rgba(0,0,0,.15));
+      will-change: transform;
+      /* base 3D tilt — each island slightly different via --tilt */
+      transform: perspective(700px) rotateX(var(--tilt,12deg));
+      animation: islandFloat var(--if,5.5s) ease-in-out infinite;
+      animation-delay: var(--ifdel,0s);
+      transform-origin: 50% 65%;
+    }
+    @keyframes islandFloat {
+      /* translateY + subtle rotateX wobble — still GPU only ✅ */
+      0%,100% { transform: perspective(700px) rotateX(var(--tilt,12deg)) translateY(0px) rotateZ(-.4deg); }
+      50%      { transform: perspective(700px) rotateX(calc(var(--tilt,12deg) - 2deg)) translateY(-10px) rotateZ(.4deg); }
+    }
+    .island-tap[aria-expanded="true"] .island-svg {
+      transform: perspective(700px) rotateX(calc(var(--tilt,12deg) - 4deg)) translateY(-7px) scale(1.015);
+      animation-play-state: paused;
+    }
+
+    /* ── 3D STONE EXTRUSION ──
+       A pseudo-element that simulates the thick bottom
+       face of the island — pure CSS, zero SVG cost */
+    .island-tap::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 8%; right: 8%;
+      height: 28px;
+      background: linear-gradient(180deg,
+        rgba(100,75,45,.55) 0%,
+        rgba(70,50,28,.72) 50%,
+        rgba(50,35,15,.60) 100%);
+      border-radius: 0 0 50% 50% / 0 0 80% 80%;
+      transform: perspective(700px) rotateX(var(--tilt,12deg)) translateY(12px) scaleY(.45);
+      transform-origin: 50% 0%;
+      /* NO animation — purely static depth face */
+      z-index: -1;
+    }
+    .island-tap[aria-expanded="true"]::after {
+      transform: perspective(700px) rotateX(calc(var(--tilt,12deg) - 4deg)) translateY(8px) scaleY(.45);
+    }
+
+    /* shadow disc — also slightly tilted to match */
+    .island-shadow {
+      position: absolute; bottom: -12px; left: 12%; right: 12%;
+      height: 16px; border-radius: 50%;
+      background: rgba(60,25,140,.20);
+      filter: blur(9px);
+      will-change: transform, opacity;
+      animation: shadowPulse var(--if,5.5s) ease-in-out infinite;
+      animation-delay: var(--ifdel,0s);
+    }
+    @keyframes shadowPulse {
+      0%,100% { transform: scaleX(1)   scaleY(1);   opacity: .55; }
+      50%      { transform: scaleX(.82) scaleY(.85); opacity: .22; }
+    }
+
+    /* pulsing ring around tap hotspot */
+    .tap-ring {
+      position: absolute; pointer-events: none;
+      border: 2px solid rgba(255,255,255,.58);
+      will-change: transform, opacity;
+      animation: ringPulse 2s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%,100% { opacity: .55; transform: var(--rb,scale(1)); }
+      50%      { opacity: 1;   transform: var(--rh,scale(1.14)); }
+    }
+    .island-tap[aria-expanded="true"] .tap-ring { opacity: 0; }
+
+    /* label above tap spot */
+    .tap-label {
+      position: absolute; pointer-events: none;
+      font-size: .6rem; font-weight: 700; letter-spacing: .15em;
+      text-transform: uppercase; white-space: nowrap;
+      color: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.22);
+      border: 1px solid rgba(255,255,255,.38);
+      padding: 3px 11px; border-radius: 30px;
+      left: 50%; transform: translateX(-50%);
+      will-change: transform;
+      animation: labelBob 3s ease-in-out infinite;
+      animation-delay: var(--ifdel,0s);
+    }
+    @keyframes labelBob {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(-6px); }
+    }
+    .island-tap[aria-expanded="true"] .tap-label { opacity:0; transition:opacity .15s; }
+
+    /* ══ MESSAGE PANEL ══ */
+    .msg-panel {
+      max-height: 0; overflow: hidden; opacity: 0;
+      will-change: max-height, opacity;
+      transition: max-height .55s cubic-bezier(.22,.68,0,1.1), opacity .4s ease, margin .4s ease;
+      margin-top: 0;
+    }
+    .msg-panel.open { max-height: 620px; opacity: 1; margin-top: 12px; }
+
+    .msg-card {
+      border-radius: 26px; padding: 24px 22px 20px;
+      position: relative; overflow: hidden;
+      /* NO backdrop-filter here — too expensive on mobile */
+      box-shadow: 0 12px 40px rgba(80,40,180,.16), inset 0 1.5px 0 rgba(255,255,255,.88);
+    }
+
+    /* shimmer — transform only ✅ */
+    .msg-card::after {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 45%; height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,.20), transparent);
+      will-change: transform;
+      animation: shimmer 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-120%); opacity:0; }
+      15%  { opacity: 1; }
+      55%  { transform: translateX(280%); opacity:0; }
+      100% { transform: translateX(280%); opacity:0; }
+    }
+
+    /* top colour bar — opacity only ✅ */
+    .msg-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:4px;
+      border-radius: 26px 26px 0 0;
+      will-change: opacity;
+      animation: barPulse 3s ease-in-out infinite;
+    }
+    @keyframes barPulse { 0%,100%{opacity:.75;} 50%{opacity:1;} }
+
+    .card-1 { background:linear-gradient(148deg,rgba(255,248,222,.97),rgba(255,228,178,.93)); border:1.5px solid rgba(255,208,108,.52); }
+    .card-2 { background:linear-gradient(148deg,rgba(222,242,255,.97),rgba(188,218,255,.93)); border:1.5px solid rgba(128,192,255,.52); }
+    .card-3 { background:linear-gradient(148deg,rgba(242,228,255,.97),rgba(216,190,255,.93)); border:1.5px solid rgba(178,138,255,.52); }
+    .card-4 { background:linear-gradient(148deg,rgba(216,252,232,.97),rgba(178,240,208,.93)); border:1.5px solid rgba(88,202,152,.52); }
+    .card-5 { background:linear-gradient(148deg,rgba(255,228,236,.97),rgba(255,194,212,.93)); border:1.5px solid rgba(255,142,178,.52); }
+
+    .card-1::before { background:linear-gradient(90deg,#ff9828,#ffcc48,#ff9828); }
+    .card-2::before { background:linear-gradient(90deg,#3e8eff,#7ebefc,#3e8eff); }
+    .card-3::before { background:linear-gradient(90deg,#8e3eff,#c678fc,#8e3eff); }
+    .card-4::before { background:linear-gradient(90deg,#1eae5e,#6edc9c,#1eae5e); }
+    .card-5::before { background:linear-gradient(90deg,#ff3e7e,#ff8eb4,#ff3e7e); }
+
+    .msg-from {
+      font-size:.63rem; font-weight:800; letter-spacing:.24em; text-transform:uppercase;
+      margin-bottom:14px; margin-top:5px;
+      display:flex; align-items:center; gap:8px;
+    }
+    .msg-from::after { content:''; flex:1; height:1.5px; background:linear-gradient(to right,currentColor,transparent); opacity:.28; border-radius:1px; }
+    .card-1 .msg-from{color:#a85508;} .card-2 .msg-from{color:#1458a4;} .card-3 .msg-from{color:#6618a4;}
+    .card-4 .msg-from{color:#166844;} .card-5 .msg-from{color:#a4183e;}
+
+    .msg-line { display:block; font-size:clamp(.9rem,3.8vw,.98rem); font-weight:400; line-height:2.08; color:#2a1060; }
+    .msg-line.strong { font-weight:700; }
+    .msg-line.accent { font-weight:600; }
+    .card-1 .msg-line.accent{color:#904010;} .card-2 .msg-line.accent{color:#1448a0;}
+    .card-3 .msg-line.accent{color:#5810a0;} .card-4 .msg-line.accent{color:#0e5038;}
+    .card-5 .msg-line.accent{color:#981040;}
+
+    .msg-seal { display:block; margin-top:12px; font-size:1.3rem; letter-spacing:5px; }
+
+    .msg-close {
+      display:inline-flex; align-items:center; gap:6px;
+      margin-top:14px; padding:9px 22px; border-radius:50px;
+      border:1.5px solid rgba(100,50,200,.22);
+      background:rgba(100,50,200,.08);
+      color:var(--mid); font-family:var(--font-b);
+      font-size:.76rem; font-weight:700; cursor:pointer;
+      letter-spacing:.06em; touch-action:manipulation;
+      transition:background .2s, transform .2s;
+    }
+    .msg-close:active { transform:scale(.94); background:rgba(100,50,200,.15); }
+
+    /* ══ PROGRESS DOTS ══ */
+    .progress {
+      display:flex; justify-content:center; gap:10px;
+      margin: 34px 0 8px;
+    }
+    .prog-dot {
+      width:9px; height:9px; border-radius:50%;
+      background:rgba(255,255,255,.25);
+      border:1.5px solid rgba(255,255,255,.35);
+      transition: background .4s, transform .4s, box-shadow .4s;
+    }
+    .prog-dot.done {
+      background:rgba(255,218,78,.92);
+      border-color:rgba(255,238,118,.8);
+      transform:scale(1.28);
+      box-shadow:0 0 8px rgba(255,198,58,.7), 0 0 16px rgba(255,178,38,.38);
+    }
+
+    /* ══ DEPTH HAZE STRIPS — reinforce 3D layering ══
+       Static, zero performance cost                     */
+    .depth-near {
+      position: fixed; z-index: 3; pointer-events: none;
+      bottom: 0; left: 0; right: 0; height: 22%;
+      background: linear-gradient(to top,
+        rgba(180,140,255,.10) 0%,
+        rgba(160,120,240,.05) 40%,
+        transparent 100%);
+    }
+    .depth-mid {
+      position: fixed; z-index: 0; pointer-events: none;
+      top: 30%; left: 0; right: 0; height: 12%;
+      background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(255,200,120,.08) 50%,
+        transparent 100%);
+    }
+    .overlay {
+      position:fixed; inset:0; z-index:9;
+      background:rgba(20,10,55,.28);
+      opacity:0; pointer-events:none;
+      transition:opacity .3s ease;
+    }
+    .overlay.active { opacity:1; pointer-events:auto; }
+
+    /* ══ SOUND BTN ══ */
+    .sound-btn {
+      position:fixed;
+      bottom:calc(20px + env(safe-area-inset-bottom)); right:18px; z-index:50;
+      width:46px; height:46px; border-radius:50%; border:none;
+      background:rgba(255,255,255,.26);
+      border:1.5px solid rgba(255,255,255,.50);
+      box-shadow:0 4px 18px rgba(160,70,18,.22);
+      font-size:1.2rem; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform .2s; touch-action:manipulation;
+    }
+    .sound-btn:active { transform:scale(.88); }
+
+    /* ══ FOOTER ══ */
+    footer { text-align:center; margin-top:28px; }
+    .footer-pill {
+      display:inline-block; padding:7px 20px; border-radius:40px;
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.26);
+      font-size:.68rem; font-weight:500; letter-spacing:.11em;
+      color:rgba(255,255,255,.52);
+    }
+  </style>
+</head>
+<body>
+
+<div class="sky"></div>
+<div class="sky-top-glow"></div>
+<div class="sun-rays" id="sunRays"></div>
+<div class="sun"></div>
+<div class="rainbow"></div>
+
+<!-- Clouds -->
+<div class="cloud" style="--ct:7%;--cd:68s;--cdel:-16s;">
+  <div class="cloud-body" style="--cw:168px;--ch:50px;--co:.70;"><i></i></div>
+</div>
+<div class="cloud" style="--ct:12%;--cd:52s;--cdel:-36s;">
+  <div class="cloud-body" style="--cw:112px;--ch:36px;--co:.58;"><i></i></div>
+</div>
+<div class="cloud" style="--ct:5%;--cd:86s;--cdel:-54s;">
+  <div class="cloud-body" style="--cw:215px;--ch:60px;--co:.44;"><i></i></div>
+</div>
+<div class="cloud" style="--ct:17%;--cd:46s;--cdel:-24s;">
+  <div class="cloud-body" style="--cw:88px;--ch:28px;--co:.52;"><i></i></div>
+</div>
+
+<!-- Birds -->
+<div class="bird" style="--bt:13%;--bfs:.88rem;--bfd:30s;--bdel:-8s;">🕊️</div>
+<div class="bird" style="--bt:19%;--bfs:.72rem;--bfd:40s;--bdel:-22s;">🕊️</div>
+<div class="bird" style="--bt:10%;--bfs:.62rem;--bfd:34s;--bdel:-30s;">🕊️</div>
+
+<!-- Particles — only 12 -->
+<div class="particles" id="particles"></div>
+
+<div class="depth-near"></div>
+<div class="depth-mid"></div>
+
+<button class="sound-btn" id="soundBtn" aria-label="Toggle sound">🔊</button>
+<div class="overlay" id="overlay" aria-hidden="true"></div>
+
+<div class="page">
+
+  <header class="header">
+    <div class="header-badge">Above the Sky 🪂</div>
+    <h1 class="header-name">Prachi</h1>
+    <p class="header-sub">Since Angels Have a Special World.</p>
+    <div class="header-rule">🌅</div>
+  </header>
+
+  <p class="hint">
+    <span class="hint-pill">✨ islands ko tap karo — andar kuch chhupa hai</span>
+  </p>
+
+  <div class="islands">
+
+    <!-- ══ ISLAND 1 — Cloud ════════════════════ -->
+    <div class="island-block">
+      <div class="island-tap" id="it1" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Island 1 — tap the glowing cloud"
+           style="--if:5.2s;--ifdel:0s;--tilt:10deg;">
+        <svg class="island-svg" viewBox="0 0 380 250" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="ig1" cx="50%" cy="28%" r="70%">
+              <stop offset="0%"  stop-color="#a8d860"/>
+              <stop offset="60%" stop-color="#6aaa28"/>
+              <stop offset="100%" stop-color="#487818"/>
+            </radialGradient>
+            <radialGradient id="ist1" cx="50%" cy="0%" r="80%">
+              <stop offset="0%"  stop-color="#8b7050"/>
+              <stop offset="100%" stop-color="#5a4028"/>
+            </radialGradient>
+            <linearGradient id="side1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#7a6040"/>
+              <stop offset="60%"  stop-color="#5a4228"/>
+              <stop offset="100%" stop-color="#3a2810"/>
+            </linearGradient>
+            <linearGradient id="wfall1" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="rgba(160,222,255,.92)"/>
+              <stop offset="100%" stop-color="rgba(80,168,255,.18)"/>
+            </linearGradient>
+            <filter id="cglow1"><feGaussianBlur stdDeviation="3.5"/></filter>
+          </defs>
+          <!-- 3D stone side extrusion — drawn BELOW the island top -->
+          <path d="M32,174 Q68,202 143,211 Q190,218 237,211 Q312,202 348,174
+                   L348,196 Q312,222 237,232 Q190,238 143,232 Q68,222 32,196 Z"
+                fill="url(#side1)" opacity=".88"/>
+          <!-- rock face detail lines -->
+          <path d="M80,180 Q80,198 82,210" stroke="rgba(255,255,255,.08)" stroke-width="1.5" fill="none"/>
+          <path d="M150,188 Q150,206 152,218" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <path d="M260,186 Q260,204 262,216" stroke="rgba(255,255,255,.07)" stroke-width="1.5" fill="none"/>
+          <!-- island top -->
+          <ellipse cx="190" cy="172" rx="158" ry="40" fill="url(#ig1)"/>
+          <path d="M32,174 Q68,202 143,211 Q190,218 237,211 Q312,202 348,174 Q308,187 190,191 Q72,187 32,174Z" fill="url(#ist1)"/>
+          <!-- REALISTIC TREE LEFT -->
+          <!-- trunk: tapered, curved, bark texture -->
+          <path d="M74,172 C73,158 71,140 72,124 C73,112 76,104 78,98" stroke="#5a3010" stroke-width="10" fill="none" stroke-linecap="round"/>
+          <path d="M74,172 C73,158 71,140 72,124 C73,112 76,104 78,98" stroke="#7a4828" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <!-- bark highlight -->
+          <path d="M76,162 C75,148 74,132 75,118" stroke="rgba(255,255,255,.10)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- branch left -->
+          <path d="M74,138 C64,130 52,124 46,118" stroke="#5a3010" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M74,138 C64,130 52,124 46,118" stroke="#7a4828" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- branch right -->
+          <path d="M75,126 C85,118 94,112 100,106" stroke="#5a3010" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- foliage — layered ellipses for depth -->
+          <ellipse cx="78" cy="88"  rx="30" ry="24" fill="#3a8018" opacity=".85"/>
+          <ellipse cx="56" cy="106" rx="22" ry="16" fill="#3a8018" opacity=".80"/>
+          <ellipse cx="98" cy="98"  rx="20" ry="15" fill="#2e6e12" opacity=".78"/>
+          <ellipse cx="68" cy="78"  rx="24" ry="20" fill="#50a020"/>
+          <ellipse cx="92" cy="84"  rx="20" ry="16" fill="#48941c"/>
+          <ellipse cx="78" cy="68"  rx="18" ry="15" fill="#5ab022"/>
+          <!-- foliage highlight (sunlit top) -->
+          <ellipse cx="72" cy="64"  rx="12" ry="9"  fill="#78cc30" opacity=".60"/>
+          <ellipse cx="88" cy="72"  rx="9"  ry="7"  fill="#70c028" opacity=".55"/>
+          <!-- fruit/blossoms -->
+          <circle cx="60"  cy="98"  r="3.5" fill="#ff6050" opacity=".85"/>
+          <circle cx="96"  cy="90"  r="3"   fill="#ff5848" opacity=".80"/>
+          <circle cx="80"  cy="62"  r="3"   fill="#ff7060" opacity=".75"/>
+
+          <!-- REALISTIC TREE RIGHT -->
+          <path d="M292,172 C291,158 290,142 291,128 C292,116 295,108 296,102" stroke="#5a3010" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <path d="M292,172 C291,158 290,142 291,128 C292,116 295,108 296,102" stroke="#7a4828" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M293,160 C292,146 291,130 292,116" stroke="rgba(255,255,255,.09)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- branch right -->
+          <path d="M292,136 C302,128 314,122 320,116" stroke="#5a3010" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <!-- branch left -->
+          <path d="M291,124 C282,116 272,112 268,106" stroke="#5a3010" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <!-- foliage -->
+          <ellipse cx="296" cy="90"  rx="27" ry="22" fill="#3a8018" opacity=".85"/>
+          <ellipse cx="318" cy="108" rx="19" ry="14" fill="#2e6e12" opacity=".80"/>
+          <ellipse cx="270" cy="102" rx="18" ry="14" fill="#3a8018" opacity=".78"/>
+          <ellipse cx="286" cy="78"  rx="22" ry="18" fill="#50a020"/>
+          <ellipse cx="308" cy="86"  rx="18" ry="14" fill="#48941c"/>
+          <ellipse cx="296" cy="66"  rx="16" ry="14" fill="#5ab022"/>
+          <ellipse cx="288" cy="62"  rx="11" ry="8"  fill="#78cc30" opacity=".58"/>
+          <circle cx="316" cy="100" r="3" fill="#ff6050" opacity=".80"/>
+          <circle cx="272" cy="96"  r="3" fill="#ff5848" opacity=".78"/>
+          <!-- small house -->
+          <rect x="182" y="136" width="34" height="24" rx="2" fill="#e8c078"/>
+          <polygon points="182,138 199,120 216,138" fill="#c04828"/>
+          <rect x="191" y="148" width="9" height="12" rx="1" fill="#7a5030"/>
+          <rect x="185" y="140" width="9" height="8" rx="1" fill="#b8dce8" opacity=".8"/>
+          <!-- waterfall -->
+          <path d="M320,150 Q324,163 321,178 Q319,188 317,200" stroke="url(#wfall1)" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M330,154 Q333,166 330,180 Q328,190 326,202" stroke="url(#wfall1)" stroke-width="3" fill="none" stroke-linecap="round" opacity=".55"/>
+          <!-- flowers -->
+          <circle cx="138" cy="164" r="5" fill="#ff6090"/>
+          <circle cx="154" cy="160" r="4" fill="#ffb028"/>
+          <circle cx="168" cy="166" r="5" fill="#ff7860"/>
+          <circle cx="212" cy="162" r="4" fill="#e058c0"/>
+          <!-- TAP: glowing cloud -->
+          <ellipse cx="190" cy="54" rx="52" ry="28" fill="white" opacity=".78" filter="url(#cglow1)"/>
+          <ellipse cx="162" cy="64" rx="32" ry="20" fill="white" opacity=".72" filter="url(#cglow1)"/>
+          <ellipse cx="220" cy="62" rx="30" ry="18" fill="white" opacity=".68" filter="url(#cglow1)"/>
+          <ellipse cx="178" cy="46" rx="18" ry="8" fill="white" opacity=".52"/>
+          <text x="190" y="62" font-size="16" text-anchor="middle" opacity=".85">✨</text>
+        </svg>
+        <div class="tap-ring" style="width:82px;height:52px;top:8%;left:50%;margin-left:-41px;border-radius:41px;--rb:scale(1);--rh:scale(1.13);"></div>
+        <div class="tap-label" style="top:2%;">tap the cloud ☁️</div>
+      </div>
+      <div class="island-shadow" style="--if:5.2s;--ifdel:0s;"></div>
+
+      <div class="msg-panel" id="mp1">
+        <div class="msg-card card-1">
+          <div class="msg-from">☁️ Sound Of Cloud</div>
+          <span class="msg-line strong">Prachi,</span>
+          <span class="msg-line">Yessss, it is the time to be the most powerful version of yourself.</span>
+          <span class="msg-line accent">Show them what you're capable of,</span>
+          <span class="msg-line">who ignored you/your potential and your good deeds,</span>
+          <span class="msg-line">Dikha hi do tum kya cheez ho,</span>
+          <span class="msg-line accent strong">Bs ek important cheez —</span>
+          <span class="msg-line accent">Love Yourself, andd.. improve🌤️</span>
+          <span class="msg-line">I believe in you. You too should believe in yourself. You will do it girl! 🌟</span>
+          <span class="msg-seal">☁️✨🌅</span>
+          <button class="msg-close" data-panel="mp1" data-island="it1">wapas jao 🌅</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ISLAND 2 — Waterfall ════════════════ -->
+    <div class="island-block">
+      <div class="island-tap" id="it2" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Island 2 — tap the waterfall"
+           style="--if:6.8s;--ifdel:-1.5s;--tilt:14deg;">
+        <svg class="island-svg" viewBox="0 0 380 256" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="side2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#7e6040"/><stop offset="60%" stop-color="#5a4228"/><stop offset="100%" stop-color="#3a2810"/></linearGradient>
+            <radialGradient id="ig2" cx="50%" cy="25%" r="70%">
+              <stop offset="0%"  stop-color="#92ca48"/>
+              <stop offset="60%" stop-color="#60a218"/>
+              <stop offset="100%" stop-color="#3e6e12"/>
+            </radialGradient>
+            <radialGradient id="ist2" cx="50%" cy="0%" r="80%">
+              <stop offset="0%"  stop-color="#9a7e5e"/>
+              <stop offset="100%" stop-color="#6a5232"/>
+            </radialGradient>
+            <linearGradient id="wfall2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="rgba(152,228,255,.95)"/>
+              <stop offset="70%"  stop-color="rgba(78,178,255,.55)"/>
+              <stop offset="100%" stop-color="rgba(58,140,255,.18)"/>
+            </linearGradient>
+            <filter id="wglow2"><feGaussianBlur stdDeviation="4.5"/></filter>
+          </defs>
+          <!-- stone side -->
+          <path d="M35,188 Q70,216 145,225 Q190,232 235,225 Q310,216 345,188 L345,208 Q310,234 235,244 Q190,250 145,244 Q70,234 35,208 Z" fill="url(#side2)" opacity=".85"/>
+          <path d="M85,194 Q85,212 87,222" stroke="rgba(255,255,255,.07)" stroke-width="1.5" fill="none"/>
+          <path d="M200,198 Q200,216 202,228" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <ellipse cx="190" cy="186" rx="155" ry="40" fill="url(#ig2)"/>
+          <path d="M35,188 Q70,216 145,225 Q190,232 235,225 Q310,216 345,188 Q305,201 190,204 Q75,201 35,188Z" fill="url(#ist2)"/>
+          <!-- LEFT CLIFF + REALISTIC TREE -->
+          <!-- cliff rock face -->
+          <path d="M55,186 Q60,152 70,130 Q80,110 84,100 L108,100 Q112,112 108,132 Q104,152 104,186Z" fill="#7a9840"/>
+          <!-- cliff shadow/depth -->
+          <path d="M55,186 Q58,160 65,138 Q72,118 76,108" stroke="#4a6820" stroke-width="3" fill="none" opacity=".5"/>
+          <path d="M104,186 Q103,160 104,138 Q106,118 108,108" stroke="#5a7828" stroke-width="2" fill="none" opacity=".4"/>
+          <!-- cliff top grass -->
+          <ellipse cx="84" cy="100" rx="28" ry="8" fill="#8ab840"/>
+          <!-- tree on cliff left -->
+          <path d="M84,100 C83,90 82,80 83,72 C84,66 86,62 87,58" stroke="#5a3010" stroke-width="6" fill="none" stroke-linecap="round"/>
+          <path d="M84,100 C83,90 82,80 83,72 C84,66 86,62 87,58" stroke="#7a4828" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M83,86 C78,80 70,76 66,72" stroke="#5a3010" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M84,78 C90,72 96,68 100,64" stroke="#5a3010" stroke-width="3"   fill="none" stroke-linecap="round"/>
+          <ellipse cx="86" cy="48"  rx="22" ry="18" fill="#3a8018" opacity=".85"/>
+          <ellipse cx="68" cy="66"  rx="16" ry="12" fill="#348018" opacity=".80"/>
+          <ellipse cx="98" cy="58"  rx="15" ry="11" fill="#2e7012" opacity=".78"/>
+          <ellipse cx="80" cy="38"  rx="18" ry="15" fill="#50a020"/>
+          <ellipse cx="96" cy="44"  rx="14" ry="12" fill="#48941c"/>
+          <ellipse cx="86" cy="28"  rx="13" ry="11" fill="#5ab022"/>
+          <ellipse cx="80" cy="24"  rx="8"  ry="6"  fill="#78cc30" opacity=".55"/>
+
+          <!-- RIGHT CLIFF + REALISTIC TREE (waterfall source) -->
+          <path d="M254,186 Q253,155 260,134 Q267,114 271,104 L295,104 Q298,115 297,136 Q295,156 290,186Z" fill="#6a8830"/>
+          <path d="M254,186 Q256,162 260,140 Q264,120 268,110" stroke="#4a6020" stroke-width="3" fill="none" opacity=".5"/>
+          <ellipse cx="276" cy="104" rx="22" ry="7" fill="#7aa838"/>
+          <!-- tree on right cliff -->
+          <path d="M255,186 C254,174 253,160 254,148 C255,138 257,132 258,126" stroke="#5a3010" stroke-width="5" fill="none" stroke-linecap="round"/>
+          <path d="M255,186 C254,174 253,160 254,148 C255,138 257,132 258,126" stroke="#7a4828" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M255,160 C246,152 238,148 234,144" stroke="#5a3010" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <ellipse cx="258" cy="116" rx="20" ry="16" fill="#3a8018" opacity=".85"/>
+          <ellipse cx="236" cy="136" rx="15" ry="11" fill="#348018" opacity=".80"/>
+          <ellipse cx="250" cy="106" rx="17" ry="14" fill="#50a020"/>
+          <ellipse cx="262" cy="98"  rx="13" ry="11" fill="#5ab022"/>
+          <ellipse cx="252" cy="94"  rx="9"  ry="7"  fill="#78cc30" opacity=".55"/>
+          <!-- REALISTIC WATERFALL — shaped fill + layered streams -->
+          <!-- cliff edge overhang -->
+          <path d="M262,104 Q270,101 280,102 Q290,101 298,104 Q296,108 280,109 Q264,108 262,104Z" fill="#5a7828" opacity=".9"/>
+          <!-- water body — filled shape, not just strokes -->
+          <path d="M264,104 Q267,118 265,135 Q263,152 261,168 Q260,178 262,186
+                   L272,186 Q270,178 271,168 Q272,152 273,135 Q275,118 272,104 Z"
+                fill="url(#wfall2)" opacity=".82"/>
+          <path d="M272,104 Q274,118 273,136 Q272,154 271,170 Q270,180 271,186
+                   L281,186 Q280,180 280,170 Q280,154 280,136 Q279,118 280,104 Z"
+                fill="url(#wfall2)" opacity=".75"/>
+          <path d="M280,104 Q282,116 281,133 Q280,150 279,167 Q278,178 279,186
+                   L288,186 Q288,178 288,167 Q288,150 288,133 Q288,116 289,106 Z"
+                fill="url(#wfall2)" opacity=".62"/>
+          <!-- highlight streaks — white glints on water surface -->
+          <path d="M266,108 Q267,124 266,142 Q265,158 264,172" stroke="rgba(255,255,255,.45)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          <path d="M276,106 Q277,122 276,140 Q275,156 275,170" stroke="rgba(255,255,255,.30)" stroke-width="1"   fill="none" stroke-linecap="round"/>
+          <path d="M284,108 Q285,122 284,138 Q283,154 283,168" stroke="rgba(255,255,255,.22)" stroke-width="1"   fill="none" stroke-linecap="round"/>
+          <!-- mist/glow behind waterfall -->
+          <ellipse cx="276" cy="150" rx="20" ry="45" fill="rgba(180,230,255,.14)" filter="url(#wglow2)"/>
+          <!-- splash pool at base -->
+          <ellipse cx="276" cy="188" rx="26" ry="9"  fill="rgba(140,215,255,.62)"/>
+          <ellipse cx="276" cy="188" rx="36" ry="12" fill="rgba(100,185,255,.25)"/>
+          <!-- ripple rings in pool -->
+          <ellipse cx="276" cy="189" rx="18" ry="5"  fill="none" stroke="rgba(255,255,255,.40)" stroke-width="1.2"/>
+          <ellipse cx="276" cy="189" rx="28" ry="7.5" fill="none" stroke="rgba(255,255,255,.22)" stroke-width="1"/>
+          <!-- foam dots at base -->
+          <circle cx="268" cy="187" r="2.5" fill="rgba(255,255,255,.70)"/>
+          <circle cx="278" cy="185" r="2"   fill="rgba(255,255,255,.60)"/>
+          <circle cx="286" cy="188" r="2.5" fill="rgba(255,255,255,.65)"/>
+          <circle cx="272" cy="190" r="1.5" fill="rgba(255,255,255,.55)"/>
+          <circle cx="283" cy="191" r="1.8" fill="rgba(255,255,255,.50)"/>
+          <!-- flowers + mushroom -->
+          <circle cx="130" cy="178" r="5" fill="#ff68a0"/><circle cx="150" cy="174" r="4" fill="#ffa018"/>
+          <circle cx="166" cy="180" r="5" fill="#e048c0"/><circle cx="200" cy="176" r="4" fill="#ff5858"/>
+          <rect x="144" y="172" width="6" height="10" rx="2" fill="#f5d498"/>
+          <ellipse cx="147" cy="172" rx="11" ry="6" fill="#df3e28"/>
+          <circle cx="143" cy="171" r="1.5" fill="white" opacity=".7"/>
+          <circle cx="152" cy="170" r="1.5" fill="white" opacity=".7"/>
+          <!-- small rainbow -->
+          <path d="M90,162 Q150,100 242,156" fill="none" stroke="rgba(255,98,98,.22)" stroke-width="4"/>
+          <path d="M90,162 Q150,108 242,156" fill="none" stroke="rgba(255,198,48,.18)" stroke-width="4"/>
+          <path d="M90,162 Q150,116 242,156" fill="none" stroke="rgba(78,198,78,.18)" stroke-width="4"/>
+          <path d="M90,162 Q150,122 242,156" fill="none" stroke="rgba(78,118,255,.18)" stroke-width="4"/>
+        </svg>
+        <div class="tap-ring" style="width:50px;height:102px;top:22%;left:72%;margin-left:-25px;border-radius:25px;--rb:scale(1);--rh:scale(1.12);"></div>
+        <div class="tap-label" style="top:17%;left:68%;">tap waterfall 💧</div>
+      </div>
+      <div class="island-shadow" style="--if:6.8s;--ifdel:-1.5s;"></div>
+
+      <div class="msg-panel" id="mp2">
+        <div class="msg-card card-2">
+          <div class="msg-from">💧 Prachi the pearl</div>
+          <span class="msg-line strong">Stay hydrated</span>
+          <span class="msg-line">Stay happy,</span>
+          <span class="msg-line accent">Stay Motivated.</span>
+          
+          <span class="msg-line">Do not Dare To Doubt. You Are Amazing! </span>
+          <span class="msg-seal">Trust Me💧🌿🌈</span>
+          <button class="msg-close" data-panel="mp2" data-island="it2">wapas jao 🌅</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ISLAND 3 — Rainbow ═════════════════ -->
+    <div class="island-block">
+      <div class="island-tap" id="it3" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Island 3 — tap the rainbow"
+           style="--if:4.8s;--ifdel:-2.2s;--tilt:9deg;">
+        <svg class="island-svg" viewBox="0 0 380 244" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="side3" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#806050"/><stop offset="60%" stop-color="#5c4230"/><stop offset="100%" stop-color="#3c2812"/></linearGradient>
+            <radialGradient id="ig3" cx="50%" cy="25%" r="70%">
+              <stop offset="0%"  stop-color="#9ad250"/>
+              <stop offset="60%" stop-color="#70b222"/>
+              <stop offset="100%" stop-color="#4a780e"/>
+            </radialGradient>
+            <radialGradient id="ist3" cx="50%" cy="0%" r="80%">
+              <stop offset="0%"  stop-color="#a07e5e"/>
+              <stop offset="100%" stop-color="#6a4e2e"/>
+            </radialGradient>
+            <filter id="rbglow"><feGaussianBlur stdDeviation="3.5"/></filter>
+          </defs>
+          <!-- stone side -->
+          <path d="M32,183 Q68,211 143,220 Q190,227 237,220 Q312,211 348,183 L348,202 Q312,230 237,240 Q190,246 143,240 Q68,230 32,202 Z" fill="url(#side3)" opacity=".85"/>
+          <path d="M75,189 Q75,206 77,218" stroke="rgba(255,255,255,.07)" stroke-width="1.5" fill="none"/>
+          <path d="M295,187 Q295,204 297,216" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <ellipse cx="190" cy="181" rx="158" ry="40" fill="url(#ig3)"/>
+          <path d="M32,183 Q68,211 143,220 Q190,227 237,220 Q312,211 348,183 Q308,196 190,199 Q72,196 32,183Z" fill="url(#ist3)"/>
+          <!-- TAP: rainbow arch -->
+          <g filter="url(#rbglow)">
+            <path d="M40,184 Q60,80 190,60 Q320,80 340,184" fill="none" stroke="rgba(255,78,78,.62)"  stroke-width="5"/>
+            <path d="M50,184 Q70,94 190,74 Q310,94 330,184" fill="none" stroke="rgba(255,158,28,.62)" stroke-width="5"/>
+            <path d="M60,184 Q80,106 190,86 Q300,106 320,184" fill="none" stroke="rgba(255,228,28,.58)" stroke-width="5"/>
+            <path d="M70,184 Q90,116 190,96 Q290,116 310,184" fill="none" stroke="rgba(78,200,78,.58)"  stroke-width="5"/>
+            <path d="M80,184 Q100,125 190,108 Q280,125 300,184" fill="none" stroke="rgba(58,148,255,.58)" stroke-width="5"/>
+            <path d="M90,184 Q110,133 190,118 Q270,133 290,184" fill="none" stroke="rgba(158,78,255,.56)" stroke-width="5"/>
+          </g>
+          <!-- pot of gold -->
+          <ellipse cx="345" cy="182" rx="13" ry="9" fill="rgba(255,198,28,.68)"/>
+          <rect x="334" y="174" width="22" height="11" rx="3" fill="rgba(80,48,18,.82)"/>
+          <text x="345" y="174" font-size="12" text-anchor="middle">✨</text>
+          <!-- trees -->
+          <rect x="104" y="138" width="9" height="43" rx="3" fill="#5a3818"/>
+          <ellipse cx="108" cy="126" rx="25" ry="21" fill="#58a828"/>
+          <rect x="244" y="142" width="8" height="39" rx="2" fill="#5a3818"/>
+          <ellipse cx="248" cy="130" rx="23" ry="18" fill="#50a020"/>
+          <!-- bench + bunny -->
+          <rect x="167" y="172" width="46" height="5" rx="2" fill="#c8a058"/>
+          <rect x="171" y="177" width="4" height="9" rx="1" fill="#a07838"/>
+          <rect x="205" y="177" width="4" height="9" rx="1" fill="#a07838"/>
+          <ellipse cx="192" cy="178" rx="8" ry="7" fill="white"/>
+          <ellipse cx="189" cy="170" rx="3" ry="6" fill="white"/>
+          <ellipse cx="195" cy="171" rx="3" ry="6" fill="white"/>
+          <circle cx="192" cy="178" r="2" fill="#ff8888"/>
+        </svg>
+        <div class="tap-ring" style="width:220px;height:95px;top:5%;left:50%;margin-left:-110px;border-radius:50% 50% 0 0 / 100% 100% 0 0;border-bottom:none;--rb:scale(1);--rh:scaleX(1.05);"></div>
+        <div class="tap-label" style="top:1%;">tap the rainbow 🌈</div>
+      </div>
+      <div class="island-shadow" style="--if:4.8s;--ifdel:-2.2s;"></div>
+
+      <div class="msg-panel" id="mp3">
+        <div class="msg-card card-3">
+          <div class="msg-from">🌈 Chulbuli Prachiiiee</div>
+          <span class="msg-line">Har rang h tum me,</span>
+          <span class="msg-line accent">jaha jo zaroori h wo nikalta h.</span>
+          <span class="msg-line">Itni tareef kaafi h ki aur karunnnn... —</span>
+          <span class="msg-line accent strong">ME to din bhar hi kar dunga.</span>
+          <span class="msg-line accent strong">Badhiya se raho. 🌈</span>
+          <span class="msg-line">Ange ka sab sochna chhor ke mind ko free chhor do.</span>
+          <span class="msg-line">Sab accha hi hoga. You'll get everything you wish for💜</span>
+          <span class="msg-seal">If not today then tomorrow for sure🌈💜✨</span>
+          <button class="msg-close" data-panel="mp3" data-island="it3">wapas jao 🌅</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ISLAND 4 — Flower ══════════════════ -->
+    <div class="island-block">
+      <div class="island-tap" id="it4" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Island 4 — tap the glowing flower"
+           style="--if:6.0s;--ifdel:-3s;--tilt:12deg;">
+        <svg class="island-svg" viewBox="0 0 380 238" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="side4" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#7a6040"/><stop offset="60%" stop-color="#584228"/><stop offset="100%" stop-color="#382810"/></linearGradient>
+            <radialGradient id="ig4" cx="50%" cy="25%" r="70%">
+              <stop offset="0%"  stop-color="#a2da58"/>
+              <stop offset="60%" stop-color="#78b230"/>
+              <stop offset="100%" stop-color="#508018"/>
+            </radialGradient>
+            <radialGradient id="ist4" cx="50%" cy="0%" r="80%">
+              <stop offset="0%"  stop-color="#987e5e"/>
+              <stop offset="100%" stop-color="#684e2e"/>
+            </radialGradient>
+            <radialGradient id="flglow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"  stop-color="rgba(255,198,255,.88)"/>
+              <stop offset="100%" stop-color="rgba(255,98,200,.0)"/>
+            </radialGradient>
+            <filter id="fglow4"><feGaussianBlur stdDeviation="5.5"/></filter>
+          </defs>
+          <!-- stone side -->
+          <path d="M32,176 Q68,204 143,213 Q190,220 237,213 Q312,204 348,176 L348,196 Q312,224 237,232 Q190,238 143,232 Q68,224 32,196 Z" fill="url(#side4)" opacity=".86"/>
+          <path d="M80,182 Q80,200 82,212" stroke="rgba(255,255,255,.07)" stroke-width="1.5" fill="none"/>
+          <path d="M295,180 Q295,198 297,210" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <ellipse cx="190" cy="174" rx="158" ry="38" fill="url(#ig4)"/>
+          <path d="M32,176 Q68,204 143,213 Q190,220 237,213 Q312,204 348,176 Q308,189 190,192 Q72,189 32,176Z" fill="url(#ist4)"/>
+          <!-- grass hills -->
+          <ellipse cx="90" cy="167" rx="52" ry="18" fill="#8ac038" opacity=".58"/>
+          <ellipse cx="292" cy="164" rx="46" ry="15" fill="#78b828" opacity=".48"/>
+          <!-- TAP: giant flower -->
+          <g filter="url(#fglow4)">
+            <circle cx="190" cy="104" r="46" fill="url(#flglow)" opacity=".82"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ff80d0" transform="rotate(0,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ff80d0" transform="rotate(45,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ffa0e0" transform="rotate(90,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ff80d0" transform="rotate(135,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ffb0e8" transform="rotate(180,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ff80d0" transform="rotate(225,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ffa0e0" transform="rotate(270,190,104)"/>
+            <ellipse cx="190" cy="67" rx="12" ry="23" fill="#ff80d0" transform="rotate(315,190,104)"/>
+            <circle cx="190" cy="104" r="19" fill="#ffe058"/>
+            <circle cx="190" cy="104" r="13" fill="#ffb818"/>
+            <circle cx="186" cy="100" r="3" fill="rgba(255,255,255,.58)"/>
+          </g>
+          <path d="M190,122 Q186,148 185,174" stroke="#60a020" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <path d="M188,140 Q170,132 166,148 Q180,148 188,140Z" fill="#70b828"/>
+          <path d="M187,155 Q205,145 208,162 Q194,160 187,155Z" fill="#60a818"/>
+          <!-- flowers + butterfly -->
+          <circle cx="118" cy="169" r="6" fill="#ff5e78"/>
+          <circle cx="138" cy="165" r="4" fill="#ffb028"/>
+          <circle cx="244" cy="167" r="5" fill="#e048c0"/>
+          <circle cx="262" cy="164" r="4" fill="#ff6888"/>
+          <text x="163" y="124" font-size="16">🦋</text>
+        </svg>
+        <div class="tap-ring" style="width:80px;height:80px;top:18%;left:50%;margin-left:-40px;border-radius:50%;--rb:scale(1);--rh:scale(1.14);"></div>
+        <div class="tap-label" style="top:12%;">tap the flower 🌸</div>
+      </div>
+      <div class="island-shadow" style="--if:6.0s;--ifdel:-3s;"></div>
+
+      <div class="msg-panel" id="mp4">
+        <div class="msg-card card-4">
+          <div class="msg-from">🌸 The flower</div>
+          <span class="msg-line">Yeh phool dekha?</span>
+          <span class="msg-line accent">Woh kisi attention ke liye nahi khilta.</span>
+          <span class="msg-line">Woh bas khilta hai — kyunki woh usi ke liye bana hai.</span>
+          <span class="msg-line accent strong">Tum bhi jab apni nature mein hoti ho —</span>
+          <span class="msg-line accent">genuine, caring, real —</span>
+          <span class="msg-line">woh sabse zyada beautiful version of you hai. 🌸</span>
+          <span class="msg-line">Koi performance nahi chahiye.</span>
+          <span class="msg-line accent strong">Bas tum(the real you). Bas yahi kaafi hai. 💚</span>
+          <span class="msg-seal">🌸💚🦋</span>
+          <button class="msg-close" data-panel="mp4" data-island="it4">wapas jao 🌅</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ ISLAND 5 — Star jar ════════════════ -->
+    <div class="island-block">
+      <div class="island-tap" id="it5" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Island 5 — tap the star jar"
+           style="--if:5.6s;--ifdel:-1s;--tilt:11deg;">
+        <svg class="island-svg" viewBox="0 0 380 246" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="side5" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#806858"/><stop offset="60%" stop-color="#5c4a38"/><stop offset="100%" stop-color="#3c2e16"/></linearGradient>
+            <radialGradient id="ig5" cx="50%" cy="25%" r="70%">
+              <stop offset="0%"  stop-color="#aada60"/>
+              <stop offset="60%" stop-color="#80ba38"/>
+              <stop offset="100%" stop-color="#588018"/>
+            </radialGradient>
+            <radialGradient id="ist5" cx="50%" cy="0%" r="80%">
+              <stop offset="0%"  stop-color="#a08e5e"/>
+              <stop offset="100%" stop-color="#706032"/>
+            </radialGradient>
+            <radialGradient id="jarglow" cx="50%" cy="38%" r="62%">
+              <stop offset="0%"  stop-color="rgba(255,242,118,.95)"/>
+              <stop offset="100%" stop-color="rgba(255,180,28,.0)"/>
+            </radialGradient>
+            <filter id="jglow5"><feGaussianBlur stdDeviation="6.5"/></filter>
+          </defs>
+          <!-- stone side -->
+          <path d="M32,184 Q68,212 143,221 Q190,228 237,221 Q312,212 348,184 L348,204 Q312,232 237,242 Q190,248 143,242 Q68,232 32,204 Z" fill="url(#side5)" opacity=".86"/>
+          <path d="M78,190 Q78,208 80,220" stroke="rgba(255,255,255,.07)" stroke-width="1.5" fill="none"/>
+          <path d="M295,188 Q295,206 297,218" stroke="rgba(255,255,255,.06)" stroke-width="1" fill="none"/>
+          <ellipse cx="190" cy="182" rx="158" ry="40" fill="url(#ig5)"/>
+          <path d="M32,184 Q68,212 143,221 Q190,228 237,221 Q312,212 348,184 Q308,197 190,200 Q72,197 32,184Z" fill="url(#ist5)"/>
+          <!-- trees -->
+          <rect x="66" y="128" width="10" height="54" rx="3" fill="#5a3818"/>
+          <ellipse cx="70" cy="115" rx="26" ry="22" fill="#58a828"/>
+          <ellipse cx="60" cy="123" rx="17" ry="15" fill="#6ac030"/>
+          <rect x="296" y="132" width="9" height="50" rx="3" fill="#5a3818"/>
+          <ellipse cx="300" cy="120" rx="24" ry="20" fill="#50a020"/>
+          <ellipse cx="311" cy="128" rx="16" ry="14" fill="#60b028"/>
+          <!-- fireflies -->
+          <circle cx="118" cy="143" r="3" fill="rgba(198,255,98,.78)"/>
+          <circle cx="248" cy="136" r="2.5" fill="rgba(198,255,98,.68)"/>
+          <circle cx="153" cy="133" r="2" fill="rgba(178,255,78,.58)"/>
+          <!-- TAP: glowing jar -->
+          <g filter="url(#jglow5)">
+            <ellipse cx="190" cy="108" rx="43" ry="52" fill="url(#jarglow)" opacity=".85"/>
+            <path d="M164,145 Q162,104 166,89 L214,89 Q218,104 216,145Z" fill="rgba(218,238,255,.62)" stroke="rgba(178,198,255,.78)" stroke-width="2"/>
+            <rect x="162" y="82" width="56" height="10" rx="4" fill="rgba(158,178,198,.8)" stroke="rgba(138,158,178,.88)" stroke-width="1.5"/>
+            <text x="180" y="118" font-size="12" fill="rgba(255,228,58,.95)">⭐</text>
+            <text x="196" y="130" font-size="10" fill="rgba(255,208,48,.9)">✨</text>
+            <text x="177" y="137" font-size="9"  fill="rgba(255,238,78,.85)">⭐</text>
+            <text x="198" y="113" font-size="8"  fill="rgba(255,198,38,.8)">✨</text>
+            <path d="M168,99 Q168,87 177,85" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </g>
+          <!-- stepping stones -->
+          <ellipse cx="138" cy="181" rx="17" ry="6" fill="#b0a07e" opacity=".68"/>
+          <ellipse cx="174" cy="184" rx="13" ry="5" fill="#a09068" opacity=".62"/>
+          <ellipse cx="208" cy="181" rx="15" ry="5" fill="#b0a07e" opacity=".68"/>
+          <ellipse cx="241" cy="183" rx="14" ry="5" fill="#a09068" opacity=".62"/>
+        </svg>
+        <div class="tap-ring" style="width:70px;height:80px;top:22%;left:50%;margin-left:-35px;border-radius:14px;--rb:scale(1);--rh:scale(1.12);"></div>
+        <div class="tap-label" style="top:16%;">tap the jar ⭐</div>
+      </div>
+      <div class="island-shadow" style="--if:5.6s;--ifdel:-1s;"></div>
+
+      <div class="msg-panel" id="mp5">
+        <div class="msg-card card-5">
+          <div class="msg-from">⭐ Most Important thing.</div>
+          <span class="msg-line strong">Prachi,</span>
+          <span class="msg-line">pata nhi ye sab mere mn me kyun aa rha. —</span>
+          <span class="msg-line accent">shyd isiliye kyuki ye aakhri time crucial hota h.  isi time log jaan booch ke kuch kuch bol ke depressing of self doubt wali feel de dete h. </span>
+          <span class="msg-line accent">Tum bach ke rehna aise log se, koi milta h to thankful rehna, ⭐</span>
+          <span class="msg-line">bhagwan ke liye, ki unhone dikha diya kon tumhara accha dekh rha or kon nhi to uske hisab  se reh sako ange taaki..</span>
+          <span class="msg-line"> Baaki tumhe kisi ki koi negative baat sunne ki koi jaroorat nhi..</span>
+          <span class="msg-line accent strong">Logon ka kaam h kehna. Khud ke bure haal honge aur moon me kami nikalenge...</span>
+
+          <span class="msg-seal">⭐Tum sabse acchi💛</span>
+          <button class="msg-close" data-panel="mp5" data-island="it5">wapas jao 🌅</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /islands -->
+
+  <!-- Progress dots -->
+  <div class="progress" id="progress">
+    <div class="prog-dot" id="pd1"></div>
+    <div class="prog-dot" id="pd2"></div>
+    <div class="prog-dot" id="pd3"></div>
+    <div class="prog-dot" id="pd4"></div>
+    <div class="prog-dot" id="pd5"></div>
+  </div>
+
+  <footer><div class="footer-pill">Yeah this one looks disgusting , I know I know🤍</div></footer>
+
+</div><!-- /page -->
+
+<script>
+'use strict';
+
+/* ── Sun rays ─────────────────── */
+const raysEl = document.getElementById('sunRays');
+for (let i = 0; i < 14; i++) {
+  const r = document.createElement('div');
+  r.className = 'ray';
+  const len = 90 + Math.random() * 110;
+  r.style.cssText = `width:${len}px;left:50%;top:50%;transform:rotate(${i*(360/14)}deg);opacity:${(.18+Math.random()*.3).toFixed(2)};`;
+  raysEl.appendChild(r);
+}
+
+/* ── Particles (12 only) ──────── */
+const pEl = document.getElementById('particles');
+for (let i = 0; i < 12; i++) {
+  const p = document.createElement('div');
+  p.className = 'speck';
+  p.style.cssText = `
+    left:${Math.random()*94+2}%;bottom:${Math.random()*55+5}%;
+    --sw:${(Math.random()*3+2.5).toFixed(1)}px;
+    --spd:${(Math.random()*8+10).toFixed(1)}s;
+    --spdel:-${(Math.random()*16).toFixed(1)}s;
+    --spx:${(Math.random()*50-25).toFixed(0)}px;`;
+  pEl.appendChild(p);
+}
+
+/* ═══════════════════════════════════════
+   DAWN SOUNDSCAPE
+   Rules: all nodes stored, stoppable
+   Cricket/bird/harp scheduled randomly
+═══════════════════════════════════════ */
+let ctx=null, soundOn=true, ambN=[], ambG=[], birdT=null, harpT=null;
+
+function getCtx(){
+  if(!ctx) ctx=new(window.AudioContext||window.webkitAudioContext)();
+  if(ctx.state==='suspended') ctx.resume();
+  return ctx;
+}
+function mkNoise(c,s){
+  const b=c.createBuffer(1,c.sampleRate*s,c.sampleRate);
+  const d=b.getChannelData(0); for(let i=0;i<d.length;i++) d[i]=Math.random()*2-1; return b;
+}
+function nSrc(c,b){const s=c.createBufferSource();s.buffer=b;s.loop=true;return s;}
+
+function startAmbience(){
+  if(!soundOn) return; stopAmbience();
+  try{
+    const c=getCtx();
+    const M=c.createGain(); M.gain.value=0; M.connect(c.destination); ambG.push(M);
+    // soft wind
+    const ws=nSrc(c,mkNoise(c,5));
+    const wbp=c.createBiquadFilter(); wbp.type='bandpass'; wbp.frequency.value=580; wbp.Q.value=0.38;
+    const wg=c.createGain(); wg.gain.value=0.07;
+    ws.connect(wbp); wbp.connect(wg); wg.connect(M); ws.start(); ambN.push(ws);
+    // airy shimmer
+    const as=nSrc(c,mkNoise(c,3));
+    const ahp=c.createBiquadFilter(); ahp.type='highpass'; ahp.frequency.value=3800;
+    const alp=c.createBiquadFilter(); alp.type='lowpass'; alp.frequency.value=5800;
+    const ag=c.createGain(); ag.gain.value=0.022;
+    as.connect(ahp); ahp.connect(alp); alp.connect(ag); ag.connect(M); as.start(); ambN.push(as);
+    M.gain.setTargetAtTime(1.0, c.currentTime, 4.5);
+    scheduleBird(); scheduleHarp();
+  }catch(e){}
+}
+
+function playBird(){
+  if(!soundOn||!ctx) return;
+  try{
+    const c=getCtx(); const t=c.currentTime;
+    [{f1:2200,f2:2620,d:.14},{f1:2520,f2:2080,d:.12},{f1:2820,f2:3200,d:.16}].forEach((n,i)=>{
+      const o=c.createOscillator();const g=c.createGain();
+      const m=c.createOscillator();const mg=c.createGain();
+      o.type='sine'; o.frequency.setValueAtTime(n.f1,t+i*.22); o.frequency.linearRampToValueAtTime(n.f2,t+i*.22+n.d);
+      m.frequency.value=9; mg.gain.value=45; m.connect(mg); mg.connect(o.frequency);
+      g.gain.setValueAtTime(0,t+i*.22); g.gain.linearRampToValueAtTime(.052,t+i*.22+.02); g.gain.exponentialRampToValueAtTime(.001,t+i*.22+n.d);
+      o.connect(g); g.connect(c.destination); o.start(t+i*.22); m.start(t+i*.22); o.stop(t+i*.22+n.d+.03); m.stop(t+i*.22+n.d+.03);
+    });
+  }catch(e){}
+}
+function scheduleBird(){if(!soundOn)return; birdT=setTimeout(()=>{playBird();scheduleBird();},(Math.random()*10+5)*1000);}
+
+function playHarp(){
+  if(!soundOn||!ctx) return;
+  try{
+    const c=getCtx();
+    const sc=[523,659,784,1047,1319];
+    const n=3+Math.floor(Math.random()*3);
+    for(let i=0;i<n;i++){
+      const f=sc[Math.floor(Math.random()*sc.length)];
+      const o=c.createOscillator(); const g=c.createGain();
+      o.type='sine'; o.frequency.value=f;
+      const t=c.currentTime+i*(Math.random()*.18+.1);
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.09,t+.04); g.gain.exponentialRampToValueAtTime(.001,t+2.0);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+2.1);
+    }
+  }catch(e){}
+}
+function scheduleHarp(){if(!soundOn)return; harpT=setTimeout(()=>{playHarp();scheduleHarp();},(Math.random()*8+4)*1000);}
+
+function stopAmbience(){
+  ambN.forEach(n=>{try{n.stop();}catch(e){}});ambN=[];
+  ambG.forEach(g=>{try{g.gain.setTargetAtTime(0,ctx.currentTime,.4);}catch(e){}});ambG=[];
+  clearTimeout(birdT); clearTimeout(harpT);
+}
+
+function playDiscover(){
+  if(!soundOn)return;
+  try{
+    const c=getCtx();
+    [523,659,784,1047,1319,1568].forEach((f,i)=>{
+      const o=c.createOscillator();const g=c.createGain();
+      o.type='sine';o.frequency.value=f;
+      const t=c.currentTime+i*.07;
+      g.gain.setValueAtTime(0,t); g.gain.linearRampToValueAtTime(.11,t+.03); g.gain.exponentialRampToValueAtTime(.001,t+.75);
+      o.connect(g);g.connect(c.destination);o.start(t);o.stop(t+.8);
+    });
+  }catch(e){}
+}
+function playClose(){
+  if(!soundOn)return;
+  try{
+    const c=getCtx();const o=c.createOscillator();const g=c.createGain();
+    o.type='sine';o.frequency.setValueAtTime(440,c.currentTime);o.frequency.exponentialRampToValueAtTime(260,c.currentTime+.18);
+    g.gain.setValueAtTime(.13,c.currentTime);g.gain.exponentialRampToValueAtTime(.001,c.currentTime+.22);
+    o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.22);
+  }catch(e){}
+}
+
+/* ── Sound toggle ─────────────── */
+const sBtn=document.getElementById('soundBtn');
+document.addEventListener('click',function once(){ startAmbience(); document.removeEventListener('click',once); },{once:true});
+sBtn.addEventListener('click',e=>{
+  e.stopPropagation(); soundOn=!soundOn;
+  sBtn.textContent=soundOn?'🔊':'🔇';
+  soundOn?startAmbience():stopAmbience();
+});
+
+/* ── Island interaction ───────── */
+const MAP={it1:'mp1',it2:'mp2',it3:'mp3',it4:'mp4',it5:'mp5'};
+const DOTS={it1:'pd1',it2:'pd2',it3:'pd3',it4:'pd4',it5:'pd5'};
+const overlay=document.getElementById('overlay');
+
+function openIsland(el){
+  closeAll(); playDiscover();
+  el.setAttribute('aria-expanded','true');
+  document.getElementById(MAP[el.id]).classList.add('open');
+  overlay.classList.add('active'); overlay.removeAttribute('aria-hidden');
+  const dot=document.getElementById(DOTS[el.id]);
+  if(dot) dot.classList.add('done');
+  setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),55);
+}
+function closeOne(id){
+  const el=document.getElementById(id); if(el) el.setAttribute('aria-expanded','false');
+  const p=document.getElementById(MAP[id]); if(p) p.classList.remove('open');
+}
+function closeAll(){
+  Object.keys(MAP).forEach(closeOne);
+  overlay.classList.remove('active'); overlay.setAttribute('aria-hidden','true');
+}
+
+document.querySelectorAll('.island-tap').forEach(el=>{
+  el.addEventListener('click',e=>{
+    e.stopPropagation();
+    el.getAttribute('aria-expanded')==='true'
+      ?(playClose(),closeOne(el.id),overlay.classList.remove('active'),overlay.setAttribute('aria-hidden','true'))
+      :openIsland(el);
+  });
+  el.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}
+    if(e.key==='Escape'){playClose();closeAll();el.focus();}
+  });
+});
+
+document.querySelectorAll('.msg-close').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation(); playClose();
+    document.getElementById(btn.dataset.panel).classList.remove('open');
+    document.getElementById(btn.dataset.island).setAttribute('aria-expanded','false');
+    if(![...document.querySelectorAll('.island-tap')].some(t=>t.getAttribute('aria-expanded')==='true')){
+      overlay.classList.remove('active'); overlay.setAttribute('aria-hidden','true');
+    }
+  });
+});
+
+overlay.addEventListener('click',()=>{playClose();closeAll();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){playClose();closeAll();}});
+</script>
+</body>
+</html>

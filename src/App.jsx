@@ -48,6 +48,9 @@ const ExplanationDairy = lazy(() => import('./pages/Diaries/ExplanationDaies/Exp
 const RoseDay = lazy(() => import('./pages/Additional/Feb Week/RoseDay'));
 const TeddyDay = lazy(() => import('./pages/Additional/Feb Week/TeddyDay'));
 const TeddyQuest = lazy(() => import('./pages/Additional/Feb Week/TeddyQuest'));
+const AppreciationGallery = lazy(() => import('./pages/AppreciationGallery/AppreciationGallery'));
+const AppreciationViewer = lazy(() => import('./pages/AppreciationViewer/AppreciationViewer'));
+
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -96,6 +99,8 @@ const AnimatedRoutes = () => {
             <Route path="/view" element={<PageWrapper><LegacyViewer /></PageWrapper>} />
             <Route path="/diaries/jan-23-native" element={<PageWrapper><Jan23Diary /></PageWrapper>} />
             <Route path="/diary/:id" element={<PageWrapper><DiaryViewer /></PageWrapper>} />
+            <Route path="/appreciation" element={<PageWrapper><AppreciationGallery /></PageWrapper>} />
+            <Route path="/appreciation/:id" element={<PageWrapper><AppreciationViewer /></PageWrapper>} />
           </Route>
         </Route>
 

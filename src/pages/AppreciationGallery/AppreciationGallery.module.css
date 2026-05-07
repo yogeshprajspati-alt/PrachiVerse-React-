@@ -1,0 +1,109 @@
+.container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #0a0e27 0%, #0d1035 100%);
+}
+
+.backButton {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  color: white;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: rgba(167, 139, 250, 0.7);
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 16px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  border-color: rgba(167, 139, 250, 0.5);
+  box-shadow: 0 8px 30px rgba(167, 139, 250, 0.15);
+  transform: translateY(-4px);
+}
+
+.emoji {
+  font-size: 3rem;
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  font-size: 0.75rem;
+  color: rgba(167, 139, 250, 0.6);
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.openButton {
+  background: linear-gradient(135deg, #a78bfa, #ec4899);
+  border: none;
+  border-radius: 50px;
+  color: white;
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+}
