@@ -113,6 +113,7 @@
     opacity: 0.5;
     animation: breatheOrb 8s infinite alternate;
     z-index: 0;
+    will-change: transform, opacity;
 }
 
 .orb1 {
@@ -216,6 +217,7 @@
     border: 1px solid rgba(255, 182, 193, 0.4);
     backface-visibility: hidden;
     background-image: radial-gradient(circle at top right, rgba(255, 192, 203, 0.15) 0%, transparent 50%), linear-gradient(to right, rgba(255, 255, 255, 0.6), rgba(255, 240, 245, 0.8));
+    will-change: transform;
 }
 
 .flipped {
@@ -617,7 +619,58 @@
     background: #ff1493;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
+    /* Fix 6: Slow down background gradient animation (12s → 25s) */
+    .diaryWrapper {
+        animation: gradientBreathe 25s ease-in-out infinite alternate;
+    }
+
+    /* Fix 3: Disable light rays entirely — invisible benefit, costly rotation */
+    .lightRays {
+        display: none;
+    }
+
+    /* Fix 1: Simplify orbs — halved blur, lower opacity, no animation */
+    .orb {
+        filter: blur(40px);
+        opacity: 0.3;
+        animation: none;
+    }
+
+    .orb1 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .orb2 {
+        width: 300px;
+        height: 300px;
+    }
+
+    /* Fix 2: Remove petal glow (box-shadow on 12 animating elements) */
+    .petal {
+        box-shadow: none;
+        opacity: 0.6;
+    }
+
+    /* Fix 4: Remove expensive backdrop-filter from cover and intro */
+    .coverFrame {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(255, 255, 255, 0.5);
+    }
+
+    .introScreen {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    /* Fix 5: Stop cover glow rotation on mobile */
+    .coverGlow::before {
+        animation: none;
+    }
+
+    /* Notebook sizing */
     .notebookContainer {
         width: 95vw;
         height: 70vh;
@@ -626,7 +679,7 @@
     .introText {
         font-size: 3.2rem;
     }
-    
+
     .coverTitle {
         font-size: 3rem;
     }

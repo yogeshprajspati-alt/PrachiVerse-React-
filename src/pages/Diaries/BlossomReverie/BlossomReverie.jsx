@@ -4,10 +4,11 @@ import BackButton from '../../../components/BackButton/BackButton';
 import bgMusic from '../../../assets/diariesbgm/blossomreverie.mp3';
 
 const BlossomReverie = () => {
+    const isMobile = window.innerWidth < 768; // Reduce load on mobile GPUs
     const [isIntroVisible, setIsIntroVisible] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
     const [particles] = useState(() =>
-        Array.from({ length: 30 }).map((_, i) => ({
+        Array.from({ length: isMobile ? 12 : 30 }).map((_, i) => ({
             id: i,
             size: Math.random() * 10 + 5,
             left: Math.random() * 100,
