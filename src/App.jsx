@@ -36,18 +36,12 @@ const BirthdayMain = lazy(() => import('./pages/BirthdayMain/BirthdayMain'));
 const BirthdayDairy = lazy(() => import('./pages/BirthdayMain/BirthdayDairy'));
 const GameBirthday1 = lazy(() => import('./pages/BirthdayMain/GameBirthday1'));
 const GameBirthday2 = lazy(() => import('./pages/BirthdayMain/GameBirthday2'));
-const JourneyBreak = lazy(() => import('./pages/Additional/JourneyBreak'));
 const NewYear2026 = lazy(() => import('./pages/Occasions/NewYear2026'));
 const MockTest1 = lazy(() => import('./pages/NeetStuff/MockTest1'));
 const MockTest2 = lazy(() => import('./pages/NeetStuff/MockTest2'));
-const NeetBuddyManual = lazy(() => import('./pages/Additional/NeetBuddyManual'));
-const PrachiNeetApp = lazy(() => import('./pages/Additional/PrachiNeetApp'));
 const Spiral = lazy(() => import('./pages/Diaries/SpiralDesign/Spiral'));
 const ApologyDairy = lazy(() => import('./pages/Diaries/ApologyDiary/ApologyDairy'));
 const ExplanationDairy = lazy(() => import('./pages/Diaries/ExplanationDaies/ExplanationDairy'));
-const RoseDay = lazy(() => import('./pages/Additional/Feb Week/RoseDay'));
-const TeddyDay = lazy(() => import('./pages/Additional/Feb Week/TeddyDay'));
-const TeddyQuest = lazy(() => import('./pages/Additional/Feb Week/TeddyQuest'));
 const AppreciationGallery = lazy(() => import('./pages/AppreciationGallery/AppreciationGallery'));
 const AppreciationViewer = lazy(() => import('./pages/AppreciationViewer/AppreciationViewer'));
 
@@ -83,18 +77,12 @@ const AnimatedRoutes = () => {
             <Route path="/birthday-dairy" element={<PageWrapper><BirthdayDairy /></PageWrapper>} />
             <Route path="/games/birthday-game-1" element={<PageWrapper><GameBirthday1 /></PageWrapper>} />
             <Route path="/games/birthday-game-2" element={<PageWrapper><GameBirthday2 /></PageWrapper>} />
-            <Route path="/journey-break" element={<PageWrapper><JourneyBreak /></PageWrapper>} />
             <Route path="/occasions/new-year-2026" element={<PageWrapper><NewYear2026 /></PageWrapper>} />
             <Route path="/neet-stuff/mock-test-1" element={<PageWrapper><MockTest1 /></PageWrapper>} />
             <Route path="/neet-stuff/mock-test-2" element={<PageWrapper><MockTest2 /></PageWrapper>} />
-            <Route path="/neet-buddy" element={<PageWrapper><NeetBuddyManual /></PageWrapper>} />
-            <Route path="/prachi-neet-app" element={<PageWrapper><PrachiNeetApp /></PageWrapper>} />
             <Route path="/diaries/spiral-design" element={<PageWrapper><Spiral /></PageWrapper>} />
             <Route path="/diaries/apology-diary" element={<PageWrapper><ApologyDairy /></PageWrapper>} />
             <Route path="/diaries/explanation-diary" element={<PageWrapper><ExplanationDairy /></PageWrapper>} />
-            <Route path="/feb-week/rose-day" element={<PageWrapper><RoseDay /></PageWrapper>} />
-            <Route path="/feb-week/teddy-day" element={<PageWrapper><TeddyDay /></PageWrapper>} />
-            <Route path="/feb-week/teddy-quest" element={<PageWrapper><TeddyQuest /></PageWrapper>} />
 
             <Route path="/view" element={<PageWrapper><LegacyViewer /></PageWrapper>} />
             <Route path="/diaries/jan-23-native" element={<PageWrapper><Jan23Diary /></PageWrapper>} />
