@@ -55,26 +55,45 @@ const particleContainerVariants = {
 };
 
 const SplashScreen = ({ onComplete }) => {
+    // Fix 1: Detect in-app browsers (Snapchat, Instagram, etc.) + mobile
+    const isInAppBrowser = /FBAN|FBAV|Instagram|Snapchat|Line|WhatsApp|MicroMessenger/i.test(
+        navigator.userAgent
+    );
+    const isMobile = window.innerWidth < 768;
+    const isLowPower = isInAppBrowser || isMobile;
+
+    // Fix 4: Simplified letter animation for low-power mode (no spring / blur)
+    const simplifiedLetterVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { duration: 0.3 }
+        }
+    };
     const [isVisible, setIsVisible] = useState(true);
+    // Fix 2: Reduce particle count drastically in low-power mode (35 → 8)
     const [particles] = useState(() =>
-        Array.from({ length: 35 }).map((_, i) => ({
+        Array.from({ length: isLowPower ? 8 : 35 }).map((_, i) => ({
             id: i,
             left: Math.random() * 100 + '%',
             delay: Math.random() * 2,
             duration: 3 + Math.random() * 3,
-            size: 2 + Math.random() * 5,
-            x: Math.random() * 100 - 50,
-            scale: Math.random() + 0.8
+            size: 2 + Math.random() * 4,
+            x: Math.random() * 60 - 30,
+            scale: Math.random() + 0.5
         }))
     );
 
     useEffect(() => {
+        // Fix 6: Faster splash for in-app browsers (they're slower to render)
+        const splashDuration = isLowPower ? 1800 : 2500;
+        const exitDuration = isLowPower ? 400 : 800;
         const timer = setTimeout(() => {
             setIsVisible(false);
             if (onComplete) {
-                setTimeout(onComplete, 800);
+                setTimeout(onComplete, exitDuration);
             }
-        }, 2500);
+        }, splashDuration);
 
         return () => clearTimeout(timer);
     }, [onComplete]);
@@ -87,14 +106,18 @@ const SplashScreen = ({ onComplete }) => {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    style={splashStyles}
+                    style={{ ...splashStyles, willChange: 'clip-path, opacity' }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1, transition: { duration: 0.5 } }}
-                    exit={{
-                        opacity: 0,
-                        clipPath: 'circle(0% at 50% 50%)', // Original cinematic iris exit
-                        transition: { duration: 1, ease: [0.76, 0, 0.24, 1] }
-                    }}
+                    exit={isLowPower
+                        // Fix 5: Simple fade for low-power (clipPath iris is expensive in WebView)
+                        ? { opacity: 0, transition: { duration: 0.4 } }
+                        : {
+                            opacity: 0,
+                            clipPath: 'circle(0% at 50% 50%)',
+                            transition: { duration: 1.2, ease: [0.76, 0, 0.24, 1] }
+                        }
+                    }
                 >
                     {/* Floating Background Particles */}
                     <motion.div
@@ -114,8 +137,11 @@ const SplashScreen = ({ onComplete }) => {
                                     height: p.size,
                                     borderRadius: '50%',
                                     background: 'rgba(236, 72, 153, 0.8)',
-                                    boxShadow: '0 0 15px rgba(236, 72, 153, 0.9), 0 0 30px rgba(167, 139, 250, 0.8)',
-                                    filter: 'blur(1px)' // Softer particles
+                                    // Fix 3: Skip heavy effects in low-power mode
+                                    ...(isLowPower ? {} : {
+                                        boxShadow: '0 0 15px rgba(236, 72, 153, 0.9), 0 0 30px rgba(167, 139, 250, 0.8)',
+                                        filter: 'blur(1px)'
+                                    })
                                 }}
                                 animate={{
                                     y: [0, -window.innerHeight * 1.2],
@@ -155,7 +181,7 @@ const SplashScreen = ({ onComplete }) => {
                         {charsArray.map((char, index) => (
                             <motion.span
                                 key={index}
-                                variants={letterVariants}
+                                variants={isLowPower ? simplifiedLetterVariants : letterVariants}
                                 style={{
                                     display: 'inline-block',
                                     fontSize: 'clamp(2.2rem, 9vw, 5.5rem)',
