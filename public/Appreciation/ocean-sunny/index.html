@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>For Prachi &#128026;</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --sky1: #c9e8f5;
+      --sky2: #a8d8f0;
+      --sky3: #7ec8e8;
+      --sea1: #3fa9d0;
+      --sea2: #2286b0;
+      --sea3: #1a6a90;
+      --sand1: #fdf0c0;
+      --sand2: #f5d97a;
+      --sand3: #e8c050;
+      --sand4: #d4a830;
+      --foam: #ffffff;
+      --text-dark: #1a4a60;
+      --text-mid: #2a6a85;
+      --text-sand: #7a5010;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Quicksand", sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--sky1);
+    }
+
+    .scene {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(
+        180deg,
+        #d6eef8 0%,
+        #b0d9f0 18%,
+        #7ec8e8 32%,
+        #3fa9d0 42%,
+        #2286b0 55%,
+        #1a6a90 68%,
+        #155c7a 76%,
+        #e8c87a 78%,
+        #f0d880 82%,
+        #fae890 88%,
+        #fdf0a0 100%
+      );
+    }
+
+    .scene::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 240, 120, 0.55) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .scene::after {
+      content: "";
+      position: absolute;
+      top: 36%;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.04) 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .cloud {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      top: var(--ct, 6%);
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.72);
+      filter: blur(2px);
+      opacity: 0.85;
+      animation: cloudDrift var(--cd, 40s) linear infinite;
+      animation-delay: var(--cdel, 0s);
+    }
+
+    @keyframes cloudDrift {
+      from { transform: translateX(-120%); }
+      to { transform: translateX(120vw); }
+    }
+
+    .gull {
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      font-size: var(--gfs, 1rem);
+      top: var(--gt, 12%);
+      filter: drop-shadow(0 2px 4px rgba(0, 80, 120, 0.2));
+      animation: gullFly var(--gd, 28s) linear infinite;
+      animation-delay: var(--gdel, 0s);
+      opacity: 0.75;
+    }
+
+    @keyframes gullFly {
+      from { left: -8%; }
+      to { left: 108%; }
+    }
+
+    .waves {
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      top: 38%;
+      left: 0;
+      right: 0;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .wave-row {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background-repeat: repeat-x;
+      background-size: 50% 100%;
+    }
+
+    .wave-row-a {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='rgba(255,255,255,0.18)' d='M0,30 C180,50 360,10 540,30 C720,50 900,10 1080,30 C1260,50 1380,20 1440,30 L1440,60 L0,60Z'/%3E%3C/svg%3E");
+      animation: waveGlide 6s linear infinite;
+    }
+
+    .wave-row-b {
+      top: 10px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60'%3E%3Cpath fill='rgba(255,255,255,0.10)' d='M0,20 C240,45 480,5 720,25 C960,45 1200,5 1440,20 L1440,60 L0,60Z'/%3E%3C/svg%3E");
+      animation: waveGlide 9s linear infinite reverse;
+    }
+
+    @keyframes waveGlide {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .fish {
+      position: fixed;
+      z-index: 3;
+      pointer-events: none;
+      top: var(--ft, 55%);
+      font-size: var(--ffs, 1.4rem);
+      opacity: 0.75;
+      animation: fishSwim var(--ffd, 22s) linear infinite;
+      animation-delay: var(--fdel, 0s);
+      filter: drop-shadow(0 2px 6px rgba(0, 80, 130, 0.25));
+    }
+
+    @keyframes fishSwim {
+      0% { left: -10%; transform: scaleX(1); }
+      49% { left: 110%; transform: scaleX(1); }
+      50% { left: -10%; transform: scaleX(-1); opacity: 0; }
+      51% { opacity: 0.75; }
+      100% { left: 110%; transform: scaleX(-1); }
+    }
+
+    .sea-creature {
+      position: fixed;
+      z-index: 3;
+      pointer-events: none;
+      top: var(--sct, 58%);
+      font-size: var(--scs, 1.5rem);
+      opacity: 0.8;
+      animation: creatureCruise var(--scd, 34s) linear infinite;
+      animation-delay: var(--scdel, 0s);
+      filter: drop-shadow(0 2px 6px rgba(0, 70, 120, 0.24));
+    }
+
+    @keyframes creatureCruise {
+      0% { left: -12%; transform: translateY(0) scaleX(1) rotate(-5deg); }
+      24% { transform: translateY(-6px) scaleX(1) rotate(4deg); }
+      49% { left: 108%; transform: translateY(0) scaleX(1) rotate(-3deg); }
+      50% { left: -12%; transform: translateY(3px) scaleX(-1) rotate(3deg); opacity: 0; }
+      51% { opacity: 0.8; }
+      100% { left: 108%; transform: translateY(-4px) scaleX(-1) rotate(-4deg); }
+    }
+
+    .bub {
+      position: fixed;
+      z-index: 3;
+      pointer-events: none;
+      bottom: 28%;
+      left: var(--bl, 30%);
+      width: var(--bs, 8px);
+      height: var(--bs, 8px);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      animation: bubUp var(--bd, 8s) ease-in infinite;
+      animation-delay: var(--bdel, 0s);
+      opacity: 0;
+    }
+
+    @keyframes bubUp {
+      0% { transform: translateY(0); opacity: 0; }
+      10% { opacity: 0.7; }
+      80% { opacity: 0.3; }
+      100% { transform: translateY(-28vh); opacity: 0; }
+    }
+
+    .weed {
+      position: fixed;
+      bottom: 10%;
+      z-index: 3;
+      pointer-events: none;
+      font-size: var(--ws, 1.8rem);
+      transform-origin: bottom center;
+      animation: weedWave var(--wd, 3s) ease-in-out infinite;
+      animation-delay: var(--wdel, 0s);
+      filter: drop-shadow(0 2px 4px rgba(0, 100, 60, 0.3));
+      opacity: 0.8;
+    }
+
+    @keyframes weedWave {
+      0%, 100% { transform: rotate(-8deg); }
+      50% { transform: rotate(8deg); }
+    }
+
+    .floor-deco {
+      position: fixed;
+      z-index: 3;
+      pointer-events: none;
+      bottom: var(--fbt, 4%);
+      left: var(--fbl, 10%);
+      font-size: var(--ffs2, 1.4rem);
+      opacity: 0.7;
+      animation: gentleRock 5s ease-in-out infinite;
+      animation-delay: var(--fdeco, 0s);
+      filter: drop-shadow(0 2px 4px rgba(160, 100, 0, 0.25));
+    }
+
+    @keyframes gentleRock {
+      0%, 100% { transform: rotate(-4deg); }
+      50% { transform: rotate(4deg); }
+    }
+
+    .reef-friend {
+      position: fixed;
+      z-index: 4;
+      pointer-events: none;
+      bottom: var(--rbt, 6%);
+      font-size: var(--rfs, 1.8rem);
+      opacity: 0.82;
+      transform-origin: center bottom;
+      animation: reefBob var(--rfd, 4.8s) ease-in-out infinite;
+      animation-delay: var(--rfdel, 0s);
+      filter: drop-shadow(0 3px 5px rgba(0, 80, 90, 0.25));
+    }
+
+    @keyframes reefBob {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-8px) rotate(4deg); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 10;
+      max-width: 440px;
+      margin: 0 auto;
+      padding: 0 18px calc(120px + env(safe-area-inset-bottom)) 18px;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    .header {
+      text-align: center;
+      padding: 72px 20px 28px;
+    }
+
+    .sun {
+      display: inline-block;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      animation: sunPulse 4s ease-in-out infinite;
+      filter: drop-shadow(0 0 18px rgba(255, 220, 60, 0.7));
+    }
+
+    @keyframes sunPulse {
+      0%, 100% { transform: scale(1) rotate(-5deg); }
+      50% { transform: scale(1.1) rotate(5deg); }
+    }
+
+    .header-name {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(3rem, 13vw, 4rem);
+      line-height: 1;
+      color: var(--text-dark);
+      letter-spacing: 0.04em;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, 0.6), 0 4px 20px rgba(30, 100, 150, 0.2);
+    }
+
+    .header-sub {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sea2);
+      opacity: 0.85;
+    }
+
+    .header-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px auto 0;
+      color: var(--sand3);
+      font-size: 1rem;
+      opacity: 0.8;
+    }
+
+    .header-divider::before,
+    .header-divider::after {
+      content: "";
+      width: 50px;
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--sand3));
+      border-radius: 2px;
+    }
+
+    .header-divider::after {
+      transform: scaleX(-1);
+    }
+
+    .shells-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      padding-top: 30px;
+    }
+
+    .shell-wrap {
+      width: 100%;
+      position: relative;
+      touch-action: manipulation;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .shell-card {
+      width: 100%;
+      min-height: 48px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255, 252, 230, 0.72);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+      border: 1.5px solid rgba(255, 255, 255, 0.75);
+      box-shadow:
+        0 4px 20px rgba(30, 100, 160, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset,
+        var(--card-shadow, none);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .shell-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        var(--accent, rgba(63, 169, 208, 0.7)) 40%,
+        rgba(255, 220, 80, 0.8) 60%,
+        transparent 100%
+      );
+      border-radius: 20px 20px 0 0;
+    }
+
+    .shell-wrap[aria-expanded="true"] .shell-card {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 30px rgba(30, 100, 160, 0.2),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset,
+        var(--card-shadow-open, none);
+    }
+
+    .shell-wrap:focus-visible .shell-card {
+      box-shadow: 0 0 0 3px rgba(63, 169, 208, 0.5), 0 4px 20px rgba(30, 100, 160, 0.12);
+    }
+
+    .shell-1 {
+      --accent: rgba(63, 169, 208, 0.8);
+      --card-shadow: 0 0 20px rgba(63, 169, 208, 0.15);
+      --card-shadow-open: 0 0 35px rgba(63, 169, 208, 0.3);
+    }
+
+    .shell-2 {
+      --accent: rgba(240, 180, 40, 0.9);
+      --card-shadow: 0 0 20px rgba(240, 180, 40, 0.15);
+      --card-shadow-open: 0 0 35px rgba(240, 180, 40, 0.3);
+    }
+
+    .shell-3 {
+      --accent: rgba(30, 130, 180, 0.8);
+      --card-shadow: 0 0 20px rgba(30, 130, 180, 0.15);
+      --card-shadow-open: 0 0 35px rgba(30, 130, 180, 0.3);
+    }
+
+    .shell-4 {
+      --accent: rgba(220, 160, 30, 0.9);
+      --card-shadow: 0 0 20px rgba(220, 160, 30, 0.15);
+      --card-shadow-open: 0 0 35px rgba(220, 160, 30, 0.3);
+    }
+
+    .shell-5 {
+      --accent: rgba(0, 180, 180, 0.8);
+      --card-shadow: 0 0 20px rgba(0, 180, 180, 0.15);
+      --card-shadow-open: 0 0 35px rgba(0, 180, 180, 0.3);
+    }
+
+    .shell-icon {
+      flex-shrink: 0;
+      font-size: 2.2rem;
+      animation: shellBob 4s ease-in-out infinite;
+      animation-delay: var(--ibob, 0s);
+      filter: drop-shadow(0 2px 6px rgba(0, 100, 160, 0.25));
+    }
+
+    @keyframes shellBob {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-5px) rotate(5deg); }
+    }
+
+    .shell-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .shell-title {
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      font-size: 1.08rem;
+      color: var(--text-dark);
+      line-height: 1.3;
+    }
+
+    .shell-hint {
+      margin-top: 3px;
+      font-size: 0.7rem;
+      font-weight: 400;
+      color: var(--sea1);
+      opacity: 0.7;
+      transition: opacity 0.3s;
+    }
+
+    .shell-wrap[aria-expanded="true"] .shell-hint {
+      opacity: 0;
+    }
+
+    .shell-num {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--sky3), var(--sea1));
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(30, 100, 160, 0.25);
+    }
+
+    .shell-arrow {
+      flex-shrink: 0;
+      font-size: 0.8rem;
+      color: var(--sea1);
+      opacity: 0.5;
+      transition: transform 0.35s ease, opacity 0.3s;
+    }
+
+    .shell-wrap[aria-expanded="true"] .shell-arrow {
+      transform: rotate(180deg);
+      opacity: 0.15;
+    }
+
+    .msg-panel {
+      width: 100%;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      margin-top: 0;
+      transition: max-height 0.5s ease, opacity 0.35s ease, margin-top 0.35s ease;
+    }
+
+    .shell-wrap[aria-expanded="true"] .msg-panel {
+      max-height: 680px;
+      opacity: 1;
+      margin-top: 4px;
+    }
+
+    .msg-box {
+      position: relative;
+      padding: 20px 20px 24px;
+      border-radius: 0 0 18px 18px;
+      background: rgba(245, 252, 255, 0.8);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.7);
+      border-top: none;
+      box-shadow: 0 8px 24px rgba(30, 100, 160, 0.12);
+    }
+
+    .msg-box::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      border-radius: 0 0 18px 18px;
+      background: linear-gradient(90deg, var(--sand2), var(--sand3), var(--sand2));
+      opacity: 0.6;
+    }
+
+    .msg-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--sea2);
+    }
+
+    .msg-tag::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--sea2), transparent);
+      opacity: 0.3;
+    }
+
+    .msg-line {
+      display: block;
+      font-size: clamp(0.9rem, 3.8vw, 1rem);
+      font-weight: 400;
+      line-height: 2;
+      color: var(--text-dark);
+    }
+
+    .msg-line.strong {
+      font-weight: 600;
+    }
+
+    .msg-line.ocean {
+      color: var(--sea2);
+      font-weight: 500;
+    }
+
+    .msg-line.sandy {
+      color: var(--sand4);
+      font-weight: 500;
+    }
+
+    .msg-line.bright {
+      color: var(--sea1);
+      font-weight: 600;
+    }
+
+    .msg-seal {
+      display: block;
+      margin-top: 14px;
+      font-size: 1.3rem;
+      letter-spacing: 6px;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9;
+      background: rgba(20, 80, 120, 0.25);
+      backdrop-filter: blur(3px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--sea2);
+      opacity: 0.6;
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        padding-top: 58px;
+      }
+
+      .shell-card {
+        padding: 15px 16px;
+      }
+
+      .msg-box {
+        padding: 18px 18px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scene"></div>
+
+  <div class="cloud" style="width:140px;height:38px;top:5%;--cd:50s;--cdel:-10s;"></div>
+  <div class="cloud" style="width:90px;height:26px;top:9%;--cd:65s;--cdel:-28s;"></div>
+  <div class="cloud" style="width:110px;height:30px;top:13%;--cd:45s;--cdel:-40s;"></div>
+  <div class="cloud" style="width:70px;height:20px;top:7%;--cd:70s;--cdel:-55s;opacity:0.6;"></div>
+
+  <div class="gull" style="--gt:10%;--gfs:0.9rem;--gd:34s;--gdel:-8s;">&#128330;&#65039;</div>
+  <div class="gull" style="--gt:15%;--gfs:0.7rem;--gd:42s;--gdel:-22s;">&#128330;&#65039;</div>
+  <div class="gull" style="--gt:8%;--gfs:0.8rem;--gd:38s;--gdel:-35s;">&#128330;&#65039;</div>
+
+  <div class="waves">
+    <div class="wave-row wave-row-a"></div>
+    <div class="wave-row wave-row-b"></div>
+  </div>
+
+  <div class="fish" style="--ft:52%;--ffs:1.4rem;--ffd:26s;--fdel:-4s;">&#128032;</div>
+  <div class="fish" style="--ft:60%;--ffs:1.1rem;--ffd:32s;--fdel:-14s;">&#128031;</div>
+  <div class="fish" style="--ft:56%;--ffs:1.6rem;--ffd:22s;--fdel:-22s;">&#128033;</div>
+  <div class="fish" style="--ft:64%;--ffs:1rem;--ffd:38s;--fdel:-30s;">&#128031;</div>
+
+  <div class="sea-creature" style="--sct:54%;--scs:1.45rem;--scd:44s;--scdel:-11s;">&#128044;</div>
+  <div class="sea-creature" style="--sct:62%;--scs:1.55rem;--scd:38s;--scdel:-26s;">&#128034;</div>
+
+  <div class="bub" style="--bl:15%;--bs:6px;--bd:10s;--bdel:-3s;"></div>
+  <div class="bub" style="--bl:35%;--bs:9px;--bd:13s;--bdel:-8s;"></div>
+  <div class="bub" style="--bl:55%;--bs:5px;--bd:11s;--bdel:-15s;"></div>
+  <div class="bub" style="--bl:72%;--bs:7px;--bd:15s;--bdel:-22s;"></div>
+  <div class="bub" style="--bl:88%;--bs:5px;--bd:9s;--bdel:-6s;"></div>
+
+  <div class="weed" style="left:4%;--ws:2rem;--wd:3.4s;--wdel:0s;">&#127807;</div>
+  <div class="weed" style="left:14%;--ws:1.6rem;--wd:2.8s;--wdel:0.6s;">&#127807;</div>
+  <div class="weed" style="right:6%;--ws:1.9rem;--wd:4s;--wdel:1s;">&#127807;</div>
+  <div class="weed" style="right:18%;--ws:1.4rem;--wd:3s;--wdel:1.5s;">&#127807;</div>
+  <div class="weed" style="left:44%;--ws:1.7rem;--wd:3.7s;--wdel:0.3s;">&#127807;</div>
+
+  <div class="floor-deco" style="--fbt:2%;--fbl:8%;--ffs2:1.6rem;--fdeco:0s;">&#11088;</div>
+  <div class="floor-deco" style="--fbt:3%;--fbl:25%;--ffs2:1.3rem;--fdeco:1s;">&#128026;</div>
+  <div class="floor-deco" style="--fbt:2%;--fbl:60%;--ffs2:1.5rem;--fdeco:2s;">&#128011;</div>
+  <div class="floor-deco" style="--fbt:3%;--fbl:80%;--ffs2:1.2rem;--fdeco:0.5s;">&#11088;</div>
+  <div class="floor-deco" style="--fbt:2%;--fbl:92%;--ffs2:1.4rem;--fdeco:1.5s;">&#11088;</div>
+
+  <div class="reef-friend" style="left:10%;--rbt:6%;--rfs:1.8rem;--rfd:5.3s;--rfdel:-0.6s;">&#129408;</div>
+  <div class="reef-friend" style="right:8%;--rbt:7%;--rfs:1.9rem;--rfd:4.9s;--rfdel:-2.1s;">&#128034;</div>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="header">
+      <div class="sun">&#9728;&#65039;</div>
+      <h1 class="header-name">Prachiiiee</h1>
+      <p class="header-sub">HoneyBee | Jal-Pari Ya kahu koi pari</p>
+      <div class="header-divider">&#128026;</div>
+    </header>
+
+    <main class="shells-list" aria-label="Ocean shells">
+      <div class="shell-wrap shell-1" role="button" tabindex="0" aria-expanded="false" aria-label="Shell 1">
+        <div class="shell-card">
+          <span class="shell-icon" style="--ibob:0s;">&#128026;</span>
+          <div class="shell-meta">
+            <div class="shell-title">First Light</div>
+            <div class="shell-hint">open stanza i</div>
+          </div>
+          <div class="shell-num">01</div>
+          <span class="shell-arrow">&#9662;</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">stanza i</div>
+            <span class="msg-line strong">Prachi.</span>
+            <span class="msg-line">Some names arrive like weather;</span>
+            <span class="msg-line">yours feels like the first clear edge of morning,</span>
+            <span class="msg-line ocean">a line of light laid gently across water,</span>
+            <span class="msg-line ocean strong">quiet, and impossible to mistake.</span>
+            <span class="msg-seal">&#10022;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell-wrap shell-2" role="button" tabindex="0" aria-expanded="false" aria-label="Shell 2">
+        <div class="shell-card">
+          <span class="shell-icon" style="--ibob:0.8s;">&#129720;</span>
+          <div class="shell-meta">
+            <div class="shell-title">Quiet Gravity</div>
+            <div class="shell-hint">open stanza ii</div>
+          </div>
+          <div class="shell-num">02</div>
+          <span class="shell-arrow">&#9662;</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">stanza ii</div>
+            <span class="msg-line">Har Baar poem expect mat karo billu🎀🫶.</span>
+            <span class="msg-line">I agree ki you deserve it, lekinnn... not this time, maybe fir kabhi🌪️.</span>
+            <span class="msg-line">This time, just gentle reminders to take care of yourself.🫗</span>
+            <span class="msg-line sandy">you are doing really well, literally really well,</span>
+            <span class="msg-line sandy strong">and you carry it without display🖥️.</span>
+            <span class="msg-seal">&#10022;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell-wrap shell-3" role="button" tabindex="0" aria-expanded="false" aria-label="Shell 3">
+        <div class="shell-card">
+          <span class="shell-icon" style="--ibob:1.5s;">&#128044;</span>
+          <div class="shell-meta">
+            <div class="shell-title">Tidework</div>
+            <div class="shell-hint">open stanza iii</div>
+          </div>
+          <div class="shell-num">03</div>
+          <span class="shell-arrow">&#9662;</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">stanza iii</div>
+            <span class="msg-line">Maintaining the consistency,</span>
+            <span class="msg-line">when no one is watching.</span>
+            <span class="msg-line">It is really difficult:</span>
+            <span class="msg-line ocean">you managed well, I'm proud of you🎀,</span>
+            <span class="msg-line ocean strong">keep going, maintaining the same pace,</span>
+            <span class="msg-line ocean">lil longer.</span>
+            <span class="msg-line ocean">Kar logi tum🫶 Kar logi yr mujhe poora bharosa hai🎀🫵.</span>
+            <span class="msg-seal">&#10022;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell-wrap shell-4" role="button" tabindex="0" aria-expanded="false" aria-label="Shell 4">
+        <div class="shell-card">
+          <span class="shell-icon" style="--ibob:2.2s;">&#127754;</span>
+          <div class="shell-meta">
+            <div class="shell-title">Lingering Light</div>
+            <div class="shell-hint">open stanza iv</div>
+          </div>
+          <div class="shell-num">04</div>
+          <span class="shell-arrow">&#9662;</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">stanza iv</div>
+            <span class="msg-line sandy strong">Some people shine only in arrival.</span>
+            <span class="msg-line">You are different.</span>
+            <span class="msg-line">You remain,</span>
+            <span class="msg-line sandy">like light that lingers on ordinary things</span>
+            <span class="msg-line sandy strong">until they begin to look important.</span>
+            <span class="msg-line sandy">You are a constant source of inspiration. Tumhara to naam ka bhi yahi meaning hai na...!!</span>
+            <span class="msg-seal">&#10022;</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="shell-wrap shell-5" role="button" tabindex="0" aria-expanded="false" aria-label="Shell 5">
+        <div class="shell-card">
+          <span class="shell-icon" style="--ibob:3s;">&#11088;</span>
+          <div class="shell-meta">
+            <div class="shell-title">Plainly Said</div>
+            <div class="shell-hint">open stanza v</div>
+          </div>
+          <div class="shell-num">05</div>
+          <span class="shell-arrow">&#9662;</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">stanza v</div>
+            <span class="msg-line">I know you don't need any validation:</span>
+            <span class="msg-line">you don't need any appreciation.</span>
+            <span class="msg-line">You are enough.</span>
+            <span class="msg-line bright">That's True that you are a powerhouse itself</span>
+            <span class="msg-line bright">and do not need any spark to ignite you,</span> 
+            <span class="msg-line bright strong">lekin power house ya reactor ko bhi to raw materials chaiye hote h, power generate karne ke liye. Appreciation hi toh uska raw material hai.</span>
+            <span class="msg-line bright">So, here is some appreciation for you🎀🫵 and I hope you like it!</span>
+            <span class="msg-line bright">Wo thodi si blessings dedo tum 👉👈 Mere exams chal rhe👾 Blessing milegi to question paper mere se darega fir👾.</span>
+            <span class="msg-line bright">Wo kya h naa..., a blessing itself gives you a blessing hits different!🫶🎀</span>
+            <span class="msg-seal">&#10022;</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>for Prachiiiee, in the language of tidet🌊 and morning🌅.</footer>
+  </div>
+
+  <script>
+    "use strict";
+
+    // ── Audio engine (declared first so all functions are available) ──────────
+    let AC = null;
+    let audioReady = false;
+
+    function getAC() {
+      if (!AC) AC = new (window.AudioContext || window.webkitAudioContext)();
+      return AC;
+    }
+
+    function ensureAudio() {
+      if (audioReady) return;
+      audioReady = true;
+      startOceanAmbience();
+      soundWelcome();
+    }
+
+    function startOceanAmbience() {
+      const ctx = getAC(), sr = ctx.sampleRate;
+      const buf = ctx.createBuffer(1, sr * 6, sr);
+      const data = buf.getChannelData(0);
+      for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+      const src = ctx.createBufferSource(); src.buffer = buf; src.loop = true;
+      const lp1 = ctx.createBiquadFilter(); lp1.type = "lowpass";  lp1.frequency.value = 280; lp1.Q.value = 0.5;
+      const lp2 = ctx.createBiquadFilter(); lp2.type = "lowpass";  lp2.frequency.value = 180; lp2.Q.value = 0.3;
+      const hp  = ctx.createBiquadFilter(); hp.type  = "highpass"; hp.frequency.value  = 60;  hp.Q.value = 0.4;
+      const lfo = ctx.createOscillator(), lfoDepth = ctx.createGain();
+      lfo.frequency.value = 0.13; lfoDepth.gain.value = 0.10;
+      lfo.connect(lfoDepth);
+      const masterGain = ctx.createGain(); masterGain.gain.value = 0;
+      lfoDepth.connect(masterGain.gain);
+      src.connect(lp1); lp1.connect(lp2); lp2.connect(hp); hp.connect(masterGain);
+      masterGain.connect(ctx.destination);
+      lfo.start(); src.start();
+      masterGain.gain.setTargetAtTime(0.28, ctx.currentTime, 3);
+    }
+
+    function soundWelcome() {
+      const ctx = getAC(), now = ctx.currentTime;
+      const hum = ctx.createOscillator(); hum.type = "sine"; hum.frequency.value = 55;
+      const humGain = ctx.createGain();
+      humGain.gain.setValueAtTime(0, now);
+      humGain.gain.linearRampToValueAtTime(0.09, now + 1.2);
+      humGain.gain.linearRampToValueAtTime(0, now + 5);
+      hum.connect(humGain); humGain.connect(ctx.destination);
+      hum.start(now); hum.stop(now + 5.2);
+      const notes = [261.63, 329.63, 392, 493.88, 523.25, 659.25, 783.99, 880];
+      notes.forEach((freq, i) => {
+        const t = now + 0.8 + i * 0.16;
+        const o1 = ctx.createOscillator(); o1.type = "sine"; o1.frequency.value = freq;
+        const g1 = ctx.createGain();
+        g1.gain.setValueAtTime(0, t);
+        g1.gain.linearRampToValueAtTime(0.15, t + 0.015);
+        g1.gain.exponentialRampToValueAtTime(0.001, t + 1.6);
+        o1.connect(g1); g1.connect(ctx.destination);
+        o1.start(t); o1.stop(t + 1.8);
+      });
+    }
+
+    function soundShellOpen(idx) {
+      const ctx = getAC(), now = ctx.currentTime;
+      const pluckFreqs = [130.81, 146.83, 164.81, 174.61, 196][idx - 1] || 130.81;
+      const pluck = ctx.createOscillator(); pluck.type = "sine"; pluck.frequency.value = pluckFreqs;
+      const pluckG = ctx.createGain();
+      pluckG.gain.setValueAtTime(0.18, now);
+      pluckG.gain.exponentialRampToValueAtTime(0.001, now + 0.9);
+      pluck.connect(pluckG); pluckG.connect(ctx.destination);
+      pluck.start(now); pluck.stop(now + 1);
+      const scales = [
+        [523.25, 659.25, 783.99, 1046.5],
+        [493.88, 587.33, 739.99, 987.77],
+        [440,    554.37, 659.25, 880   ],
+        [392,    493.88, 587.33, 783.99],
+        [349.23, 440,    523.25, 698.46],
+      ];
+      const scale = scales[(idx - 1) % scales.length];
+      scale.forEach((freq, i) => {
+        const t = now + 0.05 + i * 0.11;
+        const o = ctx.createOscillator(); o.type = "sine";
+        o.frequency.setValueAtTime(freq * 1.4, t);
+        o.frequency.exponentialRampToValueAtTime(freq, t + 0.04);
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.14, t + 0.012);
+        g.gain.exponentialRampToValueAtTime(0.001, t + 1.1);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(t); o.stop(t + 1.2);
+      });
+      playBubbles(now + 0.1, 5);
+    }
+
+    function soundWaveClose() {
+      const ctx = getAC(), now = ctx.currentTime;
+      const o = ctx.createOscillator(); o.type = "sine";
+      o.frequency.setValueAtTime(520, now);
+      o.frequency.exponentialRampToValueAtTime(180, now + 0.55);
+      const g = ctx.createGain();
+      g.gain.setValueAtTime(0.1, now);
+      g.gain.exponentialRampToValueAtTime(0.001, now + 0.6);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(now); o.stop(now + 0.65);
+    }
+
+    function playBubbles(startTime, count) {
+      const ctx = getAC();
+      for (let i = 0; i < count; i++) {
+        const t = startTime + i * 0.07 + Math.random() * 0.05;
+        const freq = 900 + Math.random() * 800;
+        const o = ctx.createOscillator(); o.type = "sine"; o.frequency.value = freq;
+        const g = ctx.createGain();
+        g.gain.setValueAtTime(0, t);
+        g.gain.linearRampToValueAtTime(0.05, t + 0.006);
+        g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(t); o.stop(t + 0.22);
+      }
+    }
+
+    // ── DOM refs ──────────────────────────────────────────────────────────────
+    const shells  = document.querySelectorAll(".shell-wrap");
+    const overlay = document.getElementById("overlay");
+
+    // ── Card logic ────────────────────────────────────────────────────────────
+    function closeShell(shell) {
+      shell.setAttribute("aria-expanded", "false");
+      shell.querySelector(".msg-panel").setAttribute("aria-hidden", "true");
+    }
+
+    function closeAll() {
+      const wasOpen = document.querySelector(".shell-wrap[aria-expanded='true']");
+      shells.forEach(closeShell);
+      overlay.classList.remove("active");
+      overlay.setAttribute("aria-hidden", "true");
+      if (wasOpen) soundWaveClose();
+    }
+
+    function openShell(shell) {
+      closeAll();
+      shell.setAttribute("aria-expanded", "true");
+      shell.querySelector(".msg-panel").removeAttribute("aria-hidden");
+      overlay.classList.add("active");
+      overlay.removeAttribute("aria-hidden");
+      const idx = parseInt(shell.querySelector(".shell-num").textContent.trim(), 10) || 1;
+      soundShellOpen(idx);
+      setTimeout(() => shell.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+    }
+
+    shells.forEach((shell) => {
+      shell.addEventListener("click", (e) => {
+        e.stopPropagation();
+        ensureAudio();
+        if (shell.getAttribute("aria-expanded") === "true") { closeAll(); return; }
+        openShell(shell);
+      });
+      shell.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); shell.click(); }
+        if (e.key === "Escape") { closeAll(); shell.focus(); }
+      });
+    });
+
+    overlay.addEventListener("click", closeAll);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeAll(); });
+
+  </script>
+</body>
+</html>

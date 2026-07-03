@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>For Prachi 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ════════════════════════════
+       TOKENS
+    ════════════════════════════ */
+    :root {
+      --blossom1:  #ffe4ec;
+      --blossom2:  #ffb8cc;
+      --blossom3:  #ff85a1;
+      --blossom4:  #e8527a;
+      --petal-light: #fff0f5;
+      --sky-top:   #fce8f0;
+      --sky-mid:   #f9d0e0;
+      --sky-low:   #f4b8ce;
+      --ground:    #e8d5b0;
+      --moss:      #c8ddb0;
+      --bark:      #8b5e3c;
+      --white-glow:rgba(255,255,255,0.88);
+      --glass-bg:  rgba(255,240,246,0.62);
+      --glass-border: rgba(255,255,255,0.75);
+      --text-dark: #5a2040;
+      --text-mid:  #8a3860;
+      --text-soft: #c06080;
+      --gold-acc:  #d4a060;
+      --font-d: 'Cormorant Garamond', Georgia, serif;
+      --font-b: 'Quicksand', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-b);
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: var(--sky-top);
+    }
+
+    /* ════════════════════════════
+       SCENE — gradient sky + ground
+    ════════════════════════════ */
+    .scene {
+      position: fixed; inset: 0; z-index: 0;
+      background: linear-gradient(180deg,
+        #fceef5 0%,
+        #fad5e8 12%,
+        #f7bcd8 25%,
+        #f4a8cc 36%,
+        #f09ab8 45%,
+        #e888a8 52%,
+        #d87898 58%,
+        #c8d0a8 62%,   /* soft green horizon */
+        #b8c890 68%,   /* grass              */
+        #ccd8a0 75%,   /* mid ground         */
+        #d8c898 82%,   /* earth / soil       */
+        #e0cc98 90%,   /* warm ground        */
+        #ead4a8 100%
+      );
+    }
+
+    /* soft sun glow top-centre */
+    .scene::before {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%; transform: translateX(-50%);
+      width: 320px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle,
+        rgba(255,220,240,0.80) 0%,
+        rgba(255,200,220,0.40) 45%,
+        transparent 75%);
+      pointer-events: none;
+      animation: sunSwell 6s ease-in-out infinite;
+    }
+    @keyframes sunSwell {
+      0%,100% { opacity:.85; transform:translateX(-50%) scale(1); }
+      50%      { opacity:1;   transform:translateX(-50%) scale(1.08); }
+    }
+
+    /* ground mist strip */
+    .scene::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 18%;
+      background: linear-gradient(to top,
+        rgba(255,240,248,0.45) 0%,
+        transparent 100%);
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════
+       TREE SVG LAYER
+    ════════════════════════════ */
+    .tree-layer {
+      position: fixed; inset: 0; z-index: 1;
+      pointer-events: none;
+      width: 100%; height: 100%;
+    }
+    /* canopy cluster sway */
+    .canopy-group {
+      transform-origin: center bottom;
+      animation: canopySway var(--cs, 4s) ease-in-out infinite;
+      animation-delay: var(--cdel, 0s);
+    }
+    @keyframes canopySway {
+      0%,100% { transform: rotate(-1.5deg); }
+      50%      { transform: rotate(1.5deg); }
+    }
+
+    /* ════════════════════════════
+       FALLING PETALS
+    ════════════════════════════ */
+    .petals { position: fixed; inset: 0; z-index: 2; pointer-events: none; overflow: hidden; }
+    .petal {
+      position: absolute;
+      top: -30px;
+      left: var(--pl, 20%);
+      font-size: var(--pfs, 1rem);
+      opacity: 0;
+      animation: petalFall var(--pd, 8s) ease-in infinite;
+      animation-delay: var(--pdel, 0s);
+      filter: drop-shadow(0 2px 4px rgba(220,120,160,0.25));
+    }
+    @keyframes petalFall {
+      0%   { transform: translateY(-20px) rotate(0deg) translateX(0);   opacity: 0; }
+      8%   { opacity: 0.85; }
+      85%  { opacity: 0.55; }
+      100% { transform: translateY(105vh) rotate(var(--pr, 360deg)) translateX(var(--px, 40px)); opacity: 0; }
+    }
+
+    /* ════════════════════════════
+       BUTTERFLIES
+    ════════════════════════════ */
+    .butterfly {
+      position: fixed; z-index: 3; pointer-events: none;
+      font-size: var(--bfs, 1.2rem);
+      top: var(--bt, 30%); left: var(--bl2, 20%);
+      filter: drop-shadow(0 2px 6px rgba(200,100,150,0.3));
+      animation:
+        butterflyFloat var(--bfd, 5s) ease-in-out infinite,
+        butterflyDrift var(--bdd, 18s) linear infinite;
+      animation-delay: var(--bdel2, 0s);
+      opacity: 0.8;
+    }
+    @keyframes butterflyFloat {
+      0%,100% { transform: translateY(0) scaleX(1); }
+      25%      { transform: translateY(-12px) scaleX(0.9); }
+      75%      { transform: translateY(8px) scaleX(1.05); }
+    }
+    @keyframes butterflyDrift {
+      0%   { margin-left: 0; }
+      50%  { margin-left: 60px; }
+      100% { margin-left: 0; }
+    }
+
+    /* ════════════════════════════
+       LANTERNS (floating paper)
+    ════════════════════════════ */
+    .lantern {
+      position: fixed; z-index: 2; pointer-events: none;
+      font-size: var(--lfs, 1.6rem);
+      left: var(--ll, 10%);
+      top: var(--lt, 15%);
+      filter: drop-shadow(0 0 10px rgba(255,180,100,0.6));
+      animation: lanternFloat var(--ld, 6s) ease-in-out infinite;
+      animation-delay: var(--ldel, 0s);
+      opacity: 0.75;
+    }
+    @keyframes lanternFloat {
+      0%,100% { transform: translateY(0) rotate(-4deg); }
+      50%      { transform: translateY(-18px) rotate(4deg); }
+    }
+
+    /* ════════════════════════════
+       GROUND ELEMENTS
+    ════════════════════════════ */
+    .ground-el {
+      position: fixed; z-index: 3; pointer-events: none;
+      bottom: var(--gb, 2%); left: var(--gel, 10%);
+      font-size: var(--gfs3, 1.4rem);
+      opacity: 0.72;
+      animation: gentleRock var(--grd, 5s) ease-in-out infinite;
+      animation-delay: var(--grdel, 0s);
+      filter: drop-shadow(0 2px 4px rgba(100,60,30,0.2));
+    }
+    @keyframes gentleRock {
+      0%,100% { transform: rotate(-3deg); }
+      50%      { transform: rotate(3deg); }
+    }
+
+    /* ════════════════════════════
+       MIST LAYERS
+    ════════════════════════════ */
+    .mist {
+      position: fixed; z-index: 1; pointer-events: none;
+      left: 0; right: 0;
+      height: 80px;
+      bottom: var(--mb, 8%);
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255,240,248,0.35) 30%,
+        rgba(255,240,248,0.50) 50%,
+        rgba(255,240,248,0.35) 70%,
+        transparent 100%);
+      filter: blur(8px);
+      animation: mistDrift var(--md, 12s) ease-in-out infinite;
+      animation-delay: var(--mdel, 0s);
+    }
+    @keyframes mistDrift {
+      0%,100% { transform: translateX(-5%) scaleY(1); opacity: 0.7; }
+      50%      { transform: translateX(5%) scaleY(1.2); opacity: 1; }
+    }
+
+    /* ════════════════════════════
+       PAGE
+    ════════════════════════════ */
+    .page {
+      position: relative; z-index: 10;
+      max-width: 440px; margin: 0 auto;
+      padding: 0 18px calc(120px + env(safe-area-inset-bottom)) 18px;
+      padding-top: env(safe-area-inset-top);
+    }
+
+    /* ════════════════════════════
+       HEADER
+    ════════════════════════════ */
+    .header { text-align: center; padding: 72px 20px 28px; }
+
+    .header-icon {
+      display: inline-block; font-size: 3rem; margin-bottom: 12px;
+      animation: iconBloom 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 16px rgba(255,100,150,0.5));
+    }
+    @keyframes iconBloom {
+      0%,100% { transform: scale(1) rotate(-6deg); }
+      50%      { transform: scale(1.12) rotate(6deg); }
+    }
+
+    .header-name {
+      font-family: var(--font-d);
+      font-style: italic; font-weight: 300;
+      font-size: clamp(3rem, 13vw, 4rem);
+      line-height: 1; letter-spacing: 0.05em;
+      color: var(--text-dark);
+      text-shadow:
+        0 2px 0 rgba(255,255,255,0.7),
+        0 4px 24px rgba(220,80,130,0.25);
+    }
+
+    .header-sub {
+      margin-top: 10px;
+      font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-soft); opacity: 0.85;
+    }
+
+    .header-divider {
+      display: flex; align-items: center;
+      justify-content: center; gap: 10px;
+      margin: 18px auto 0;
+      color: var(--blossom3); font-size: 1rem; opacity: 0.8;
+    }
+    .header-divider::before, .header-divider::after {
+      content: '';
+      width: 50px; height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--blossom3));
+      border-radius: 2px;
+    }
+    .header-divider::after { transform: scaleX(-1); }
+
+    /* ════════════════════════════
+       SCROLLS LIST
+    ════════════════════════════ */
+    .scrolls-list {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 18px;
+      padding-top: 32px;
+    }
+
+    /* ── SCROLL WRAPPER ── */
+    .scroll-wrap {
+      width: 100%; position: relative;
+      touch-action: manipulation;
+      cursor: pointer; outline: none;
+    }
+
+    /* ── GLASS SCROLL CARD ── */
+    .scroll-card {
+      width: 100%; border-radius: 20px;
+      padding: 16px 18px;
+      display: flex; align-items: center; gap: 14px;
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px) saturate(140%);
+      -webkit-backdrop-filter: blur(16px) saturate(140%);
+      border: 1.5px solid var(--glass-border);
+      box-shadow:
+        0 4px 24px rgba(200,80,130,0.10),
+        0 1px 0 rgba(255,255,255,0.95) inset,
+        var(--card-glow, none);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      position: relative; overflow: hidden; min-height: 48px;
+    }
+
+    /* blossom shimmer top line */
+    .scroll-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg,
+        transparent,
+        var(--accent, rgba(255,133,161,0.8)) 40%,
+        rgba(255,200,220,0.9) 60%,
+        transparent);
+      border-radius: 20px 20px 0 0;
+    }
+
+    /* soft petal shimmer sweep */
+    .scroll-card::after {
+      content: '';
+      position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+      background: linear-gradient(105deg,
+        transparent, rgba(255,220,235,0.18), transparent);
+      animation: petalShimmer var(--shim-d, 5s) ease-in-out infinite;
+      animation-delay: var(--shim, 0s);
+      pointer-events: none;
+    }
+    @keyframes petalShimmer {
+      0%   { left: -80%; opacity: 0; }
+      20%  { opacity: 1; }
+      65%  { left: 115%; opacity: 0; }
+      100% { left: 115%; opacity: 0; }
+    }
+
+    .scroll-wrap[aria-expanded="true"] .scroll-card {
+      transform: translateY(-2px);
+      box-shadow:
+        0 8px 32px rgba(200,80,130,0.18),
+        0 1px 0 rgba(255,255,255,0.95) inset,
+        var(--card-glow-open, none);
+    }
+    .scroll-wrap:focus-visible .scroll-card {
+      box-shadow: 0 0 0 3px rgba(255,133,161,0.5), var(--card-glow, none);
+    }
+
+    /* per-scroll accent */
+    .s1 { --accent:rgba(255,133,161,0.9); --card-glow:0 0 18px rgba(255,133,161,0.15); --card-glow-open:0 0 35px rgba(255,133,161,0.30); }
+    .s2 { --accent:rgba(230,100,150,0.9); --card-glow:0 0 18px rgba(230,100,150,0.15); --card-glow-open:0 0 35px rgba(230,100,150,0.30); }
+    .s3 { --accent:rgba(200,160,200,0.9); --card-glow:0 0 18px rgba(200,160,200,0.15); --card-glow-open:0 0 35px rgba(200,160,200,0.30); }
+    .s4 { --accent:rgba(212,160,96,0.9);  --card-glow:0 0 18px rgba(212,160,96,0.15);  --card-glow-open:0 0 35px rgba(212,160,96,0.30); }
+    .s5 { --accent:rgba(255,160,180,0.9); --card-glow:0 0 18px rgba(255,160,180,0.15); --card-glow-open:0 0 35px rgba(255,160,180,0.30); }
+
+    .scroll-icon {
+      font-size: 2.2rem; flex-shrink: 0;
+      animation: iconBob var(--ibob-d, 4s) ease-in-out infinite;
+      animation-delay: var(--ibob, 0s);
+      filter: drop-shadow(0 2px 6px rgba(200,80,130,0.2));
+    }
+    @keyframes iconBob {
+      0%,100% { transform: translateY(0) rotate(-4deg); }
+      50%      { transform: translateY(-5px) rotate(4deg); }
+    }
+
+    .scroll-meta { flex: 1; min-width: 0; }
+
+    .scroll-title {
+      font-family: var(--font-d); font-style: italic;
+      font-size: 1.08rem; color: var(--text-dark); line-height: 1.3;
+    }
+    .scroll-hint {
+      margin-top: 3px; font-size: 0.7rem; font-weight: 400;
+      color: var(--text-soft); opacity: 0.7; transition: opacity 0.3s;
+    }
+    .scroll-wrap[aria-expanded="true"] .scroll-hint { opacity: 0; }
+
+    .scroll-num {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blossom2), var(--blossom3));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; font-weight: 600; color: white;
+      box-shadow: 0 2px 8px rgba(200,80,130,0.28);
+    }
+
+    .scroll-arrow {
+      font-size: 0.8rem; color: var(--blossom3); opacity: 0.5; flex-shrink: 0;
+      transition: transform 0.35s ease, opacity 0.3s;
+    }
+    .scroll-wrap[aria-expanded="true"] .scroll-arrow {
+      transform: rotate(180deg); opacity: 0.15;
+    }
+
+    /* ── MESSAGE PANEL ── */
+    .msg-panel {
+      width: 100%; max-height: 0; overflow: hidden;
+      opacity: 0; margin-top: 0;
+      transition: max-height 0.5s ease, opacity 0.35s ease, margin-top 0.35s ease;
+    }
+    .scroll-wrap[aria-expanded="true"] .msg-panel {
+      max-height: 680px; opacity: 1; margin-top: 4px;
+    }
+
+    .msg-box {
+      border-radius: 0 0 18px 18px; padding: 20px 20px 24px;
+      background: rgba(255,240,248,0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255,255,255,0.72);
+      border-top: none;
+      box-shadow: 0 8px 28px rgba(200,80,130,0.10);
+      position: relative;
+    }
+    /* blossom-pink bottom stripe */
+    .msg-box::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg,
+        var(--blossom1), var(--blossom2), var(--blossom3), var(--blossom2), var(--blossom1));
+      border-radius: 0 0 18px 18px; opacity: 0.55;
+    }
+
+    .msg-tag {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--text-mid); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .msg-tag::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, var(--blossom3), transparent);
+      opacity: 0.4;
+    }
+
+    .msg-line {
+      display: block;
+      font-size: clamp(0.9rem, 3.8vw, 1rem);
+      font-weight: 400; line-height: 2;
+      color: var(--text-dark);
+    }
+    .msg-line.strong { font-weight: 600; }
+    .msg-line.bloom  { color: var(--blossom4); font-weight: 500; }
+    .msg-line.gold   { color: var(--gold-acc); font-weight: 500; }
+    .msg-line.soft   { color: var(--text-soft); font-weight: 500; }
+
+    .msg-seal {
+      display: block; margin-top: 14px;
+      font-size: 1.3rem; letter-spacing: 6px;
+    }
+
+    /* ════════════════════════════
+       OVERLAY
+    ════════════════════════════ */
+    .overlay {
+      position: fixed; inset: 0; z-index: 9;
+      background: rgba(100, 30, 60, 0.20);
+      backdrop-filter: blur(3px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .overlay.active { opacity: 1; pointer-events: auto; }
+
+    /* ════════════════════════════
+       SOUND BTN
+    ════════════════════════════ */
+    .sound-btn {
+      position: fixed;
+      bottom: calc(20px + env(safe-area-inset-bottom));
+      right: 18px; z-index: 50;
+      width: 44px; height: 44px; border-radius: 50%; border: none;
+      background: rgba(255,240,248,0.85);
+      backdrop-filter: blur(10px);
+      border: 1.5px solid rgba(255,255,255,0.85);
+      box-shadow: 0 4px 16px rgba(200,80,130,0.18);
+      font-size: 1.3rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s ease;
+      touch-action: manipulation;
+    }
+    .sound-btn:active { transform: scale(0.9); }
+
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    footer {
+      text-align: center; margin-top: 50px;
+      font-size: 0.72rem; font-weight: 400;
+      letter-spacing: 0.1em;
+      color: var(--text-soft); opacity: 0.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Scene -->
+  <div class="scene"></div>
+
+  <!-- Mist layers -->
+  <div class="mist" style="--mb:6%;--md:14s;--mdel:0s;"></div>
+  <div class="mist" style="--mb:10%;--md:18s;--mdel:-6s;opacity:0.5;"></div>
+
+  <!-- Realistic SVG cherry trees -->
+  <svg class="tree-layer" viewBox="0 0 400 700" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Trunk gradient — dark bark left, lighter right -->
+      <linearGradient id="bark1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#4a2810"/>
+        <stop offset="35%"  stop-color="#7a4828"/>
+        <stop offset="60%"  stop-color="#9b6040"/>
+        <stop offset="100%" stop-color="#5a3018"/>
+      </linearGradient>
+      <linearGradient id="bark2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#3d2010"/>
+        <stop offset="40%"  stop-color="#6a3c22"/>
+        <stop offset="100%" stop-color="#4a2810"/>
+      </linearGradient>
+      <linearGradient id="bark3" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%"   stop-color="#5a3018"/>
+        <stop offset="50%"  stop-color="#8b5030"/>
+        <stop offset="100%" stop-color="#3d2010"/>
+      </linearGradient>
+      <!-- Blossom cluster gradients -->
+      <radialGradient id="bl1" cx="40%" cy="35%" r="60%">
+        <stop offset="0%"   stop-color="#ffe0f0" stop-opacity="0.95"/>
+        <stop offset="45%"  stop-color="#ffb8cc" stop-opacity="0.90"/>
+        <stop offset="100%" stop-color="#e8709a" stop-opacity="0.75"/>
+      </radialGradient>
+      <radialGradient id="bl2" cx="45%" cy="40%" r="55%">
+        <stop offset="0%"   stop-color="#ffd0e8" stop-opacity="0.92"/>
+        <stop offset="50%"  stop-color="#ff9ab8" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#d8507a" stop-opacity="0.70"/>
+      </radialGradient>
+      <radialGradient id="bl3" cx="35%" cy="30%" r="65%">
+        <stop offset="0%"   stop-color="#fff0f6" stop-opacity="0.90"/>
+        <stop offset="40%"  stop-color="#ffc8de" stop-opacity="0.85"/>
+        <stop offset="100%" stop-color="#e86090" stop-opacity="0.70"/>
+      </radialGradient>
+      <radialGradient id="bl4" cx="50%" cy="38%" r="58%">
+        <stop offset="0%"   stop-color="#ffe8f4" stop-opacity="0.95"/>
+        <stop offset="55%"  stop-color="#ffaac8" stop-opacity="0.88"/>
+        <stop offset="100%" stop-color="#cc5080" stop-opacity="0.68"/>
+      </radialGradient>
+      <!-- Filter: soft blur for depth -->
+      <filter id="softBlur" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="2.5"/>
+      </filter>
+      <filter id="tinyBlur">
+        <feGaussianBlur stdDeviation="1.2"/>
+      </filter>
+    </defs>
+
+    <!-- ══ TREE 1 — Far left, tall ══ -->
+    <!-- trunk with branches -->
+    <g opacity="0.88">
+      <!-- main trunk -->
+      <path d="M30,700 C28,640 25,580 27,520 C29,460 32,420 30,380" stroke="url(#bark1)" stroke-width="16" stroke-linecap="round" fill="none"/>
+      <!-- left branch -->
+      <path d="M29,480 C18,460 8,430 5,400" stroke="url(#bark1)" stroke-width="8" stroke-linecap="round" fill="none"/>
+      <!-- right branch -->
+      <path d="M30,450 C42,428 55,408 60,380" stroke="url(#bark1)" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <!-- small sub-branch -->
+      <path d="M28,530 C16,515 8,500 4,485" stroke="url(#bark1)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </g>
+    <!-- canopy — layered ellipses for depth -->
+    <g class="canopy-group" style="--cs:4.2s;--cdel:0s;">
+      <!-- back layer (darker, blurred) -->
+      <ellipse cx="30" cy="340" rx="55" ry="44" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.75"/>
+      <ellipse cx="8"  cy="370" rx="38" ry="32" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.65"/>
+      <ellipse cx="58" cy="355" rx="36" ry="30" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.65"/>
+      <!-- mid layer -->
+      <ellipse cx="30" cy="320" rx="52" ry="42" fill="url(#bl1)" filter="url(#tinyBlur)" opacity="0.85"/>
+      <ellipse cx="5"  cy="348" rx="35" ry="28" fill="url(#bl1)" filter="url(#tinyBlur)" opacity="0.78"/>
+      <ellipse cx="60" cy="338" rx="34" ry="27" fill="url(#bl3)" filter="url(#tinyBlur)" opacity="0.78"/>
+      <!-- front highlight clusters -->
+      <ellipse cx="22" cy="300" rx="40" ry="34" fill="url(#bl3)" opacity="0.88"/>
+      <ellipse cx="45" cy="310" rx="32" ry="28" fill="url(#bl1)" opacity="0.82"/>
+      <ellipse cx="10" cy="325" rx="26" ry="22" fill="url(#bl3)" opacity="0.80"/>
+      <!-- tiny highlight top -->
+      <ellipse cx="28" cy="285" rx="22" ry="18" fill="#fff0f6" opacity="0.70"/>
+    </g>
+
+    <!-- ══ TREE 2 — Left-centre, shorter, leaning ══ -->
+    <g opacity="0.80">
+      <path d="M95,700 C94,650 93,600 95,555 C97,510 100,475 98,440" stroke="url(#bark2)" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <path d="M97,520 C108,502 122,482 128,462" stroke="url(#bark2)" stroke-width="6" stroke-linecap="round" fill="none"/>
+      <path d="M96,490 C84,474 74,458 70,438" stroke="url(#bark2)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M97,560 C86,548 76,535 72,520" stroke="url(#bark2)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="canopy-group" style="--cs:3.8s;--cdel:-1.2s;">
+      <ellipse cx="98"  cy="408" rx="44" ry="36" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.70"/>
+      <ellipse cx="72"  cy="428" rx="30" ry="25" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.62"/>
+      <ellipse cx="126" cy="420" rx="28" ry="22" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.60"/>
+      <ellipse cx="98"  cy="390" rx="42" ry="34" fill="url(#bl4)" filter="url(#tinyBlur)" opacity="0.82"/>
+      <ellipse cx="74"  cy="408" rx="28" ry="24" fill="url(#bl1)" filter="url(#tinyBlur)" opacity="0.75"/>
+      <ellipse cx="122" cy="400" rx="27" ry="22" fill="url(#bl3)" filter="url(#tinyBlur)" opacity="0.72"/>
+      <ellipse cx="88"  cy="372" rx="34" ry="28" fill="url(#bl1)" opacity="0.86"/>
+      <ellipse cx="112" cy="380" rx="28" ry="22" fill="url(#bl3)" opacity="0.80"/>
+      <ellipse cx="98"  cy="358" rx="20" ry="16" fill="#ffe8f4" opacity="0.68"/>
+    </g>
+
+    <!-- ══ TREE 3 — Centre-right, background (distant, muted) ══ -->
+    <g opacity="0.55">
+      <path d="M230,700 C229,660 228,620 230,588 C232,556 234,528 232,498" stroke="#7a4828" stroke-width="9" stroke-linecap="round" fill="none"/>
+      <path d="M231,545 C240,530 252,515 256,498" stroke="#7a4828" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M231,520 C222,507 213,493 210,478" stroke="#7a4828" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="canopy-group" style="--cs:5.5s;--cdel:-2s;" opacity="0.55">
+      <ellipse cx="231" cy="470" rx="50" ry="40" fill="url(#bl2)" filter="url(#softBlur)"/>
+      <ellipse cx="208" cy="486" rx="34" ry="27" fill="url(#bl2)" filter="url(#softBlur)"/>
+      <ellipse cx="258" cy="478" rx="32" ry="26" fill="url(#bl1)" filter="url(#softBlur)"/>
+      <ellipse cx="231" cy="452" rx="44" ry="36" fill="url(#bl4)" filter="url(#tinyBlur)"/>
+      <ellipse cx="231" cy="436" rx="30" ry="25" fill="url(#bl3)" filter="url(#tinyBlur)"/>
+    </g>
+
+    <!-- ══ TREE 4 — Right side, tall ══ -->
+    <g opacity="0.86">
+      <path d="M358,700 C356,635 354,570 356,510 C358,450 362,408 360,365" stroke="url(#bark3)" stroke-width="15" stroke-linecap="round" fill="none"/>
+      <path d="M359,450 C372,430 385,408 388,382" stroke="url(#bark3)" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M358,478 C344,458 332,435 328,408" stroke="url(#bark3)" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <path d="M359,520 C370,505 382,490 386,472" stroke="url(#bark3)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M358,540 C347,526 336,512 332,495" stroke="url(#bark3)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="canopy-group" style="--cs:4.6s;--cdel:-0.8s;">
+      <ellipse cx="360" cy="325" rx="58" ry="48" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.73"/>
+      <ellipse cx="330" cy="352" rx="40" ry="33" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.65"/>
+      <ellipse cx="393" cy="342" rx="38" ry="30" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.62"/>
+      <ellipse cx="360" cy="305" rx="55" ry="45" fill="url(#bl1)" filter="url(#tinyBlur)" opacity="0.84"/>
+      <ellipse cx="333" cy="330" rx="38" ry="30" fill="url(#bl4)" filter="url(#tinyBlur)" opacity="0.78"/>
+      <ellipse cx="390" cy="320" rx="36" ry="29" fill="url(#bl3)" filter="url(#tinyBlur)" opacity="0.76"/>
+      <ellipse cx="348" cy="285" rx="44" ry="36" fill="url(#bl3)" opacity="0.88"/>
+      <ellipse cx="376" cy="295" rx="36" ry="30" fill="url(#bl1)" opacity="0.84"/>
+      <ellipse cx="360" cy="268" rx="28" ry="22" fill="#fff0f6" opacity="0.72"/>
+      <ellipse cx="395" cy="300" rx="22" ry="18" fill="url(#bl4)" opacity="0.70"/>
+    </g>
+
+    <!-- ══ TREE 5 — Far right edge, partial ══ -->
+    <g opacity="0.78">
+      <path d="M400,700 C399,650 398,600 399,558 C400,516 400,485 399,452" stroke="url(#bark1)" stroke-width="11" stroke-linecap="round" fill="none"/>
+      <path d="M399,500 C390,482 380,465 376,446" stroke="url(#bark1)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </g>
+    <g class="canopy-group" style="--cs:3.6s;--cdel:-3s;">
+      <ellipse cx="393" cy="422" rx="46" ry="38" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.68"/>
+      <ellipse cx="375" cy="440" rx="30" ry="25" fill="url(#bl2)" filter="url(#softBlur)" opacity="0.58"/>
+      <ellipse cx="393" cy="403" rx="42" ry="34" fill="url(#bl1)" filter="url(#tinyBlur)" opacity="0.82"/>
+      <ellipse cx="375" cy="420" rx="28" ry="23" fill="url(#bl3)" filter="url(#tinyBlur)" opacity="0.74"/>
+      <ellipse cx="385" cy="386" rx="34" ry="28" fill="url(#bl3)" opacity="0.86"/>
+      <ellipse cx="393" cy="370" rx="22" ry="18" fill="#ffeaf6" opacity="0.65"/>
+    </g>
+
+    <!-- Ground grass + roots hinting -->
+    <path d="M0,700 Q40,688 80,695 Q120,700 160,692 Q200,686 240,693 Q280,700 320,694 Q360,688 400,695 L400,700 Z" fill="#c8d8a0" opacity="0.55"/>
+    <path d="M0,700 Q50,695 100,698 Q150,700 200,697 Q250,694 300,697 Q350,700 400,696 L400,700 Z" fill="#b8c890" opacity="0.40"/>
+  </svg>
+
+  <!-- Falling petals -->
+  <div class="petals" id="petals"></div>
+
+  <!-- Butterflies -->
+  <div class="butterfly" style="--bt:22%;--bl2:15%;--bfs:1.2rem;--bfd:5s;--bdd:20s;--bdel2:0s;">🦋</div>
+  <div class="butterfly" style="--bt:35%;--bl2:72%;--bfs:1rem; --bfd:6s;--bdd:26s;--bdel2:3s;">🦋</div>
+  <div class="butterfly" style="--bt:18%;--bl2:50%;--bfs:0.9rem;--bfd:4s;--bdd:22s;--bdel2:7s;">🦋</div>
+
+  <!-- Paper lanterns -->
+  <div class="lantern" style="--ll:8%; --lt:18%;--lfs:1.8rem;--ld:7s;--ldel:0s;">🏮</div>
+  <div class="lantern" style="--ll:78%;--lt:12%;--lfs:1.5rem;--ld:9s;--ldel:2s;">🏮</div>
+  <div class="lantern" style="--ll:45%;--lt:22%;--lfs:1.2rem;--ld:6s;--ldel:4s;">🏮</div>
+
+  <!-- Ground elements -->
+  <div class="ground-el" style="--gb:2%;--gel:5%;  --gfs3:1.5rem;--grd:4s;--grdel:0s;">🌸</div>
+  <div class="ground-el" style="--gb:3%;--gel:22%; --gfs3:1.2rem;--grd:5s;--grdel:1s;">🪨</div>
+  <div class="ground-el" style="--gb:2%;--gel:58%; --gfs3:1.4rem;--grd:3.5s;--grdel:0.5s;">🌿</div>
+  <div class="ground-el" style="--gb:3%;--gel:78%; --gfs3:1.3rem;--grd:6s;--grdel:2s;">🌸</div>
+  <div class="ground-el" style="--gb:2%;--gel:91%; --gfs3:1.1rem;--grd:4.5s;--grdel:1.5s;">🍃</div>
+
+  <!-- Sound toggle -->
+  <button class="sound-btn" id="soundBtn" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+
+  <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+  <div class="page">
+    <header class="header">
+      <div class="header-icon">🌸</div>
+      <h1 class="header-name">Prachiiieeeeeee</h1>
+      <p class="header-sub">Cherry Blossom For Prachiiieeeeeee</p>
+      <div class="header-divider">🌸</div>
+    </header>
+
+    <main class="scrolls-list" aria-label="Blossom scrolls">
+
+      <!-- SCROLL 1 -->
+      <div class="scroll-wrap s1" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Scroll 1">
+        <div class="scroll-card" style="--shim:0s;--shim-d:5s;">
+          <span class="scroll-icon" style="--ibob:0s;--ibob-d:4s;">🌸</span>
+          <div class="scroll-meta">
+            <div class="scroll-title">The First Bloom</div>
+            <div class="scroll-hint">tap karke kholo 🌸</div>
+          </div>
+          <div class="scroll-num">01</div>
+          <span class="scroll-arrow">▾</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">🌸 Tum kisi phool se km nhi ho</div>
+            <span class="msg-line strong">Prachiii,</span>
+            <span class="msg-line">Drink water</span>
+            <span class="msg-line bloom">Lots of water —</span>
+            <span class="msg-line">And Stay Hydrated. 🌸</span>
+            <span class="msg-line">Flowers Need Water.</span>
+            <span class="msg-line soft">Jal Parissss Need Water</span>
+            <span class="msg-line soft">You are a Different Pari —</span>
+            <span class="msg-line bloom strong">ThereFore Drink Water,</span>
+            <span class="msg-line">Beautiful Pari.</span>
+            <span class="msg-line gold"> 🌟</span>
+            <span class="msg-seal">🌸🌿✨</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCROLL 2 -->
+      <div class="scroll-wrap s2" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Scroll 2">
+        <div class="scroll-card" style="--shim:1s;--shim-d:6s;">
+          <span class="scroll-icon" style="--ibob:0.8s;--ibob-d:4.5s;">🦋</span>
+          <div class="scroll-meta">
+            <div class="scroll-title">Second Bloom</div>
+            <div class="scroll-hint">tap karke kholo 🌸</div>
+          </div>
+          <div class="scroll-num">02</div>
+          <span class="scroll-arrow">▾</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">🦋 Slow Steady</div>
+            <span class="msg-line">No Tension,</span>
+            <span class="msg-line bloom">Chill Mood 🦋</span>
+            <span class="msg-line">You are exactly,</span>
+            <span class="msg-line">at the right place</span>
+            <span class="msg-seal">🦋🌸💛</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCROLL 3 -->
+      <div class="scroll-wrap s3" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Scroll 3">
+        <div class="scroll-card" style="--shim:2s;--shim-d:5.5s;">
+          <span class="scroll-icon" style="--ibob:1.5s;--ibob-d:3.8s;">🏮</span>
+          <div class="scroll-meta">
+            <div class="scroll-title">Third Bloom</div>
+            <div class="scroll-hint">tap karke kholo 🌸</div>
+          </div>
+          <div class="scroll-num">03</div>
+          <span class="scroll-arrow">▾</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">🏮 divaa</div>
+            <span class="msg-line">Ek baat notice ki hai maine —</span>
+            <span class="msg-line">jab tum khush hoti ho,</span>
+            <span class="msg-line bloom">sab kuch thoda zyada colorful lagta hai. 🌈</span>
+            <span class="msg-line">Jab tum hassti ho genuinely,</span>
+            <span class="msg-line bloom strong">woh hasi contagious hai — ekdum free wali! 😄</span>
+            <span class="msg-line">Toh please,</span>
+            <span class="msg-line soft">khud pe utna hi pyaar lagao</span>
+            <span class="msg-line soft">jitna dusron ko deti ho. 🤍</span>
+            <span class="msg-line gold strong">Tum deserving ho — poori tarah. 🏮✨</span>
+            <span class="msg-seal">🏮🌸🤍</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCROLL 4 -->
+      <div class="scroll-wrap s4" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Scroll 4">
+        <div class="scroll-card" style="--shim:3s;--shim-d:6.5s;">
+          <span class="scroll-icon" style="--ibob:2.2s;--ibob-d:5s;">🍃</span>
+          <div class="scroll-meta">
+            <div class="scroll-title">Fourth Bloom</div>
+            <div class="scroll-hint">tap karke kholo 🌸</div>
+          </div>
+          <div class="scroll-num">04</div>
+          <span class="scroll-arrow">▾</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">🍃 Fourth Bloom</div>
+            <span class="msg-line">Kabhi socha hai</span>
+            <span class="msg-line bloom">kitne logo ki zindagi thodi better hai</span>
+            <span class="msg-line bloom">sirf tumhare hone se? 🌸</span>
+            <span class="msg-line">Woh small gestures,</span>
+            <span class="msg-line">woh sahi waqt pe sahi baat —</span>
+            <span class="msg-line soft">yeh sab count karta hai, 🍃</span>
+            <span class="msg-line">Tum jo care deti ho,</span>
+            <span class="msg-line gold strong">woh real hai, woh matter karti hai. 💛</span>
+            <span class="msg-line">Aur main genuinely grateful hoon</span>
+            <span class="msg-line bloom strong">ki tum tum ho. 🌟</span>
+            <span class="msg-seal">🍃💛🌸</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCROLL 5 -->
+      <div class="scroll-wrap s5" role="button" tabindex="0"
+           aria-expanded="false" aria-label="Scroll 5">
+        <div class="scroll-card" style="--shim:4s;--shim-d:5s;">
+          <span class="scroll-icon" style="--ibob:3s;--ibob-d:4.2s;">🌟</span>
+          <div class="scroll-meta">
+            <div class="scroll-title">Fifth Bloom</div>
+            <div class="scroll-hint">tap karke kholo 🌸</div>
+          </div>
+          <div class="scroll-num">05</div>
+          <span class="scroll-arrow">▾</span>
+        </div>
+        <div class="msg-panel" aria-hidden="true">
+          <div class="msg-box">
+            <div class="msg-tag">🌟 Fifth Bloom</div>
+            <span class="msg-line">Jab bhi yeh garden dekho —</span>
+            <span class="msg-line bloom">cherry blossom hamesha wapas aati hai. 🌸</span>
+            <span class="msg-line">Toofan aaye, patte gire,</span>
+            <span class="msg-line">mausam badla —</span>
+            <span class="msg-line bloom strong">par woh hamesha khilti hai phir se. 🌺</span>
+            <span class="msg-line">Tum bhi aisi hi ho.</span>
+            <span class="msg-line soft">Har baar aur zyada beautiful,</span>
+            <span class="msg-line soft">aur zyada strong. 🦋</span>
+            <span class="msg-line gold strong">Tum kisi ke bhi liye dim mat hona —</span>
+            <span class="msg-line gold strong">tum full bloom mein rehne ke liye bani ho. 🌟💛</span>
+            <span class="msg-line">Har season mein, har situation mein —</span>
+            <span class="msg-line">Ab badhiya padhai karooo, Ye trees build karne me jaroor thodi siii mehnat lagiiii Baaki woth-it , totally worth-it, kyuki ye pukka tumhara mood accha karegeee...</span>
+            <span class="msg-seal">🌸🌟💛</span>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <footer>made with 🌸 and a whole lot of 🤍</footer>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* ── Falling petals ────────────────── */
+    const petalsEl = document.getElementById('petals');
+    const petalEmoji = ['🌸','🌺','🌷','🏵️','🌼'];
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.textContent = petalEmoji[Math.floor(Math.random() * petalEmoji.length)];
+      p.style.cssText = `
+        --pl:${Math.random()*96+1}%;
+        --pfs:${(Math.random()*0.6+0.7).toFixed(1)}rem;
+        --pd:${(Math.random()*8+7).toFixed(1)}s;
+        --pdel:-${(Math.random()*14).toFixed(1)}s;
+        --px:${(Math.random()*80-40).toFixed(0)}px;
+        --pr:${(Math.random()*360).toFixed(0)}deg;`;
+      petalsEl.appendChild(p);
+    }
+
+    /* ════════════════════════════════════════════
+       CHERRY BLOSSOM SOUNDSCAPE
+       Layers:
+         1. Wind through trees (soft bandpass noise)
+         2. Gentle breeze swell (LFO shaped noise)
+         3. Distant birds / nightingale chirps
+         4. Occasional soft wind chime tinkle
+    ════════════════════════════════════════════ */
+    let audioCtx = null;
+    let soundOn  = true;
+    let ambNodes = [];
+    let ambGains = [];
+    let birdTimer = null, chimeTimer = null;
+
+    function getCtx() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      return audioCtx;
+    }
+
+    function makeNoiseBuf(ctx, sec) {
+      const len = ctx.sampleRate * sec;
+      const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+      const d   = buf.getChannelData(0);
+      for (let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+      return buf;
+    }
+
+    function noiseSource(ctx, buf) {
+      const s = ctx.createBufferSource();
+      s.buffer = buf; s.loop = true; return s;
+    }
+
+    function startAmbience() {
+      if (!soundOn) return;
+      stopAmbience();
+      try {
+        const ctx = getCtx();
+
+        const master = ctx.createGain();
+        master.gain.value = 0;
+        master.connect(ctx.destination);
+        ambGains.push(master);
+
+        /* ── 1. Soft wind through leaves: gentle bandpass noise ── */
+        const windSrc = noiseSource(ctx, makeNoiseBuf(ctx, 5));
+        const bp1 = ctx.createBiquadFilter();
+        bp1.type = 'bandpass'; bp1.frequency.value = 600; bp1.Q.value = 0.5;
+        const lp1 = ctx.createBiquadFilter();
+        lp1.type = 'lowpass'; lp1.frequency.value = 900;
+        const windG = ctx.createGain(); windG.gain.value = 0.28;
+        windSrc.connect(bp1); bp1.connect(lp1); lp1.connect(windG); windG.connect(master);
+        windSrc.start(); ambNodes.push(windSrc);
+
+        /* ── 2. Breeze swell: slower LFO on second noise layer ── */
+        const breezeSrc = noiseSource(ctx, makeNoiseBuf(ctx, 7));
+        const bp2 = ctx.createBiquadFilter();
+        bp2.type = 'bandpass'; bp2.frequency.value = 320; bp2.Q.value = 0.4;
+        const breezeG = ctx.createGain(); breezeG.gain.value = 0;
+
+        const lfo = ctx.createOscillator();
+        const lfoG = ctx.createGain();
+        lfo.frequency.value = 0.08; lfoG.gain.value = 0.18;
+        lfo.connect(lfoG); lfoG.connect(breezeG.gain);
+
+        const dc = ctx.createConstantSource ? ctx.createConstantSource() : null;
+        if (dc) { dc.offset.value = 0.18; dc.connect(breezeG.gain); dc.start(); ambNodes.push(dc); }
+        else { breezeG.gain.value = 0.18; }
+
+        breezeSrc.connect(bp2); bp2.connect(breezeG); breezeG.connect(master);
+        breezeSrc.start(); lfo.start();
+        ambNodes.push(breezeSrc, lfo);
+
+        /* ── 3. High rustling leaves: high-pass noise, very quiet ── */
+        const rustSrc = noiseSource(ctx, makeNoiseBuf(ctx, 3));
+        const hp = ctx.createBiquadFilter();
+        hp.type = 'highpass'; hp.frequency.value = 4000;
+        const rustG = ctx.createGain(); rustG.gain.value = 0.04;
+        rustSrc.connect(hp); hp.connect(rustG); rustG.connect(master);
+        rustSrc.start(); ambNodes.push(rustSrc);
+
+        master.gain.setTargetAtTime(1.0, ctx.currentTime, 3.5);
+
+        /* ── 4. Birdsong + wind chimes scheduled randomly ── */
+        scheduleBird();
+        scheduleChimeTinkle();
+
+      } catch(e) { console.warn(e); }
+    }
+
+    /* Nightingale-like FM bird chirp */
+    function playBird() {
+      if (!soundOn || !audioCtx) return;
+      try {
+        const ctx = getCtx();
+        const t   = ctx.currentTime;
+
+        // 2-note warble
+        const chirps = [
+          { f1: 1800, f2: 2200, dur: 0.18 },
+          { f1: 2100, f2: 1600, dur: 0.15 },
+          { f1: 2400, f2: 2800, dur: 0.20 },
+        ];
+        let offset = 0;
+        chirps.forEach(c => {
+          const osc = ctx.createOscillator();
+          const g   = ctx.createGain();
+          const mod = ctx.createOscillator();
+          const modG = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(c.f1, t + offset);
+          osc.frequency.linearRampToValueAtTime(c.f2, t + offset + c.dur);
+          mod.frequency.value = 8; modG.gain.value = 40;
+          mod.connect(modG); modG.connect(osc.frequency);
+          g.gain.setValueAtTime(0, t + offset);
+          g.gain.linearRampToValueAtTime(0.06, t + offset + 0.03);
+          g.gain.setValueAtTime(0.06, t + offset + c.dur - 0.03);
+          g.gain.linearRampToValueAtTime(0, t + offset + c.dur);
+          osc.connect(g); g.connect(ctx.destination);
+          osc.start(t + offset); mod.start(t + offset);
+          osc.stop(t + offset + c.dur + 0.05);
+          mod.stop(t + offset + c.dur + 0.05);
+          offset += c.dur + 0.04 + Math.random() * 0.08;
+        });
+      } catch(e) {}
+    }
+
+    function scheduleBird() {
+      if (!soundOn) return;
+      const delay = (Math.random() * 12 + 6) * 1000;
+      birdTimer = setTimeout(() => { playBird(); scheduleBird(); }, delay);
+    }
+
+    /* Soft wind-chime tinkle */
+    function playChimeTinkle() {
+      if (!soundOn || !audioCtx) return;
+      try {
+        const ctx   = getCtx();
+        // Pentatonic scale — peaceful Japanese feel
+        const scale = [523, 587, 659, 784, 880, 1047];
+        const count = Math.floor(Math.random() * 3) + 2;
+        for (let i = 0; i < count; i++) {
+          const freq = scale[Math.floor(Math.random() * scale.length)];
+          const osc  = ctx.createOscillator();
+          const g    = ctx.createGain();
+          osc.type   = 'sine';
+          osc.frequency.value = freq;
+          const t    = ctx.currentTime + i * (Math.random() * 0.2 + 0.1);
+          g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(0.09, t + 0.03);
+          g.gain.exponentialRampToValueAtTime(0.001, t + 1.8);
+          osc.connect(g); g.connect(ctx.destination);
+          osc.start(t); osc.stop(t + 1.9);
+        }
+      } catch(e) {}
+    }
+
+    function scheduleChimeTinkle() {
+      if (!soundOn) return;
+      const delay = (Math.random() * 10 + 5) * 1000;
+      chimeTimer = setTimeout(() => { playChimeTinkle(); scheduleChimeTinkle(); }, delay);
+    }
+
+    function stopAmbience() {
+      ambNodes.forEach(n => { try { n.stop(); } catch(e) {} });
+      ambNodes = [];
+      ambGains.forEach(g => { try { g.gain.setTargetAtTime(0, audioCtx.currentTime, 0.4); } catch(e) {} });
+      ambGains = [];
+      clearTimeout(birdTimer);
+      clearTimeout(chimeTimer);
+    }
+
+    /* — Shell pop — */
+    function playPop() {
+      if (!soundOn) return;
+      try {
+        const ctx = getCtx();
+        const osc = ctx.createOscillator(); const g = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(680, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(240, ctx.currentTime + 0.14);
+        g.gain.setValueAtTime(0.28, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.2);
+        osc.connect(g); g.connect(ctx.destination);
+        osc.start(); osc.stop(ctx.currentTime + 0.2);
+      } catch(e) {}
+    }
+
+    /* — Blossom chime (open message) — */
+    function playOpenChime() {
+      if (!soundOn) return;
+      try {
+        const ctx   = getCtx();
+        // Pentatonic arpeggio — dreamy
+        const notes = [523, 659, 784, 988, 1175];
+        notes.forEach((freq, i) => {
+          const osc = ctx.createOscillator(); const g = ctx.createGain();
+          osc.type = 'sine'; osc.frequency.value = freq;
+          const t = ctx.currentTime + i * 0.10;
+          g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(0.12, t + 0.04);
+          g.gain.exponentialRampToValueAtTime(0.001, t + 0.8);
+          osc.connect(g); g.connect(ctx.destination);
+          osc.start(t); osc.stop(t + 0.85);
+        });
+      } catch(e) {}
+    }
+
+    /* — Close click — */
+    function playClose() {
+      if (!soundOn) return;
+      try {
+        const ctx = getCtx();
+        const osc = ctx.createOscillator(); const g = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(380, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(160, ctx.currentTime + 0.12);
+        g.gain.setValueAtTime(0.16, ctx.currentTime);
+        g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.16);
+        osc.connect(g); g.connect(ctx.destination);
+        osc.start(); osc.stop(ctx.currentTime + 0.16);
+      } catch(e) {}
+    }
+
+    /* ── Sound toggle ───────────────────── */
+    const soundBtn = document.getElementById('soundBtn');
+
+    document.addEventListener('click', function startOnce() {
+      startAmbience();
+      document.removeEventListener('click', startOnce);
+    }, { once: true });
+
+    soundBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      soundOn = !soundOn;
+      soundBtn.textContent = soundOn ? '🔊' : '🔇';
+      if (soundOn) startAmbience(); else stopAmbience();
+    });
+
+    /* ── Scrolls open / close ───────────── */
+    const scrolls = document.querySelectorAll('.scroll-wrap');
+    const overlay = document.getElementById('overlay');
+
+    function openScroll(s) {
+      closeAll();
+      playPop();
+      s.setAttribute('aria-expanded', 'true');
+      s.querySelector('.msg-panel').removeAttribute('aria-hidden');
+      overlay.classList.add('active');
+      overlay.removeAttribute('aria-hidden');
+      setTimeout(() => playOpenChime(), 160);
+      setTimeout(() => s.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+    function closeScroll(s) {
+      s.setAttribute('aria-expanded', 'false');
+      s.querySelector('.msg-panel').setAttribute('aria-hidden', 'true');
+    }
+    function closeAll() {
+      scrolls.forEach(closeScroll);
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+    }
+
+    scrolls.forEach(s => {
+      s.addEventListener('click', e => {
+        e.stopPropagation();
+        if (s.getAttribute('aria-expanded') === 'true') {
+          playClose(); closeScroll(s);
+          overlay.classList.remove('active');
+          overlay.setAttribute('aria-hidden', 'true');
+        } else { openScroll(s); }
+      });
+      s.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); s.click(); }
+        if (e.key === 'Escape') { playClose(); closeAll(); s.focus(); }
+      });
+    });
+
+    overlay.addEventListener('click', () => { playClose(); closeAll(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { playClose(); closeAll(); } });
+  </script>
+</body>
+</html>

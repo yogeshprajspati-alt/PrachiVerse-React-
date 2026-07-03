@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Outfit:wght@400;700;900&display=swap');
+
+/* ══════════════════════════════════
+   ROOT WRAPPER & LIGHTING
+══════════════════════════════════ */
+.wrap {
+    min-height: 100vh; width: 100%;
+    display: flex; justify-content: center; align-items: center;
+    position: relative; overflow: hidden;
+    font-family: 'Outfit', sans-serif; user-select: none;
+    background-color: #beb0d4; 
+}
+.bgSpotlight {
+    position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.15) 0%, transparent 60%);
+}
+
+.bgDecorClip1, .bgDecorClip2 {
+    position: absolute; font-size: 6rem; color: transparent;
+    text-shadow: 
+        6px 6px 10px rgba(85, 68, 122, 0.25), 
+        -3px -3px 6px rgba(255, 255, 255, 0.3);
+    opacity: 0.85; pointer-events: none;
+}
+.bgDecorClip1 { top: 5%; right: 8%; transform: rotate(15deg); }
+.bgDecorClip2 { bottom: 8%; left: 5%; transform: rotate(-35deg); }
+
+/* ══════════════════════════════════
+   INTRO SCREEN
+══════════════════════════════════ */
+.intro {
+    position: fixed; inset: 0; z-index: 999;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background-color: #beb0d4; opacity: 0; transform: scale(1.04);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.introIn  { opacity: 1; transform: scale(1); }
+.introOut { opacity: 0; transform: scale(1.06) translateY(-8px); pointer-events: none; }
+
+.introEye { font-weight: 700; letter-spacing: 4px; color: #77629e; margin-bottom: 0.5rem; font-size: 0.9rem;}
+.introTitle {
+    font-weight: 900; font-size: clamp(3.5rem, 10vw, 6rem);
+    color: #55447a; margin: 0 0 0.4rem; line-height: 1;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+}
+.introSub { font-family: 'Caveat', cursive; font-size: 1.8rem; color: #55447a; margin: 0 0 3rem; }
+
+/* ══════════════════════════════════
+   ADVANCED CLAYMORPHISM CONTROLS
+══════════════════════════════════ */
+.clayBtn {
+    background: #c7b8de; border: none; color: #55447a;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 1000;
+    box-shadow: 
+        8px 8px 16px rgba(85, 68, 122, 0.25),
+        -8px -8px 16px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+        inset -2px -2px 4px rgba(85, 68, 122, 0.15);
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.clayBtn:active:not(:disabled) {
+    transform: scale(0.96);
+    box-shadow: 
+        inset 6px 6px 12px rgba(85, 68, 122, 0.25),
+        inset -6px -6px 12px rgba(255, 255, 255, 0.6);
+}
+.clayBtn:disabled { opacity: 0.5; cursor: default; }
+
+.introBtn { padding: 1.2rem 3.5rem; border-radius: 16px; font-family: 'Outfit', sans-serif; font-weight: 900; font-size: 1.1rem; text-transform: uppercase; }
+.arrow { position: fixed; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; border-radius: 50%; font-size: 1.8rem; font-weight: 900; z-index: 201; }
+.arL { left: 24px; } .arR { right: 24px; }
+.musicBtn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; border-radius: 50%; font-size: 1.6rem; }
+
+/* ══════════════════════════════════
+   NOTEBOOK & 3D FLIP
+══════════════════════════════════ */
+.book {
+    position: relative; z-index: 10;
+    width: 90vw; max-width: 440px; height: 75vh;
+    perspective: 2500px; 
+    transition: transform 1.2s cubic-bezier(0.25,1,0.5,1), opacity 1.2s ease;
+    filter: drop-shadow(20px 35px 50px rgba(74, 59, 105, 0.45));
+}
+.bookHidden { transform: translateY(55vh) rotateX(15deg) scale(0.78); opacity: 0; pointer-events: none; }
+
+.spiral {
+    position: absolute; left: -22px; top: 2%; bottom: 2%; width: 44px; z-index: 100;
+    display: flex; flex-direction: column; justify-content: space-evenly; pointer-events: none;
+}
+.ring {
+    width: 100%; height: 16px;
+    background: linear-gradient(180deg, #d4d4d4 0%, #ffffff 30%, #8a8a8a 100%);
+    border-radius: 8px; transform: rotate(-4deg);
+    box-shadow: 3px 5px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.9);
+}
+
+.progBar {
+    position: absolute; top: -20px; left: 24px; right: 0; height: 6px;
+    background: rgba(255,255,255,0.4); border-radius: 10px; overflow: hidden; z-index: 20;
+    box-shadow: inset 1px 2px 4px rgba(85, 68, 122, 0.2);
+}
+.progFill { height: 100%; background: #77629e; border-radius: 10px; transition: width 0.9s; }
+
+.pages { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; }
+
+.page {
+    position: absolute; inset: 0; transform-origin: left center;
+    transition: transform 0.95s cubic-bezier(0.645,0.045,0.355,1);
+    will-change: transform; cursor: pointer;
+    border-radius: 6px 20px 20px 6px;
+}
+.flipped { transform: rotateY(-180deg); pointer-events: none; }
+
+/* ══════════════════════════════════
+   THICK CLAY COVER 
+══════════════════════════════════ */
+.cover {
+    background-color: #c7b8de; 
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+    box-shadow: 
+        inset 12px 12px 24px rgba(255, 255, 255, 0.6),
+        inset -12px -12px 24px rgba(119, 98, 158, 0.35),
+        6px 6px 18px rgba(85, 68, 122, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex; align-items: center; justify-content: center;
+}
+.coverInner { padding: 2rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+.cTitle {
+    font-weight: 900; font-size: clamp(3.5rem, 12vw, 5.2rem);
+    color: #55447a; line-height: 0.82; letter-spacing: -2px;
+    text-shadow: 2px 3px 0px rgba(255,255,255,0.5);
+}
+.cMatch { font-size: 3.8rem; margin: 1.5rem 0; transform: rotate(15deg); }
+.cSub { font-family: 'Caveat', cursive; font-size: 1.5rem; color: #55447a; line-height: 1.1; font-weight: 700; margin-top: 1rem;}
+
+.clayMolded {
+    background: #8e78b3;
+    box-shadow: 
+        inset 4px 4px 8px rgba(255, 255, 255, 0.3),
+        inset -4px -4px 8px rgba(53, 41, 79, 0.4),
+        5px 5px 12px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.skullTab {
+    position: absolute; right: -30px; width: 48px; height: 55px;
+    border-radius: 0 14px 14px 0; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; color: white; z-index: 5; pointer-events: none;
+}
+
+/* ══════════════════════════════════
+   STICKER EFFECT (Die-cut emojis)
+══════════════════════════════════ */
+.sticker {
+    display: inline-block;
+    filter: drop-shadow(2px 4px 4px rgba(85, 68, 122, 0.3));
+    text-shadow: 
+        -2px -2px 0 #fff, 2px -2px 0 #fff, -2px 2px 0 #fff, 2px 2px 0 #fff,
+        -3px 0 0 #fff, 3px 0 0 #fff, 0 -3px 0 #fff, 0 3px 0 #fff;
+}
+
+/* ══════════════════════════════════
+   INNER PAGES (Premium Cardstock)
+══════════════════════════════════ */
+.innerPage {
+    background: linear-gradient(90deg, #efe8f5 0%, #ffffff 6%, #ffffff 94%, #efe8f5 100%);
+    box-shadow: 
+        inset 5px 0 15px rgba(85, 68, 122, 0.08),
+        inset -5px 0 15px rgba(255, 255, 255, 0.9),
+        inset 0 0 0 1px rgba(255,255,255,0.6), 
+        5px 8px 16px rgba(85, 68, 122, 0.12);
+    border: 1px solid #dcd0ea;
+}
+.leftBorder { border-left: 4px solid #dcd0ea; } 
+
+.content { position: relative; z-index: 1; padding: 3rem 2.2rem; height: 100%; overflow-y: auto; scrollbar-width: none; }
+
+.mainTitle { font-weight: 900; font-size: 2.4rem; color: #55447a; line-height: 1; margin-bottom: 1.5rem; letter-spacing: -0.5px;}
+.caseNo { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Caveat', cursive; font-size: 1.4rem; color: #55447a; font-weight: 700; background: rgba(255,255,255,0.7); padding: 4px 10px; border-radius: 4px;}
+.itemTitle { font-size: 1.4rem; color: #55447a; margin-bottom: 0.5rem; font-weight: 700; text-transform: uppercase;}
+.handWritten { font-family: 'Caveat', cursive; font-size: 1.9rem; color: #55447a; line-height: 1.35; letter-spacing: 0.5px; margin: 0; font-weight: 600;}
+.underline { text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 4px; text-decoration-color: #8e78b3;}
+
+.headerBox { text-align: center; border: 3px dashed #55447a; padding: 1.5rem; margin-top: 3rem; position: relative; border-radius: 8px; background: rgba(255,255,255,0.5);}
+.acneTitle { font-size: 3.5rem; font-weight: 900; color: #55447a; margin: 0; line-height: 0.85; letter-spacing: 1px; }
+
+/* Soft Clay Polaroids */
+.polaroidContainer { width: 85%; margin: 2rem auto; position: relative; }
+.polaroid {
+    background: #fff; padding: 14px 14px 45px 14px;
+    border-radius: 6px; transform: rotate(3deg);
+    box-shadow: 
+        inset 2px 2px 6px rgba(255,255,255,1),
+        4px 12px 20px rgba(85, 68, 122, 0.18);
+}
+.imagePlaceholder {
+    width: 100%; aspect-ratio: 4/3; background: #e8c6b6;
+    display: flex; align-items: center; justify-content: center;
+    color: #a87961; font-weight: bold; font-size: 1.3rem; border-radius: 4px;
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.1);
+}
+.pin {
+    width: 20px; height: 20px; background: #a289ce; border-radius: 50%;
+    position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+    box-shadow: 
+        inset 4px 4px 6px rgba(255,255,255,0.7),
+        inset -4px -4px 6px rgba(85, 68, 122, 0.5),
+        2px 5px 8px rgba(0,0,0,0.3);
+    z-index: 2;
+}
+
+/* Washi Tape */
+.tape {
+    position: absolute; background: rgba(162, 137, 206, 0.8); mix-blend-mode: multiply;
+    font-family: 'Caveat', cursive; color: #2b1f45; text-align: center; font-weight: 700;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.08); border-radius: 2px;
+    border-left: 2px dashed rgba(255,255,255,0.3); border-right: 2px dashed rgba(255,255,255,0.3);
+}
+.tapeTop { width: 100px; height: 26px; top: -12px; left: 50%; transform: translateX(-50%) rotate(-3deg); font-size: 1.2rem;}
+.tapeBottom { width: 105%; padding: 10px; bottom: -20px; left: -2.5%; transform: rotate(-2deg); font-size: 1.3rem; line-height: 1; }
+
+/* Checklist */
+.chargesSection { margin-top: 3rem; background: rgba(255,255,255,0.4); padding: 1rem; border-radius: 8px;}
+.chargesTitle { font-family: 'Caveat', cursive; font-size: 1.9rem; color: #55447a; text-decoration: underline; margin-bottom: 1rem; }
+.checklist { list-style: none; padding: 0; margin: 0; }
+.checklist li { font-size: 1.15rem; color: #55447a; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 14px; font-weight: 700; }
+.checkbox {
+    width: 22px; height: 22px; border: 3px solid #55447a; border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Caveat', cursive; font-size: 1.4rem; color: #55447a;
+    background: #fff; box-shadow: inset 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+.clayPill {
+    background: #e1d8ee; border: 2px solid #55447a; padding: 0.8rem 1.2rem;
+    border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 700; color: #55447a;
+    box-shadow: inset 2px 2px 5px rgba(255,255,255,0.8), 2px 4px 6px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.doodlesLeft { position: absolute; bottom: 2.5rem; left: 2.5rem; display: flex; flex-wrap: wrap; gap: 18px; width: 60%; }
+
+.hint { position: absolute; bottom: -50px; width: 100%; text-align: center; font-size: 0.95rem; color: #55447a; font-weight: 900; text-shadow: 1px 1px 0px rgba(255,255,255,0.6); letter-spacing: 1px;}
+.zone { position: fixed; top: 0; height: 100%; width: 22%; z-index: 200; cursor: pointer; }
+.zL { left: 0; } .zR { right: 0; }
+
+/* ══════════════════════════════════
+   MOBILE
+══════════════════════════════════ */
+@media (max-width: 768px) {
+    .book { width: 95vw; max-width: none; height: 72vh; }
+    .coverInner { padding: 1.5rem; }
+    .cTitle { font-size: 4rem; }
+    .arrow { display: none; }
+    .musicBtn { width: 52px; height: 52px; bottom: 20px; right: 20px; }
+    .handWritten { font-size: 1.65rem; }
+}
+
+
+
+
+/* Polaroid GIF styling */
+.gifWrapper {
+    width: 100%; 
+    aspect-ratio: 4/3; /* Ye purane placeholder ka size maintain karega */
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.1);
+    background: #e8c6b6; /* Loading ke time base color */
+}
+
+.polaroidGif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* GIF ko box mein perfect fit karne ke liye */
+}
+
+
+
+
+
+
+
+/* ══════════════════════════════════
+   FLIRTY REVEAL (Scrapbook Secret Note)
+══════════════════════════════════ */
+.secretNote {
+    background: #fdfbfd;
+    border: 1px solid #dcd0ea;
+    box-shadow: 
+        3px 5px 12px rgba(85, 68, 122, 0.08), 
+        inset 0 0 10px rgba(0,0,0,0.02);
+    border-radius: 2px; /* Less rounded, more like paper */
+    padding: 2rem 1.5rem 1.5rem;
+    margin: 2.5rem auto;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    z-index: 205; /* Keeps it clickable above invisible page turn zones */
+    transform: rotate(-1.5deg); /* Slight scrapbook tilt */
+}
+
+/* Semi-transparent tape holding the note */
+.secretTape {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%) rotate(2deg);
+    width: 70px;
+    height: 25px;
+    background: rgba(162, 137, 206, 0.6);
+    mix-blend-mode: multiply;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.05);
+}
+
+/* The button now looks like a dark censor tape / sticker */
+.tapeRevealBtn {
+    background: #55447a;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    border: none;
+    padding: 8px 20px;
+    margin-top: 1.2rem;
+    cursor: pointer;
+    box-shadow: 2px 4px 6px rgba(85, 68, 122, 0.2);
+    transform: rotate(1deg);
+    transition: all 0.2s ease;
+}
+
+.tapeRevealBtn:hover {
+    transform: scale(1.05) rotate(-1deg);
+    background: #77629e;
+}
+
+/* The revealed flirty text */
+.revealedText {
+    color: #77629e !important; 
+    font-size: 2rem !important;
+    margin-top: 1rem !important;
+    font-weight: 700 !important;
+    /* Wavy underline to look playfully handwritten */
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #c7b8de;
+    text-underline-offset: 4px;
+    animation: popInSecret 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popInSecret {
+    0% { opacity: 0; transform: scale(0.9) translateY(-5px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Polaroid Media Wrapper (Works for both GIFs and Videos) */
+.mediaWrapper {
+    width: 100%; 
+    aspect-ratio: 4/3; /* Height aur width ka ratio maintain karega */
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: inset 3px 3px 8px rgba(0,0,0,0.1);
+    background: #e8c6b6; 
+    position: relative;
+}
+
+.polaroidMedia {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Video ko stretch hone se rokega aur frame mein fit kar dega */
+    display: block;
+}

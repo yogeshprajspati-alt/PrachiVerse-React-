@@ -1,0 +1,407 @@
+/* NewYear2026.module.css */
+
+.container {
+    --pink: #ec4899;
+    --violet: #8b5cf6;
+    --gold: #fcd34d;
+    --dark: #0f172a;
+
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(-45deg, #0f172a, #1e1b4b, #312e81, #4c1d95);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    color: #fff;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    touch-action: manipulation;
+    position: relative;
+    /* Ensure it takes full viewport */
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+}
+
+.particles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.fireworksCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* ========== ENVELOPE STAGE ========== */
+.stage {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    z-index: 10;
+}
+
+.stageActive {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.envelopeContainer {
+    position: relative;
+    cursor: pointer;
+}
+
+.envelope {
+    width: min(320px, 85vw);
+    height: min(200px, 50vw);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope:hover {
+    transform: scale(1.05);
+}
+
+.envelopeGlow {
+    filter: drop-shadow(0 0 40px rgba(236, 72, 153, 0.8));
+}
+
+.envBack {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f5f5f5, #e5e5e5);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.envFlap {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--pink), var(--violet));
+    clip-path: polygon(0 0, 100% 0, 50% 60%);
+    transform-origin: top center;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 16px 16px 0 0;
+    z-index: 2;
+}
+
+.envelopeOpen .envFlap {
+    transform: rotateX(180deg);
+}
+
+.envLetter {
+    position: absolute;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+    width: 88%;
+    height: 85%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    opacity: 0;
+    transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), bottom 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease 0.6s;
+    z-index: 1;
+}
+
+.envelopeOpen .envLetter {
+    bottom: 60px;
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 1;
+}
+
+.letterContent {
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    color: #1f2937;
+}
+
+.letterContent h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--pink);
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.hint {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.7
+    }
+
+    50% {
+        opacity: 1
+    }
+}
+
+/* ========== MESSAGE STAGE ========== */
+.messageBox {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 35px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+.messageBox h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    background: linear-gradient(45deg, var(--violet), var(--pink), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.typedText {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.8;
+    white-space: pre-wrap;
+    border-right: 3px solid var(--gold);
+    display: inline-block;
+    min-height: 20px;
+    max-height: 40vh;
+    overflow-y: auto;
+    text-align: left;
+    width: 100%;
+}
+
+.continueBtn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(45deg, var(--pink), var(--violet));
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(236, 72, 153, 0.5);
+    transition: all 0.3s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.continueBtnShow {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.continueBtn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.8);
+}
+
+.continueBtn:active {
+    transform: scale(0.98);
+}
+
+/* ========== INTERACTIVE STAGE ========== */
+.interactiveBox {
+    text-align: center;
+    max-width: 700px;
+    width: 90%;
+}
+
+.interactiveBox h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    background: linear-gradient(45deg, var(--violet), var(--pink), var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    text-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+}
+
+.interactiveBox p {
+    font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.heartBig {
+    font-size: 5rem;
+    animation: heartbeat 1.2s ease-in-out infinite;
+    display: inline-block;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.heartBig:hover {
+    transform: scale(1.15);
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1)
+    }
+
+    25% {
+        transform: scale(1.15)
+    }
+
+    50% {
+        transform: scale(1)
+    }
+}
+
+.tapHint {
+    font-size: 1rem;
+    opacity: 0.7;
+    margin-top: 20px;
+}
+
+/* ========== FLOATING HEARTS ========== */
+.floatHeart {
+    position: fixed;
+    bottom: -60px;
+    font-size: clamp(1.2rem, 4vw, 2rem);
+    pointer-events: none;
+    z-index: 3;
+    animation: floatUp linear forwards;
+}
+
+@keyframes floatUp {
+    to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width: 600px) {
+    .letterContent {
+        padding: 15px
+    }
+
+    .letterContent h2 {
+        font-size: 1.3rem
+    }
+
+    .messageBox {
+        padding: 25px
+    }
+
+    .interactiveBox h1 {
+        margin-bottom: 15px
+    }
+
+    .heartBig {
+        font-size: 4rem
+    }
+
+    .musicToggle {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+        font-size: 1.3rem;
+    }
+}
+
+@media(max-height: 600px) {
+    .envelope {
+        height: min(160px, 40vw)
+    }
+
+    .letterContent {
+        padding: 12px;
+        font-size: 0.85rem
+    }
+}
+
+/* Prevent text selection on interactive elements */
+.envelope,
+.continueBtn,
+.heartBig {
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ========== MUSIC TOGGLE ========== */
+.musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(139, 92, 246, 0.3);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.musicToggle:hover {
+    transform: scale(1.1);
+    background: rgba(139, 92, 246, 0.5);
+    box-shadow: 0 6px 30px rgba(139, 92, 246, 0.6);
+}
+
+.musicToggle:active {
+    transform: scale(0.95);
+}
+
+.musicTogglePlaying {
+    background: rgba(236, 72, 153, 0.4);
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 20px rgba(236, 72, 153, 0.4)
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(236, 72, 153, 0.8)
+    }
+}

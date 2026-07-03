@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Prachi — Paani Pee lo! 🐣</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,400;1,600&family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* ══════════════════════════════
+       TOKENS
+    ══════════════════════════════ */
+        :root {
+            --cream: #fdf6ec;
+            --beige: #f5e4c0;
+            --warm: #e8cc90;
+            --tan: #c8a060;
+            --brown: #7a4e28;
+            --dark: #3a1e08;
+            --rose: #e89898;
+            --rosedp: #c06060;
+            --sage: #a8c890;
+            --sagedp: #6a9050;
+            --chick: #f5c830;
+            --chickd: #c89018;
+            --sky: #c8e8f8;
+            --skydp: #90c8e8;
+            --font-d: 'Lora', Georgia, serif;
+            --font-b: 'Nunito', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: var(--font-b);
+            background: var(--cream);
+            touch-action: manipulation;
+        }
+
+        /* ══════════════════════════════
+       BACKGROUND — cozy room
+    ══════════════════════════════ */
+        .bg {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            /* wall: warm parchment gradient */
+            background: linear-gradient(175deg,
+                    #fff9f2 0%, #fef0d8 10%,
+                    #f9e4c0 22%, #f2d4a0 34%,
+                    #e8c07a 46%, #d8a858 58%,
+                    #c89040 68%, #b87828 78%,
+                    #a06020 88%, #886018 100%);
+        }
+
+        /* subtle linen grain */
+        .bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        /* ── WAINSCOTING (lower wall panel) ── */
+        .wainscot {
+            position: fixed;
+            bottom: 18%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 28%;
+            pointer-events: none;
+            background: linear-gradient(180deg, #c8a060 0%, #b48840 30%, #9a7030 60%, #806020 100%);
+            border-top: 4px solid #e8c880;
+            box-shadow: inset 0 4px 12px rgba(0, 0, 0, .12);
+        }
+
+        /* wainscot plank lines */
+        .wainscot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(90deg, transparent 0, transparent 55px,
+                    rgba(0, 0, 0, .06) 55px, rgba(0, 0, 0, .06) 57px);
+        }
+
+        /* wainscot top highlight rail */
+        .wainscot::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg,
+                    transparent, rgba(255, 230, 160, .6) 25%,
+                    rgba(255, 240, 180, .8) 50%,
+                    rgba(255, 230, 160, .6) 75%, transparent);
+        }
+
+        /* ── FLOOR ── */
+        .floor {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            height: 18%;
+            pointer-events: none;
+            background: linear-gradient(180deg,
+                    #9a7030 0%, #806020 30%, #684810 65%, #503808 100%);
+            border-top: 3px solid rgba(255, 200, 100, .2);
+        }
+
+        .floor::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(90deg, transparent 0, transparent 70px,
+                    rgba(0, 0, 0, .08) 70px, rgba(0, 0, 0, .08) 73px);
+        }
+
+        /* floor shine */
+        .floor-shine {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 18%;
+            z-index: 2;
+            pointer-events: none;
+            background: linear-gradient(to bottom,
+                    rgba(255, 220, 120, .18) 0%,
+                    rgba(255, 200, 80, .06) 40%, transparent 100%);
+        }
+
+        /* ── WINDOW ── */
+        .window-wrap {
+            position: fixed;
+            z-index: 3;
+            top: 6%;
+            left: 5%;
+            pointer-events: none;
+        }
+
+        .window {
+            width: 88px;
+            height: 100px;
+            border: 5px solid #7a4e28;
+            border-radius: 10px 10px 4px 4px;
+            background: linear-gradient(150deg, #c0daf5 0%, #d8eeff 45%, #b8d0ee 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: inset 0 3px 10px rgba(0, 0, 80, .14),
+                4px 4px 16px rgba(0, 0, 0, .22),
+                inset 0 0 0 2px rgba(255, 255, 255, .12);
+        }
+
+        /* window cross */
+        .window::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #7a4e28;
+            transform: translateY(-50%);
+        }
+
+        .window::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: #7a4e28;
+            transform: translateX(-50%);
+        }
+
+        /* curtains */
+        .curtain-l,
+        .curtain-r {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 16px;
+            z-index: 2;
+            border-radius: 4px;
+        }
+
+        .curtain-l {
+            left: 0;
+            background: linear-gradient(90deg, #e8907070, #d0607050);
+        }
+
+        .curtain-r {
+            right: 0;
+            background: linear-gradient(270deg, #e8907070, #d0607050);
+        }
+
+        /* sun through window */
+        .window-sun {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 240, 160, .9), rgba(255, 210, 80, .4), transparent 70%);
+        }
+
+        /* window cloud */
+        .w-cloud {
+            position: absolute;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, .68);
+            animation: wcloudMove var(--wcd, 14s) ease-in-out infinite;
+            animation-delay: var(--wcdel, 0s);
+        }
+
+        @keyframes wcloudMove {
+
+            0%,
+            100% {
+                transform: translateX(-15px);
+                opacity: .5;
+            }
+
+            50% {
+                transform: translateX(5px);
+                opacity: .85;
+            }
+        }
+
+        /* sill */
+        .sill {
+            width: calc(100% + 14px);
+            height: 10px;
+            background: linear-gradient(180deg, #9a6838, #7a4e28);
+            border-radius: 2px;
+            margin-top: 0;
+            margin-left: -7px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, .22);
+        }
+
+        /* flower pot on sill */
+        .sill-pot {
+            position: absolute;
+            bottom: -2px;
+            right: -4px;
+            font-size: 1.3rem;
+            line-height: 1;
+        }
+
+        /* ── BOOKSHELF ── */
+        .shelf-wrap {
+            position: fixed;
+            z-index: 3;
+            top: 5%;
+            right: 3%;
+            pointer-events: none;
+            width: 76px;
+        }
+
+        .shelf-plank {
+            height: 9px;
+            background: linear-gradient(180deg, #a07848, #7a5428);
+            border-radius: 3px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, .24), inset 0 1px 0 rgba(255, 255, 255, .2);
+            margin-bottom: 0;
+        }
+
+        .shelf-items {
+            display: flex;
+            gap: 2px;
+            align-items: flex-end;
+            height: 44px;
+            padding: 0 3px 0;
+            background: transparent;
+        }
+
+        .book {
+            border-radius: 2px 2px 0 0;
+            box-shadow: 1px 0 4px rgba(0, 0, 0, .18);
+        }
+
+        /* ── HANGING FAIRY LIGHTS ── */
+        .lights {
+            position: fixed;
+            z-index: 3;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            pointer-events: none;
+        }
+
+        /* string */
+        .lights::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(120, 70, 20, .5) 10%, rgba(120, 70, 20, .5) 90%, transparent);
+        }
+
+        .bulb {
+            position: absolute;
+            top: var(--bt, 12px);
+            left: var(--bl, 10%);
+            width: var(--bw, 10px);
+            height: var(--bh, 14px);
+            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+            background: var(--bc, rgba(255, 220, 100, .9));
+            box-shadow: 0 0 6px var(--bc, rgba(255, 220, 100, .8)),
+                0 0 14px var(--bc, rgba(255, 220, 100, .4));
+            animation: bulbGlow var(--bgd, 3s) ease-in-out infinite;
+            animation-delay: var(--bgdel, 0s);
+        }
+
+        @keyframes bulbGlow {
+
+            0%,
+            100% {
+                opacity: .7;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        .bulb::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 5px;
+            background: rgba(100, 60, 20, .7);
+            border-radius: 1px;
+        }
+
+        /* ── DECORATIVE ITEMS ── */
+        .deco {
+            position: fixed;
+            z-index: 3;
+            pointer-events: none;
+            font-size: var(--dfs, 1.2rem);
+            bottom: var(--db, 19%);
+            left: var(--dl, auto);
+            right: var(--dr, auto);
+            will-change: transform;
+            animation: decoSway var(--dd, 4s) ease-in-out infinite;
+            animation-delay: var(--ddel, 0s);
+        }
+
+        @keyframes decoSway {
+
+            0%,
+            100% {
+                transform: rotate(-4deg);
+            }
+
+            50% {
+                transform: rotate(4deg);
+            }
+        }
+
+        /* ── MUG with rising steam ── */
+        .mug-area {
+            position: fixed;
+            z-index: 3;
+            bottom: 18%;
+            left: 6%;
+            pointer-events: none;
+        }
+
+        .steam-wrap {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 1px;
+            align-items: flex-end;
+        }
+
+        .steam-line {
+            width: 3px;
+            border-radius: 3px;
+            background: linear-gradient(to top, rgba(255, 255, 255, .6), transparent);
+            will-change: transform, opacity;
+            animation: steamUp var(--std, 2.4s) ease-out infinite;
+            animation-delay: var(--stdel, 0s);
+            transform-origin: bottom;
+        }
+
+        @keyframes steamUp {
+            0% {
+                transform: scaleX(1) translateY(0);
+                opacity: .65;
+            }
+
+            40% {
+                transform: scaleX(1.6) translateY(-14px);
+                opacity: .38;
+            }
+
+            100% {
+                transform: scaleX(1) translateY(-28px);
+                opacity: 0;
+            }
+        }
+
+        /* ── FLOATING LEAVES ── */
+        .leaf {
+            position: fixed;
+            z-index: 2;
+            pointer-events: none;
+            font-size: var(--lfs, 1.1rem);
+            top: var(--lt, 20%);
+            left: var(--ll, 80%);
+            will-change: transform, opacity;
+            animation: leafFloat var(--ld, 6s) ease-in-out infinite;
+            animation-delay: var(--ldel, 0s);
+            opacity: .72;
+        }
+
+        @keyframes leafFloat {
+
+            0%,
+            100% {
+                transform: rotate(-8deg) translateY(0);
+            }
+
+            50% {
+                transform: rotate(8deg) translateY(-8px);
+            }
+        }
+
+        /* ══════════════════════════════
+       PROGRESS — 8 glass jars
+    ══════════════════════════════ */
+        .jars-row {
+            position: fixed;
+            z-index: 10;
+            bottom: calc(18% + 12px);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            padding: 8px 14px;
+            background: rgba(253, 246, 236, .78);
+            border: 1.5px solid rgba(200, 160, 80, .35);
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(80, 40, 10, .14),
+                inset 0 1px 0 rgba(255, 255, 255, .8);
+        }
+
+        .jar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            cursor: default;
+        }
+
+        .jar-svg {
+            width: 22px;
+            height: 28px;
+            transition: transform .35s cubic-bezier(.22, .68, 0, 1.2);
+        }
+
+        .jar.done .jar-svg {
+            transform: scale(1.22);
+        }
+
+        .jar-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(180, 130, 60, .25);
+            transition: background .4s, transform .4s;
+        }
+
+        .jar.done .jar-dot {
+            background: var(--chick);
+            transform: scale(1.3);
+        }
+
+        /* ══════════════════════════════
+       BADGE top-left
+    ══════════════════════════════ */
+        .badge {
+            position: fixed;
+            z-index: 10;
+            left: 14px;
+            top: calc(env(safe-area-inset-top)+14px);
+            background: rgba(253, 246, 236, .85);
+            border: 1.5px solid rgba(200, 160, 80, .38);
+            border-radius: 40px;
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 3px 12px rgba(80, 40, 10, .14);
+        }
+
+        .badge-text {
+            font-size: .7rem;
+            font-weight: 800;
+            letter-spacing: .06em;
+            color: var(--brown);
+        }
+
+        /* ══════════════════════════════
+       CHICK
+    ══════════════════════════════ */
+        .chick-wrap {
+            position: fixed;
+            z-index: 10;
+            cursor: pointer;
+            touch-action: manipulation;
+            outline: none;
+            user-select: none;
+            -webkit-user-select: none;
+            will-change: transform;
+            /* bounce driven purely by JS-set left/top + CSS keyframe */
+            animation: chickBounce 2.4s cubic-bezier(.36, .07, .19, .97) infinite;
+        }
+
+        @keyframes chickBounce {
+
+            0%,
+            100% {
+                transform: rotate(-4deg) scale(1);
+            }
+
+            24% {
+                transform: rotate(5deg) scale(1.07, .93) translateY(-18px);
+            }
+
+            52% {
+                transform: rotate(-5deg) scale(.95, 1.06) translateY(4px);
+            }
+
+            70% {
+                transform: rotate(3deg) scale(1.03, .97) translateY(-7px);
+            }
+        }
+
+        /* squish on tap */
+        .chick-wrap.squish {
+            animation: chickSquish .35s ease forwards;
+        }
+
+        @keyframes chickSquish {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1.3, .7);
+            }
+
+            65% {
+                transform: scale(.85, 1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* speech bubble */
+        .bubble {
+            position: absolute;
+            bottom: calc(100% + 4px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(253, 246, 236, .96);
+            border: 1.5px solid rgba(200, 160, 80, .45);
+            border-radius: 16px;
+            padding: 6px 12px;
+            white-space: nowrap;
+            font-size: .68rem;
+            font-weight: 800;
+            color: var(--dark);
+            box-shadow: 0 4px 16px rgba(80, 40, 10, .14),
+                inset 0 1px 0 rgba(255, 255, 255, .9);
+            pointer-events: none;
+            will-change: opacity, transform;
+            animation: bubbleFloat 2.6s ease-in-out infinite;
+        }
+
+        @keyframes bubbleFloat {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+                opacity: .75;
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        /* bubble tail */
+        .bubble::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: rgba(200, 160, 80, .45);
+            filter: drop-shadow(0 1px 0 rgba(200, 160, 80, .45));
+        }
+
+        .bubble::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: -1px;
+            border: 6px solid transparent;
+            border-top-color: rgba(253, 246, 236, .96);
+            z-index: 1;
+        }
+
+        /* chick drop-shadow (static, not animated filter) */
+        .chick-svg {
+            display: block;
+            width: 108px;
+            height: auto;
+            filter: drop-shadow(0 8px 16px rgba(80, 40, 10, .22)) drop-shadow(0 2px 4px rgba(0, 0, 0, .12));
+        }
+
+        /* chick shadow on floor */
+        .chick-shadow {
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 58px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(60, 30, 8, .20);
+            filter: blur(4px);
+            will-change: transform, opacity;
+            animation: shadowBounce 2.4s ease-in-out infinite;
+        }
+
+        @keyframes shadowBounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) scaleX(1);
+                opacity: .5;
+            }
+
+            24% {
+                transform: translateX(-50%) scaleX(.72);
+                opacity: .2;
+            }
+
+            52% {
+                transform: translateX(-50%) scaleX(1.12);
+                opacity: .6;
+            }
+        }
+
+        /* ══════════════════════════════
+       MODAL — bottom sheet, gorgeous
+    ══════════════════════════════ */
+        .modal-bg {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            background: rgba(40, 18, 4, .38);
+            backdrop-filter: blur(5px);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: calc(14px + env(safe-area-inset-bottom));
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .3s ease;
+        }
+
+        .modal-bg.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-sheet {
+            width: 100%;
+            max-width: 420px;
+            border-radius: 32px 32px 20px 20px;
+            overflow: hidden;
+            background: var(--cream);
+            border: 1.5px solid rgba(220, 180, 100, .4);
+            box-shadow: 0 -10px 50px rgba(80, 40, 10, .22),
+                inset 0 1.5px 0 rgba(255, 255, 255, .9);
+            transform: translateY(100%);
+            transition: transform .42s cubic-bezier(.22, .68, 0, 1.2);
+        }
+
+        .modal-bg.show .modal-sheet {
+            transform: translateY(0);
+        }
+
+        /* pill handle at top of sheet */
+        .sheet-handle {
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--beige), var(--cream));
+            cursor: grab;
+        }
+
+        .sheet-handle::after {
+            content: '';
+            width: 36px;
+            height: 4px;
+            border-radius: 2px;
+            background: rgba(160, 110, 50, .3);
+        }
+
+        /* rainbow top stripe */
+        .sheet-stripe {
+            height: 5px;
+            background: linear-gradient(90deg,
+                    var(--rose), var(--warm), var(--sage), var(--chick), var(--skydp), var(--rose));
+            background-size: 200% 100%;
+            animation: stripeSlide 3s linear infinite;
+        }
+
+        @keyframes stripeSlide {
+            from {
+                background-position: 0%
+            }
+
+            to {
+                background-position: 200%
+            }
+        }
+
+        /* chick in modal — big + expressive */
+        .sheet-chick {
+            text-align: center;
+            padding: 14px 0 6px;
+            font-size: 3.2rem;
+            will-change: transform;
+            animation: chickWiggle 1.8s ease-in-out infinite;
+        }
+
+        @keyframes chickWiggle {
+
+            0%,
+            100% {
+                transform: rotate(-6deg) scale(1);
+            }
+
+            50% {
+                transform: rotate(6deg) scale(1.1);
+            }
+        }
+
+        .sheet-body {
+            padding: 0 22px 20px;
+        }
+
+        .sheet-title {
+            font-family: var(--font-d);
+            font-style: italic;
+            font-size: 1.35rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        /* poem card */
+        .poem-card {
+            background: linear-gradient(148deg, rgba(250, 238, 210, .85), rgba(245, 228, 195, .78));
+            border: 1px solid rgba(210, 170, 90, .35);
+            border-radius: 20px;
+            padding: 15px 16px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* poem card shine */
+        .poem-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -60%;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(105deg, transparent, rgba(255, 255, 255, .22), transparent);
+            animation: poemShine 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes poemShine {
+            0% {
+                left: -60%;
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            55% {
+                left: 115%;
+                opacity: 0;
+            }
+
+            100% {
+                left: 115%;
+                opacity: 0;
+            }
+        }
+
+        .poem-line {
+            display: block;
+            font-size: clamp(.86rem, 3.5vw, .95rem);
+            font-weight: 400;
+            line-height: 2;
+            color: var(--dark);
+        }
+
+        .poem-line.funny {
+            color: #8a2808;
+            font-weight: 700;
+        }
+
+        .poem-line.sweet {
+            color: #3a6020;
+            font-weight: 600;
+        }
+
+        .poem-line.bold {
+            font-weight: 900;
+            font-size: 1.02rem;
+            color: var(--dark);
+        }
+
+        .poem-line.soft {
+            font-size: .8rem;
+            color: var(--brown);
+            font-style: italic;
+        }
+
+        /* buttons */
+        .sheet-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-yes {
+            flex: 1;
+            padding: 14px 10px;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, var(--chick), var(--chickd));
+            color: var(--dark);
+            font-family: var(--font-b);
+            font-size: .9rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(200, 150, 20, .38),
+                inset 0 1px 0 rgba(255, 255, 255, .4);
+            transition: transform .18s, box-shadow .18s;
+            touch-action: manipulation;
+        }
+
+        .btn-yes:active {
+            transform: scale(.93);
+            box-shadow: 0 2px 8px rgba(200, 150, 20, .25);
+        }
+
+        .btn-no {
+            padding: 14px 20px;
+            border-radius: 50px;
+            border: 1.5px solid rgba(180, 130, 60, .35);
+            background: rgba(248, 235, 210, .7);
+            color: var(--brown);
+            font-family: var(--font-b);
+            font-size: .84rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform .18s, background .18s;
+            touch-action: manipulation;
+        }
+
+        .btn-no:active {
+            transform: scale(.93);
+            background: rgba(240, 222, 190, .9);
+        }
+
+        /* ══════════════════════════════
+       CELEBRATION — petals + sparkles
+    ══════════════════════════════ */
+        .splash {
+            position: fixed;
+            inset: 0;
+            z-index: 30;
+            pointer-events: none;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity .1s;
+        }
+
+        .splash.show {
+            opacity: 1;
+        }
+
+        .petal {
+            position: absolute;
+            will-change: transform, opacity;
+            animation: petalFall var(--pfd, 1.3s) ease-in forwards;
+            animation-delay: var(--pfdel, 0s);
+            opacity: 0;
+        }
+
+        @keyframes petalFall {
+            0% {
+                transform: translateY(-15px) rotate(0deg) scale(0);
+                opacity: 0;
+            }
+
+            12% {
+                opacity: 1;
+                transform: translateY(0) rotate(25deg) scale(1.15);
+            }
+
+            85% {
+                opacity: .85;
+            }
+
+            100% {
+                transform: translateY(80vh) rotate(var(--pfr, 360deg)) scale(.65);
+                opacity: 0;
+            }
+        }
+
+        /* ══════════════════════════════
+       DRINK RIPPLE — on btn press
+    ══════════════════════════════ */
+        .ripple-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 19;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(200, 160, 80, .18);
+            will-change: transform, opacity;
+            animation: rippleOut .7s ease-out forwards;
+        }
+
+        @keyframes rippleOut {
+            from {
+                transform: scale(0);
+                opacity: 1;
+            }
+
+            to {
+                transform: scale(6);
+                opacity: 0;
+            }
+        }
+
+        /* ══════════════════════════════
+       CONGRATS SCREEN
+    ══════════════════════════════ */
+        .congrats {
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 36px 28px;
+            text-align: center;
+            background: linear-gradient(160deg, #fff9f0, #f5e0b8, #e8c878);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .5s ease;
+        }
+
+        .congrats.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .congrats-chick {
+            font-size: 5rem;
+            margin-bottom: 14px;
+            animation: chickWiggle 2s ease-in-out infinite;
+        }
+
+        .congrats-title {
+            font-family: var(--font-d);
+            font-style: italic;
+            font-size: clamp(1.9rem, 8vw, 2.6rem);
+            color: var(--dark);
+            margin-bottom: 12px;
+            text-shadow: 0 2px 12px rgba(120, 80, 10, .2);
+        }
+
+        .congrats-card {
+            background: rgba(253, 246, 236, .82);
+            border: 1.5px solid rgba(200, 160, 80, .38);
+            border-radius: 22px;
+            padding: 16px 22px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 20px rgba(80, 40, 10, .12);
+        }
+
+        .congrats-card p {
+            font-size: .95rem;
+            font-weight: 600;
+            line-height: 1.95;
+            color: var(--brown);
+        }
+
+        .btn-reset {
+            padding: 14px 40px;
+            border-radius: 50px;
+            border: 2px solid rgba(180, 130, 50, .4);
+            background: linear-gradient(135deg, var(--warm), var(--tan));
+            color: var(--dark);
+            font-family: var(--font-b);
+            font-size: .92rem;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 5px 16px rgba(150, 100, 20, .28);
+            touch-action: manipulation;
+            transition: transform .18s;
+        }
+
+        .btn-reset:active {
+            transform: scale(.93);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Room scene -->
+    <div class="bg"></div>
+    <div class="wainscot"></div>
+    <div class="floor"></div>
+    <div class="floor-shine"></div>
+
+    <!-- Fairy lights string -->
+    <div class="lights" id="lights"></div>
+
+    <!-- Window -->
+    <div class="window-wrap">
+        <div class="window">
+            <div class="window-sun"></div>
+            <div class="w-cloud" style="width:34px;height:12px;top:15%;left:3%;--wcd:11s;--wcdel:0s;"></div>
+            <div class="w-cloud" style="width:22px;height:9px; top:36%;left:18%;--wcd:16s;--wcdel:-5s;"></div>
+            <div class="w-cloud" style="width:16px;height:7px; top:10%;right:6%;--wcd:13s;--wcdel:-8s;"></div>
+            <div class="curtain-l"></div>
+            <div class="curtain-r"></div>
+        </div>
+        <div class="sill">
+            <div class="sill-pot">🌷</div>
+        </div>
+    </div>
+
+    <!-- Bookshelf -->
+    <div class="shelf-wrap">
+        <div class="shelf-items">
+            <div class="book" style="width:10px;height:36px;background:#b84030;"></div>
+            <div class="book" style="width:8px; height:30px;background:#2a5888;"></div>
+            <div class="book" style="width:12px;height:38px;background:#488030;"></div>
+            <div class="book" style="width:9px; height:28px;background:#988020;"></div>
+            <div class="book" style="width:8px; height:34px;background:#784080;"></div>
+            <div class="book" style="width:11px;height:32px;background:#c07018;"></div>
+            <div class="book" style="width:7px; height:26px;background:#406070;"></div>
+        </div>
+        <div class="shelf-plank"></div>
+        <div style="text-align:center;font-size:1.2rem;margin-top:4px;">🪴</div>
+    </div>
+
+    <!-- Cozy decor -->
+    <div class="deco" style="--db:19%;--dl:18%;--dfs:1.5rem;--dd:3.8s;--ddel:0s;">☕</div>
+    <div class="deco" style="--db:19%;--dr:16%;--dfs:1.3rem;--dd:4.4s;--ddel:-.5s;">🌻</div>
+    <div class="deco" style="--db:19%;--dr:6%; --dfs:1.1rem;--dd:5s;  --ddel:-1s;">🍄</div>
+    <div class="deco" style="--db:19%;--dl:30%;--dfs:1rem;  --dd:6s;  --ddel:-.8s;">🌾</div>
+
+    <!-- Mug with steam -->
+    <div class="mug-area">
+        <div class="steam-wrap">
+            <div class="steam-line" style="height:22px;--std:2.1s;--stdel:0s;"></div>
+            <div class="steam-line" style="height:30px;--std:2.7s;--stdel:-.6s;"></div>
+            <div class="steam-line" style="height:18px;--std:2.3s;--stdel:-1.1s;"></div>
+        </div>
+        <div style="font-size:2.4rem;">☕</div>
+    </div>
+
+    <!-- Floating leaves -->
+    <div class="leaf" style="--lt:24%;--ll:84%;--lfs:1.3rem;--ld:5s;--ldel:0s;">🍂</div>
+    <div class="leaf" style="--lt:38%;--ll:90%;--lfs:.9rem; --ld:6.5s;--ldel:-.8s;">🍁</div>
+    <div class="leaf" style="--lt:18%;--ll:76%;--lfs:1.1rem;--ld:4.4s;--ldel:-1.5s;">🌿</div>
+    <div class="leaf" style="--lt:50%;--ll:3%; --lfs:1rem;  --ld:7s;  --ldel:-.4s;">🍃</div>
+    <div class="leaf" style="--lt:60%;--ll:78%;--lfs:.85rem;--ld:5.8s;--ldel:-2s;">🍂</div>
+
+    <!-- Badge -->
+    <div class="badge">
+        <span style="font-size:1rem;">🐣</span>
+        <span class="badge-text" id="badgeText">0 / 8 glasses</span>
+    </div>
+
+    <!-- Glass jar progress row -->
+    <div class="jars-row" id="jarsRow"></div>
+
+    <!-- THE CHICK -->
+    <div class="chick-wrap" id="chick" role="button" tabindex="0" aria-label="Tap me for a water reminder!">
+
+        <div class="bubble" id="bubble">paani pilo! 💧</div>
+
+        <svg class="chick-svg" viewBox="0 0 108 120" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="bdG" cx="38%" cy="32%" r="65%">
+                    <stop offset="0%" stop-color="#ffe898" />
+                    <stop offset="55%" stop-color="#f5c830" />
+                    <stop offset="100%" stop-color="#c89018" />
+                </radialGradient>
+                <radialGradient id="blG" cx="44%" cy="38%" r="60%">
+                    <stop offset="0%" stop-color="#fff8d8" />
+                    <stop offset="100%" stop-color="#f8e080" />
+                </radialGradient>
+                <radialGradient id="hdG" cx="36%" cy="30%" r="62%">
+                    <stop offset="0%" stop-color="#ffe898" />
+                    <stop offset="100%" stop-color="#e8b828" />
+                </radialGradient>
+                <radialGradient id="eyG" cx="32%" cy="28%" r="60%">
+                    <stop offset="0%" stop-color="#5a2808" />
+                    <stop offset="100%" stop-color="#2a1004" />
+                </radialGradient>
+                <radialGradient id="wdG" cx="40%" cy="35%" r="65%">
+                    <stop offset="0%" stop-color="#80d0f8" />
+                    <stop offset="100%" stop-color="#2898d8" />
+                </radialGradient>
+            </defs>
+
+            <!-- BODY -->
+            <ellipse cx="54" cy="80" rx="34" ry="30" fill="url(#bdG)" />
+            <ellipse cx="54" cy="84" rx="22" ry="19" fill="url(#blG)" opacity=".72" />
+            <!-- body shading -->
+            <ellipse cx="54" cy="92" rx="28" ry="14" fill="rgba(180,120,10,.12)" />
+            <!-- body highlight -->
+            <ellipse cx="44" cy="68" rx="10" ry="7" fill="rgba(255,255,220,.30)" transform="rotate(-20,44,68)" />
+
+            <!-- WING LEFT -->
+            <path d="M22,74 C10,65 8,78 12,88 C16,97 25,93 27,88 C22,82 18,74 22,74Z" fill="#e8b020" />
+            <path d="M22,74 C13,68 9,76 11,84" stroke="#c89818" stroke-width="1.5" fill="none" stroke-linecap="round" />
+            <path d="M14,80 C13,84 14,88 16,90" stroke="rgba(255,255,255,.25)" stroke-width="1" fill="none"
+                stroke-linecap="round" />
+
+            <!-- WING RIGHT -->
+            <path d="M86,74 C98,65 100,78 96,88 C92,97 83,93 81,88 C86,82 90,74 86,74Z" fill="#e8b020" />
+            <path d="M86,74 C95,68 99,76 97,84" stroke="#c89818" stroke-width="1.5" fill="none"
+                stroke-linecap="round" />
+
+            <!-- HEAD -->
+            <ellipse cx="54" cy="47" rx="28" ry="26" fill="url(#hdG)" />
+            <!-- head highlight -->
+            <ellipse cx="44" cy="38" rx="10" ry="7" fill="rgba(255,255,220,.28)" transform="rotate(-15,44,38)" />
+
+            <!-- TUFT -->
+            <path d="M46,23 C44,12 50,6 53,11 C52,4 57,2 59,8 C61,2 67,6 63,14" stroke="#c89018" stroke-width="3.5"
+                fill="none" stroke-linecap="round" />
+            <path d="M53,11 C52,6 54,3 55,7" stroke="#f0c828" stroke-width="2.5" fill="none" stroke-linecap="round" />
+
+            <!-- EYES -->
+            <!-- left -->
+            <ellipse cx="42" cy="43" rx="7.5" ry="8.5" fill="url(#eyG)" />
+            <ellipse cx="42" cy="43" rx="5.5" ry="6.5" fill="#140804" />
+            <circle cx="44" cy="40" r="2.4" fill="white" />
+            <circle cx="40" cy="45" r="1.1" fill="rgba(255,255,255,.38)" />
+            <!-- right -->
+            <ellipse cx="66" cy="43" rx="7.5" ry="8.5" fill="url(#eyG)" />
+            <ellipse cx="66" cy="43" rx="5.5" ry="6.5" fill="#140804" />
+            <circle cx="68" cy="40" r="2.4" fill="white" />
+            <circle cx="64" cy="45" r="1.1" fill="rgba(255,255,255,.38)" />
+
+            <!-- EYEBROWS — raised, cute -->
+            <path d="M37,35 C39,32 45,32 47,34" stroke="#7a4010" stroke-width="2.2" fill="none"
+                stroke-linecap="round" />
+            <path d="M61,34 C63,32 69,32 71,35" stroke="#7a4010" stroke-width="2.2" fill="none"
+                stroke-linecap="round" />
+
+            <!-- BEAK -->
+            <path d="M49,53 L54,59 L59,53 Z" fill="#ff8818" />
+            <path d="M50,54 L58,54" stroke="#e06010" stroke-width="1.2" fill="none" />
+            <path d="M52,57 L56,57" stroke="#e87020" stroke-width=".8" fill="none" opacity=".6" />
+
+            <!-- ROSY CHEEKS -->
+            <ellipse cx="34" cy="51" rx="7" ry="4.5" fill="rgba(255,130,130,.32)" />
+            <ellipse cx="74" cy="51" rx="7" ry="4.5" fill="rgba(255,130,130,.32)" />
+
+            <!-- WATER DROP held in wings -->
+            <path d="M54,96 C49,86 42,81 42,89 C42,95 47,100 54,100 C61,100 66,95 66,89 C66,81 59,86 54,96Z"
+                fill="url(#wdG)" opacity=".85" />
+            <path d="M51,86 C50,81 46,82 46,86" stroke="rgba(255,255,255,.55)" stroke-width="1.5" fill="none"
+                stroke-linecap="round" />
+            <ellipse cx="60" cy="91" rx="3" ry="4" fill="rgba(255,255,255,.22)" transform="rotate(15,60,91)" />
+
+            <!-- FEET -->
+            <line x1="46" y1="109" x2="40" y2="116" stroke="#e09018" stroke-width="3.5" stroke-linecap="round" />
+            <line x1="40" y1="116" x2="33" y2="114" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="40" y1="116" x2="38" y2="120" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="40" y1="116" x2="44" y2="120" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+
+            <line x1="62" y1="109" x2="68" y2="116" stroke="#e09018" stroke-width="3.5" stroke-linecap="round" />
+            <line x1="68" y1="116" x2="75" y2="114" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="68" y1="116" x2="70" y2="120" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+            <line x1="68" y1="116" x2="64" y2="120" stroke="#e09018" stroke-width="2.2" stroke-linecap="round" />
+        </svg>
+
+        <div class="chick-shadow"></div>
+    </div>
+
+    <!-- RIPPLE LAYER -->
+    <div class="ripple-layer" id="rippleLayer"></div>
+
+    <!-- MODAL -->
+    <div class="modal-bg" id="modal" role="dialog" aria-modal="true">
+        <div class="modal-sheet">
+            <div class="sheet-handle"></div>
+            <div class="sheet-stripe"></div>
+            <div class="sheet-chick" id="sheetChick">🐣</div>
+            <div class="sheet-body">
+                <h2 class="sheet-title" id="sheetTitle">Prachi, paani pilo! 💧</h2>
+                <div class="poem-card">
+                    <div id="sheetPoem"></div>
+                </div>
+                <div class="sheet-btns">
+                    <button class="btn-yes" id="btnYes">Pi liya! ✅</button>
+                    <button class="btn-no" id="btnNo">Baad mein 🙈</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CELEBRATION -->
+    <div class="splash" id="splash"></div>
+
+    <!-- CONGRATS -->
+    <div class="congrats" id="congrats">
+        <div class="congrats-chick">🐣🎉</div>
+        <h2 class="congrats-title">Oho Hydrated!</h2>
+        <div class="congrats-card">
+            <p>
+                Ha ha nhi keh rha ange kuch!<br>
+
+                Tum ekdum best ho — limited edition. 💎<br>
+
+            </p>
+        </div>
+        <button class="btn-reset" id="btnReset">Naya Din! ☀️</button>
+    </div>
+
+    <script>
+        'use strict';
+
+        /* ═══════════════════════════════════
+           FAIRY LIGHTS
+        ═══════════════════════════════════ */
+        const lightsEl = document.getElementById('lights');
+        const bulbColors = [
+            'rgba(255,100,100,.9)', 'rgba(255,200,80,.9)',
+            'rgba(100,200,100,.9)', 'rgba(100,160,255,.9)',
+            'rgba(220,100,220,.9)', 'rgba(255,180,60,.9)',
+        ];
+        const bulbCount = Math.floor(window.innerWidth / 42);
+        for (let i = 0; i < bulbCount; i++) {
+            const b = document.createElement('div'); b.className = 'bulb';
+            const x = (i / (bulbCount - 1)) * 92 + 4;
+            // catenary sag
+            const sag = 4 * Math.sin(Math.PI * (x / 100)) * 6;
+            const col = bulbColors[i % bulbColors.length];
+            b.style.cssText = `
+    --bt:${(10 + sag).toFixed(1)}px;--bl:${x.toFixed(1)}%;
+    --bw:10px;--bh:14px;--bc:${col};
+    --bgd:${(Math.random() * 2 + 2).toFixed(1)}s;
+    --bgdel:-${(Math.random() * 3).toFixed(1)}s;`;
+            lightsEl.appendChild(b);
+        }
+
+        /* ═══════════════════════════════════
+           GLASS JAR PROGRESS
+        ═══════════════════════════════════ */
+        const TOTAL = 8;
+        let glasses = 0, modalOpen = false;
+
+        const jarsRow = document.getElementById('jarsRow');
+        for (let i = 0; i < TOTAL; i++) {
+            const j = document.createElement('div');
+            j.className = 'jar'; j.id = `jar${i}`;
+            // tiny jar SVG
+            j.innerHTML = `
+    <svg class="jar-svg" viewBox="0 0 22 28" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="jf${i}" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#60c0f0" stop-opacity=".9"/>
+          <stop offset="100%" stop-color="#1880c0" stop-opacity=".85"/>
+        </linearGradient>
+        <clipPath id="jc${i}">
+          <path d="M4,6 L2,8 L2,24 C2,25.1 2.9,26 4,26 L18,26 C19.1,26 20,25.1 20,24 L20,8 L18,6 Z"/>
+        </clipPath>
+      </defs>
+      <!-- jar body -->
+      <path d="M4,6 L2,8 L2,24 C2,25.1 2.9,26 4,26 L18,26 C19.1,26 20,25.1 20,24 L20,8 L18,6 Z"
+            fill="rgba(220,240,255,.35)" stroke="rgba(100,180,220,.55)" stroke-width="1.2"/>
+      <!-- water fill (clipped) -->
+      <rect id="jw${i}" x="2" y="26" width="18" height="0" fill="url(#jf${i})" clip-path="url(#jc${i})"/>
+      <!-- lid -->
+      <rect x="5" y="2" width="12" height="5" rx="2" fill="rgba(140,100,50,.7)" stroke="rgba(120,80,30,.5)" stroke-width=".8"/>
+      <!-- shine -->
+      <path d="M4,10 L4,22" stroke="rgba(255,255,255,.35)" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <div class="jar-dot"></div>`;
+            jarsRow.appendChild(j);
+        }
+
+        function updateUI() {
+            document.getElementById('badgeText').textContent = `${glasses} / ${TOTAL} glasses`;
+            for (let i = 0; i < TOTAL; i++) {
+                const j = document.getElementById(`jar${i}`);
+                const w = document.getElementById(`jw${i}`);
+                const done = i < glasses;
+                j.classList.toggle('done', done);
+                // animate water fill in jar
+                const fillH = done ? 20 : 0;
+                w.setAttribute('y', String(26 - fillH));
+                w.setAttribute('height', String(fillH));
+            }
+        }
+
+        /* ═══════════════════════════════════
+           POEMS
+        ═══════════════════════════════════ */
+        const chickFaces = ['🐣', '🐥', '🐣', '🐥', '🐤', '🐥', '🐣', '🎉'];
+        const bubbleTexts = [
+            'paani piyo! 💧', 'abhi piyo! 🥺', 'please? 🐣',
+            'sunti nahi! 😤', 'theek hai? 💙', 'almost done! 🌟',
+            'ek aur! 🐥', 'last one! 🎉'
+        ];
+        const poems = [
+            {
+                title: "Yooo Glass! 🐣", lines: [
+                    { t: "Hmmm hmmm hmmmm —", c: "" },
+                    { t: "Kya fir bologi ki me itni bhi khass nhi", c: "" },
+                    { t: "Fir me kahunga kuch kuch.", c: "funny" },
+                    { t: "Fir ab dekho ye kya hua...", c: "soft" },
+                    { t: "Pahle to paani piyo tum! 🐣", c: "sweet" },
+                ]
+            },
+            {
+                title: "ye lo poem! 🌿", lines: [
+                    { t: "Prachi like morning, Princess like throne", c: "sweet" },
+                    { t: "Both move silent, both stand known.", c: "" },
+                    { t: "No loud words, no need to show.", c: "funny" },
+                    { t: "Just calm presence, steady glow.", c: "sweet" },
+                ]
+            },
+            {
+                title: "Poemmmm! ☕", lines: [
+                    { t: "Soft in tone, but firm in frame", c: "funny" },
+                    { t: "No chasing eyes, no need for fame. 👀", c: "funny" },
+                    { t: "Steps are light, but leave a trace,", c: "" },
+                    { t: "Quiet strength, effortless grace,", c: "" },
+                ]
+            },
+            {
+                title: "Poemmmmmm! 🎉", lines: [
+                    { t: "Mind stays clear, heart stays still! ", c: "bold" },
+                    { t: "No forced shine, just natural will", c: "sweet" },
+                    { t: "Less of noise, more of sight.", c: "funny" },
+                    { t: "They don’t speak — they set it right", c: "" },
+                    { t: "🐣", c: "sweet" },
+                ]
+            },
+            {
+                title: "Poemmm, Paani piyo! 🌸", lines: [
+                    { t: "Calm outside, composed within", c: "" },
+                    { t: "No loud start, still bound to win. 🌸", c: "funny" },
+                    { t: "Like early light and crown alone", c: "sweet" },
+                    { t: "Prachi and Princess — simply shown. 💛", c: "sweet" },
+                    { t: "Pi lo paani waani ab! 🐥", c: "bold" },
+                ]
+            },
+            {
+                title: "🌸", lines: [
+                    { t: "🎀🪽🫵 ", c: "" }
+                ]
+            },
+
+            {
+                title: "🌸", lines: [
+                    { t: "🐝🐝 ", c: "" }
+                ]
+            },
+            {
+                title: "Yaayyyyy!! 🎊", lines: [
+                    { t: "Mood Uplifted!! 🎊", c: "bold" },
+                    { t: "Strength Initialized —", c: "" },
+                    { t: "\"Garmi me Paper do ab.\"", c: "sweet" },
+                    { t: "Basoda me hota to center ke bahar aajata 🎀. ", c: "sweet" },
+                    { t: "Chup ke photo leke bhej deta tumhe hi 💛", c: "funny" },
+                ]
+            },
+        ];
+
+        /* ═══════════════════════════════════
+           CHICK DRIFTS + BOUNCES
+        ═══════════════════════════════════ */
+        const chick = document.getElementById('chick');
+        const bubble = document.getElementById('bubble');
+        let cx = 0, cy = 0, vx = 1.1, vy = .8;
+
+        function W() { return window.innerWidth; }
+        function H() { return window.innerHeight; }
+
+        function drift() {
+            if (!modalOpen) {
+                cx += vx; cy += vy;
+                const cw = 120, ch = 150;
+                if (cx <= 0) { cx = 0; vx = Math.abs(vx); }
+                if (cx >= W() - cw) { cx = W() - cw; vx = -Math.abs(vx); }
+                if (cy <= 0) { cy = 0; vy = Math.abs(vy); }
+                if (cy >= H() - ch - 60) { cy = H() - ch - 60; vy = -Math.abs(vy); }
+                chick.style.left = cx + 'px';
+                chick.style.top = cy + 'px';
+                chick.style.transform = 'none';
+            }
+            requestAnimationFrame(drift);
+        }
+        cx = W() / 2 - 54; cy = H() / 2 - 90;
+        requestAnimationFrame(drift);
+
+        // update bubble text based on glasses
+        function updateBubble() {
+            bubble.textContent = bubbleTexts[Math.min(glasses, bubbleTexts.length - 1)];
+        }
+
+        /* ═══════════════════════════════════
+           MODAL
+        ═══════════════════════════════════ */
+        const modal = document.getElementById('modal');
+
+        function openModal() {
+            if (glasses >= TOTAL) return;
+            modalOpen = true;
+            const p = poems[glasses];
+            document.getElementById('sheetChick').textContent = chickFaces[glasses];
+            document.getElementById('sheetTitle').textContent = p.title;
+            document.getElementById('sheetPoem').innerHTML =
+                p.lines.map(l => `<span class="poem-line ${l.c}">${l.t}</span>`).join('');
+            modal.classList.add('show');
+        }
+        function closeModal() {
+            modalOpen = false;
+            modal.classList.remove('show');
+        }
+
+        /* ═══════════════════════════════════
+           RIPPLE on btn press
+        ═══════════════════════════════════ */
+        function spawnRipple(x, y) {
+            const r = document.createElement('div');
+            r.className = 'ripple';
+            const size = Math.max(W(), H()) * 0.6;
+            r.style.cssText = `width:${size}px;height:${size}px;
+    left:${x - size / 2}px;top:${y - size / 2}px;`;
+            document.getElementById('rippleLayer').appendChild(r);
+            setTimeout(() => r.remove(), 750);
+        }
+
+        /* ═══════════════════════════════════
+           CELEBRATION PETALS
+        ═══════════════════════════════════ */
+        const splashEl = document.getElementById('splash');
+        const petalEmoji = ['🐣', '🍂', '✨', '🐥', '🐣', '🐤', '🍃', '🐝', '🐣', '💛', '🐥'];
+        function celebrate() {
+            splashEl.innerHTML = ''; splashEl.classList.add('show');
+            for (let i = 0; i < 28; i++) {
+                const p = document.createElement('div');
+                p.className = 'petal';
+                p.textContent = petalEmoji[Math.floor(Math.random() * petalEmoji.length)];
+                p.style.cssText = `
+      left:${Math.random() * 90 + 4}%;top:${Math.random() * 20}%;
+      font-size:${(Math.random() * .8 + .8).toFixed(1)}rem;
+      --pfd:${(Math.random() * .5 + .9).toFixed(2)}s;
+      --pfdel:${(Math.random() * .35).toFixed(2)}s;
+      --pfr:${Math.random() > .5 ? '' : '-'}${(Math.random() * 280 + 180).toFixed(0)}deg;`;
+                splashEl.appendChild(p);
+            }
+            setTimeout(() => splashEl.classList.remove('show'), 2000);
+        }
+
+        /* ═══════════════════════════════════
+           SQUISH ANIMATION ON TAP
+        ═══════════════════════════════════ */
+        function squishChick() {
+            chick.classList.remove('squish');
+            void chick.offsetWidth; // reflow
+            chick.classList.add('squish');
+            setTimeout(() => chick.classList.remove('squish'), 380);
+        }
+
+        /* ═══════════════════════════════════
+           SOUNDS
+        ═══════════════════════════════════ */
+        let ac = null;
+        function getAC() {
+            if (!ac) ac = new (window.AudioContext || window.webkitAudioContext)();
+            if (ac.state === 'suspended') ac.resume();
+            return ac;
+        }
+        function playTap() {
+            try {
+                const c = getAC(), o = c.createOscillator(), g = c.createGain();
+                o.type = 'sine';
+                o.frequency.setValueAtTime(800, c.currentTime);
+                o.frequency.exponentialRampToValueAtTime(400, c.currentTime + .15);
+                g.gain.setValueAtTime(.16, c.currentTime);
+                g.gain.exponentialRampToValueAtTime(.001, c.currentTime + .22);
+                o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime + .22);
+            } catch (e) { }
+        }
+        function playDrink() {
+            try {
+                const c = getAC();
+                // water drop plop
+                const o = c.createOscillator(), g = c.createGain();
+                o.type = 'sine';
+                o.frequency.setValueAtTime(1000, c.currentTime);
+                o.frequency.exponentialRampToValueAtTime(300, c.currentTime + .18);
+                g.gain.setValueAtTime(.20, c.currentTime);
+                g.gain.exponentialRampToValueAtTime(.001, c.currentTime + .25);
+                o.connect(g); g.connect(c.destination); o.start(); o.stop(c.currentTime + .25);
+                // chime arpeggio
+                [523, 659, 784, 1047, 1319].forEach((f, i) => {
+                    const o2 = c.createOscillator(), g2 = c.createGain();
+                    o2.type = 'sine'; o2.frequency.value = f;
+                    const t = c.currentTime + .1 + i * .09;
+                    g2.gain.setValueAtTime(0, t);
+                    g2.gain.linearRampToValueAtTime(.11, t + .03);
+                    g2.gain.exponentialRampToValueAtTime(.001, t + .65);
+                    o2.connect(g2); g2.connect(c.destination);
+                    o2.start(t); o2.stop(t + .7);
+                });
+            } catch (e) { }
+        }
+
+        /* ═══════════════════════════════════
+           WIRE UP
+        ═══════════════════════════════════ */
+        chick.addEventListener('click', e => {
+            playTap(); squishChick(); openModal();
+        });
+        chick.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playTap(); squishChick(); openModal(); }
+        });
+
+        document.getElementById('btnYes').addEventListener('click', e => {
+            spawnRipple(e.clientX || W() / 2, e.clientY || H() / 2);
+            playDrink(); closeModal(); celebrate();
+            glasses++; updateUI(); updateBubble();
+            if (glasses >= TOTAL)
+                setTimeout(() => document.getElementById('congrats').classList.add('show'), 1100);
+        });
+
+        document.getElementById('btnNo').addEventListener('click', closeModal);
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+        document.getElementById('btnReset').addEventListener('click', () => {
+            glasses = 0; updateUI(); updateBubble();
+            document.getElementById('congrats').classList.remove('show');
+        });
+
+        /* close on swipe down */
+        let touchStartY = 0;
+        document.getElementById('modal').querySelector('.modal-sheet')
+            .addEventListener('touchstart', e => { touchStartY = e.touches[0].clientY; }, { passive: true });
+        document.getElementById('modal').querySelector('.modal-sheet')
+            .addEventListener('touchend', e => {
+                if (e.changedTouches[0].clientY - touchStartY > 60) closeModal();
+            }, { passive: true });
+
+        updateUI(); updateBubble();
+    </script>
+</body>
+
+</html>

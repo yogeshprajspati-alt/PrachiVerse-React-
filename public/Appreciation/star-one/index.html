@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Prachi — The Hardest Worker 🔥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg1: #1a0533;
+      --bg2: #2d0a4e;
+      --bg3: #4a1570;
+      --purple: #7b2fbf;
+      --violet: #a855f7;
+      --pink: #ec4899;
+      --gold: #fbbf24;
+      --cream: #fdf4ff;
+      --soft: rgba(255,255,255,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 100%; height: 100%;
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg1);
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    /* ── BG ── */
+    .bg {
+      position: fixed; inset: 0; z-index: 0;
+      background: radial-gradient(ellipse at 20% 50%, #3b0764 0%, #1a0533 40%, #0d0020 100%);
+    }
+    /* animated aurora */
+    .aurora {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+    .aurora-band {
+      position: absolute; border-radius: 50%;
+      filter: blur(70px); opacity: 0.22;
+    }
+    .a1 { width: 600px; height: 300px; top: -80px; left: -100px;
+          background: #7c3aed; animation: auroraMove1 9s ease-in-out infinite; }
+    .a2 { width: 500px; height: 250px; top: 10%; right: -80px;
+          background: #ec4899; animation: auroraMove2 11s ease-in-out infinite; }
+    .a3 { width: 400px; height: 200px; bottom: 15%; left: 20%;
+          background: #f59e0b; animation: auroraMove3 13s ease-in-out infinite; }
+    @keyframes auroraMove1 { 0%,100%{transform:translateX(0) scaleY(1);} 50%{transform:translateX(60px) scaleY(1.3);} }
+    @keyframes auroraMove2 { 0%,100%{transform:translateY(0) scaleX(1);} 50%{transform:translateY(40px) scaleX(1.2);} }
+    @keyframes auroraMove3 { 0%,100%{transform:translate(0,0);} 50%{transform:translate(-40px,-30px);} }
+
+    /* stars */
+    .stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .star {
+      position: absolute; border-radius: 50%;
+      background: white;
+      width: var(--ss,2px); height: var(--ss,2px);
+      top: var(--st,20%); left: var(--sl,50%);
+      animation: starTwinkle var(--sd,3s) ease-in-out infinite;
+      animation-delay: var(--sdel,0s);
+    }
+    @keyframes starTwinkle { 0%,100%{opacity:0.2;} 50%{opacity:0.9;} }
+
+    /* ── SHOOTING STAR ── */
+    .shoot {
+      position: fixed; z-index: 1; pointer-events: none;
+      top: var(--shy,15%); left: -80px;
+      width: 80px; height: 2px;
+      background: linear-gradient(90deg, transparent, #fff, var(--gold));
+      border-radius: 2px;
+      opacity: 0;
+      animation: shootAcross var(--shd,12s) ease-in infinite;
+      animation-delay: var(--shdel,0s);
+    }
+    @keyframes shootAcross {
+      0%   { transform: translateX(0) translateY(0); opacity: 0; }
+      2%   { opacity: 1; }
+      18%  { transform: translateX(110vw) translateY(30px); opacity: 0; }
+      100% { transform: translateX(110vw) translateY(30px); opacity: 0; }
+    }
+
+    /* ── FLOATING STAR BUTTON ── */
+    .star-btn {
+      position: fixed; z-index: 20;
+      left: var(--bx, 50%); top: var(--by, 40%);
+      transform: translate(-50%, -50%);
+      cursor: pointer; touch-action: manipulation;
+      outline: none; user-select: none; -webkit-user-select: none;
+      display: flex; flex-direction: column; align-items: center;
+      animation: floatBounce 3s ease-in-out infinite;
+      will-change: transform;
+    }
+    @keyframes floatBounce {
+      0%,100% { transform: translate(var(--ox,0px), var(--oy,0px)) rotate(-3deg); }
+      30%     { transform: translate(var(--ox,0px), calc(var(--oy,0px) - 16px)) rotate(4deg) scale(1.06); }
+      65%     { transform: translate(var(--ox,0px), calc(var(--oy,0px) + 6px)) rotate(-5deg) scale(0.97); }
+    }
+
+    .star-emoji {
+      font-size: 5rem;
+      filter: drop-shadow(0 0 24px rgba(251,191,36,0.8));
+      animation: starPulse 2s ease-in-out infinite;
+    }
+    @keyframes starPulse {
+      0%,100% { filter: drop-shadow(0 0 18px rgba(251,191,36,0.7)); }
+      50%      { filter: drop-shadow(0 0 40px rgba(251,191,36,1)) drop-shadow(0 0 60px rgba(168,85,247,0.5)); }
+    }
+
+    .tap-hint {
+      margin-top: 8px;
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.18em;
+      text-transform: uppercase; color: rgba(255,255,255,0.6);
+      text-shadow: 0 1px 8px rgba(168,85,247,0.6);
+      animation: hintBlink 2s ease-in-out infinite;
+    }
+    @keyframes hintBlink { 0%,100%{opacity:0.4;} 50%{opacity:1;} }
+
+    /* ── PROGRESS RING (top-left) ── */
+    .progress-wrap {
+      position: fixed; z-index: 10;
+      top: 20px; left: 20px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .ring-svg { transform: rotate(-90deg); }
+    .ring-bg { fill: none; stroke: rgba(255,255,255,0.1); stroke-width: 5; }
+    .ring-fill {
+      fill: none; stroke: url(#ringGrad); stroke-width: 5;
+      stroke-linecap: round;
+      stroke-dasharray: 220;
+      stroke-dashoffset: 220;
+      transition: stroke-dashoffset 0.7s cubic-bezier(0.22,0.68,0,1.2);
+    }
+    .ring-label {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.75rem; font-weight: 900; color: var(--gold);
+    }
+    .ring-container { position: relative; width: 72px; height: 72px; }
+    .ring-title {
+      font-size: 0.5rem; font-weight: 800; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      text-align: center;
+    }
+
+    /* ── MODAL ── */
+    .modal-bg {
+      position: fixed; inset: 0; z-index: 30;
+      background: rgba(10,0,30,0.7);
+      display: flex; align-items: center; justify-content: center;
+      padding: 24px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+      backdrop-filter: blur(6px);
+    }
+    .modal-bg.show { opacity: 1; pointer-events: auto; }
+
+    .modal-card {
+      width: 100%; max-width: 370px;
+      border-radius: 28px; padding: 32px 26px 26px;
+      background: linear-gradient(145deg, rgba(45,10,78,0.98), rgba(26,5,51,0.97));
+      border: 1.5px solid rgba(168,85,247,0.35);
+      box-shadow: 0 0 60px rgba(168,85,247,0.3), 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+      text-align: center;
+      transform: scale(0.88) translateY(24px);
+      transition: transform 0.45s cubic-bezier(0.22,0.68,0,1.2);
+      position: relative; overflow: hidden;
+    }
+    .modal-bg.show .modal-card { transform: scale(1) translateY(0); }
+
+    /* shimmer top bar */
+    .modal-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--violet), var(--pink), var(--gold), var(--violet));
+      background-size: 200% 100%;
+      animation: shimmerBar 2.5s linear infinite;
+    }
+    @keyframes shimmerBar { 0%{background-position:0% 0;} 100%{background-position:200% 0;} }
+
+    .modal-num {
+      font-size: 0.6rem; font-weight: 800; letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--violet); margin-bottom: 10px;
+    }
+    .modal-emoji {
+      font-size: 3rem; display: block; margin-bottom: 12px;
+      animation: emojiBounce 1.8s ease-in-out infinite;
+    }
+    @keyframes emojiBounce { 0%,100%{transform:scale(1) rotate(-3deg);} 50%{transform:scale(1.15) rotate(3deg);} }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.5rem; font-weight: 700;
+      color: var(--cream); margin-bottom: 16px;
+      line-height: 1.25;
+    }
+    .modal-msg {
+      font-size: 0.95rem; font-weight: 400;
+      color: rgba(253,244,255,0.75);
+      line-height: 1.75; margin-bottom: 24px;
+    }
+    .modal-msg .hi { color: var(--gold); font-weight: 800; }
+    .modal-msg .heart { color: var(--pink); font-weight: 800; }
+
+    .modal-actions {
+      display: flex; gap: 12px;
+    }
+    .btn-main, .btn-skip {
+      flex: 1; border: none; border-radius: 14px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800; font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      padding: 14px 10px; cursor: pointer;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+    .btn-main {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: white;
+      box-shadow: 0 6px 24px rgba(168,85,247,0.45);
+    }
+    .btn-main:active { transform: scale(0.95); }
+    .btn-skip {
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.5);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-skip:active { transform: scale(0.95); }
+
+    /* ── BURST PARTICLES ── */
+    .burst { position: fixed; inset: 0; z-index: 25; pointer-events: none; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      font-size: var(--pfs, 1.2rem);
+      opacity: 0;
+      animation: particlePop var(--pd, 0.9s) ease-out forwards;
+      animation-delay: var(--pdel, 0s);
+    }
+    @keyframes particlePop {
+      0%   { transform: translate(0,0) scale(0.2); opacity: 1; }
+      80%  { opacity: 0.6; }
+      100% { transform: translate(var(--px,0px), var(--py,-100px)) scale(1); opacity: 0; }
+    }
+
+    /* ── CONGRATS ── */
+    .congrats {
+      position: fixed; inset: 0; z-index: 40;
+      background: radial-gradient(ellipse at center, rgba(45,10,78,0.97) 0%, rgba(10,0,20,0.98) 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 32px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.6s ease;
+      backdrop-filter: blur(10px);
+    }
+    .congrats.show { opacity: 1; pointer-events: auto; }
+    .congrats-emoji { font-size: 4rem; margin-bottom: 16px; animation: emojiBounce 1.5s ease-in-out infinite; }
+    .congrats-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: clamp(1.8rem, 7vw, 2.5rem); font-weight: 700;
+      background: linear-gradient(135deg, var(--gold), var(--pink), var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      margin-bottom: 16px; line-height: 1.2;
+    }
+    .congrats-msg {
+      font-size: 1rem; font-weight: 400;
+      color: rgba(253,244,255,0.7); line-height: 1.75;
+      max-width: 320px; margin-bottom: 28px;
+    }
+    .btn-reset {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      border: none; border-radius: 14px; padding: 14px 32px;
+      font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9rem;
+      color: white; cursor: pointer; letter-spacing: 0.05em;
+    }
+
+    /* ── TRAIL DOTS ── */
+    .trail-dot {
+      position: fixed; z-index: 15; pointer-events: none;
+      border-radius: 50%;
+      width: var(--ts, 8px); height: var(--ts, 8px);
+      background: var(--tc, var(--violet));
+      opacity: 0;
+      animation: trailFade 0.8s ease forwards;
+    }
+    @keyframes trailFade {
+      0%  { opacity: 0.9; transform: scale(1); }
+      100%{ opacity: 0;   transform: scale(0.2); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<!-- Aurora -->
+<div class="aurora">
+  <div class="aurora-band a1"></div>
+  <div class="aurora-band a2"></div>
+  <div class="aurora-band a3"></div>
+</div>
+
+<!-- Stars -->
+<div class="stars" id="stars"></div>
+
+<!-- Shooting stars -->
+<div class="shoot" style="--shy:12%;--shd:14s;--shdel:2s;"></div>
+<div class="shoot" style="--shy:28%;--shd:18s;--shdel:8s;"></div>
+<div class="shoot" style="--shy:8%;--shd:22s;--shdel:15s;"></div>
+
+<!-- Progress ring -->
+<div class="progress-wrap">
+  <div class="ring-container">
+    <svg class="ring-svg" width="72" height="72" viewBox="0 0 72 72">
+      <defs>
+        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#a855f7"/>
+          <stop offset="100%" stop-color="#ec4899"/>
+        </linearGradient>
+      </defs>
+      <circle class="ring-bg" cx="36" cy="36" r="30"/>
+      <circle class="ring-fill" id="ringFill" cx="36" cy="36" r="30"/>
+    </svg>
+    <div class="ring-label" id="ringLabel">0 / 7</div>
+  </div>
+  <div class="ring-title">Appreciations</div>
+</div>
+
+<!-- Floating star -->
+<div class="star-btn" id="starBtn" tabindex="0" role="button" aria-label="Tap to appreciate Prachi">
+  <span class="star-emoji">⭐</span>
+  <span class="tap-hint">Tap to appreciate</span>
+</div>
+
+<!-- Burst layer -->
+<div class="burst" id="burst"></div>
+
+<!-- Modal -->
+<div class="modal-bg" id="modal">
+  <div class="modal-card">
+    <div class="modal-num" id="modalNum">01 / 07</div>
+    <span class="modal-emoji" id="modalEmoji">🌟</span>
+    <h2 class="modal-title" id="modalTitle">Title</h2>
+    <p class="modal-msg" id="modalMsg"></p>
+    <div class="modal-actions">
+      <button class="btn-main" id="btnLove">❤️ Absolutely true!</button>
+      <button class="btn-skip" id="btnSkip">Later</button>
+    </div>
+  </div>
+</div>
+
+<!-- Congrats -->
+<div class="congrats" id="congrats">
+  <div class="congrats-emoji">🏆</div>
+  <h2 class="congrats-title">Prachi,<br/>You Are Incredible.</h2>
+  <p class="congrats-msg">
+    7 out of 7 things that make you extraordinary.<br/>
+    And honestly? This list could go on forever. 💜<br/><br/>
+    Keep being you — because the world needs it.
+  </p>
+  <button class="btn-reset" id="btnReset">🌟 Read Again</button>
+</div>
+
+<script>
+const messages = [
+  {
+    emoji: "🔥",
+    title: "You Never Give Up",
+    msg: `When things get hard, most people slow down. <span class="hi">Prachi speeds up.</span> That fire inside you — the one that refuses to quit — it's genuinely one of the most admirable things about you.`
+  },
+  {
+    emoji: "💡",
+    title: "You Think Deeper",
+    msg: `You don't just do the task — you <span class="hi">understand it.</span> You ask the right questions. You find what others miss. That level of dedication to truly getting things right? Rare. So rare.`
+  },
+  {
+    emoji: "🌙",
+    title: "You Put In the Hours",
+    msg: `Late nights. Early mornings. The extra mile that nobody asked for. <span class="heart">People see it, Prachi.</span> Even when you think no one does. It all counts.`
+  },
+  {
+    emoji: "💪",
+    title: "You Carry It Quietly",
+    msg: `No drama. No excuses. You just <span class="hi">show up and do the work.</span> That quiet strength — the kind that doesn't need applause — that's the hardest kind to have. And you have it.`
+  },
+  {
+    emoji: "🌟",
+    title: "You Inspire Others",
+    msg: `Whether you know it or not, people around you <span class="heart">work harder because of you.</span> Your dedication is contagious. Your energy lifts the room. You set the standard.`
+  },
+  {
+    emoji: "🎯",
+    title: "You Stay Focused",
+    msg: `Distractions, pressure, noise — you cut through it all. <span class="hi">You lock in.</span> You get it done. That focus you have is a superpower that most people spend years trying to build.`
+  },
+  {
+    emoji: "💎",
+    title: "You Are Irreplaceable",
+    msg: `Everything you bring — your dedication, your care, your effort — <span class="heart">cannot be copied.</span> You are the kind of person teams are built around. That's not a compliment. That's a fact. 💜`
+  }
+];
+
+let step = 0;
+const TOTAL = messages.length;
+let modalOpen = false;
+let bx, by, vx = 1.6, vy = 1.0;
+
+// ── STARS ──
+const starsEl = document.getElementById('stars');
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement('div');
+  s.className = 'star';
+  const sz = (Math.random() * 2.5 + 1).toFixed(1);
+  s.style.cssText = `--ss:${sz}px;--st:${Math.random()*100}%;--sl:${Math.random()*100}%;--sd:${(Math.random()*3+2).toFixed(1)}s;--sdel:${(Math.random()*4).toFixed(1)}s;`;
+  starsEl.appendChild(s);
+}
+
+// ── FLOATING BUTTON MOVEMENT ──
+const btn = document.getElementById('starBtn');
+const W = () => window.innerWidth, H = () => window.innerHeight;
+bx = W()/2 - 50; by = H()/2 - 60;
+
+function moveBtn() {
+  if (modalOpen) return;
+  bx += vx; by += vy;
+  if (bx <= 20)       { bx = 20;       vx = Math.abs(vx) + (Math.random()*0.4-0.2); }
+  if (bx >= W()-120)  { bx = W()-120;  vx = -Math.abs(vx) + (Math.random()*0.4-0.2); }
+  if (by <= 20)       { by = 20;       vy = Math.abs(vy) + (Math.random()*0.4-0.2); }
+  if (by >= H()-140)  { by = H()-140;  vy = -Math.abs(vy) + (Math.random()*0.4-0.2); }
+  vx = Math.max(-2.5, Math.min(2.5, vx));
+  vy = Math.max(-2.0, Math.min(2.0, vy));
+  btn.style.left = bx + 'px';
+  btn.style.top  = by + 'px';
+  btn.style.transform = 'none';
+  requestAnimationFrame(moveBtn);
+}
+requestAnimationFrame(moveBtn);
+
+// ── TRAIL ON MOVE ──
+const trailColors = ['#a855f7','#ec4899','#fbbf24','#818cf8'];
+let lastTrail = 0;
+function spawnTrail(x, y) {
+  const now = Date.now();
+  if (now - lastTrail < 80) return;
+  lastTrail = now;
+  const d = document.createElement('div');
+  d.className = 'trail-dot';
+  const sz = (Math.random()*8+4).toFixed(0);
+  d.style.cssText = `--ts:${sz}px;--tc:${trailColors[Math.floor(Math.random()*trailColors.length)]};left:${x}px;top:${y}px;`;
+  document.body.appendChild(d);
+  setTimeout(() => d.remove(), 900);
+}
+setInterval(() => {
+  if (!modalOpen) spawnTrail(bx + 50, by + 50);
+}, 100);
+
+// ── PROGRESS RING ──
+function updateRing() {
+  const pct = step / TOTAL;
+  const circumference = 220;
+  document.getElementById('ringFill').style.strokeDashoffset = circumference - (pct * circumference);
+  document.getElementById('ringLabel').textContent = `${step}/${TOTAL}`;
+}
+
+// ── MODAL ──
+const modal = document.getElementById('modal');
+function openModal() {
+  if (step >= TOTAL) return;
+  modalOpen = true;
+  const m = messages[step];
+  document.getElementById('modalNum').textContent = `0${step+1} / 0${TOTAL}`;
+  document.getElementById('modalEmoji').textContent = m.emoji;
+  document.getElementById('modalTitle').textContent = m.title;
+  document.getElementById('modalMsg').innerHTML = m.msg;
+  modal.classList.add('show');
+  playChime();
+}
+function closeModal() {
+  modalOpen = false;
+  modal.classList.remove('show');
+}
+
+// ── BURST ──
+const burstEl = document.getElementById('burst');
+const burstEmojis = ['⭐','✨','💜','🌟','💖','🔥','🎉','💫','🌸','💎'];
+function doBurst(cx, cy) {
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    const angle = (Math.random() * 360) * Math.PI / 180;
+    const dist  = Math.random() * 140 + 60;
+    p.textContent = burstEmojis[Math.floor(Math.random() * burstEmojis.length)];
+    p.style.cssText = `
+      left:${cx}px; top:${cy}px;
+      --pfs:${(Math.random()*1+0.8).toFixed(1)}rem;
+      --px:${Math.cos(angle)*dist|0}px;
+      --py:${Math.sin(angle)*dist|0}px;
+      --pd:${(Math.random()*0.5+0.8).toFixed(1)}s;
+      --pdel:${(Math.random()*0.2).toFixed(2)}s;
+    `;
+    burstEl.appendChild(p);
+    setTimeout(() => p.remove(), 1400);
+  }
+}
+
+// ── SOUND ──
+let actx = null;
+function getCtx() {
+  if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+  if (actx.state === 'suspended') actx.resume();
+  return actx;
+}
+function playChime() {
+  try {
+    const c = getCtx();
+    const notes = [523, 659, 784, 1047];
+    notes.forEach((f, i) => {
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = 'sine'; o.frequency.value = f;
+      const t = c.currentTime + i * 0.1;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.12, t + 0.05);
+      g.gain.exponentialRampToValueAtTime(0.001, t + 0.5);
+      o.connect(g); g.connect(c.destination);
+      o.start(t); o.stop(t + 0.55);
+    });
+  } catch(e) {}
+}
+function playCelebrate() {
+  try {
+    const c = getCtx();
+    [523,659,784,1047,1319,1568].forEach((f,i) => {
+      const o = c.createOscillator(), g = c.createGain();
+      o.type = 'sine'; o.frequency.value = f;
+      const t = c.currentTime + i * 0.08;
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(0.1, t+0.04);
+      g.gain.exponentialRampToValueAtTime(0.001, t+0.6);
+      o.connect(g); g.connect(c.destination);
+      o.start(t); o.stop(t+0.65);
+    });
+  } catch(e) {}
+}
+
+// ── BUTTON EVENTS ──
+btn.addEventListener('click', () => { openModal(); doBurst(bx+50, by+50); });
+btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
+
+document.getElementById('btnLove').addEventListener('click', () => {
+  closeModal();
+  step++;
+  updateRing();
+  playCelebrate();
+  doBurst(W()/2, H()/2);
+  if (step >= TOTAL) {
+    setTimeout(() => document.getElementById('congrats').classList.add('show'), 700);
+  }
+});
+
+document.getElementById('btnSkip').addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+document.getElementById('btnReset').addEventListener('click', () => {
+  step = 0;
+  updateRing();
+  document.getElementById('congrats').classList.remove('show');
+});
+
+updateRing();
+</script>
+</body>
+</html>

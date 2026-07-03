@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Prachi — Paani Piloooo! 🌵</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:ital@1&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --sand: #f0c97a;
+      --dune: #e8a84a;
+      --rust: #c4622d;
+      --sky1: #ff9966;
+      --sky2: #ffcc88;
+      --sky3: #ffeebb;
+      --cactus: #5a8a3a;
+      --text: #5a2a0a;
+      --soft: #a0520a;
+      --gold: #ffdd55;
+      --foam: #fff8ee;
+      --deep: #8b3a0a;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      font-family: 'Nunito', sans-serif;
+      overflow: hidden;
+      background: var(--sky2);
+      touch-action: manipulation;
+    }
+
+    /* ── BACKGROUND ── */
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(180deg,
+          #ff7733 0%, #ff9955 12%, #ffbb66 25%,
+          #ffcc88 38%, #ffdda0 50%,
+          #f0c97a 62%, #e8b85a 74%,
+          #d4903a 85%, #c07020 93%, #a05810 100%);
+    }
+
+    /* sun glow */
+    .sun {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      top: 4%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 38%, #ffffff 0%, #fff8c0 30%, #ffdd44 60%, #ffaa00 100%);
+      box-shadow: 0 0 40px rgba(255, 200, 50, .8), 0 0 100px rgba(255, 160, 30, .4), 0 0 200px rgba(255, 120, 0, .2);
+      animation: sunPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes sunPulse {
+
+      0%,
+      100% {
+        opacity: .9;
+        transform: translateX(-50%) scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.04);
+      }
+    }
+
+    /* sun rays */
+    .sun-rays {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      top: 2%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 0 0 0 transparent;
+    }
+
+    .sun-rays::before,
+    .sun-rays::after {
+      content: '';
+      position: absolute;
+      inset: -20px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 220, 80, .2);
+      animation: raysPulse 3s ease-in-out infinite;
+    }
+
+    .sun-rays::after {
+      inset: -35px;
+      animation-delay: 1s;
+      border-color: rgba(255, 200, 50, .12);
+    }
+
+    @keyframes raysPulse {
+
+      0%,
+      100% {
+        opacity: .5;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.05);
+      }
+    }
+
+    /* ── DUNES (layered) ── */
+    .dune-layer {
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .dune-back {
+      height: 35%;
+      background: #d4903a;
+      clip-path: ellipse(60% 60% at 40% 100%);
+      opacity: .7;
+    }
+
+    .dune-mid {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 3;
+      height: 28%;
+      background: linear-gradient(180deg, #e8b85a, #c07820);
+      clip-path: ellipse(70% 80% at 65% 100%);
+    }
+
+    .dune-front {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 4;
+      height: 18%;
+      background: linear-gradient(180deg, #f0c97a, #d4903a);
+      clip-path: ellipse(80% 90% at 30% 100%);
+    }
+
+    /* ── HEAT SHIMMER LINES ── */
+    .shimmer {
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      top: 52%;
+      left: 0;
+      right: 0;
+      height: 30px;
+      overflow: hidden;
+      opacity: .35;
+    }
+
+    .shimmer-a,
+    .shimmer-b {
+      position: absolute;
+      width: 200%;
+      height: 100%;
+      background-repeat: repeat-x;
+      background-size: 50% 100%;
+    }
+
+    .shimmer-a {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 30'%3E%3Cpath fill='rgba(255,200,80,0.3)' d='M0,15 C180,25 360,5 540,15 C720,25 900,5 1080,15 C1260,25 1380,10 1440,15 L1440,30 L0,30Z'/%3E%3C/svg%3E");
+      animation: shimmerSlide 6s linear infinite;
+    }
+
+    .shimmer-b {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 30'%3E%3Cpath fill='rgba(255,180,50,0.2)' d='M0,10 C240,25 480,3 720,14 C960,25 1200,3 1440,10 L1440,30 L0,30Z'/%3E%3C/svg%3E");
+      animation: shimmerSlide 9s linear infinite reverse;
+      top: 5px;
+    }
+
+    @keyframes shimmerSlide {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ── HEAT HAZE PARTICLES ── */
+    .haze {
+      position: fixed;
+      z-index: 2;
+      pointer-events: none;
+      border-radius: 50%;
+      background: rgba(255, 200, 80, .15);
+      width: var(--hs, 6px);
+      height: var(--hs, 6px);
+      bottom: var(--hb, 40%);
+      left: var(--hl, 20%);
+      animation: hazeRise var(--hd, 8s) ease-in infinite;
+      animation-delay: var(--hdel, 0s);
+      opacity: 0;
+    }
+
+    @keyframes hazeRise {
+      0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .4;
+      }
+
+      80% {
+        opacity: .1;
+        transform: translateY(-35vh) scaleX(2.5);
+      }
+
+      100% {
+        transform: translateY(-45vh) scaleX(3);
+        opacity: 0;
+      }
+    }
+
+    /* ── CACTI ── */
+    .cactus {
+      position: fixed;
+      z-index: 5;
+      pointer-events: none;
+      bottom: var(--cb, 12%);
+      font-size: var(--cs, 2.4rem);
+      transform-origin: bottom center;
+      animation: cactusSway var(--cd, 6s) ease-in-out infinite;
+      animation-delay: var(--cdel, 0s);
+      opacity: .85;
+      filter: drop-shadow(2px 4px 8px rgba(80, 30, 0, .3));
+    }
+
+    @keyframes cactusSway {
+
+      0%,
+      100% {
+        transform: rotate(-2deg);
+      }
+
+      50% {
+        transform: rotate(2deg);
+      }
+    }
+
+    /* ── TUMBLEWEEDS ── */
+    .tumbleweed {
+      position: fixed;
+      z-index: 3;
+      pointer-events: none;
+      font-size: var(--tfs, 1.4rem);
+      top: var(--tt, 72%);
+      opacity: .6;
+      will-change: transform;
+      animation: tumble var(--tfd, 18s) linear infinite;
+      animation-delay: var(--tdel, 0s);
+    }
+
+    @keyframes tumble {
+      0% {
+        transform: translateX(-10vw) rotate(0deg);
+      }
+
+      100% {
+        transform: translateX(115vw) rotate(720deg);
+      }
+    }
+
+    /* ── VULTURE / EAGLE ── */
+    .bird {
+      position: fixed;
+      z-index: 4;
+      pointer-events: none;
+      font-size: var(--bfs, 1.2rem);
+      top: var(--bt, 15%);
+      opacity: .7;
+      animation: birdCircle var(--bfd, 20s) linear infinite;
+      animation-delay: var(--bdel, 0s);
+    }
+
+    @keyframes birdCircle {
+      0% {
+        transform: translateX(-10vw) translateY(0);
+      }
+
+      25% {
+        transform: translateX(30vw) translateY(-15px);
+      }
+
+      50% {
+        transform: translateX(70vw) translateY(5px);
+      }
+
+      75% {
+        transform: translateX(100vw) translateY(-10px);
+      }
+
+      100% {
+        transform: translateX(120vw) translateY(0);
+      }
+    }
+
+    /* ── STARS (for ambience — distant) ── */
+    .star {
+      position: fixed;
+      z-index: 1;
+      pointer-events: none;
+      width: var(--sw, 2px);
+      height: var(--sw, 2px);
+      border-radius: 50%;
+      background: rgba(255, 240, 180, .5);
+      top: var(--st, 5%);
+      left: var(--sl, 50%);
+      animation: starTwinkle var(--sd, 3s) ease-in-out infinite;
+      animation-delay: var(--sdel, 0s);
+    }
+
+    @keyframes starTwinkle {
+
+      0%,
+      100% {
+        opacity: .2;
+      }
+
+      50% {
+        opacity: .7;
+      }
+    }
+
+    /* ── BOTTLE CONTAINER ── */
+    .bottle-wrap {
+      position: fixed;
+      z-index: 10;
+      left: 50%;
+      top: 35%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      touch-action: manipulation;
+      outline: none;
+      will-change: transform;
+      animation: bottleBounce 2.8s cubic-bezier(.36, .07, .19, .97) infinite;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @keyframes bottleBounce {
+
+      0%,
+      100% {
+        transform: translate(var(--bx, 0px), var(--by, 0px)) rotate(-3deg) scale(1);
+      }
+
+      25% {
+        transform: translate(var(--bx, 0px), calc(var(--by, 0px) - 16px)) rotate(4deg) scale(1.04);
+      }
+
+      60% {
+        transform: translate(var(--bx, 0px), calc(var(--by, 0px) + 5px)) rotate(-5deg) scale(.97);
+      }
+    }
+
+    .bottle-svg {
+      width: 110px;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 28px rgba(100, 40, 0, .35)) drop-shadow(0 4px 10px rgba(0, 0, 0, .2));
+    }
+
+    .tap-hint {
+      text-align: center;
+      margin-top: 8px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .9);
+      text-shadow: 0 1px 6px rgba(120, 40, 0, .5);
+      animation: hintBlink 2s ease-in-out infinite;
+    }
+
+    @keyframes hintBlink {
+
+      0%,
+      100% {
+        opacity: .5;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    /* ── WATER LEVEL BAR ── */
+    .water-level-wrap {
+      position: fixed;
+      z-index: 10;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .water-level-label {
+      font-size: .58rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .7);
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+
+    .water-bar-bg {
+      width: 12px;
+      height: 120px;
+      border-radius: 6px;
+      background: rgba(255, 220, 150, .2);
+      border: 1.5px solid rgba(255, 200, 100, .4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .water-bar-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, #2a90d8, #60c8f0);
+      border-radius: 0 0 5px 5px;
+      height: 0%;
+      transition: height .6s cubic-bezier(.22, .68, 0, 1.15);
+    }
+
+    .water-bar-drops {
+      font-size: .8rem;
+      text-align: center;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    /* ── COUNTER ── */
+    .counter {
+      position: fixed;
+      z-index: 10;
+      left: 18px;
+      top: calc(env(safe-area-inset-top) + 16px);
+      background: rgba(255, 200, 80, .25);
+      border: 1.5px solid rgba(255, 220, 120, .45);
+      border-radius: 40px;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(4px);
+    }
+
+    .counter-emoji {
+      font-size: 1rem;
+    }
+
+    .counter-text {
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      color: white;
+      text-shadow: 0 1px 4px rgba(100, 40, 0, .5);
+    }
+
+    /* ── MODAL ── */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      background: rgba(80, 30, 0, .5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    .modal-bg.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 360px;
+      border-radius: 28px;
+      padding: 28px 24px 24px;
+      background: linear-gradient(148deg, rgba(255, 248, 230, .97), rgba(255, 235, 200, .95));
+      border: 1.5px solid rgba(255, 220, 150, .75);
+      box-shadow: 0 20px 60px rgba(100, 40, 0, .3), inset 0 1.5px 0 rgba(255, 255, 255, .9);
+      text-align: center;
+      transform: scale(.88) translateY(20px);
+      transition: transform .4s cubic-bezier(.22, .68, 0, 1.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .modal-bg.show .modal-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #e8a84a, #ffdd66, #e8a84a);
+      animation: topShimmer 2.5s ease-in-out infinite;
+    }
+
+    @keyframes topShimmer {
+
+      0%,
+      100% {
+        opacity: .7;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    .modal-emoji {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 10px;
+      animation: emojiBounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes emojiBounce {
+
+      0%,
+      100% {
+        transform: translateY(0) scale(1);
+      }
+
+      50% {
+        transform: translateY(-6px) scale(1.1);
+      }
+    }
+
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      color: var(--text);
+      margin-bottom: 16px;
+      text-shadow: 0 2px 8px rgba(100, 40, 0, .12);
+    }
+
+    .modal-poem {
+      border-top: 1.5px solid rgba(200, 120, 50, .25);
+      border-bottom: 1.5px solid rgba(200, 120, 50, .25);
+      padding: 14px 0 16px;
+      margin-bottom: 18px;
+      text-align: left;
+    }
+
+    .poem-line {
+      display: block;
+      font-size: clamp(.85rem, 3.6vw, .95rem);
+      font-weight: 400;
+      line-height: 2;
+      color: var(--text);
+    }
+
+    .poem-line.funny {
+      color: #8b3a00;
+      font-weight: 700;
+    }
+
+    .poem-line.sweet {
+      color: #6b2a10;
+      font-weight: 600;
+    }
+
+    .poem-line.bold {
+      font-weight: 800;
+      color: #5a1a00;
+    }
+
+    .poem-line.small {
+      font-size: .78rem;
+      color: rgba(100, 40, 0, .55);
+      font-style: italic;
+    }
+
+    .modal-btns {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .btn-drink {
+      flex: 1;
+      padding: 12px 10px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, #2a90d8, #1a60a8);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: .88rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(30, 100, 180, .4);
+      transition: transform .2s, box-shadow .2s;
+      touch-action: manipulation;
+    }
+
+    .btn-drink:active {
+      transform: scale(.94);
+      box-shadow: 0 2px 8px rgba(30, 100, 180, .25);
+    }
+
+    .btn-later {
+      padding: 12px 18px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(200, 120, 50, .4);
+      background: rgba(200, 120, 50, .08);
+      color: var(--soft);
+      font-family: 'Nunito', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s;
+      touch-action: manipulation;
+    }
+
+    .btn-later:active {
+      transform: scale(.94);
+    }
+
+    /* ── CELEBRATION ── */
+    .splash {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+
+    .splash.show {
+      opacity: 1;
+    }
+
+    .drop {
+      position: absolute;
+      font-size: var(--dfs, 1.4rem);
+      will-change: transform, opacity;
+      animation: dropFall var(--dfd, 1.2s) ease-in forwards;
+      animation-delay: var(--dfdel, 0s);
+      opacity: 0;
+    }
+
+    @keyframes dropFall {
+      0% {
+        transform: translateY(-20px) scale(0);
+        opacity: 0;
+      }
+
+      15% {
+        opacity: 1;
+        transform: translateY(0) scale(1.2);
+      }
+
+      80% {
+        opacity: .8;
+      }
+
+      100% {
+        transform: translateY(80vh) scale(.6);
+        opacity: 0;
+      }
+    }
+
+    /* ── CONGRATS ── */
+    .congrats {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background: linear-gradient(160deg, #ff9944, #ffcc66, #e8a030);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 28px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .5s ease;
+      text-align: center;
+    }
+
+    .congrats.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .congrats-emoji {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      animation: emojiBounce 2s ease-in-out infinite;
+    }
+
+    .congrats-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 8vw, 2.4rem);
+      color: white;
+      text-shadow: 0 2px 20px rgba(100, 40, 0, .4);
+      margin-bottom: 14px;
+    }
+
+    .congrats-msg {
+      font-size: .95rem;
+      font-weight: 600;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, .92);
+      margin-bottom: 28px;
+    }
+
+    .btn-reset {
+      padding: 12px 32px;
+      border-radius: 50px;
+      border: 2px solid rgba(255, 255, 255, .6);
+      background: rgba(255, 255, 255, .2);
+      color: white;
+      font-family: 'Nunito', sans-serif;
+      font-size: .9rem;
+      font-weight: 800;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .2s;
+    }
+
+    .btn-reset:active {
+      transform: scale(.94);
+    }
+
+    /* ── HOWDARE MODAL ── */
+    .howdare-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 25;
+      background: rgba(80, 30, 0, .5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    .howdare-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .howdare-card {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 28px;
+      padding: 24px;
+      background: linear-gradient(148deg, rgba(255, 248, 230, .97), rgba(255, 235, 200, .95));
+      border: 1.5px solid rgba(255, 220, 150, .75);
+      box-shadow: 0 20px 60px rgba(100, 40, 0, .3), inset 0 1.5px 0 rgba(255, 255, 255, .9);
+      text-align: center;
+      transform: scale(.88) translateY(20px);
+      transition: transform .4s cubic-bezier(.22, .68, 0, 1.2);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .howdare-modal.show .howdare-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .howdare-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      text-shadow: 0 2px 8px rgba(100, 40, 0, .12);
+    }
+
+    .howdare-images {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .howdare-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(100, 40, 0, .2);
+      transition: transform .2s;
+    }
+
+    .howdare-img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-back {
+      padding: 10px 24px;
+      border-radius: 50px;
+      border: 1.5px solid rgba(200, 120, 50, .4);
+      background: rgba(200, 120, 50, .08);
+      color: var(--soft);
+      font-family: 'Nunito', sans-serif;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s;
+      touch-action: manipulation;
+    }
+
+    .btn-back:active {
+      transform: scale(.94);
+    }
+
+    /* ── AUDIO CONTROLS ── */
+    .audio-controls {
+      position: fixed;
+      z-index: 10;
+      right: 18px;
+      bottom: calc(env(safe-area-inset-bottom) + 16px);
+      display: flex;
+      gap: 12px;
+    }
+
+    .tutorial-btn,
+    .music-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 220, 120, .45);
+      background: rgba(255, 200, 80, .25);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      touch-action: manipulation;
+      transition: transform .2s, background .2s;
+      font-size: 1.2rem;
+    }
+
+    .tutorial-btn:hover,
+    .music-btn:hover {
+      background: rgba(255, 220, 100, .4);
+      transform: scale(1.05);
+    }
+
+    .tutorial-btn:active,
+    .music-btn:active {
+      transform: scale(.94);
+    }
+
+    .music-btn.playing {
+      background: rgba(30, 160, 220, .35);
+      border-color: rgba(30, 160, 220, .6);
+    }
+
+    .tutorial-btn.playing {
+      background: rgba(255, 180, 30, .35);
+      border-color: rgba(255, 180, 30, .6);
+    }
+
+    .music-btn.playing #musicIcon {
+      animation: musicPulse 2s ease-in-out infinite;
+    }
+
+    .tutorial-btn.playing #tutorialIcon {
+      animation: tutorialPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes musicPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .7;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes tutorialPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .8;
+        transform: scale(1.15);
+      }
+    }
+
+    /* ── VIDEO MODAL ── */
+    .video-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      background: rgba(60, 20, 0, .85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+
+    .video-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .video-card {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(148deg, rgba(255, 248, 230, .98), rgba(255, 235, 200, .95));
+      border: 1.5px solid rgba(255, 220, 150, .75);
+      box-shadow: 0 25px 80px rgba(100, 40, 0, .4);
+      transform: scale(.88) translateY(20px);
+      transition: transform .4s cubic-bezier(.22, .68, 0, 1.2);
+    }
+
+    .video-modal.show .video-card {
+      transform: scale(1) translateY(0);
+    }
+
+    .video-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: rgba(200, 120, 50, .15);
+      border-bottom: 1px solid rgba(200, 120, 50, .25);
+    }
+
+    .video-title {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--text);
+      margin: 0;
+    }
+
+    .video-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, .5);
+      color: var(--text);
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-close:hover {
+      background: rgba(255, 255, 255, .8);
+      transform: scale(1.1);
+    }
+
+    .video-container {
+      position: relative;
+      padding: 0;
+      background: #000;
+    }
+
+    #tutorialVideo {
+      width: 100%;
+      height: auto;
+      max-height: 70vh;
+      display: block;
+    }
+
+    /* ── MIRAGE TEXT ── */
+    .mirage-label {
+      position: fixed;
+      z-index: 6;
+      pointer-events: none;
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 220, 130, .5);
+      text-shadow: 0 0 12px rgba(255, 180, 50, .5);
+      animation: mirageFloat 5s ease-in-out infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes mirageFloat {
+
+      0%,
+      100% {
+        opacity: .3;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        opacity: .6;
+        transform: translateX(-50%) translateY(-5px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg"></div>
+  <div class="sun"></div>
+  <div class="sun-rays"></div>
+
+  <!-- Stars (subtle, far background ambience) -->
+  <div class="star" style="--st:6%;--sl:15%;--sw:2px;--sd:4s;--sdel:0s;"></div>
+  <div class="star" style="--st:10%;--sl:75%;--sw:3px;--sd:3s;--sdel:1s;"></div>
+  <div class="star" style="--st:4%;--sl:35%;--sw:2px;--sd:5s;--sdel:.5s;"></div>
+  <div class="star" style="--st:8%;--sl:88%;--sw:2px;--sd:4.5s;--sdel:2s;"></div>
+
+  <!-- Heat shimmer -->
+  <div class="shimmer">
+    <div class="shimmer-a"></div>
+    <div class="shimmer-b"></div>
+  </div>
+
+  <!-- Heat haze particles -->
+  <div class="haze" style="--hb:35%;--hl:10%;--hs:5px;--hd:9s;--hdel:-2s;"></div>
+  <div class="haze" style="--hb:42%;--hl:28%;--hs:4px;--hd:12s;--hdel:-7s;"></div>
+  <div class="haze" style="--hb:38%;--hl:52%;--hs:7px;--hd:10s;--hdel:-14s;"></div>
+  <div class="haze" style="--hb:45%;--hl:72%;--hs:5px;--hd:14s;--hdel:-19s;"></div>
+  <div class="haze" style="--hb:33%;--hl:90%;--hs:4px;--hd:8s;--hdel:-5s;"></div>
+
+  <!-- Dune layers -->
+  <div class="dune-layer dune-back"></div>
+  <div class="dune-mid"></div>
+  <div class="dune-front"></div>
+
+  <!-- Cacti -->
+  <div class="cactus" style="left:5%; --cb:14%;--cs:2.8rem;--cd:7s;--cdel:0s;">🌵</div>
+  <div class="cactus" style="left:8%; --cb:12%;--cs:1.8rem;--cd:5s;--cdel:1s;">🌵</div>
+  <div class="cactus" style="right:6%;--cb:15%;--cs:3rem;--cd:6.5s;--cdel:.5s;">🌵</div>
+  <div class="cactus" style="right:12%;--cb:13%;--cs:2rem;--cd:4.5s;--cdel:2s;">🌵</div>
+  <div class="cactus" style="left:22%;--cb:11%;--cs:1.5rem;--cd:8s;--cdel:3s;">🌵</div>
+
+  <!-- Tumbleweeds -->
+  <div class="tumbleweed" style="--tt:76%;--tfs:1.4rem;--tfd:20s;--tdel:-4s;">🌾</div>
+  <div class="tumbleweed" style="--tt:80%;--tfs:1.1rem;--tfd:28s;--tdel:-14s;">🌾</div>
+  <div class="tumbleweed" style="--tt:73%;--tfs:1.6rem;--tfd:16s;--tdel:-22s;">🌿</div>
+
+  <!-- Birds (vultures) -->
+  <div class="bird" style="--bt:12%;--bfs:1.2rem;--bfd:25s;--bdel:-5s;">🦅</div>
+  <div class="bird" style="--bt:18%;--bfs:1rem;--bfd:32s;--bdel:-18s;">🦅</div>
+
+  <!-- Mirage text -->
+  <div class="mirage-label">~ Miraaage? Nahi — paani hai! ~</div>
+
+  <!-- Counter badge -->
+  <div class="counter">
+    <span class="counter-emoji">🌵</span>
+    <span class="counter-text" id="counterText">0 / 8 glasses</span>
+  </div>
+
+  <!-- Background music -->
+  <audio id="bgMusic" loop>
+    <source src="background.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Video tutorial modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="video-card">
+      <div class="video-header">
+        <h3 class="video-title">OMG Har Angle Se Amazing</h3>
+        <button class="video-close" id="videoClose" aria-label="Close video">×</button>
+      </div>
+      <div class="video-container">
+        <video id="tutorialVideo" controls>
+          <source src="tareef-doggo.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Audio controls -->
+  <div class="audio-controls">
+    <button id="tutorialToggle" class="tutorial-btn" aria-label="Play tutorial">
+      <span id="tutorialIcon">📖</span>
+    </button>
+    <button id="musicToggle" class="music-btn" aria-label="Toggle music">
+      <span id="musicIcon">🎵</span>
+    </button>
+  </div>
+
+  <!-- Water level bar -->
+  <div class="water-level-wrap">
+    <div class="water-bar-bg">
+      <div class="water-bar-fill" id="waterFill"></div>
+    </div>
+    <div class="water-bar-drops" id="barDrops">🌵</div>
+  </div>
+
+  <!-- THE BOTTLE (desert edition — clay/terracotta pot) -->
+  <div class="bottle-wrap" id="bottle" role="button" tabindex="0" aria-label="Tap to drink water!">
+
+    <svg class="bottle-svg" viewBox="0 0 110 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Clay/terracotta gradient for pot body -->
+        <linearGradient id="potBody" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="rgba(160,80,40,.6)" />
+          <stop offset="25%" stop-color="rgba(210,130,80,.85)" />
+          <stop offset="60%" stop-color="rgba(230,150,90,.9)" />
+          <stop offset="100%" stop-color="rgba(140,65,30,.55)" />
+        </linearGradient>
+        <!-- Water gradient (cool blue inside warm pot) -->
+        <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="rgba(80,185,240,.88)" />
+          <stop offset="100%" stop-color="rgba(30,120,200,.92)" />
+        </linearGradient>
+        <!-- Neck gradient -->
+        <linearGradient id="neckGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#c86030" />
+          <stop offset="100%" stop-color="#8b3820" />
+        </linearGradient>
+        <!-- Clip path for water inside the pot shape -->
+        <clipPath id="potClip">
+          <!-- Matka / clay pot body shape -->
+          <path
+            d="M42,38 C40,42 36,52 33,62 C29,75 27,88 27,100 C27,120 30,140 35,155 C38,163 43,170 55,172 C67,170 72,163 75,155 C80,140 83,120 83,100 C83,88 81,75 77,62 C74,52 70,42 68,38 Z" />
+        </clipPath>
+        <!-- Matka shape highlight -->
+        <radialGradient id="potGlow" cx="35%" cy="35%" r="60%">
+          <stop offset="0%" stop-color="rgba(255,200,150,.35)" />
+          <stop offset="100%" stop-color="rgba(255,150,80,.0)" />
+        </radialGradient>
+      </defs>
+
+      <!-- Pot neck/spout -->
+      <path d="M44,16 C44,12 46,10 55,10 C64,10 66,12 66,16 L66,38 L44,38 Z" fill="url(#neckGrad)" rx="4" />
+      <!-- Neck lip / rim -->
+      <ellipse cx="55" cy="16" rx="12" ry="4" fill="#a04828" opacity=".8" />
+      <ellipse cx="55" cy="16" rx="10" ry="3" fill="rgba(255,180,120,.4)" />
+      <!-- Neck ridge decorative rings -->
+      <rect x="46" y="22" width="18" height="2.5" rx="1" fill="rgba(80,20,0,.3)" />
+      <rect x="46" y="28" width="18" height="2.5" rx="1" fill="rgba(80,20,0,.3)" />
+      <rect x="46" y="34" width="18" height="2" rx="1" fill="rgba(80,20,0,.2)" />
+
+      <!-- Water fill inside pot (clipped) -->
+      <g clip-path="url(#potClip)">
+        <rect id="waterRect" x="27" y="172" width="56" height="0" fill="url(#waterGrad)" opacity=".85" />
+        <ellipse id="waterSurface" cx="55" cy="172" rx="26" ry="4" fill="rgba(150,220,255,.5)" opacity="0" />
+      </g>
+
+      <!-- MATKA / clay pot main body (widest in middle, narrows top & bottom) -->
+      <path
+        d="M42,38 C40,42 36,52 33,62 C29,75 27,88 27,100 C27,120 30,140 35,155 C38,163 43,170 55,172 C67,170 72,163 75,155 C80,140 83,120 83,100 C83,88 81,75 77,62 C74,52 70,42 68,38 Z"
+        fill="url(#potBody)" stroke="rgba(120,50,20,.4)" stroke-width="1.5" />
+
+      <!-- Glow on pot -->
+      <path
+        d="M42,38 C40,42 36,52 33,62 C29,75 27,88 27,100 C27,120 30,140 35,155 C38,163 43,170 55,172 C67,170 72,163 75,155 C80,140 83,120 83,100 C83,88 81,75 77,62 C74,52 70,42 68,38 Z"
+        fill="url(#potGlow)" />
+
+      <!-- Left highlight streak -->
+      <path d="M35,60 C34,72 33,90 33,110 L34,145" stroke="rgba(255,200,150,.5)" stroke-width="3" fill="none"
+        stroke-linecap="round" />
+      <!-- Smaller highlight -->
+      <path d="M42,50 C41,60 40,75 40,90" stroke="rgba(255,220,180,.3)" stroke-width="2" fill="none"
+        stroke-linecap="round" />
+
+      <!-- Decorative band on pot (traditional pattern) -->
+      <path d="M30,85 Q55,80 80,85" stroke="rgba(80,20,0,.35)" stroke-width="1.5" fill="none" />
+      <path d="M28,92 Q55,87 82,92" stroke="rgba(80,20,0,.25)" stroke-width="1" fill="none" />
+
+      <!-- Label band -->
+      <path d="M28,105 Q55,100 82,105 L82,130 Q55,135 28,130 Z" fill="rgba(255,220,160,.22)"
+        stroke="rgba(200,140,80,.3)" stroke-width="1" />
+      <!-- Label text -->
+      <text x="55" y="116" font-size="6.5" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="800"
+        fill="rgba(80,20,0,.75)" letter-spacing="1">PAANI</text>
+      <text x="55" y="126" font-size="5.5" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="600"
+        fill="rgba(80,20,0,.55)" letter-spacing=".5">PI PRACHI! 💧</text>
+      <text x="55" y="134" font-size="5" text-anchor="middle" font-family="Nunito, sans-serif"
+        fill="rgba(80,20,0,.40)">Ek ghoont aur!</text>
+
+      <!-- Bottom of pot — rounded base -->
+      <ellipse cx="55" cy="169" rx="20" ry="4" fill="rgba(120,50,20,.25)" />
+      <ellipse cx="55" cy="171" rx="14" ry="2.5" fill="rgba(80,20,0,.15)" />
+    </svg>
+
+    <div class="tap-hint" id="tapHint">tap karo! 👆</div>
+  </div>
+
+  <!-- Message modal -->
+  <div class="modal-bg" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <span class="modal-emoji">🌵</span>
+      <h2 class="modal-title" id="modalTitle">Prachi, paani pilooooo!</h2>
+      <div class="modal-poem" id="modalPoem"></div>
+      <div class="modal-btns">
+        <button class="btn-drink" id="btnDrink">Pi liya! ✅</button>
+        <button class="btn-later" id="btnLater">Nahi piyungi 👾</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Celebration drops -->
+  <div class="splash" id="splash"></div>
+
+  <!-- Howdare images modal -->
+  <div class="howdare-modal" id="howdareModal">
+    <div class="howdare-card">
+      <h3 class="howdare-title">Desert mein bhi nahi piyogi?! 😤🌵</h3>
+      <div class="howdare-images">
+        <img src="howdare1.jpg" alt="How dare you" class="howdare-img">
+      </div>
+      <button class="btn-back" id="btnBack">Theek hai, piyungi 😅</button>
+    </div>
+  </div>
+
+  <!-- Congrats screen -->
+  <div class="congrats" id="congrats">
+    <span class="congrats-emoji">🌟</span>
+    <h2 class="congrats-title">Ho hi Kamaal 🫵! 🏆</h2>
+    <p class="congrats-msg">
+      Jyada bhi mt pee lena wara baar baar washroom! 🌵<br>
+      Sometimes, this angry bird needs water too💛<br>
+      Stay Hydrated! Stay Happy!
+    </p>
+    <button class="btn-reset" id="btnReset">Naya din! 🌅</button>
+  </div>
+
+  <script>
+    'use strict';
+
+    /* ══════════════════════════════════════
+       DESERT POEMS — funny + sweet, one per sip
+    ══════════════════════════════════════ */
+    const poems = [
+      {
+        title: "Peelo! 🌵",
+        lines: [
+          { text: "Ab IDK maine kya kar diya lekin —", cls: "funny" },
+          { text: "Jo bhi kiya uske liye Wrapped Sorry ☹️.", cls: "" },
+          { text: "Garmi itni hai 🐪", cls: "funny" },
+          { text: "Tumhara dimag bhi garam ho raha hai.", cls: "sweet" },
+        ]
+      },
+      {
+        title: "Peelo yaar! ☀️",
+        lines: [
+          { text: "Basoda bhi kisi desert se kam nahi —", cls: "funny" },
+          { text: "Dopahar me face wash karke dikhao!", cls: "" },
+          { text: "Achha bachho!", cls: "funny" },
+          { text: "Chalo, ek aur sip. Smart bano. 🧠✨", cls: "sweet" },
+        ]
+      },
+      {
+        title: "Peelo na! 🌊",
+        lines: [
+          { text: "Jhoothi tareef nahi —", cls: "funny" },
+          { text: "Desert mein moisturizer nahi milta —", cls: "" },
+          { text: "par paani milta hai. Use it! 😂", cls: "funny" },
+          { text: "Waise, tum waise bhi bohot sundar ho. 🌸", cls: "sweet" },
+        ]
+      },
+      {
+        title: "Attempt to melt your heart 🏆",
+        lines: [
+          { text: "Roses are red,", cls: "bold" },
+          { text: "Prachi is the best,", cls: "sweet" },
+          { text: "When the mood gets too heavy,", cls: "" },
+          { text: "Give it a rest. 📣🌟", cls: "sweet" },
+        ]
+      },
+      {
+        title: "huhhhhhhh! ✨",
+        lines: [
+          { text: "You’re sharp, you are strong,", cls: "" },
+          { text: "You’ve handled it all, 🏺", cls: "funny" },
+          { text: "So take a slow breath,", cls: "sweet" },
+          { text: "And watch tension fall.", cls: "funny" },
+        ]
+      },
+      {
+        title: "huhhhhhh! 💙",
+        lines: [
+          { text: "I’m right by your side,", cls: "sweet" },
+          { text: "No rush and no stress,", cls: "" },
+          { text: "Just waiting right here,", cls: "bold" },
+          { text: "Till you feel your best. 🌟", cls: "sweet" },
+        ]
+      },
+      {
+        title: "huhhhhhhh! 🌈",
+        lines: [
+          { text: "The moment will pass,", cls: "funny" },
+          { text: "The heavy will fade,", cls: "sweet" },
+          { text: "You’re brilliant and steady,", cls: "sweet" },
+          { text: "No need to be swayed. 🏺🤍", cls: "bold" },
+        ]
+      },
+      {
+        title: "PackUpppp! 🎉",
+        lines: [
+          { text: "WAITED TOO LONG! 🎉🌵🎉", cls: "bold" },
+          { text: "Hoped too long —", cls: "funny" },
+          { text: "Worked damn hard...", cls: "sweet" },
+          { text: "Par tum ne kiya. Kyunki tum ho hi aisi.", cls: "" },
+          { text: "Energy never fades. 💎 You'll get what you deserve. 💛 That's inevitable!!", cls: "sweet" },
+        ]
+      }
+    ];
+
+    /* ══════════════════════════════════════
+       STATE
+    ══════════════════════════════════════ */
+    let glasses = 0;
+    const TOTAL = 8;
+    let modalOpen = false;
+
+    /* ══════════════════════════════════════
+       BOTTLE (MATKA) RANDOM FLOAT
+    ══════════════════════════════════════ */
+    const bottle = document.getElementById('bottle');
+    const W = () => window.innerWidth, H = () => window.innerHeight;
+    let bx = 0, by = 0;
+    let vx = 1.3, vy = .85;
+
+    function moveBottle() {
+      if (modalOpen) return;
+      bx += vx; by += vy;
+      const bw = 120, bh = 220;
+      const maxX = W() - bw, maxY = H() - bh;
+      if (bx <= 0) { bx = 0; vx = Math.abs(vx); }
+      if (bx >= maxX) { bx = maxX; vx = -Math.abs(vx); }
+      if (by <= 0) { by = 0; vy = Math.abs(vy); }
+      if (by >= maxY) { by = maxY; vy = -Math.abs(vy); }
+      bottle.style.left = bx + 'px';
+      bottle.style.top = by + 'px';
+      bottle.style.transform = 'none';
+      bottle.style.setProperty('--bx', '0px');
+      bottle.style.setProperty('--by', '0px');
+      requestAnimationFrame(moveBottle);
+    }
+    bx = W() / 2 - 60; by = H() / 2 - 110;
+    requestAnimationFrame(moveBottle);
+
+    /* ══════════════════════════════════════
+       WATER LEVEL UPDATE
+    ══════════════════════════════════════ */
+    function updateLevel() {
+      const pct = (glasses / TOTAL) * 100;
+      document.getElementById('waterFill').style.height = pct + '%';
+      document.getElementById('counterText').textContent = `${glasses} / ${TOTAL} glasses`;
+      document.getElementById('barDrops').textContent = glasses >= TOTAL ? '🎉' : '🌵'.repeat(Math.min(glasses, 4)) || '🌵';
+
+      const rect = document.getElementById('waterRect');
+      const surf = document.getElementById('waterSurface');
+      const h = pct * 1.34;  // pot usable height ~134px
+      rect.setAttribute('y', String(172 - h));
+      rect.setAttribute('height', String(h));
+      surf.setAttribute('cy', String(172 - h));
+      surf.setAttribute('opacity', h > 0 ? '0.5' : '0');
+    }
+
+    /* ══════════════════════════════════════
+       MODAL
+    ══════════════════════════════════════ */
+    const modal = document.getElementById('modal');
+    const howdareModal = document.getElementById('howdareModal');
+
+    function openModal() {
+      if (glasses >= TOTAL) return;
+      modalOpen = true;
+      const poem = poems[glasses];
+      document.getElementById('modalTitle').textContent = poem.title;
+      const poemEl = document.getElementById('modalPoem');
+      poemEl.innerHTML = poem.lines
+        .map(l => `<span class="poem-line ${l.cls}">${l.text}</span>`)
+        .join('');
+      modal.classList.add('show');
+    }
+    function closeModal() {
+      modalOpen = false;
+      modal.classList.remove('show');
+    }
+    function showHowdareModal() { howdareModal.classList.add('show'); }
+    function hideHowdareModal() { howdareModal.classList.remove('show'); }
+
+    /* ══════════════════════════════════════
+       CELEBRATION DROPS — desert edition
+    ══════════════════════════════════════ */
+    const splashEl = document.getElementById('splash');
+    const dropEmojis = ['💧', '🌵', '✨', '🏺', '🌟', '⭐', '💛', '🌊', '👾'];
+    function celebrate() {
+      splashEl.innerHTML = '';
+      splashEl.classList.add('show');
+      for (let i = 0; i < 22; i++) {
+        const d = document.createElement('div');
+        d.className = 'drop';
+        d.textContent = dropEmojis[Math.floor(Math.random() * dropEmojis.length)];
+        d.style.cssText = `
+      left:${Math.random() * 90 + 5}%;
+      top:${Math.random() * 30}%;
+      --dfs:${(Math.random() * .8 + 1).toFixed(1)}rem;
+      --dfd:${(Math.random() * .6 + .9).toFixed(1)}s;
+      --dfdel:${(Math.random() * .4).toFixed(2)}s;`;
+        splashEl.appendChild(d);
+      }
+      setTimeout(() => splashEl.classList.remove('show'), 1600);
+    }
+
+    /* ══════════════════════════════════════
+       DRINK / LATER BUTTONS
+    ══════════════════════════════════════ */
+    document.getElementById('btnDrink').addEventListener('click', () => {
+      closeModal();
+      celebrate();
+      glasses++;
+      updateLevel();
+      if (glasses >= TOTAL) {
+        setTimeout(() => document.getElementById('congrats').classList.add('show'), 800);
+      }
+    });
+    document.getElementById('btnLater').addEventListener('click', () => {
+      closeModal();
+      showHowdareModal();
+    });
+    document.getElementById('btnBack').addEventListener('click', () => {
+      hideHowdareModal();
+    });
+    document.getElementById('btnReset').addEventListener('click', () => {
+      glasses = 0;
+      updateLevel();
+      document.getElementById('congrats').classList.remove('show');
+    });
+
+    /* ══════════════════════════════════════
+       BOTTLE TAP
+    ══════════════════════════════════════ */
+    bottle.addEventListener('click', openModal);
+    bottle.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+    });
+    modal.addEventListener('click', e => {
+      if (e.target === modal) closeModal();
+    });
+
+    /* ══════════════════════════════════════
+       SOUND — desert wind tap
+    ══════════════════════════════════════ */
+    let actx = null;
+    function getActx() {
+      if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+      return actx;
+    }
+    function playDrop() {
+      try {
+        const c = getActx();
+        const o = c.createOscillator(), g = c.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(660, c.currentTime);
+        o.frequency.exponentialRampToValueAtTime(330, c.currentTime + .15);
+        g.gain.setValueAtTime(.22, c.currentTime);
+        g.gain.exponentialRampToValueAtTime(.001, c.currentTime + .25);
+        o.connect(g); g.connect(c.destination);
+        o.start(); o.stop(c.currentTime + .25);
+      } catch (e) { }
+    }
+    function playCelebrate() {
+      try {
+        const c = getActx();
+        [660, 880, 1100, 1320].forEach((f, i) => {
+          const o = c.createOscillator(), g = c.createGain();
+          o.type = 'sine'; o.frequency.value = f;
+          const t = c.currentTime + i * .09;
+          g.gain.setValueAtTime(0, t);
+          g.gain.linearRampToValueAtTime(.14, t + .03);
+          g.gain.exponentialRampToValueAtTime(.001, t + .6);
+          o.connect(g); g.connect(c.destination);
+          o.start(t); o.stop(t + .65);
+        });
+      } catch (e) { }
+    }
+    bottle.addEventListener('click', playDrop);
+    document.getElementById('btnDrink').addEventListener('click', playCelebrate);
+
+    /* ══════════════════════════════════════
+       AUDIO CONTROLS
+    ══════════════════════════════════════ */
+    const bgMusic = document.getElementById('bgMusic');
+    const videoModal = document.getElementById('videoModal');
+    const tutorialVideo = document.getElementById('tutorialVideo');
+    const musicToggle = document.getElementById('musicToggle');
+    const tutorialToggle = document.getElementById('tutorialToggle');
+    const videoClose = document.getElementById('videoClose');
+    const musicIcon = document.getElementById('musicIcon');
+    const tutorialIcon = document.getElementById('tutorialIcon');
+    let isMusicPlaying = false;
+    let isVideoOpen = false;
+
+    function toggleMusic() {
+      if (isMusicPlaying) {
+        bgMusic.pause();
+        musicToggle.classList.remove('playing');
+        musicIcon.textContent = '🔇';
+        isMusicPlaying = false;
+      } else {
+        bgMusic.play().then(() => {
+          musicToggle.classList.add('playing');
+          musicIcon.textContent = '🎵';
+          isMusicPlaying = true;
+        }).catch(() => { musicIcon.textContent = '🔇'; });
+      }
+    }
+    function toggleVideo() {
+      if (isVideoOpen) {
+        videoModal.classList.remove('show');
+        tutorialVideo.pause(); tutorialVideo.currentTime = 0;
+        tutorialToggle.classList.remove('playing');
+        tutorialIcon.textContent = '📖';
+        isVideoOpen = false;
+      } else {
+        videoModal.classList.add('show');
+        tutorialToggle.classList.add('playing');
+        tutorialIcon.textContent = '📖';
+        isVideoOpen = true;
+        tutorialVideo.play().catch(() => { });
+      }
+    }
+    function closeVideo() {
+      videoModal.classList.remove('show');
+      tutorialVideo.pause(); tutorialVideo.currentTime = 0;
+      tutorialToggle.classList.remove('playing');
+      tutorialIcon.textContent = '📖';
+      isVideoOpen = false;
+    }
+
+    musicToggle.addEventListener('click', toggleMusic);
+    tutorialToggle.addEventListener('click', toggleVideo);
+    videoClose.addEventListener('click', closeVideo);
+    tutorialVideo.addEventListener('ended', closeVideo);
+    videoModal.addEventListener('click', e => { if (e.target === videoModal) closeVideo(); });
+
+    document.addEventListener('click', function initMusic() {
+      if (!isMusicPlaying) {
+        bgMusic.volume = 0.3;
+        toggleMusic();
+        document.removeEventListener('click', initMusic);
+      }
+    }, { once: true });
+
+    /* init */
+    updateLevel();
+  </script>
+</body>
+
+</html>

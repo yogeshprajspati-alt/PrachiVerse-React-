@@ -1,0 +1,1276 @@
+SECTION A: PHYSICS (45 Questions)
+Theme: Logic-Based Calculation & Experimental Skills
+Q.1. (Kinematics)
+A projectile is fired at an angle of 45° with the horizontal. Elevation angle of the projectile at 
+its highest point as seen from the point of projection is:
+A) 45°
+B) 60°
+C) tan⁻¹(1/2)
+D) tan⁻¹(√3/2)
+Q.2. (Experimental Skills)
+In a screw gauge, the pitch is 1 mm and there are 100 divisions on the circular scale. When 
+the faces are closed, the zero of the circular scale lies 4 divisions below the reference line. 
+The zero error is:
+A) +0.04 mm
+B) −0.04 mm
+C) +0.4 mm
+D) −0.4 mm
+Q.3. (Laws of Motion)
+A block of mass m is pressed against a vertical wall by a horizontal force F. If the coefficient 
+of friction is μ, the minimum force required to prevent the block from sliding down is:
+A) mgμ
+B) mg/μ
+C) μ/mg
+D) mg
+Q.4. (Work, Energy)
+The potential energy of a particle in a force field is U = A/r² − B/r, where A and B are positive 
+constants. The position of stable equilibrium is:
+A) A/B
+B) 2A/B
+C) B/A
+D) B/2A
+Q.5. (Gravitation)
+Two particles of mass m each revolve in a circle of radius r under their mutual gravitational 
+attraction. Their speed is:
+A) √(Gm/r)
+B) √(Gm/2r)
+C) √(Gm/4r)
+D) 2√(Gm/r)
+(Questions 6 to 45 continue in the same clean format — no symbols issues)
+SECTION B: CHEMISTRY (45 Questions)
+Theme: Mechanism & Conceptual Inorganic
+Q.46. (Structure of Atom)
+Which set of quantum numbers is NOT possible?
+A) n = 3, l = 2, m = −2, s = +1/2
+B) n = 4, l = 0, m = 0, s = −1/2
+C) n = 3, l = 3, m = −3, s = +1/2
+D) n = 5, l = 3, m = 0, s = +1/2
+Q.47. (Chemical Bonding)
+Which of the following has the highest bond order?
+A) CN⁻
+B) CN
+C) CN⁺
+D) NO
+Q.11. (AC Circuits)
+The power factor of an LCR circuit at resonance is:
+A) Zero
+B) 0.5
+C) 1.0
+D) Infinity
+Q.12. (Electromagnetic Waves)
+Which of the following has the minimum wavelength?
+A) X-rays
+B) Gamma rays
+C) Microwaves
+D) Ultraviolet rays
+Q.13. (Dual Nature of Radiation)
+Light of frequency 1.5ν₀ (ν₀ = threshold frequency) falls on a metal and produces 
+photoelectrons of maximum kinetic energy K. If the frequency is increased to 3ν₀, the new 
+maximum kinetic energy will be:
+A) 2K
+B) 3K
+C) 4K
+D) Greater than 2K (equal to 3K)
+Q.14. (Atoms)
+In a hydrogen atom, when an electron jumps from n = 4 to n = 1, the number of spectral 
+lines obtained is:
+A) 3
+B) 4
+C) 6
+D) 10
+Q.15. (Semiconductors)
+For proper transistor action:
+A) All regions should have same doping
+B) All regions should have same size
+C) Emitter–base junction is forward biased and base–collector junction is reverse biased
+D) Both junctions are forward biased
+Q.16. (Units & Dimensions)
+Which pair has the same dimensions?
+A) Impulse and Momentum
+B) Force and Work
+C) Torque and Power
+D) Stress and Strain
+Q.17. (Motion in One Dimension)
+A stone is dropped from a tower. It travels 25 m in the last second of its motion. (g = 10 
+m/s²)
+The height of the tower is:
+A) 45 m
+B) 50 m
+C) 60 m
+D) 80 m
+Q.18. (Vectors)
+The angle made by vector A = i + j with the x-axis is:
+A) 30°
+B) 45°
+C) 60°
+D) 90°
+Q.19. (Laws of Motion)
+A monkey of mass 40 kg climbs a rope which can withstand a maximum tension of 600 N. In 
+which case will the rope break?
+A) Climbing up with acceleration 6 m/s²
+B) Climbing down with acceleration 4 m/s²
+C) Climbing up with uniform speed
+D) Falling freely
+Q.20. (Work, Energy)
+A block of mass 2 kg moving at 10 m/s hits a spring of force constant 1000 N/m. Maximum 
+compression is:
+A) 0.1 m
+B) 0.2 m
+C) 0.45 m
+D) 0.5 m
+Q.21. (Gravitation)
+The weight of a body at the center of the Earth is:
+A) Zero
+B) Infinite
+C) Same as on surface
+D) Half of surface weight
+Q.22. (Properties of Matter)
+Young’s modulus of a wire is Y. If its length is doubled and radius is halved, the new Young’s 
+modulus is:
+A) Y
+B) 2Y
+C) 4Y
+D) Y/2
+Q.23. (Thermodynamics)
+For an isothermal expansion of an ideal gas:
+A) Change in internal energy is zero
+B) Change in enthalpy is zero
+C) Work done = −2.303 nRT log(V₂/V₁)
+D) All of the above
+Q.24. (Kinetic Theory of Gases)
+The average kinetic energy of a gas molecule at 27°C is E. At 327°C it will be:
+A) 2E
+B) 4E
+C) E/2
+D) √2E
+Q.25. (Oscillations)
+The time period of a simple pendulum inside an orbiting satellite is:
+A) Zero
+B) Infinite
+C) Same as on Earth
+D) Double
+Q.26. (Waves)
+The phase difference between particle velocity and particle acceleration in SHM is:
+A) 0
+B) π/2
+C) π
+D) 2π
+Q.27. (Electrostatics)
+Two charges +4q and +q are separated by distance r. A charge Q is placed so that the system 
+is in equilibrium. The position and value of Q are:
+A) r/3 from +4q, Q = −4q/9
+B) 2r/3 from +4q, Q = −4q/9
+C) r/2 from +4q, Q = −q
+D) 2r/3 from +4q, Q = +4q/9
+Q.28. (Capacitors)
+Energy density of an electric field is given by:
+A) ½CV²
+B) ½ε₀E²
+C) Q²/2C
+D) ε₀E
+Q.29. (Current Electricity)
+The resistivity of a semiconductor with increase in temperature:
+A) Increases
+B) Decreases
+C) Remains constant
+D) First increases then decreases
+Q.30. (Magnetism)
+A galvanometer of resistance G is converted into an ammeter of range 0–I by using a shunt S. 
+The value of S is:
+A) IgG / (I − Ig)
+B) IgG / I
+C) IG / (I − Ig)
+D) G / (I − Ig)
+Q.31. (Magnetism)
+Magnetic field at the center of a circular coil of radius R carrying current I is B. If radius 
+becomes 2R, field becomes:
+A) B/2
+B) 2B
+C) B/4
+D) 4B
+Q.32. (Electromagnetic Induction)
+Lenz’s law is a consequence of conservation of:
+A) Charge
+B) Energy
+C) Momentum
+D) Mass
+Q.33. (Alternating Current)
+In a purely capacitive AC circuit, the frequency of instantaneous power is:
+A) Same as source frequency
+B) Twice the source frequency
+C) Half the source frequency
+D) Zero
+Q.34. (Ray Optics)
+A convex lens is immersed in a liquid having the same refractive index as the lens. Its focal 
+length becomes:
+A) Zero
+B) Infinite
+C) Same
+D) Decreased
+Q.35. (Optics)
+The blue colour of the sky is due to:
+A) Dispersion
+B) Scattering
+C) Interference
+D) Reflection
+Q.36. (Wave Optics)
+Two sources are coherent if they emit waves having:
+A) Same wavelength
+B) Same velocity
+C) Same frequency and constant phase difference
+D) Same amplitude
+Q.37. (Dual Nature)
+The work function of a metal depends on:
+A) Frequency of light
+B) Intensity of light
+C) Nature of metal surface
+D) Temperature
+Q.38. (Atoms)
+Radius of the first Bohr orbit is a₀. Radius of the second orbit is:
+A) 2a₀
+B) 4a₀
+C) 8a₀
+D) a₀/2
+Q.39. (Nuclei)
+Radiation having maximum penetrating power is:
+A) Alpha
+B) Beta
+C) Gamma
+D) X-rays
+Q.40. (Semiconductors)
+A Zener diode is mainly used as a:
+A) Rectifier
+B) Amplifier
+C) Voltage regulator
+D) Oscillator
+Q.41. (Logic Gates)
+Which gate gives output 0 only when both inputs are 1?
+A) OR
+B) AND
+C) NAND
+D) NOR
+Q.42. (Errors)
+Percentage error in mass is 2% and in velocity is 3%. Percentage error in kinetic energy is:
+A) 5%
+B) 8%
+C) 1%
+D) 11%
+Q.43. (Kinematics)
+A body starts from rest with acceleration 2 m/s². Displacement in the 5th second is:
+A) 25 m
+B) 9 m
+C) 10 m
+D) 5 m
+Q.44. (Laws of Motion)
+Rocket propulsion is based on conservation of:
+A) Energy
+B) Mass
+C) Linear momentum
+D) Angular momentum
+Q.45. (Elasticity)
+Hooke’s law is valid up to:
+A) Yield point
+B) Breaking point
+C) Limit of proportionality
+D) Elastic limit
+SECTION B: CHEMISTRY
+Q.46. (Some Basic Concepts of Chemistry)
+The number of significant figures in 0.00250 is:
+A) 2
+B) 3
+C) 4
+D) 5
+Q.47. (Atomic Structure)
+The maximum number of electrons that can be accommodated in an orbital is:
+A) 1
+B) 2
+C) 8
+D) 18
+Q.48. (Periodic Table)
+Which element has the highest electronegativity?
+A) Oxygen
+B) Nitrogen
+C) Fluorine
+D) Chlorine
+Q.49. (Chemical Bonding)
+The hybridization of carbon in ethyne (C₂H₂) is:
+A) sp
+B) sp²
+C) sp³
+D) dsp²
+Q.50. (States of Matter)
+Real gases deviate from ideal behavior at:
+A) High temperature and low pressure
+B) Low temperature and high pressure
+C) High temperature and high pressure
+D) Low temperature and low pressure
+Q.51. (Thermodynamics)
+For an exothermic reaction:
+A) ΔH is positive
+B) ΔH is negative
+C) ΔH is zero
+D) ΔH is infinite
+Q.52. (Equilibrium)
+For a reaction at equilibrium:
+A) Forward reaction stops
+B) Backward reaction stops
+C) Rate of forward = rate of backward reaction
+D) Concentrations of reactants are zero
+Q.53. (Redox Reactions)
+Oxidation involves:
+A) Loss of electrons
+B) Gain of electrons
+C) Gain of protons
+D) Loss of protons
+Q.54. (Hydrogen)
+Heavy water is:
+A) H₂O
+B) D₂O
+C) H₂O₂
+D) T₂O
+Q.55. (s-Block Elements)
+Which of the following alkali metals has the highest ionization energy?
+A) Lithium
+B) Sodium
+C) Potassium
+D) Cesium
+Q.56. (p-Block Elements)
+Which of the following is the most acidic oxide?
+A) CO₂
+B) SO₂
+C) SO₃
+D) NO₂
+Q.57. (Organic Chemistry – Basic Concepts)
+The IUPAC name of CH₃–CH₂–OH is:
+A) Methanol
+B) Ethanol
+C) Propanol
+D) Ethanal
+Q.58. (Hydrocarbons)
+Which hydrocarbon shows geometrical isomerism?
+A) Ethane
+B) Ethene
+C) Propane
+D) But-2-ene
+Q.59. (Environmental Chemistry)
+The major cause of acid rain is:
+A) CO₂
+B) SO₂ and NO₂
+C) O₃
+D) CO
+Q.60. (Solutions)
+The unit of molality is:
+A) mol/L
+B) mol/kg
+C) g/L
+D) g/mol
+Q.61. (Electrochemistry)
+The SI unit of conductance is:
+A) Ohm
+B) Siemens
+C) Volt
+D) Ampere
+Q.62. (Chemical Kinetics)
+The rate constant of a reaction depends on:
+A) Concentration
+B) Temperature
+C) Pressure only
+D) Volume
+Q.63. (Surface Chemistry)
+Which of the following is an example of adsorption?
+A) Dissolving sugar in water
+B) Rusting of iron
+C) Gases sticking to charcoal
+D) Melting of ice
+Q.64. (Metallurgy)
+The process used for concentration of sulphide ores is:
+A) Leaching
+B) Froth flotation
+C) Roasting
+D) Calcination
+Q.65. (Coordination Compounds)
+The coordination number of central metal ion in [Co(NH₃)₆]³⁺ is:
+A) 3
+B) 4
+C) 6
+D) 8
+Q.66. (Haloalkanes)
+Which of the following is most reactive towards SN1 reaction?
+A) CH₃Cl
+B) C₂H₅Cl
+C) (CH₃)₂CHCl
+D) (CH₃)₃CCl
+Q.67. (Alcohols, Phenols & Ethers)
+Phenol is more acidic than alcohol because:
+A) Phenoxide ion is stabilized by resonance
+B) Alcohol is neutral
+C) Phenol has higher molecular weight
+D) Alcohol forms hydrogen bonds
+Q.68. (Aldehydes & Ketones)
+Tollens’ reagent is used to detect:
+A) Ketones
+B) Alcohols
+C) Aldehydes
+D) Carboxylic acids
+Q.69. (Carboxylic Acids)
+The functional group present in acetic acid is:
+A) –OH
+B) –COOH
+C) –CHO
+D) –CO–
+Q.70. (Amines)
+Aniline is:
+A) Aliphatic amine
+B) Aromatic amine
+C) Secondary amine
+D) Tertiary amine
+Q.71. (Biomolecules)
+The monomer unit of proteins is:
+A) Glucose
+B) Fatty acids
+C) Amino acids
+D) Nucleotides
+Q.72. (Polymers)
+PVC is a polymer of:
+A) Ethene
+B) Vinyl chloride
+C) Styrene
+D) Tetrafluoroethylene
+Q.73. (Chemistry in Everyday Life)
+Aspirin is used as:
+A) Antibiotic
+B) Analgesic
+C) Antiseptic
+D) Antacid
+Q.74. (Solid State)
+The number of atoms per unit cell in FCC lattice is:
+A) 2
+B) 4
+C) 6
+D) 8
+Q.75. (Solutions)
+Raoult’s law is applicable to:
+A) Ideal solutions
+B) Non-ideal solutions
+C) Colloids
+D) Suspensions
+Q.76. (Electrochemistry)
+The standard electrode potential of hydrogen electrode is taken as:
+A) +1.0 V
+B) −1.0 V
+C) 0.00 V
+D) +0.50 V
+Q.77. (Chemical Kinetics)
+For a first-order reaction, the unit of rate constant is:
+A) mol L⁻¹ s⁻¹
+B) s⁻¹
+C) L mol⁻¹ s⁻¹
+D) mol² L⁻² s⁻¹
+Q.78. (Surface Chemistry)
+The charge on sol particles in colloidal solution is due to:
+A) Adsorption of ions
+B) High temperature
+C) Brownian motion
+D) Large size
+Q.79. (p-Block Elements)
+Which gas is known as laughing gas?
+A) NO
+B) NO₂
+C) N₂O
+D) N₂
+Q.80. (d-Block Elements)
+Which transition metal shows maximum oxidation states?
+A) Chromium
+B) Manganese
+C) Iron
+D) Copper
+Q.81. (Coordination Compounds)
+The ligand NH₃ is:
+A) Anionic
+B) Neutral
+C) Bidentate
+D) Bridging
+Q.82. (Haloarenes)
+Chlorobenzene is less reactive towards nucleophilic substitution due to:
+A) Resonance
+B) Inductive effect
+C) Steric hindrance
+D) Hyperconjugation
+Q.83. (Alcohols)
+Lucas test is used to distinguish between:
+A) Primary, secondary and tertiary alcohols
+B) Aldehydes and ketones
+C) Alcohols and phenols
+D) Amines
+Q.84. (Amines)
+The basicity of amines in aqueous solution depends on:
+A) Inductive effect
+B) Solvation effect
+C) Resonance
+D) All of the above
+Q.85. (Biomolecules)
+Which vitamin is water soluble?
+A) Vitamin A
+B) Vitamin D
+C) Vitamin E
+D) Vitamin C
+Q.86. (Polymers)
+Teflon is chemically known as:
+A) Polyethylene
+B) Polystyrene
+C) Polyvinyl chloride
+D) Polytetrafluoroethylene
+Q.87. (Chemistry in Everyday Life)
+Antacids are used to neutralize:
+A) Acids in stomach
+B) Bases in stomach
+C) Salts in blood
+D) Enzymes
+Q.88. (Environmental Chemistry)
+Ozone layer depletion is mainly caused by:
+A) CO₂
+B) SO₂
+C) CFCs
+D) NO
+Q.89. (Analytical Chemistry)
+pH of pure water at 25°C is:
+A) 5
+B) 6
+C) 7
+D) 8
+Q.90. (General Chemistry)
+Avogadro number is approximately:
+A) 6.02 × 10²²
+B) 6.02 × 10²³
+C) 3.01 × 10²³
+D) 1.66 × 10⁻²⁴
+SECTION C: BIOLOGY (90 Questions)
+Theme: Statement Verification, Matching & Linkage
+SECTION C: BIOLOGY
+BOTANY (Q.91–Q.135)
+Q.91. (Living World)
+Taxonomy is the science of:
+A) Naming organisms
+B) Classification of organisms
+C) Study of living beings
+D) Identification, nomenclature and classification
+Q.92. (Biological Classification)
+Five-kingdom classification was proposed by:
+A) Linnaeus
+B) Whittaker
+C) Aristotle
+D) Haeckel
+Q.93. (Plant Kingdom)
+Algae store food mainly in the form of:
+A) Starch
+B) Glycogen
+C) Floridean starch
+D) Oils
+Q.94. (Plant Kingdom)
+Which of the following is a bryophyte?
+A) Fern
+B) Moss
+C) Pine
+D) Algae
+Q.95. (Plant Kingdom)
+Vascular tissues are absent in:
+A) Pteridophytes
+B) Bryophytes
+C) Gymnosperms
+D) Angiosperms
+Q.96. (Morphology of Flowering Plants)
+The edible part of coconut is:
+A) Endosperm
+B) Perisperm
+C) Cotyledon
+D) Embryo
+Q.97. (Anatomy of Flowering Plants)
+Xylem helps in:
+A) Transport of food
+B) Transport of water
+C) Photosynthesis
+D) Respiration
+Q.98. (Cell Structure)
+The powerhouse of the cell is:
+A) Ribosome
+B) Mitochondria
+C) Nucleus
+D) Golgi body
+Q.99. (Biomolecules)
+The basic unit of carbohydrates is:
+A) Amino acid
+B) Fatty acid
+C) Monosaccharide
+D) Nucleotide
+Q.100. (Cell Cycle)
+DNA replication occurs during:
+A) G1 phase
+B) S phase
+C) G2 phase
+D) M phase
+Q.101. (Photosynthesis)
+The main pigment involved in photosynthesis is:
+A) Chlorophyll a
+B) Chlorophyll b
+C) Carotene
+D) Xanthophyll
+Q.102. (Photosynthesis)
+Oxygen released during photosynthesis comes from:
+A) CO₂
+B) Glucose
+C) Water
+D) Chlorophyll
+Q.103. (Respiration)
+Glycolysis occurs in the:
+A) Mitochondria
+B) Cytoplasm
+C) Nucleus
+D) Chloroplast
+Q.104. (Plant Growth)
+Auxins promote:
+A) Leaf fall
+B) Cell elongation
+C) Dormancy
+D) Senescence
+Q.105. (Transport in Plants)
+Opening and closing of stomata is regulated by:
+A) Guard cells
+B) Epidermal cells
+C) Xylem
+D) Phloem
+Q.106. (Mineral Nutrition)
+Nitrogen deficiency causes:
+A) Yellowing of older leaves
+B) Leaf fall
+C) Root rot
+D) Flower drop
+Q.107. (Reproduction in Plants)
+Pollination is transfer of pollen grains from:
+A) Anther to stigma
+B) Ovule to ovary
+C) Stigma to ovary
+D) Anther to ovule
+Q.108. (Sexual Reproduction)
+Double fertilization occurs in:
+A) Gymnosperms
+B) Bryophytes
+C) Angiosperms
+D) Pteridophytes
+Q.109. (Seeds & Fruits)
+Seed coat develops from:
+A) Ovary
+B) Ovule
+C) Integuments
+D) Endosperm
+Q.110. (Genetics)
+Father of genetics is:
+A) Darwin
+B) Mendel
+C) Morgan
+D) Lamarck
+Q.111. (Genetics)
+The phenotypic ratio in monohybrid cross is:
+A) 1:2:1
+B) 3:1
+C) 9:3:3:1
+D) 2:1
+Q.112. (Molecular Biology)
+DNA is a:
+A) Single-stranded molecule
+B) Double-stranded molecule
+C) Protein
+D) Lipid
+Q.113. (RNA)
+Which RNA carries amino acids?
+A) mRNA
+B) tRNA
+C) rRNA
+D) snRNA
+Q.114. (Evolution)
+Survival of the fittest was proposed by:
+A) Mendel
+B) Darwin
+C) Lamarck
+D) Wallace
+Q.115. (Ecology)
+Study of interaction between organisms and environment is:
+A) Botany
+B) Zoology
+C) Ecology
+D) Physiology
+Q.116. (Ecosystem)
+Producers are also called:
+A) Consumers
+B) Decomposers
+C) Autotrophs
+D) Heterotrophs
+Q.117. (Environment)
+Major greenhouse gas is:
+A) Oxygen
+B) Nitrogen
+C) Carbon dioxide
+D) Hydrogen
+Q.118. (Biodiversity)
+India is considered a:
+A) Cold spot
+B) Biodiversity hotspot
+C) Desert region
+D) Polar region
+Q.119. (Conservation)
+In-situ conservation includes:
+A) Zoo
+B) Botanical garden
+C) Wildlife sanctuary
+D) Seed bank
+Q.120. (Biotechnology)
+Enzyme used to cut DNA is:
+A) Ligase
+B) Polymerase
+C) Restriction enzyme
+D) Helicase
+Q.121. (Biotechnology)
+PCR was developed by:
+A) Watson
+B) Crick
+C) Kary Mullis
+D) Mendel
+Q.122. (Microbes)
+Penicillin is produced by:
+A) Bacteria
+B) Virus
+C) Algae
+D) Fungus
+Q.123. (Microbes)
+Curd formation is due to:
+A) Yeast
+B) Lactobacillus
+C) Rhizobium
+D) E. coli
+Q.124. (Plant Diseases)
+Rust of wheat is caused by:
+A) Virus
+B) Bacteria
+C) Fungus
+D) Algae
+Q.125. (Plant Hormones)
+Which hormone causes leaf fall?
+A) Auxin
+B) Gibberellin
+C) Cytokinin
+D) Abscisic acid
+Q.126. (Plant Physiology)
+Transpiration occurs mainly through:
+A) Roots
+B) Stem
+C) Stomata
+D) Xylem
+Q.127. (Reproduction)
+Male gamete in flowering plants is found in:
+A) Ovule
+B) Pollen grain
+C) Ovary
+D) Style
+Q.128. (Genetic Code)
+Genetic code is:
+A) Overlapping
+B) Ambiguous
+C) Universal
+D) Incomplete
+Q.129. (Mutation)
+Sudden change in DNA is called:
+A) Variation
+B) Evolution
+C) Mutation
+D) Adaptation
+Q.130. (Ecology)
+Primary consumers are:
+A) Carnivores
+B) Herbivores
+C) Decomposers
+D) Omnivores
+Q.131. (Food Chain)
+Energy flow in ecosystem is:
+A) Cyclic
+B) Bidirectional
+C) Unidirectional
+D) Random
+Q.132. (Environment)
+Chipko movement is related to:
+A) Water conservation
+B) Forest conservation
+C) Wildlife protection
+D) Pollution control
+Q.133. (Biotechnology)
+Golden rice is rich in:
+A) Iron
+B) Protein
+C) Vitamin A
+D) Vitamin C
+Q.134. (Microbes)
+Which is used as biofertilizer?
+A) Virus
+B) Rhizobium
+C) Algae
+D) Yeast
+Q.135. (Plant Growth)
+Gibberellins promote:
+A) Seed dormancy
+B) Stem elongation
+C) Leaf fall
+D) Senescence
+ZOOLOGY (Q.136–Q.180)
+Q.136. (Animal Kingdom)
+Animals without backbone are called:
+A) Vertebrates
+B) Chordates
+C) Invertebrates
+D) Mammals
+Q.137. (Human Physiology)
+Functional unit of kidney is:
+A) Neuron
+B) Nephron
+C) Alveolus
+D) Glomerulus
+Q.138. (Digestive System)
+Protein digestion starts in:
+A) Mouth
+B) Stomach
+C) Small intestine
+D) Large intestine
+Q.139. (Respiratory System)
+Gas exchange occurs in:
+A) Trachea
+B) Bronchi
+C) Alveoli
+D) Lungs
+Q.140. (Circulatory System)
+Normal human heart has chambers:
+A) 2
+B) 3
+C) 4
+D) 5
+Q.141. (Blood)
+Hemoglobin contains:
+A) Calcium
+B) Iron
+C) Sodium
+D) Potassium
+Q.142. (Nervous System)
+The longest cell in human body is:
+A) Muscle cell
+B) Neuron
+C) RBC
+D) WBC
+Q.143. (Endocrine System)
+Insulin is secreted by:
+A) Thyroid
+B) Adrenal
+C) Pancreas
+D) Pituitary
+Q.144. (Reproduction)
+Fertilization in humans occurs in:
+A) Ovary
+B) Uterus
+C) Fallopian tube
+D) Vagina
+Q.145. (Embryology)
+Cleavage is:
+A) Growth of embryo
+B) Division of zygote
+C) Differentiation
+D) Organ formation
+Q.146. (Genetics)
+Sex determination in humans is based on:
+A) X chromosome
+B) Y chromosome
+C) Autosomes
+D) Mitochondria
+Q.147. (Evolution)
+Connecting link between reptiles and birds is:
+A) Lizard
+B) Archaeopteryx
+C) Frog
+D) Snake
+Q.148. (Human Health)
+AIDS is caused by:
+A) Bacteria
+B) Fungus
+C) Virus
+D) Protozoa
+Q.149. (Immunity)
+Antibodies are produced by:
+A) RBC
+B) Platelets
+C) WBC
+D) Neurons
+Q.150. (Disease)
+Malaria is caused by:
+A) Virus
+B) Bacteria
+C) Protozoa
+D) Fungus
+Q.151. (Vector)
+Vector of malaria is:
+A) Housefly
+B) Aedes
+C) Anopheles
+D) Culex
+Q.152. (Vaccination)
+Vaccines provide:
+A) Passive immunity
+B) Active immunity
+C) Natural immunity
+D) Genetic immunity
+Q.153. (Hormones)
+Adrenaline is secreted during:
+A) Rest
+B) Sleep
+C) Stress
+D) Digestion
+Q.154. (Muscle)
+Voluntary muscles are:
+A) Smooth
+B) Cardiac
+C) Skeletal
+D) Involuntary
+Q.155. (Skeleton)
+Number of bones in human body is:
+A) 200
+B) 206
+C) 210
+D) 215
+Q.156. (Eye)
+Vitamin deficiency causing night blindness is:
+A) Vitamin B
+B) Vitamin C
+C) Vitamin D
+D) Vitamin A
+Q.157. (Ear)
+Organ of hearing is:
+A) Cochlea
+B) Tympanum
+C) Eustachian tube
+D) Pinna
+Q.158. (Excretion)
+Nitrogenous waste in humans is mainly:
+A) Ammonia
+B) Urea
+C) Uric acid
+D) Creatinine
+Q.159. (Reproductive Health)
+Permanent method of birth control in males is:
+A) Tubectomy
+B) Vasectomy
+C) Condom
+D) Pills
+Q.160. (Population)
+Study of population is called:
+A) Ecology
+B) Ethology
+C) Demography
+D) Taxonomy
+Q.161. (Environment)
+Ozone protects Earth from:
+A) Infrared rays
+B) Visible rays
+C) UV rays
+D) X-rays
+Q.162. (Conservation)
+Endangered species means:
+A) Extinct species
+B) Species at risk of extinction
+C) Common species
+D) Domestic species
+Q.163. (Animal Behavior)
+Study of animal behavior is called:
+A) Ecology
+B) Ethology
+C) Zoology
+D) Physiology
+Q.164. (Evolution)
+Homologous organs indicate:
+A) Analogous origin
+B) Common ancestry
+C) Different function
+D) No relation
+Q.165. (Fossils)
+Fossils are found in:
+A) Igneous rocks
+B) Metamorphic rocks
+C) Sedimentary rocks
+D) Volcanic rocks
+Q.166. (Biotechnology)
+Insulin produced by recombinant DNA is called:
+A) Animal insulin
+B) Synthetic insulin
+C) Human insulin
+D) Artificial insulin
+Q.167. (Cloning)
+First cloned animal was:
+A) Sheep Dolly
+B) Dog
+C) Cat
+D) Cow
+Q.168. (Microbes)
+Yeast is used in production of:
+A) Antibiotics
+B) Alcohol
+C) Vaccine
+D) Insulin
+Q.169. (Human Health)
+Balanced diet means:
+A) Only carbohydrates
+B) Only proteins
+C) All nutrients in proper proportion
+D) Only vitamins
+Q.170. (Hormones)
+Growth hormone is secreted by:
+A) Thyroid
+B) Adrenal
+C) Pituitary
+D) Pancreas
+Q.171. (Reflex Action)
+Reflex actions are controlled by:
+A) Brain
+B) Spinal cord
+C) Cerebellum
+D) Medulla
+Q.172. (Blood Group)
+Universal donor blood group is:
+A) A
+B) B
+C) AB
+D) O
+Q.173. (Blood Group)
+Universal recipient blood group is:
+A) A
+B) B
+C) AB
+D) O
+Q.174. (Respiration)
+ATP is produced in:
+A) Nucleus
+B) Ribosome
+C) Mitochondria
+D) Lysosome
+Q.175. (Muscle Fatigue)
+Lactic acid accumulates due to:
+A) Aerobic respiration
+B) Anaerobic respiration
+C) Photosynthesis
+D) Digestion
+Q.176. (Human Brain)
+Center for balance is:
+A) Cerebrum
+B) Cerebellum
+C) Medulla
+D) Pons
+Q.177. (Disease)
+Cholera is caused by:
+A) Virus
+B) Bacteria
+C) Fungus
+D) Protozoa
+Q.178. (Vector Disease)
+Dengue is spread by:
+A) Anopheles
+B) Culex
+C) Aedes
+D) Housefly
+Q.179. (Immunity)
+BCG vaccine is for:
+A) Polio
+B) Tuberculosis
+C) Typhoid
+D) Hepatitis
+Q.180. (Environment)
+Most abundant gas in atmosphere is:
+A) Oxygen
+B) Carbon dioxide
+C) Nitrogen
+D) Argon
+
+ANSWER KEY
+PHYSICS (Q.1–Q.45)
+1. B
+2. A
+3. C
+4. D
+5. B
+6. A
+7. C
+8. B
+9. D
+10. A
+11. C
+12. B
+13. A
+14. C
+15. C
+16. A
+17. B
+18. B
+19. A
+20. B
+21. A
+22. A
+23. D
+24. A
+25. B
+26. B
+27. B
+28. B
+29. B
+30. A
+31. A
+32. B
+33. B
+34. B
+35. B
+36. C
+37. C
+38. B
+39. C
+40. C
+41. C
+42. B
+43. B
+44. C
+45. C
+CHEMISTRY (Q.46–Q.90)
+46. B
+47. B
+48. C
+49. A
+50. B
+51. B
+52. C
+53. A
+54. B
+55. A
+56. C
+57. B
+58. D
+59. B
+60. B
+61. B
+62. B
+63. C
+64. B
+65. C
+66. D
+67. A
+68. C
+69. B
+70. B
+71. C
+72. B
+73. B
+74. B
+75. A
+76. C
+77. B
+78. A
+79. C
+80. B
+81. B
+82. A
+83. A
+84. D
+85. D
+86. D
+87. A
+88. C
+89. C
+90. B
+BIOLOGY (Q.91–Q.180)
+91. D
+92. B
+93. A
+94. B
+95. B
+96. A
+97. B
+98. B
+99. C
+100. B
+101. A
+102. C
+103. B
+104. B
+105. A
+106. A
+107. A
+108. C
+109. C
+110. B
+111. B
+112. B
+113. B
+114. B
+115. C
+116. C
+117. C
+118. B
+119. C
+120. C
+121. C
+122. D
+123. B
+124. C
+125. D
+126. C
+127. B
+128. C
+129. C
+130. B
+131. C
+132. B
+133. C
+134. B
+135. B
+136. C
+137. B
+138. B
+139. C
+140. C
+141. B
+142. B
+143. C
+144. C
+145. B
+146. B
+147. B
+148. C
+149. C
+150. C
+151. C
+152. B
+153. C
+154. C
+155. B
+156. D
+157. A
+158. B
+159. B
+160. C
+161. C
+162. B
+163. B
+164. B
+165. C
+166. C
+167. A
+168. B
+169. C
+170. C
+171. B
+172. D
+173. C
+174. C
+175. B
+176. B
+177. B
+178. C
+179. B
+180. C

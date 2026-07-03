@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>For Prachi</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{width:100%;height:100%;overflow:hidden;background:#0c0608;font-family:'Cormorant Garamond',serif;cursor:none;touch-action:none;}
+
+#cur{position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cur::after{content:'✦';font-size:14px;color:#e8c08088;display:block;animation:cspin 5s linear infinite;}
+@keyframes cspin{to{transform:rotate(360deg);}}
+
+/* ── BACKGROUND CANVAS ── */
+#bg{position:fixed;inset:0;z-index:0;}
+
+/* ── INTRO SCREEN ── */
+#intro{
+  position:fixed;inset:0;z-index:100;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,#1a080c,#0c0608);
+  transition:opacity 2s ease;
+}
+#intro.gone{opacity:0;pointer-events:none;}
+
+.intro-label{
+  font-style:italic;font-size:clamp(.75rem,1.5vw,.9rem);
+  color:#c09070;letter-spacing:.4em;text-transform:uppercase;
+  opacity:0;animation:up .9s ease forwards .4s;margin-bottom:.8rem;
+}
+.intro-name{
+  font-family:'Pinyon Script',cursive;
+  font-size:clamp(4rem,15vw,10rem);
+  color:#f5e8d8;line-height:1;
+  opacity:0;animation:namebloom 2s ease forwards .9s;
+  text-shadow:0 0 80px #e8a06055,0 0 30px #e8a06033;
+}
+.intro-rule{width:160px;height:1px;margin:.8rem auto;background:linear-gradient(90deg,transparent,#c09070aa,transparent);opacity:0;animation:up .7s ease forwards 1.9s;}
+.intro-sub{font-style:italic;font-size:clamp(.9rem,1.8vw,1.1rem);color:#c0907077;opacity:0;animation:up .7s ease forwards 2.2s;letter-spacing:.06em;}
+.intro-hint{margin-top:2.8rem;font-style:italic;font-size:.78rem;color:#c0907055;letter-spacing:.22em;text-transform:uppercase;opacity:0;animation:up .7s ease forwards 3s,breathe 2.5s ease-in-out infinite 3.5s;}
+
+@keyframes up{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}
+@keyframes namebloom{0%{opacity:0;filter:blur(10px);transform:scale(.9);}60%{filter:blur(0);}100%{opacity:1;transform:scale(1);}}
+@keyframes breathe{0%,100%{opacity:.2;}50%{opacity:.65;}}
+
+/* ── MUSIC BOX SCENE ── */
+#scene{
+  position:fixed;inset:0;z-index:10;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  pointer-events:none;opacity:0;transition:opacity 1.5s ease;
+}
+#scene.show{opacity:1;}
+
+/* Music box body */
+.box-wrap{position:relative;display:flex;flex-direction:column;align-items:center;}
+
+/* Lid — opens on trigger */
+.lid{
+  width:clamp(180px,38vw,260px);height:clamp(22px,4vw,30px);
+  background:linear-gradient(135deg,#5c2510,#8a3818,#5c2510);
+  border-radius:8px 8px 0 0;
+  position:relative;z-index:3;
+  transform-origin:bottom center;
+  transform:rotateX(0deg);
+  transition:transform 1.8s cubic-bezier(.4,0,.2,1);
+  box-shadow:0 -3px 18px #00000088;
+}
+.lid.open{transform:rotateX(-130deg);}
+.lid::after{content:'';position:absolute;inset:4px 6px;border-radius:5px 5px 0 0;
+  background:linear-gradient(90deg,#3a1208,#7a2e10,#3a1208);opacity:.6;}
+
+/* Box body */
+.box-body{
+  width:clamp(180px,38vw,260px);
+  background:linear-gradient(160deg,#4a1e0c,#6e2a12,#4a1e0c);
+  border-radius:0 0 12px 12px;
+  padding:clamp(12px,3vw,20px) clamp(16px,3.5vw,24px) clamp(14px,3vw,18px);
+  position:relative;z-index:2;
+  box-shadow:0 8px 40px #00000099,0 2px 0 #8a3818 inset;
+}
+.box-body::before{content:'';position:absolute;inset:3px 4px;border-radius:0 0 10px 10px;
+  background:linear-gradient(160deg,#2a0e06,#4a1a0a,#2a0e06);opacity:.5;}
+
+/* Ballerina dancer on top */
+.dancer-stage{
+  position:absolute;top:-clamp(80px,14vw,110px);left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;flex-direction:column;align-items:center;
+}
+.dancer{
+  font-size:clamp(2rem,6vw,3.5rem);
+  filter:drop-shadow(0 0 12px #e8c08088);
+  animation:none;transform-origin:50% 100%;
+}
+.dancer.spin{animation:spin 3s linear infinite;}
+.dancer.slowspin{animation:spin 6s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.dancer-base{width:clamp(40px,8vw,56px);height:3px;background:linear-gradient(90deg,transparent,#c09070,transparent);margin-top:4px;border-radius:50%;}
+
+/* Mirror inside lid */
+.mirror{
+  position:absolute;top:clamp(10px,2vw,14px);left:50%;transform:translateX(-50%);
+  width:clamp(60px,14vw,90px);height:clamp(40px,9vw,60px);
+  border-radius:50%;background:radial-gradient(ellipse,#f5e8d822,#e8c08011);
+  border:1px solid #c0907044;
+  display:flex;align-items:center;justify-content:center;z-index:4;
+  opacity:0;transition:opacity 1s ease;
+}
+.mirror.show{opacity:1;}
+.mirror-text{font-family:'Pinyon Script',cursive;font-size:clamp(.9rem,2.5vw,1.3rem);color:#f5e8d8cc;text-align:center;}
+
+/* Music cylinder — decorative cogs */
+.cyl-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;position:relative;z-index:3;}
+.cog{font-size:clamp(.9rem,2vw,1.2rem);color:#c09070;opacity:.7;animation:cogspin 4s linear infinite;}
+.cog:nth-child(2){animation-direction:reverse;animation-duration:3s;}
+.cog:nth-child(3){animation-duration:5s;}
+@keyframes cogspin{to{transform:rotate(360deg);}}
+
+/* Key wind indicator */
+.key{position:absolute;right:-clamp(18px,3.5vw,24px);bottom:clamp(14px,3vw,18px);
+  font-size:clamp(1rem,2.2vw,1.3rem);color:#c09070;opacity:.6;
+  animation:keyrock 2s ease-in-out infinite;transform-origin:50% 100%;}
+@keyframes keyrock{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+
+/* ── NOTES floating up ── */
+.note{position:fixed;pointer-events:none;z-index:50;font-size:1.1rem;
+  animation:noteFloat linear forwards;}
+@keyframes noteFloat{0%{opacity:.8;transform:translateY(0) translateX(0) rotate(0deg);}100%{opacity:0;transform:translateY(-140px) translateX(var(--dx)) rotate(var(--rot));}}
+
+/* ── CENTER QUOTE PANEL ── */
+#quoteWrap{
+  position:fixed;z-index:20;bottom:clamp(3.5rem,8vh,6rem);left:50%;transform:translateX(-50%);
+  text-align:center;pointer-events:none;width:clamp(280px,70vw,520px);
+  opacity:0;transition:opacity 1.2s ease;
+}
+#quoteWrap.show{opacity:1;}
+.quote-inner{
+  padding:1rem 2rem 1rem;
+  background:radial-gradient(ellipse 100% 100% at 50% 50%,#0c060899,#0c060877);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border:1px solid #c090701a;border-radius:2px;
+  box-shadow:inset 0 1px 0 #e8c08018,0 0 40px #0c0608aa;
+}
+#qEl{font-style:italic;font-size:clamp(.9rem,2vw,1.2rem);color:#f5e8d8bb;letter-spacing:.04em;min-height:1.5em;text-shadow:0 1px 6px #0c0608;}
+#qEl.out{opacity:0;transform:translateY(5px);}
+#qEl{transition:opacity .5s,transform .5s;}
+
+/* ── PARTICLES ── */
+#fxCanvas{position:fixed;inset:0;z-index:15;pointer-events:none;}
+
+/* ── LOVE MESSAGE CARD ── */
+#card{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(0);
+  z-index:95;pointer-events:none;opacity:0;
+  transition:transform .8s cubic-bezier(.34,1.56,.64,1),opacity .8s ease;
+  text-align:center;
+}
+#card.show{transform:translate(-50%,-50%) scale(1);opacity:1;}
+#card.hide{transform:translate(-50%,-50%) scale(1.2);opacity:0;}
+.card-inner{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.8vw,1.6rem);font-style:italic;
+  color:#f5e8d8;padding:2rem 3rem;
+  border:1px solid #c0907033;background:#0c0608ee;
+  backdrop-filter:blur(16px);
+  box-shadow:0 0 80px #e8a06011,0 20px 60px #00000088;
+  text-shadow:0 0 20px #e8a06044;max-width:360px;line-height:1.6;
+}
+.card-inner small{display:block;font-size:clamp(.72rem,1.3vw,.88rem);color:#c0907099;margin-top:.6rem;letter-spacing:.05em;}
+
+/* ── SHIMMER RING ── */
+.shimmer{position:fixed;pointer-events:none;z-index:12;border-radius:50%;
+  border:1px solid #e8c08030;animation:shimmerOut 1.4s ease forwards;}
+@keyframes shimmerOut{to{transform:translate(-50%,-50%) scale(1);opacity:0;}}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<canvas id="bg"></canvas>
+<canvas id="fxCanvas"></canvas>
+
+<!-- INTRO -->
+<div id="intro">
+  <p class="intro-label">a music box, made for</p>
+  <h1 class="intro-name">Prachi</h1>
+  <div class="intro-rule"></div>
+  <p class="intro-sub">wind the key and listen to what love sounds like</p>
+  <p class="intro-hint">✦ tap to open ✦</p>
+</div>
+
+<!-- SCENE -->
+<div id="scene">
+  <div class="box-wrap">
+    <!-- Dancer sits on top -->
+    <div class="dancer-stage">
+      <div class="dancer" id="dancer">🩰</div>
+      <div class="dancer-base"></div>
+    </div>
+
+    <!-- Lid -->
+    <div class="lid" id="lid">
+      <div class="mirror" id="mirror">
+        <span class="mirror-text">Prachi</span>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="box-body">
+      <div class="cyl-row">
+        <span class="cog">⚙</span>
+        <span class="cog">⚙</span>
+        <span class="cog">⚙</span>
+      </div>
+      <div class="key">🗝</div>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div id="quoteWrap"><div class="quote-inner"><p id="qEl">&nbsp;</p></div></div>
+
+<!-- CARD -->
+<div id="card"><div class="card-inner" id="cardText">you are my favourite person<small>— always, and in every version of this life</small></div></div>
+
+<script>
+'use strict';
+
+// ══════════════════════════════════════════
+//  AUDIO — music box tine sounds
+// ══════════════════════════════════════════
+let AC=null;
+function getAC(){if(!AC)AC=new(window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();return AC;}
+
+let _rev=null;
+function getRev(){
+  if(_rev)return _rev;
+  const ctx=getAC(),sr=ctx.sampleRate,len=sr*4;
+  const buf=ctx.createBuffer(2,len,sr);
+  for(let c=0;c<2;c++){const d=buf.getChannelData(c);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,3.8)*.5;}
+  const cv=ctx.createConvolver();cv.buffer=buf;
+  const wg=ctx.createGain();wg.gain.value=.18;
+  cv.connect(wg);wg.connect(ctx.destination);_rev=cv;return _rev;
+}
+
+// Music box tine — sharp attack, long metallic decay
+function tine(freq,vol,t0){
+  vol=vol||.1; t0=t0||0;
+  const ctx=getAC(),t=ctx.currentTime+t0;
+  // Main tone
+  const o=ctx.createOscillator(),g=ctx.createGain();
+  o.type='triangle'; o.frequency.value=freq;
+  g.gain.setValueAtTime(0,t);
+  g.gain.linearRampToValueAtTime(vol,t+.008);   // sharp pluck
+  g.gain.exponentialRampToValueAtTime(.0001,t+2.8); // long metallic ring
+  o.connect(g);g.connect(ctx.destination);
+  try{g.connect(getRev());}catch(e){}
+  // Harmonic shimmer
+  const o2=ctx.createOscillator(),g2=ctx.createGain();
+  o2.type='sine'; o2.frequency.value=freq*2.003;
+  g2.gain.setValueAtTime(0,t);
+  g2.gain.linearRampToValueAtTime(vol*.18,t+.01);
+  g2.gain.exponentialRampToValueAtTime(.0001,t+1.8);
+  o2.connect(g2);g2.connect(ctx.destination);
+  try{g2.connect(getRev());}catch(e){}
+  o.start(t);o.stop(t+3);o2.start(t);o2.stop(t+2);
+}
+
+// Waltz-time melody — classic music box feel (C major pentatonic)
+// C5 D5 E5 G5 A5 C6
+const MELODY=[523.25,587.33,659.25,783.99,880,1046.5,1174.66,1318.51];
+const WALTZ_SEQ=[0,2,4,2,5,4,2,0,1,3,4,3,1,0,2,4,5,4,2,1,0]; // indices into MELODY
+let melodyIdx=0,melodyTimer=null;
+
+function playNote(idx){
+  const f=MELODY[WALTZ_SEQ[idx%WALTZ_SEQ.length]];
+  tine(f,.09,0);
+}
+
+function startMelody(){
+  if(melodyTimer)return;
+  let beat=0;
+  melodyTimer=setInterval(()=>{
+    playNote(beat);
+    beat++;
+    // Float a music note
+    if(beat%2===0) floatNote();
+  },420); // waltz feel ~143bpm
+}
+
+function stopMelody(){
+  clearInterval(melodyTimer); melodyTimer=null;
+}
+
+// Bloom chord — warm
+function playBloom(){
+  [523.25,659.25,783.99].forEach((f,i)=>tine(f,.065,i*.05));
+}
+
+function playOpen(){
+  // Magical upward gliss when box opens
+  [261.63,329.63,392,523.25,659.25,783.99,1046.5].forEach((f,i)=>tine(f,.08,i*.08));
+}
+
+// ══════════════════════════════════════════
+//  BACKGROUND CANVAS — warm dark room
+// ══════════════════════════════════════════
+const bgC=document.getElementById('bg'),bgX=bgC.getContext('2d');
+let bgT=0,bgParts=[];
+
+function resizeBg(){bgC.width=innerWidth;bgC.height=innerHeight;buildBgParts();}
+window.addEventListener('resize',resizeBg);
+
+function buildBgParts(){
+  bgParts=[];
+  // Dust motes in a candle-lit room
+  for(let i=0;i<80;i++) bgParts.push({
+    x:Math.random()*bgC.width,y:Math.random()*bgC.height,
+    r:.4+Math.random()*.8,a:Math.random()*.4+.05,
+    ph:Math.random()*Math.PI*2,sp:.15+Math.random()*.3,
+    vx:(Math.random()-.5)*.12,vy:-(Math.random()*.1+.05)
+  });
+}
+
+function drawBg(){
+  const w=bgC.width,h=bgC.height,x=bgX; bgT+=.01;
+  x.clearRect(0,0,w,h);
+  // Warm dark room gradient
+  const rm=x.createRadialGradient(w*.5,h*.4,0,w*.5,h*.5,Math.max(w,h)*.8);
+  rm.addColorStop(0,'#1e0a0c');rm.addColorStop(.45,'#120508');rm.addColorStop(1,'#0c0608');
+  x.fillStyle=rm;x.fillRect(0,0,w,h);
+  // Candle glow from below the box
+  const cg=x.createRadialGradient(w*.5,h*.72,0,w*.5,h*.72,w*.28);
+  cg.addColorStop(0,'rgba(232,160,80,.07)');cg.addColorStop(1,'rgba(232,160,80,0)');
+  x.fillStyle=cg;x.fillRect(0,0,w,h);
+  // Surface reflection glow under box
+  const sg=x.createRadialGradient(w*.5,h*.78,0,w*.5,h*.78,w*.18);
+  sg.addColorStop(0,'rgba(200,144,112,.06)');sg.addColorStop(1,'rgba(200,144,112,0)');
+  x.fillStyle=sg;x.fillRect(0,0,w,h);
+  // Dust motes
+  bgParts.forEach(p=>{
+    p.x+=p.vx+Math.sin(bgT*p.sp+p.ph)*.08;
+    p.y+=p.vy;
+    if(p.y<-5){p.y=h+5;p.x=Math.random()*w;}
+    const a=p.a*(.5+.5*Math.sin(bgT*p.sp+p.ph));
+    x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);
+    x.fillStyle=`rgba(220,180,130,${a})`;x.fill();
+  });
+}
+
+// ══════════════════════════════════════════
+//  FX CANVAS
+// ══════════════════════════════════════════
+const fxC=document.getElementById('fxCanvas'),fxX=fxC.getContext('2d');
+function resizeFx(){fxC.width=innerWidth;fxC.height=innerHeight;}
+window.addEventListener('resize',resizeFx);
+
+const sparks=[];
+function addSparks(x,y,n){
+  n=n||10;
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2,sp=.8+Math.random()*2.5;
+    sparks.push({x,y,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp-.3,
+      r:1.2+Math.random()*2,a:1,life:0,maxLife:45+~~(Math.random()*30),
+      col:['#f5d090','#e8c080','#f0a860','#ffe8c0'][~~(Math.random()*4)]});
+  }
+}
+
+const ripples=[];
+function addRipple(x,y){ripples.push({x,y,r:0,maxR:75,a:1});}
+
+function tickFX(){
+  fxX.clearRect(0,0,fxC.width,fxC.height);
+  for(let i=sparks.length-1;i>=0;i--){
+    const p=sparks[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.06;p.life++;
+    p.a=1-p.life/p.maxLife;
+    if(p.life>=p.maxLife){sparks.splice(i,1);continue;}
+    fxX.globalAlpha=p.a;fxX.fillStyle=p.col;
+    fxX.beginPath();fxX.arc(p.x,p.y,p.r,0,Math.PI*2);fxX.fill();
+  }
+  for(let i=ripples.length-1;i>=0;i--){
+    const r=ripples[i];r.r+=2.4;r.a=1-r.r/r.maxR;
+    if(r.a<=0){ripples.splice(i,1);continue;}
+    fxX.globalAlpha=r.a*.4;
+    fxX.beginPath();fxX.arc(r.x,r.y,r.r,0,Math.PI*2);
+    fxX.strokeStyle='rgba(232,192,128,0.8)';fxX.lineWidth=1.2;fxX.stroke();
+  }
+  fxX.globalAlpha=1;
+}
+
+// ══════════════════════════════════════════
+//  FLOATING MUSIC NOTES
+// ══════════════════════════════════════════
+const NOTE_CHARS=['♩','♪','♫','♬','𝅗𝅥'];
+function floatNote(){
+  const n=document.createElement('div');n.className='note';
+  const cx=innerWidth*.5;
+  n.textContent=NOTE_CHARS[~~(Math.random()*NOTE_CHARS.length)];
+  const dx=(Math.random()-.5)*80,rot=(Math.random()-.5)*40+'deg';
+  const dur=1.6+Math.random()*1.2;
+  n.style.cssText=`left:${cx+(Math.random()-.5)*clamp(80,innerWidth*.2,130)}px;top:${innerHeight*.42+Math.random()*30}px;color:rgba(232,192,128,${.3+Math.random()*.4});--dx:${dx}px;--rot:${rot};animation-duration:${dur}s;`;
+  document.body.appendChild(n);
+  setTimeout(()=>n.remove(),(dur+.1)*1000);
+}
+function clamp(min,v,max){return Math.max(min,Math.min(max,v));}
+
+// ══════════════════════════════════════════
+//  TYPEWRITER
+// ══════════════════════════════════════════
+let typing=false;
+function typeText(el,text,spd){
+  spd=spd||48;
+  if(typing)return;typing=true;
+  el.textContent='';el.classList.remove('out');
+  let i=0;
+  const tick=()=>{
+    if(i<=text.length){
+      el.textContent=text.slice(0,i)+(i<text.length?'▌':'');
+      i++;setTimeout(tick,spd+(Math.random()*20-10));
+    }else{el.textContent=text;typing=false;}
+  };
+  tick();
+}
+
+// ══════════════════════════════════════════
+//  QUOTES
+// ══════════════════════════════════════════
+const QUOTES=[
+  'every note in this box was made for you',
+  'you are the song I never want to end',
+  'some music only plays when you are near',
+  'you make ordinary moments feel like music',
+  'even silence sounds better with you in it',
+  'you are the melody I keep returning to',
+  'love is this — wanting to wind the key again',
+  'every time I think of you, a new note plays',
+  'you are the part of the song that stays with you',
+  'I would wind this box forever, just for you',
+  'you are rarer than any song ever written',
+  'the most beautiful sound is your name',
+];
+let qIdx=0;
+function changeQ(){
+  const el=document.getElementById('qEl');
+  el.classList.add('out');
+  setTimeout(()=>{qIdx=(qIdx+1)%QUOTES.length;typeText(el,QUOTES[qIdx]);},580);
+}
+
+// ══════════════════════════════════════════
+//  LOVE CARD
+// ══════════════════════════════════════════
+const CARDS=[
+  ['you are my favourite person','— always, and in every version of this life'],
+  ['no song compares to how you make me feel','— not even this one'],
+  ['I would wind this box every single day','— just to see you smile'],
+  ['you are worth every quiet beautiful thing','— and all the loud ones too'],
+  ['loving you is the best melody I know','— I never want it to stop'],
+];
+let cIdx=0,cOpen=false;
+function showCard(){
+  if(cOpen)return;cOpen=true;
+  const[a,b]=CARDS[cIdx++%CARDS.length];
+  document.getElementById('cardText').innerHTML=`${a}<small>${b}</small>`;
+  const c=document.getElementById('card');
+  c.classList.remove('hide');c.classList.add('show');
+  setTimeout(()=>{c.classList.add('hide');c.classList.remove('show');setTimeout(()=>cOpen=false,900);},3400);
+}
+
+// ══════════════════════════════════════════
+//  OPEN THE BOX
+// ══════════════════════════════════════════
+let boxOpen=false,bloomN=0,lastBloom=0,ready=false;
+
+function openBox(){
+  if(boxOpen)return; boxOpen=true;
+  playOpen();
+  // Lid swings open
+  document.getElementById('lid').classList.add('open');
+  // Mirror appears
+  setTimeout(()=>document.getElementById('mirror').classList.add('show'),800);
+  // Dancer starts spinning
+  setTimeout(()=>{
+    const d=document.getElementById('dancer');
+    d.classList.add('spin');
+    d.style.filter='drop-shadow(0 0 16px #e8c080cc)';
+  },600);
+  // Start melody
+  setTimeout(startMelody,400);
+  // Sparks burst from box
+  const bx=innerWidth/2,by=innerHeight*.48;
+  setTimeout(()=>addSparks(bx,by,20),300);
+  setTimeout(()=>addSparks(bx,by,12),700);
+  // Show quote panel
+  setTimeout(()=>{
+    document.getElementById('quoteWrap').classList.add('show');
+    setTimeout(()=>typeText(document.getElementById('qEl'),QUOTES[0]),600);
+  },1200);
+}
+
+// Tap/click on scene — bloom interaction
+function bloomAt(x,y){
+  const now=Date.now();if(now-lastBloom<320)return;lastBloom=now;
+  bloomN++;
+  addSparks(x,y,bloomN%4===0?16:8);
+  addRipple(x,y);
+  // Dancer spins faster on touch
+  const d=document.getElementById('dancer');
+  d.classList.remove('spin','slowspin');
+  d.classList.add('spin');
+  setTimeout(()=>{d.classList.remove('spin');d.classList.add('slowspin');},1200);
+  changeQ();
+  playBloom();
+  if(bloomN%5===0)showCard();
+}
+
+// ══════════════════════════════════════════
+//  SHIMMER ON HOVER
+// ══════════════════════════════════════════
+function shimmerAt(x,y){
+  const s=document.createElement('div');s.className='shimmer';
+  const sz=30+Math.random()*50;
+  s.style.cssText=`left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;transform:translate(-50%,-50%) scale(0);`;
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),1500);
+}
+
+// ══════════════════════════════════════════
+//  MAIN LOOP
+// ══════════════════════════════════════════
+function loop(){drawBg();tickFX();requestAnimationFrame(loop);}
+
+// ══════════════════════════════════════════
+//  CURSOR
+// ══════════════════════════════════════════
+const cur=document.getElementById('cur');
+let hoverT;
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  clearTimeout(hoverT);
+  hoverT=setTimeout(()=>{if(Math.random()<.04)shimmerAt(e.clientX,e.clientY);},200);
+});
+
+// ══════════════════════════════════════════
+//  ENTER FLOW
+// ══════════════════════════════════════════
+function enter(){
+  if(ready)return;ready=true;
+  document.getElementById('intro').classList.add('gone');
+  setTimeout(()=>{
+    document.getElementById('scene').classList.add('show');
+    document.getElementById('scene').style.pointerEvents='auto';
+    setTimeout(openBox,600);
+  },700);
+}
+
+// Intro tap
+document.getElementById('intro').addEventListener('click',enter);
+document.getElementById('intro').addEventListener('touchstart',enter,{passive:true});
+
+// Scene interaction
+document.addEventListener('click',e=>{if(ready&&boxOpen)bloomAt(e.clientX,e.clientY);});
+document.addEventListener('touchstart',e=>{
+  if(!ready)return;
+  if(!boxOpen){enter();return;}
+  e.preventDefault();
+  bloomAt(e.touches[0].clientX,e.touches[0].clientY);
+},{passive:false});
+
+resizeBg();resizeFx();loop();
+</script>
+</body>
+</html>
