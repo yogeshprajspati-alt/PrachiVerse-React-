@@ -7,7 +7,7 @@ export const dashboardData = [
                 title: "Apology Express",
                 icon: "🚂",
                 description: "Sorry Sorry Instead of PEE PEEE.",
-                date: "11 May 2026",
+                date: "17 Aug 2026",
                 badge: "New",
                 link: "https://yogeshprajspati-alt.github.io/Aplolgy-Express/",
                 isExternal: true,
