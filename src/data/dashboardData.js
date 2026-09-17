@@ -4,6 +4,16 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
+                title: "Apology Express",
+                icon: "🚂",
+                description: "Sorry Sorry Instead of PEE PEEE.",
+                date: "11 May 2026",
+                badge: "New",
+                link: "https://yogeshprajspati-alt.github.io/Aplolgy-Express/",
+                isExternal: true,
+                isAbsolute: true
+            },
+            {
                 id: "ClayMorphism Diary",
                 title: "ClayMorphism Diary",
                 icon: "🦋",
@@ -24,16 +34,6 @@ export const dashboardData = [
                 badge: "New",
                 link: "https://prachify.vercel.app/",
                 isExternal: true,
-                isAbsolute: false
-            },
-            {
-                title: "Huhhh Over Explanation",
-                icon: "🎀",
-                description: "karna padta h, warna madam gussa bohot jaldi hoti h.",
-                date: "11 May 2026",
-                badge: "New",
-                link: "/diaries/moon-brown-gold",
-                isExternal: false,
                 isAbsolute: false
             },
             {
