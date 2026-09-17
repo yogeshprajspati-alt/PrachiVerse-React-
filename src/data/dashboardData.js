@@ -14,6 +14,16 @@ export const dashboardData = [
                 isAbsolute: true
             },
             {
+                title: "Cyndrella wali diary",
+                icon: "👑",
+                description: "Cinderella wali diary",
+                date: "15-17 sept 2026",
+                badge: "New",
+                link: "/diaries/cinderella-diary",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
                 id: "ClayMorphism Diary",
                 title: "ClayMorphism Diary",
                 icon: "🦋",
@@ -34,17 +44,6 @@ export const dashboardData = [
                 badge: "New",
                 link: "https://prachify.vercel.app/",
                 isExternal: true,
-                isAbsolute: false
-            },
-            {
-                id: "Appreciation Gallery",
-                title: "Appreciation Gallery",
-                icon: "💌",
-                description: "Thodi to tareef karne do.",
-                date: "2026",
-                badge: "New",
-                link: "/appreciation",
-                isExternal: false,
                 isAbsolute: false
             },
 
