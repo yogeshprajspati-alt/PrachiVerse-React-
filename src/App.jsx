@@ -48,6 +48,7 @@ const MoonBrownGold = lazy(() => import('./pages/Diaries/MoonBrownGold/MoonBrown
 const Monochrome = lazy(() => import('./pages/Diaries/MonochromeReverie/MonochromeReverie'));
 
 const LavenderDiary = lazy(() => import('./pages/Diaries/LavenderDiary/BurnBookDiary'));
+const CinderellaDiary = lazy(() => import('./pages/Diaries/CinderellaDiary/CinderellaDiary'));
 
 
 const AnimatedRoutes = () => {
@@ -90,6 +91,7 @@ const AnimatedRoutes = () => {
             <Route path="/diaries/moon-brown-gold" element={<PageWrapper><MoonBrownGold /></PageWrapper>} />
             <Route path="/diaries/monochrome" element={<PageWrapper><Monochrome /></PageWrapper>} />
             <Route path="/diaries/lavender-diary" element={<PageWrapper><LavenderDiary /></PageWrapper>} />
+            <Route path="/diaries/cinderella-diary" element={<PageWrapper><CinderellaDiary /></PageWrapper>} />
 
             <Route path="/view" element={<PageWrapper><LegacyViewer /></PageWrapper>} />
             <Route path="/diaries/jan-23-native" element={<PageWrapper><Jan23Diary /></PageWrapper>} />
