@@ -318,7 +318,7 @@ const CinderellaDiary = () => {
                                 </p>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
                                     Or mujhe tumse relationship chaiye bhi nhi tha kabhi, bs some affection understanding, or bharosa ki deepak sab kar dega. Or tumhara trust bhi. <br></br><br></br>
-                                    I wanted to give you something better, kuch aisa jo tumhe chube na kabhi.
+                                    I wanted to give you something better, kuch aisa jo tumhe chube na kabhi. I wanted to be your favourate person. Someone you can always trust, and rely-on, judgement ka dar naa ho, kyuki me to tumhari hi side lunga bhale tum kisi ka murder kardo 🤨. Saari cheezen batao ki kya kya hua. Bs itnaa.
                                     
                                 </p>
                             </div>
