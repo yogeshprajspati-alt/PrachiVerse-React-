@@ -278,7 +278,17 @@ const CinderellaDiary = () => {
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '0.2s'}}>
                                     Point ki baat is, Dekho yr, Chanchal has been really good to me, aur achanak se tumhare behaviour se mujhe lagne laga tha ki kahin koi badi problem toh nahi ho gayi. Main worst case imagine karne laga tha. Shayad mamla utna serious ho bhi na, par it felt like kuch toh karna padega. 
                                 </p>
-                                <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s'}}>Or tumne bataya bhi kaafi kam tha... jo starting me bola us se toh laga ki family bohot zyada strict hogi, you said <strong><ul><li>"Ladke toh hai nahi hum ki muh uthaya aur mil liya"</li><li>"Unse toh koi kuch kehta nahi hai"</li><li>"Nahi hum toh aawara hain"</li></ul></strong> ye sab sunke kya hi lagega yr? Tum khud hi socho kya tum meri jagah hoti toh tumko kaise feel hota. Mera darr toh genuine tha na.</p>
+                                <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s'}}>
+                                    Or tumne bataya bhi kaafi kam tha... jo starting me bola us se toh laga ki family bohot zyada strict hogi, you said:
+                                </p>
+                                <ul className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s', fontWeight: 'bold', margin: '0.5rem 0 0.5rem 2rem'}}>
+                                    <li>"Ladke toh hai nahi hum ki muh uthaya aur mil liya"</li>
+                                    <li>"Unse toh koi kuch kehta nahi hai"</li>
+                                    <li>"Nahi hum toh aawara hain"</li>
+                                </ul>
+                                <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s'}}>
+                                    ye sab sunke kya hi lagega yr? Tum khud hi socho kya tum meri jagah hoti toh tumko kaise feel hota. Mera darr toh genuine tha na.
+                                </p>
                                 <div className={`${styles.neonText} ${styles.magicalFadeIn}`} style={{animationDelay: '2.2s'}}>
                                     Listen Princess
                                 </div>
@@ -303,7 +313,14 @@ const CinderellaDiary = () => {
                             
                             <div className={styles.glassyBox}>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
-                                    At last you said...<strong><ul><li>"Use bohot princess treatment milta hai ghar pe"</li><li>"Sabke ghar ki baat alag hoti hai, tumhare ghar par bhi toh tum logon ka mindset alag hai"</li></ul></strong> Princess you are a lovely girl. Lekin kabhi kabhi ajeeb lagta hai.
+                                    At last you said...
+                                </p>
+                                <ul className={styles.handWritten} style={{fontWeight: '900', fontSize: '1.2rem', paddingLeft: '2rem', textAlign: 'left', width: 'fit-content', margin: '0 auto'}}>
+                                    <li>"Use bohot princess treatment milta hai ghar pe"</li>
+                                    <li>"Sabke ghar ki baat alag hoti hai, tumhare ghar par bhi toh tum logon ka mindset alag hai"</li>
+                                </ul>
+                                <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem', marginTop: '0.5rem'}}>
+                                    Princess you are a lovely girl. Lekin kabhi kabhi ajeeb lagta hai.
                                 </p>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
                                     Prachi I know tum bas meri wo baat ki wajah se hi bol rahi thi kyunki tum hurt ho gayi thi, aur tumhe laga hoga ki tumhari wajah se hai, lekin aisa kuch nahi hai. Main meri marzi se wahan gaya tha. Kyunki tum bohot achhi ladki ho.. aur accha treatment deserve karti ho.
@@ -401,7 +418,7 @@ const CinderellaDiary = () => {
                                 Lekin mujhe pata hai, kabhi kabhi aisa hota hai ki kisi se koi baat karne ka mann nahi karta, aur repeated convo bhi acchi nahi lagti daily daily. Related to food, day, and study. Boriyat aajati hai. I Understand.... 
                             </p>
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeSparkle}`} style={{position: 'relative', marginTop: '4rem', width: '90%', transform: 'rotate(-2deg)'}}>
-                                waise wo apology express sahi se fit na ho browser me, to tum naa - Three dots pe click karna - uske badd desktop site pe click kar dena. fir enjoy.
+                                waise wo apology express sahi se fit na ho browser me, to tum naa - Three dots pe click karna - uske baad desktop site pe click kar dena. fir enjoy.
                             </div>
                             <div className={styles.glassyBox} style={{marginTop: '3rem', transform: 'rotate(1deg)', padding: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', borderRadius: '12px', border: '2px dashed #bbaacc'}}>
                                 <p className={styles.handWritten} style={{fontSize: '1.05rem', lineHeight: '1.5', margin: 0}}>
