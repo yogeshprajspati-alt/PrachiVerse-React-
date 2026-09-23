@@ -17,7 +17,7 @@ export const dashboardData = [
                 title: "Cyndrella wali diary",
                 icon: "👑",
                 description: "Cinderella wali diary",
-                date: "15-17 sept 2026",
+                date: "15-23 sept 2026",
                 badge: "New",
                 link: "/diaries/cinderella-diary",
                 isExternal: false,
