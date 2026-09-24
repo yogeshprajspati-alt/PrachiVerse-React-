@@ -463,7 +463,31 @@ const CinderellaDiary = () => {
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    Sometimes I feel ki shayad main tumhare layak hi nahi hu kisi bhi case me... tummmmm..... tum toh princess ho. 👑
+                                    Tum reject toh kar deti ho, still wo 'naa' me bhi mujhe 'haa' hi dikhti thi yr. Aur tumhara wo reason, ki tum hamesha single rahogi? Come on, we both know ye sach nahi hai. Likh ke le lo, college pahuchte hi mind change ho jayega. I know well it's not going to be me, theek hai yr. Lekin at least rejection ka koi ek genuine reason toh bata do, taaki mujhe apne aap ko blame karne ke liye koi toh kami mil jaye.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Mujhe efforts daalne ki aadat hi thi, kyunki life me kuch bhi readymade nahi mila. Mujhe laga shayad kabhi toh Prachi ka dil pighal jaye, koi magic ho jaye... socha tha koi nahi aaya toh mera chance 100% hai. Lekin jab bhi poochna chahta hu, tumhare paas jawab nahi rehta. Tum achanak se silent aur ignorant ho jati ho. It actually breaks my heart to see you this way. Ekdum abandoned feel hota hai us waqt.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    I always thought of this quote, jo mujhe ye wait karna worth it feel karwata tha: 'If I leave then I lose you. If I wait then it will never be me. And if I move on it will never be you. So what do I do? Do I make a left where there is nothing right? Or a right where there is nothing left?'
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Sach kahu toh mujhe aise latke rehne me, ya aur wait karne me bhi koi dikkat nahi hai. Kyunki sach bataun? Wait karna toh ab mera hi comfort ban chuka hai. Lekin darr lagta hai yr... darr lagta hai ki tum achanak se hamesha ki tarah bina kisi reason ya explanation ke disappear ho jaogi, aur main yahan akele bas wait hi karta reh jaunga... And hell yes, I know tum khud se toh kabhi reach out karogi hi nahi.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Lekin haan, if you think there is even a 1% chance... toh restore everything. Us 1 kya, 0.1% chance me bhi main apne 1000% efforts ka multiply kar dunga. Ya fir currently chalne do jo jaisa chal raha tha pehle.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    One thing I always think about is... is this the end?? Itni baar sab almost khatam hone ko hota hai, but then God sab theek kar dete hain. Is baar bhi kya? End ya restoration? And if it's the end, then why the hell did He make things align like this!!!
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Sometimes I feel ki shayad main tumhare layak hi nahi hu kisi bhi case me... tummmmm..... tum toh princess ho. 👑 Aur waise I'm sure enough, tumko mere jaisa princess treatment koi doctor bhi nahi de sakta.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
