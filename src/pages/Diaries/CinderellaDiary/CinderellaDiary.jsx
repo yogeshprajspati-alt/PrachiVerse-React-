@@ -479,7 +479,7 @@ const CinderellaDiary = () => {
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    Lekin haan, if you think there is even a 1% chance... toh restore everything. Us 1 kya, 0.1% chance me bhi main apne 1000% efforts ka multiply kar dunga. Ya fir currently chalne do jo jaisa chal raha tha pehle.
+                                    Lekin haan, if you think there is even a 1% chance... toh restore everything. Us 1 kya, 0.1% chance me bhi main apne 1000% efforts ka multiply kar dunga. Prachi yr, agar thoda sa bhi chance ho manane ka aur tumhare hurted heart ko cure karne ka, toh bhale clear mat batao, lekin ishara hi de do. Main kuch bhi karke mana lunga tumko, 100 baar try kar lunga 1000 different ways me... Ya fir currently chalne do jo jaisa chal raha tha pehle.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
