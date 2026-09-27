@@ -262,7 +262,7 @@ const CinderellaDiary = () => {
                                 </ul>
                             </div>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>
-                                Today this isn't about disappearing, but a lil explanation and request. No trolling, no teasing.
+                                Today this isn't about disappearing, but a lil explanation and request. No trolling, no teasing. Ye itna dramatic tarika maine isiliye chuna kyunki main life me kabhi ye regret nahi rakhna chahta tha ki 'kash main tumko sab kuch theek se samjha pata'.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>Dekho I have noticed tum bohot time se bohot jyada changed ho, or kuch bhi bina karan nhi hota.</p>
                             <p className={styles.handWritten} style={{marginTop: '1rem'}}>Small change ya mood shift thode time ke liye samajh aata hai, not for months... kuch-kuch rude bhi rehne lagi ho kuch time se.</p>
@@ -475,6 +475,10 @@ const CinderellaDiary = () => {
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    And honestly, something we humans call 'move-on' is just cutting off what matters most and suppressing everything you have. Kyunki jab feelings itni deep ho, toh move on bas ek temporary distraction hota hai jiska relapse bohot bura hota hai. Aur uske baad aane wale guilt ka kya? Aur ye stable solution hai bhi nahi, ek baar bas thought aa jaye toh sab restore, saari mehnat kharab. Toh kya hi matlab aisi cheez karne se jiski ambiguity zyada hai aur stability kam.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
                                     Sach kahu toh mujhe aise latke rehne me, ya aur wait karne me bhi koi dikkat nahi hai. Kyunki sach bataun? Wait karna toh ab mera hi comfort ban chuka hai. Lekin darr lagta hai yr... darr lagta hai ki tum achanak se hamesha ki tarah bina kisi reason ya explanation ke disappear ho jaogi, aur main yahan akele bas wait hi karta reh jaunga... And hell yes, I know tum khud se toh kabhi reach out karogi hi nahi.
                                 </p>
 
@@ -490,8 +494,24 @@ const CinderellaDiary = () => {
                                     Sometimes I feel ki shayad main tumhare layak hi nahi hu kisi bhi case me... tummmmm..... tum toh princess ho. 👑 Aur waise I'm sure enough, tumko mere jaisa princess treatment koi doctor bhi nahi de sakta.
                                 </p>
 
-                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Prachiiiee, ye 'princess' ya 'billu' bulana bas chhoti bacchi jaise treatment ka part hai, naa ki koi cringe feeling ka. Haan, tries toh karta aaya hu 😂 ki tum thoda pighal jao, lekin itna nahi ki ye sab chubh jaye tumko. Overthinking karne se better hai baat karna... acche se poochna ki what was it, why it was.
+                                </p>
+                                
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Tumhare kuch feel na karne ke reasons ye ho sakte hain ki shayad main always available rehta hu, hamesha dab ke rehta hu, aur main samne bhi nahi hu. Ye koi judgement nahi hai, bas kuch points hain jo attraction killers hain. Lekin main fir bhi ye nahi badal sakta, kyunki bure cases ko ignore nahi kiya jaa sakta. Mujhe toh samajh hi nahi aata kabhi kabhi karu toh karu kya. Kuch hard karu toh tum hurt hogi.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
+                                    Aur mere dost log tumhe 'bhabhiji' isiliye nahi bulate kyunki main tumse shaadi ke sapne dekh raha hu, wo toh bas isliye hai kyunki logon ne shayad aisi care kisi ko karte nahi dekhi hongi... jo log relationships me rehte hain unhone bhi nahi. Kyunki mistakenly wo sketches, aur jo cheezen main lectures me banata tha wo unhone dekh li. Unhe bhi pata hai ki mehnat toh lagti hai yr. Maine kuch khaas bataya nahi hai, na unhone tumko dekha hai. Wo bas dikhate hain ki wo tumhari respect karte hain.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
                                     Maybe you deserve someone jis se tum naturally attract hooo (wo natak naa kare bas). And I don't know what I deserve... maybe someone jo thoda sa appreciate kare, thoda sa meri doings ke peeche ka soche, thoda sa... bassssssss.
+                                </p>
+
+                                <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
+                                    Aur aisa bhi nahi hai ki mere sath tum fasi hui ho... jab chahe free ho sakti ho, bas feedback jaisa ek reason deti jao aur bsss...
                                 </p>
                             </div>
                             
