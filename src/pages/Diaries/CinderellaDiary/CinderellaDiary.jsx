@@ -262,7 +262,7 @@ const CinderellaDiary = () => {
                                 </ul>
                             </div>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>
-                                Today this isn't about disappearing, but a lil explanation and request. No trolling, no teasing. Ye itna dramatic tarika maine isiliye chuna kyunki main life me kabhi ye regret nahi rakhna chahta tha ki 'kash main tumko sab kuch theek se samjha pata'.
+                                Today this isn't about disappearing, but a lil explanation and request. No trolling, no teasing. Ye itna dramatic tarika maine isiliye chuna kyunki main life me kabhi ye regret nahi rakhna chahta tha ki 'kash main tumko sab kuch theek se samjha pata'. (Waise sach kahu toh ye diary abhi incomplete hi thi, isme bohot kuch hona baaki tha... par tumne isko time se pehle hi dekh liya).
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>Dekho I have noticed tum bohot time se bohot jyada changed ho, or kuch bhi bina karan nhi hota.</p>
                             <p className={styles.handWritten} style={{marginTop: '1rem'}}>Small change ya mood shift thode time ke liye samajh aata hai, not for months... kuch-kuch rude bhi rehne lagi ho kuch time se.</p>
@@ -422,7 +422,7 @@ const CinderellaDiary = () => {
                             </div>
                             <div className={styles.glassyBox} style={{marginTop: '3rem', transform: 'rotate(1deg)', padding: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', borderRadius: '12px', border: '2px dashed #bbaacc'}}>
                                 <p className={styles.handWritten} style={{fontSize: '1.05rem', lineHeight: '1.5', margin: 0}}>
-                                    <strong style={{color: '#886699'}}>P.S. 🛠️</strong> Dekho is baar koi glitch, lag ya hang ho toh ye last time adjust kar lena. Main koi designer ya website developer nahi hu, main ek AI Engineer hu. Sach kahu toh difference utna hi hai jitna ki ek Cardiologist aur ek Pulmonologist mein hota hai... Doctors toh dono hain lekin field alag hai! Isiliye upgrade ke pehle padhna padta hai yr 🫣(Deepak Ke efforts) Ye Apology Express actually tumhare birthday ke liye bna rha tha lekin idhar use karni padi abh...  isiliye thodi imperfect hai. Isme bohot saari cheezen sochi thi mene 13 january ke liye.
+                                    <strong style={{color: '#886699'}}>P.S. 🛠️</strong> Dekho is baar koi glitch, lag ya hang ho toh ye last time adjust kar lena. Main koi designer ya website developer nahi hu, main ek AI Engineer hu. Sach kahu toh difference utna hi hai jitna ki ek Cardiologist aur ek Pulmonologist mein hota hai... Doctors toh dono hain lekin field alag hai! Isiliye upgrade ke pehle padhna padta hai yr 🫣(Deepak Ke efforts) Ye Apology Express actually tumhare birthday ke liye bna rha tha lekin time se pehle idhar use karni padi abh... isiliye ye toh abhi bhi incomplete hi hai. Isme bohot saari cheezen sochi thi mene 13 january ke liye.
                                 </p>
                             </div>
                         </div>
@@ -503,11 +503,11 @@ const CinderellaDiary = () => {
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    Aur mere dost log tumhe 'bhabhiji' isiliye nahi bulate kyunki main tumse shaadi ke sapne dekh raha hu, wo toh bas isliye hai kyunki logon ne shayad aisi care kisi ko karte nahi dekhi hongi... jo log relationships me rehte hain unhone bhi nahi. Kyunki mistakenly wo sketches, aur jo cheezen main lectures me banata tha wo unhone dekh li. Unhe bhi pata hai ki mehnat toh lagti hai yr. Maine kuch khaas bataya nahi hai, na unhone tumko dekha hai. Wo bas dikhate hain ki wo tumhari respect karte hain.
+                                    Aur mere dost log tumhe 'bhabhiji' isiliye nahi bulate kyunki main tumse shaadi ke sapne dekh raha hu❌, wo toh bas isliye hai kyunki logon ne shayad aisi care kisi ko karte nahi dekhi hongi... jo log relationships me rehte hain unhone bhi nahi. Kyunki mistakenly wo sketches, aur jo cheezen main lectures me banata tha wo unhone dekh li. Unhe bhi pata hai ki mehnat toh lagti hai yr. Maine kuch khaas bataya nahi hai, na unhone tumko dekha hai. Wo bas dikhate hain ki wo tumhari respect karte hain.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    Maybe you deserve someone jis se tum naturally attract hooo (wo natak naa kare bas). And I don't know what I deserve... maybe someone jo thoda sa appreciate kare, thoda sa meri doings ke peeche ka soche, thoda sa... bassssssss.
+                                    Maybe you deserve someone jis se tum naturally attract hooo (wo fake naa kare bas). And I don't know what I deserve... maybe someone jo thoda sa appreciate kare, thoda sa meri doings ke peeche ka soche, thoda sa... bassssssss.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
