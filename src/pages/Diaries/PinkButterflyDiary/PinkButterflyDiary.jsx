@@ -324,6 +324,9 @@ const PinkButterflyDiary = () => {
                                 Mujhe bas aisa lag raha tha ki tum pareshan ho, kisi ne phir se tumse kuch keh diya ho. Shayad mere se baat karke relief feel karo. Isiliye main aaya tha text karne 3 Oct ko. Aur usse pehle Chanchal waaale time mamla poochne. Taaki pata chale ki ki tumhe hua kya h.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                prachi me kasam se bol rha, mujhe thoda sa bhi idea hota ki chanchal ke bhaiya uske snaps bhi dekhte hain to me kabhi aise waise snaps nhi jaane deta uske pass, mene us se jyada baat karna bhi band kar diya tha tumhare topic pe jab tumne mere se bola tha or tum snap ka mana karto to me bhi bhi kar deta yr, mujhe pta h tum usi wajah se ye aisi ho gain ho.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Chanchal wale scene ke pehle aur uske baad tumhare andar mujhe massive change dikha hai. Tum kaise baat karti thi, kaise initiate karti thi, snaps wagairah bhejti thi, sab mein difference feel hua mujhe. Aur ye sirf mujhe hi nahi laga, Pepper ne bhi notice kiya hai.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
@@ -678,6 +681,9 @@ const PinkButterflyDiary = () => {
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 always feel free to reach because someone will still try to treat you the right way
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                waise mujhe abhi bhi lagta h tumhare dil me mere liye soft corner hai
                             </p>
                         </div>
                     </div>
