@@ -662,6 +662,14 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
                                 Is diary ka koi jawab nahi dena hai. Na text, na explanation, na guilt. Padh liya, wahi kaafi hai.
                             </p>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Or wo book jo me likh rha tha usme se tumhara naam hata diya mene, taaki tumhari safety maintained rahe, bs billu likha hai. Me nhi chahta Dream Girl bekar me pareshan ho.
+                            </p>
+
+
+
+
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Bas jis din sab bahut heavy lage, ya dil dobara suffocate ho raha ho, toh ek line bhej dena. Main ek dost ki tarah yahin milunga, no expectations, no pressure. Tumhari happiness ke alawa mujhe kuch nahi chahiye.
                             </p>
@@ -686,9 +694,6 @@ const PinkButterflyDiary = () => {
                                 
                                 <div className={styles.polaroidInner} style={{flexDirection: 'column', textAlign: 'center', padding: '40px 20px', background: 'rgba(255,255,255,0.7)', border: '2px dashed var(--ink-soft)'}}>
                                     <h1 className={styles.mainTitle} style={{fontSize: '2.5rem', color: 'var(--ink)', textShadow: '1px 1px 0 #fff'}}>TIME TO LET GO</h1>
-                                    <p className={styles.handWritten} style={{fontSize: '1.6rem', marginTop: '15px', fontWeight: 'bold'}}>
-                                        Tum shayad na dekh pao,<br/>kabhi waqt mile to yaad karne ki koshish karna...<br/>aa jayega yaad. 🦋
-                                    </p>
                                     
                                     <div style={{marginTop: '25px', paddingTop: '15px', borderTop: '1px solid rgba(0,0,0,0.1)'}}>
                                         <p className={styles.handWritten} style={{fontSize: '1.6rem', margin: 0, fontWeight: 'bold', color: 'var(--ink)'}}>
