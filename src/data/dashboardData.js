@@ -4,6 +4,16 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
+                title: "Pink Butterfly Diary",
+                icon: "🦋",
+                description: "Watchman's exact words.",
+                date: "3 Oct 2026",
+                badge: "New",
+                link: "/diaries/pink-butterfly-diary",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
                 title: "Apology Express",
                 icon: "🚂",
                 description: "Sorry Sorry Instead of PEE PEEE.",
@@ -20,17 +30,6 @@ export const dashboardData = [
                 date: "15-23 sept 2026",
                 badge: "New",
                 link: "/diaries/cinderella-diary",
-                isExternal: false,
-                isAbsolute: false
-            },
-            {
-                id: "ClayMorphism Diary",
-                title: "ClayMorphism Diary",
-                icon: "🦋",
-                description: "Clay Morphism Diary",
-                date: "1 July 2026",
-                badge: "New",
-                link: "/diaries/lavender-diary",
                 isExternal: false,
                 isAbsolute: false
             },
@@ -99,6 +98,38 @@ export const dashboardData = [
         title: "Diaries",
         icon: "📔",
         items: [
+            {
+                title: "Pink Butterfly Diary",
+                icon: "🦋",
+                description: "Watchman's exact words.",
+                date: "3 Oct 2026",
+                badge: "New",
+                link: "/diaries/pink-butterfly-diary",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
+                title: "Cyndrella wali diary",
+                icon: "👑",
+                description: "Cinderella wali diary",
+                date: "15-23 sept 2026",
+                badge: "New",
+                link: "/diaries/cinderella-diary",
+                isExternal: false,
+                isAbsolute: false
+            },
+
+            {
+                id: "ClayMorphism Diary",
+                title: "ClayMorphism Diary",
+                icon: "🦋",
+                description: "Clay Morphism Diary",
+                date: "1 July 2026",
+                badge: "New",
+                link: "/diaries/lavender-diary",
+                isExternal: false,
+                isAbsolute: false
+            },
             {
                 title: "Prachi's Appreciation",
                 icon: "🐤",
