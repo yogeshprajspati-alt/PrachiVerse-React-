@@ -757,9 +757,69 @@
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     z-index: 5;
     transition: opacity 0.5s;
+    touch-action: none; /* Prevents mobile scroll while scratching */
 }
 
 .scratchCanvasCleared {
     opacity: 0;
     pointer-events: none;
+}
+
+
+/* Additional Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  .book {
+    height: 85dvh !important; /* dynamic viewport height */
+    max-height: calc(100dvh - 80px) !important;
+  }
+  
+  .content {
+    -webkit-overflow-scrolling: touch;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Disable expensive GPU shadows on mobile for fairy dust */
+  .fairyDust {
+    display: none !important;
+  }
+  
+  /* Disable expensive backdrop blur on mobile */
+  .secretNote {
+    backdrop-filter: none !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+  }
+  
+  /* Optimize book rendering */
+  .page {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  
+  /* Fix sticky note overflow */
+  .stickyNote {
+    max-width: 150px;
+    word-wrap: break-word;
+    font-size: 1.1rem;
+  }
+  
+  /* Ensure polaroids don't overflow the page width */
+  .polaroidBox {
+    max-width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 10px 30px 10px;
+  }
+  
+  .polaroidInner {
+    padding: 10px;
+  }
+  
+  /* Make dials easier to tap */
+  .dial {
+    width: 26px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
 }
