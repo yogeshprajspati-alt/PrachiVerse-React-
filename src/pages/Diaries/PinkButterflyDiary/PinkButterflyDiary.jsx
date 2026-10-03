@@ -264,7 +264,7 @@ const PinkButterflyDiary = () => {
                             <h2 className={styles.mainTitle} style={{marginTop: '1rem'}}>LOVE & CRUSHES</h2>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                You said you too had a crush, he broke your heart and you erased him from your mind. Hmm. You suggested I do the same, but mujhse erase karna nahi ho payega, kyunki tumhare case mein shayad tum utni invested nahi thi. Mere case mein main tha.
+                                You said you too had a crush, he broke your heart and you erased him from your mind. Hmm. You suggested me to do the same, but mujhse erase karna nahi ho payega, kyunki tumhare case mein shayad tum utni invested nahi thi. Mere case mein main tha.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Tumhare case mein he was your crush, mere case mein I loved you. Bhai 👀 Crushes are replaceable, lekin you cannot unlove someone you once loved. And as I said earlier, tum bas feelings ko daba sakte ho ya phir dilute kar sakte ho, uske alawa koi aur possibility mujhe toh nahi dikhi aaj tak.
