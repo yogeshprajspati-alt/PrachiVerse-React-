@@ -577,6 +577,9 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 or mujhe ab koi umeed bhi nhi hai ki tum kabhi mere liy kuch feel karogi bhi, kyuki abhi tk na tumne kabhi kosish kari, effots dekh ke bhi nhi, to sepration ke baad kya hi hoga. Shyd saath hote to mil bhi lete kabhi hangout kar lete kuch time sab saath me lekin aisa ho hi nhi paya, shyd tum nhi ho meri destiny me or ab wait karke koi fayeda nhi h.
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                or mujhe ab koi guilt nhi h kyuki aisa kuch nhi bacha jo mene kiya naa ho
+                            </p>
                         </div>
                     </div>
 
