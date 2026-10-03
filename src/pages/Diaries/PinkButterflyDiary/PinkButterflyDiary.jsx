@@ -126,7 +126,7 @@ const PinkButterflyDiary = () => {
     const [shake, setShake] = useState(false);
     const [sparkle, setSparkle] = useState(false);
 
-    const TOTAL = 18; // Cover + 6 pages + back
+    const TOTAL = 23; // Cover + 6 pages + back
 
     const spin = (i) => setDials(d => d.map((v, k) => k === i ? (v + 1) % 10 : v));
 
@@ -401,6 +401,9 @@ const PinkButterflyDiary = () => {
                                 Ye toh tumne mann se bol diya ki tumne Truth-Dare mein bataya tha. Aisa kabhi nahi hua. Tumne bas bola tha ki tumhara boyfriend hai, woh bhi mere birthday wale din, aur kabhi kuch nahi bataya tumne. Honey ko lekar bas ek baar mazaak kiya tha tumne.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                tumne itna bhi bata diya mujhe wo bhi apne app me bohot badi baat hai. Koi baat nhi agar naam nhi bataya to, I know wo sab yaad karke bohot had wala dukh hota hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Ab har cheez sensible lag rahi hai. Kyun tum hamesha aise door bhaagti thi, avoid karti thi and all. Tumhara kya, kisi ladke ka koi chance hi nahi hai? Ye bhi samajh aa raha hai ab.
                             </p>
                         </div>
@@ -583,10 +586,98 @@ const PinkButterflyDiary = () => {
                         </div>
                     </div>
 
-                    {/* PAGE 17 (Last Page) */}
+                                        {/* PAGE 17 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(17) ? styles.flipped : ''}`} style={{ zIndex: zIdx(17) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 17</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Prachi, itna kuch likhne ke baad ek cheez clearly kehni hai: mujhe tumse koi shikayat nahi hai. Jo bhi mehsoos hua, maine bol diya, bas isliye ki dil mein kuch bacha hua na rahe.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Pichle pages mein jahan bhi gussa ya frustration dikhe, unhe seriously mat lena. Bas ek baar padh lena. Na regret karna, na khud ko guilty feel karwana. Wo mere mann ka bojh tha jo maine yahan utaar diya, aur usmein tumhari koi galti nahi thi.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur agar kabhi mere gusse ya pressure se tumhe hurt hua ho, toh dil se sorry. 🤍
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 18 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(18) ? styles.flipped : ''}`} style={{ zIndex: zIdx(18) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 18</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Jisne bhi tumhara dil toda, uska asar tumhare is thode defensive, sambhal ke chalne wale heart par pada hai. Aur main samajhta hoon, kyunki jab koi pasand ho aur wahi dil tod de, toh wo feeling kaisi hoti hai, mujhe pata hai. Toh agar dobara trust karna mushkil lag raha hai, it's completely okay.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Par ek baat pakki hai: tumhare andar koi kami nahi hai. Tum beautiful ho, samajhdaar ho, caring ho, mature ho, genuine ho, aur tumhari personality mein ek alag hi warmth hai. Tum jis tarah bina bole dusron ki feelings samajh leti ho, chhoti-chhoti cheezein notice karti ho, wo genuinely rare hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tum sweet bhi ho aur thodi spicy bhi, aur tum jaisa piece doosra shayad hi koi ho. Tumhe khud realise nahi ki tum kitni amazing ho, aur honestly, yahi tumhari sabse khoobsurat baat hai.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 19 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(19) ? styles.flipped : ''}`} style={{ zIndex: zIdx(19) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 19</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Kisi ek insaan ke na chunne se tumhari worth ek ratti bhi kam nahi hoti. Jo tumhe nahi dekh paya, wo uski nazar ki kami thi, tumhari beauty ki nahi.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur socho, kuch toh special hoga tumhare andar, ki itna sab hone ke baad bhi log tumhare baare mein sochte hain. Tumhe isse accept karna zaroori nahi, bas jaan lena kaafi hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
+                                Har kisi ko princess wala tag suit nahi karta. Prachi ko karta hai. You deserve the world. ✨
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 20 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(20) ? styles.flipped : ''}`} style={{ zIndex: zIdx(20) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 20</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Aur Prachi, Insta par apne aap ke saath thoda gentle rehna. Baar-baar deactivate karna, phir wapas aana, aur kabhi kuch aisa dikh jana jo dil ko phir se dukha de... ye cycle tumhe thaka deti hai. Aisi cheezein mat dekhna jo chubhti hain. Tumhara dil pehle hi bahut kuch jhel chuka hai, usse aur mat dukhao.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Jisne tumhe nahi chuna, let them go. Uske liye apni peace kharab karna tumhare dil ke saath na-insaafi hai. Wo uski choice thi, aur tumhari value kabhi kisi ki choice se decide nahi hoti.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Phone thoda door rakho, time khud ko do. Tum khud ke liye kaafi ho. 🦋
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 21 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(21) ? styles.flipped : ''}`} style={{ zIndex: zIdx(21) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 21</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Is diary ka koi jawab nahi dena hai. Na text, na explanation, na guilt. Padh liya, wahi kaafi hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Bas jis din sab bahut heavy lage, ya dil dobara suffocate ho raha ho, toh ek line bhej dena. Main ek dost ki tarah yahin milunga, no expectations, no pressure. Tumhari happiness ke alawa mujhe kuch nahi chahiye.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Apni padhai karo, khush raho, aur bina soche muskurao. Tumhari smile mujhe hamesha achhi lagi hai, aur wo aise hi bani rehni chahiye.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                always feel free to reach because someone will still try to treat you the right way
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 22 (Last Page) */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(17) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(17) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(22) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(22) }}
                     >
                         <div className={styles.content} style={{justifyContent: 'center', alignItems: 'center'}}>
                             <div className={styles.polaroidBox} style={{transform: 'rotate(-2deg)', width: '90%', padding: '20px 20px 60px 20px', boxShadow: '4px 10px 25px rgba(0,0,0,0.15)'}}>
@@ -595,9 +686,17 @@ const PinkButterflyDiary = () => {
                                 
                                 <div className={styles.polaroidInner} style={{flexDirection: 'column', textAlign: 'center', padding: '40px 20px', background: 'rgba(255,255,255,0.7)', border: '2px dashed var(--ink-soft)'}}>
                                     <h1 className={styles.mainTitle} style={{fontSize: '2.5rem', color: 'var(--ink)', textShadow: '1px 1px 0 #fff'}}>TIME TO LET GO</h1>
-                                    <p className={styles.handWritten} style={{fontSize: '1.8rem', marginTop: '15px', fontWeight: 'bold'}}>
+                                    <p className={styles.handWritten} style={{fontSize: '1.6rem', marginTop: '15px', fontWeight: 'bold'}}>
                                         Tum shayad na dekh pao,<br/>kabhi waqt mile to yaad karne ki koshish karna...<br/>aa jayega yaad. 🦋
                                     </p>
+                                    
+                                    <div style={{marginTop: '25px', paddingTop: '15px', borderTop: '1px solid rgba(0,0,0,0.1)'}}>
+                                        <p className={styles.handWritten} style={{fontSize: '1.6rem', margin: 0, fontWeight: 'bold', color: 'var(--ink)'}}>
+                                            Jo bhi tha, accha tha.<br/>
+                                            Thank you, Prachi, ki tum meri story ka main character banke aain.<br/>
+                                            Be happy, Hamesha. 🦋
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -606,7 +705,6 @@ const PinkButterflyDiary = () => {
                             <div className={`${styles.sticker} ${styles.stickerRandom2}`} style={{bottom: '70px', right: '50px', transform: 'rotate(-20deg) scale(1.5)'}} />
                         </div>
                     </div>
-
                 </div>{/* /pages */}
                 <div className={styles.hint}>{pageLabel}</div>
             </div>{/* /book */}
