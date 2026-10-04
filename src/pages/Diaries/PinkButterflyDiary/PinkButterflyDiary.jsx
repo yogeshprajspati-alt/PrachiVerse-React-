@@ -287,7 +287,7 @@ const PinkButterflyDiary = () => {
                                 Tumhe kya lagta hai, main gadha hoon jo itne saalon se latka hi hua hoon? Madam, main har ek cheez try karke dekh chuka hoon.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Aur feelings hain toh dikh hi jaati hain, chahe kitna bhi try karo na dikhane ka. Pata hota hai toh normal aur basic cheezein bhi wahi dikhne lagti hain.
+                                Aur feelings hain toh dikh hi jaati hain, chahe kitna bhi try karo na dikhane ka. Or Pata hota hai toh normal aur basic cheezein bhi wahi dikhne lagti hain samne wale ko.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur tumne hi toh bola tha ki main bahut zyada notice karta hoon. Tumne bhi kiya tha na jab maine tumhara Snap ek din tak nahi dekha tha—kyun? Kyunki tumhe bhi kahin na kahin unusual laga tha. Bas wahi cheez mere saath bhi hai. Mujhe bhi kuch unusual lagta hai toh main apne aap notice kar leta hoon. Ismein main jaan-bujhkar kuch dhoondhne nahi baithta.
