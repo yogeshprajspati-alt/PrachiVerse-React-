@@ -508,7 +508,7 @@ const PinkButterflyDiary = () => {
                                 Rahi baat Riya ko kaun like karta hai ya kaun nahi, tumne hi mujhse bola tha ki tum meri baatein pakad ke mat rakha karo. Ye same cheez main bhi bol sakta hoon.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Main na Vinay ko dhang se jaanta hoon aur na hi Pushpendra ko. Aur mujhe dono ke naam mein confusion thi, kyunki surname bhi same tha dono ka. Woh toh ye sab discuss kar rahe the, toh maine tumko bata diya. Aur woh toh shayad 3 se 4 saal purani baat hai. Tumne kyun padki hai ab? 😕
+                                Main na Vinay ko dhang se jaanta tha tab aur na hi Pushpendra ko. Aur mujhe dono ke naam mein confusion thi, kyunki surname bhi same tha dono ka. Woh toh ye sab discuss kar rahe the, toh maine tumko bata diya. Aur woh toh shayad 3 se 4 saal purani baat hai. Tumne kyun padki hai ab? 😕
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur ek gadhe ne tumhe disappoint kar diya, iska matlab ye hai kya ki tum uski wajah se hum jaise ladkon ka haq maar logi, single rehne ki kasam kha ke? Usne chun liya, jaane do. Woh andha tha bc. Doosre nahi hain toh mauka toh deke dekho ek baar. Kya pata tumhe woh purani Nano car thi, ab Mercedes aa jaye pasand. Test karke nhi dekhogi, moka hi nhi dogi to kaise kya hoga, tumne to nano ki perfomance se baakiyon ko judge kar dala.
