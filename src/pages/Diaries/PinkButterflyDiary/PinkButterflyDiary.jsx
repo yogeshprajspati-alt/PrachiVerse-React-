@@ -549,6 +549,15 @@ const PinkButterflyDiary = () => {
                                 Aur shayad tumhari misunderstanding itni deep ho gayi hai ki ab main tumhe chubh raha hoon. Toh ab nahi karunga text bhai, jab itni problem hai tumko toh. Bas tum apna mood mat sadao aur faltu mein dimaag mat chalao. 
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tum mera move on nahi chahti, right? Tum chahti ho ki main chala jaun. Bina tumpe burden daale. Theek hai, ye bhi main tumhare liye kar dunga. Move on toh nahi ho payega mujhse, lekin tumhare liye separation maintain kar sakta hoon.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur main jaanta hoon ki main bhi tumhare heart mein ek soft corner hold karta tha, aur mere chances bhi the. Lekin idk kyun, achanak se tum dar gayi ho ya phir kuch aur ho gaya hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur ab toh meri bhi samajh nahi aa raha, guys, ki aurat ko chahiye kya. 😂 Tumne khud bola tha na ki tum usi ke saath jaogi jo tumhara dhyaan rakhega aur hamesha respect dega. Lekin dekh lo ab. 😂 Zyada care ki wajah se hi madam door chali gayi.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 After this, I don't expect anything from you. Marzi toh aapki hi hai madam, hum toh bechaare watchman hain.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
