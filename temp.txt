@@ -1,0 +1,61 @@
+{/* PAGE 9 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(9) ? styles.flipped : ''}`} style={{ zIndex: zIdx(9) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 09</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Prachi, I was trying to generate some sort of feelings inside you. Lekin tum yaar...
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur rahi baat tumhari feelings ki, toh Prachi, tum mujhse physically mili hi nahi itne saalon mein. Kaise hoga kuch bhi? Tumne shayad dekha tak nahi ho mujhe. Main initiative lene ka try toh karta tha, lekin tum mana kar deti. Call hi normalize nahi hua toh meet kaise hoti?
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur aise sirf text pe koi bhi feel generate ho hi nahi sakti. Feelings dena toh upar wale ke control mein hai, apan kya kar sakte hain. Bas attract karne ke liye thode-bahut efforts de sakte hain aur kuch nahi.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tumhari "jo message karta hai, reply kar deti hoon aur baat kar leti hoon" wali baat toh dil mein lag hi gayi thi. Mujhe laga shayad tum chid gayi ho kisi cheez se, isiliye gusse mein bol rahi hogi aisa.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Oh, woh ekdum se mere pressure wale behaviour ke liye sorry. Tum mujhe irritate kar deti ho, aise hamesha mere andar suspense create karke. Initiate bhi karti ho aur bhaag jaati ho, phir mujhe chid ho jaati hai ekdum se. Raat bhar meri neend nahi lagi aise.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 10 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(10) ? styles.flipped : ''}`} style={{ zIndex: zIdx(10) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 10</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Ya toh tum aise mere initiate karne ke baad beech me apna shuru mat kara karo, ya agar apne nakchadhepan ke chalte karti ho toh irritate mat kara karo. Agar initiate karti ho toh himmat rakha karo har cheez formally resolve karne ki, na ki apna chidchidaapan doosre pe daal ke bhaag jaana. Or me pahle bhi numerous times bol chuka conversation is the key to everything, naa ki avoidance, jo tum hamesha karti ho.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Agar koi kuch pooch raha ho toh bata diya karo. Aise faltu arguments dene se disrespectful feel hota hai, phir gussa aa jaata hai ekdum se, phir mujhse control nahi hota. Aur baad mein bura lagta hai ki ye sab kya bol diya. Or mujhe nhi lagta tumhare mn me mere liye thodi si bhi respect hai, agar me thoda hard hota soft hone ki jagah tab bn jaati lekin me nhi chahta tha tumhe mere se kuch bhi bolne ke phale sochna pade isliye me hamesha soft rehne ka try karta tha.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tumne aaj bhi bas mujhe gussa dila diya tha, isiliye maine tumhare past crush ke naam ko itna serious le liya. Arey mujhe kya karna kaun gadha tha. Tumne bas gussa dila diya tha, isiliye main bhi bachchon ki tarah woh point pakad ke baith gaya tha.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 11 */}
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(11) ? styles.flipped : ''}`} style={{ zIndex: zIdx(11) }}>
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 11</div>
+                            
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Aur maine isiliye tumse respect wali baat boli thi, kyunki nahi dikh rahi thi mujhe. Ye aise ulte jawab deke chale jaana bhi ek part hai. Har cheez mein meri hi negative personality bana dena bhi ek reason hai. Aur phir mujhe hi bura lagta hai toh main maafi maangne aa jaata hoon, explanation ke saath, ki ye gussa hoke chali na jaaye.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Warna khoon jalega iska phir se. 😂 Aur tum ho gusse wali, short-tempered ho tum bhi. Zara-zara si baaton mein chid jaati ho, lekin usmein koi buri baat nahi hai. Cute lagti ho waise.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tum bas faltu overthinking karne lagti ho. Phir jab main acche mood mein hota hoon aur normally talk karne aata hoon, tum sab patak deti ho udhar hi. Phir main bhi ghabra jaata hoon aur phir sab ulat-pulat hone lagta hai.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Tumko khud initiate karne mein kya dikkat hoti hai, I don't understand. Kya izzat wagairah kam ho jaati hai? Ya thoda aur khoon jalta hai? 😏 Ya tumhare chashme ka number thoda aur badh jaata hai? Ya daant tedhe ho jaate hain thode se? Aur batao, kya dikkat hoti hai pehle text karne mein?
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* PAGE 12 */}

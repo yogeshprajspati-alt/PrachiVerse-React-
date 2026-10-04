@@ -389,6 +389,15 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Agar meri eyesight mein tum sab accha deserve karti ho, toh main bhi itni understanding personality show karne ke baad, itne time tak tumhara trust aur affection gain karne ki koshish karne ke baad, ye sab toh deserve nahi karta yaar. Ab toh at least itna toh samajh sakti ho.
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Prachi, mere paas bhi doston ki koi kami nahi thi, ye baat tum bhi bohot acche se jaan chuki ho ab. Ye sab maine bas isiliye kiya tha taaki main tumhare bharose ke layak ban saku, tum mujhpe bharosa karo aur trust bhi. Tumhara favourite one banne ke liye maine itna patience rakha, itni cheezein samjhi aur itni baar khud ko adjust kiya, kyunki main chahta tha ki tum mere upar bhi waisa hi bharosa karo jaisa tum apni close friends par karti thi.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur jo trust tumne mujhpe rakha, wo kabhi na toote, iske liye main bhi har possible cheez karta raha. Lekin sach ye hai ki mujhe hamesha abandoned aur option jaisi hi feeling aati rahi hai. Phir bhi maine kabhi us feeling ko tumhe galat way mein treat karne ka excuse nahi banaya. Maine hamesha koshish kari ki tumhe right way mein treat karun, tumhari situations samjhun aur tumhe woh respect doon jo tum deserve karti ho.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Bas agar kabhi situations aisi ban gayi hon jahan tumhe laga ho ki maine jaanboojh kar tumhara trust toda, toh wo alag baat hai. Kyunki meri intention kabhi tumhe hurt karna ya tumhara trust todna nahi thi. Agar main ismein bhi kahin galat hoon, toh keh dena Prachi. Main genuinely sununga.
+                            </p>
                         </div>
                     </div>
 
@@ -448,6 +457,24 @@ const PinkButterflyDiary = () => {
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Tumne aaj bhi bas mujhe gussa dila diya tha, isiliye maine tumhare past crush ke naam ko itna serious le liya. Arey mujhe kya karna kaun gadha tha. Tumne bas gussa dila diya tha, isiliye main bhi bachchon ki tarah woh point pakad ke baith gaya tha.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur bhale Vinay kare ya Pushpendra, lekin tumne Vinay ka naam leke mera mood pehle hi bahut kharab kar diya tha. Usse zyada chalak aur selfish insaan maine aaj tak nahi dekha. Tum bhale ye meri chat apne poore circle mein faila do, mujhe koi farak nahi padta. Lekin woh ek aisa insaan hai jo mujhe aaj tak ek percent bhi pasand nahi aaya. Woh bas logon ka fayda uthata hai aur tab tak hi matlab rakhta hai jab tak usse khud unse koi fayda ho. Uske apne fayde ke bina woh kisi ke liye kuch nahi karta.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur ye main koi baatein nahi bana raha. Ye mera khud ka experience hai. Maine jo dekha aur feel kiya, wahi tumhe bata diya. Sir ki gathering mein usse dekhte hi mera dimaag kharab ho gaya tha. Isiliye main har thodi der mein wahan se nikalne ke baare mein soch raha tha.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur Riya ko kaun pasand karta hai, agar tumhare dimaag mein ye baat abhi tak atki hui hai, toh kahin na kahin mere Pushpendra bol dene se tumhare andar hope jagi hogi. Shayad tumne poocha ho aur woh Vinay nikla ho. Toh sorry, agar meri wajah se ye misunderstanding create hui aur tumhe uske regarding hope mili. Shayad jo ladka tumhe pasand tha, woh Vinay hi ho.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Bas ek baat bata doon—kisi bhi sadak chalte insaan par bharosa kar lena, lekin Vinay par nahi. Uska nature mujhe wahi laga hai: jab tak tum uske liye useful ho, woh tumhare saath rahega. Uska matlab khatam, toh tumhe kachre ki tarah fek dega.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
+                                Woh tumhara crush tha, toh honestly accha hi hua usne naa bol diya. Kyunki at the end, mujhe lagta hai woh tumhe bhi used hi feel karata.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                or ye vinay wali baat mene tuhe isiliye ab batai kyuki me bhi chahta hu tum bhi bata do jao bata do, waise bhi me kisi se nhi darta or mera koi kuch bigad bhi nhi sakta. wo to me hi hu jo faltoo natak na ho isiliye holdback kar leta hu, naa ki gundon ki tarah pretend karu, jaise wo karta firta h.
                             </p>
                         </div>
                     </div>
@@ -588,6 +615,15 @@ const PinkButterflyDiary = () => {
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur kyunki ab maine drag karna band kar diya hai, toh shayad ab end bhi ho jaaye, kyuki ye friendship jo tumhe soothing lagti thi uska base hi mere heart ke upar bana tha, or isiliye itni disrespect or himuilation ke baad bhi me use bachnane ki kosish me rehta tha. Tum shyd naa dekh pao, kabhi waqt mile to yaad karne ki kosih karna aajayega yaad.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur main kis humiliation ki baat kar raha hoon, woh yaad karo. Woh din yaad karo jab tumne mujhe ye yaad dila diya tha ki, “Maine toh tumse pehle hi kaha tha, Mr. Deepak, ki main acchi dost nahi ban sakti tumhari,” aur “Tumne hi nahi samjha acche se.” Prachi, main usi cheez ki baat kar raha tha.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Main bas cheezein aur feelings build karne par bharosa karta tha. Aur tum maano ya na maano, maine tumhari friendship bhi achieve kar li thi, tumhare un upar wale statements ke bawajood. Tumhare woh sab kehne ke baad mere paas bhi option tha ki gusse mein cutoff kar doon. Lekin mujhe khud par bharosa tha. Main jo decide kar leta hoon, uske liye genuinely efforts lagata hoon aur eventually achieve karne ki koshish karta hoon.
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Aur idhar bhi mujhe lagta tha ki main tumhare mann mein apni jagah bana leta, agar tum beech mein aisi harkatein na karti. Lekin in sab cheezon ke baad mere andar itna gussa bhar gaya ki shayad main properly state bhi nahi kar paunga.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 or mujhe ab koi umeed bhi nhi hai ki tum kabhi mere liy kuch feel karogi bhi, kyuki abhi tk na tumne kabhi kosish kari, effots dekh ke bhi nhi, to sepration ke baad kya hi hoga. Shyd saath hote to mil bhi lete kabhi hangout kar lete kuch time sab saath me lekin aisa ho hi nhi paya, shyd tum nhi ho meri destiny me or ab wait karke koi fayeda nhi h.
