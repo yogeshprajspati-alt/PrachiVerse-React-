@@ -631,6 +631,12 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 or mujhe ab koi guilt nhi h kyuki aisa kuch nhi bacha jo mene kiya naa ho
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                tum deepak ki koi cheez kabhi samajh bhi nhi paaogi jaanti ho kyun?? kyuki tumne kosish hi nhi kii kabhi
+                            </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
+                                and after all this, i'll try not to hate you.
+                            </p>
                         </div>
                     </div>
 
