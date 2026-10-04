@@ -694,6 +694,9 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 waise mujhe abhi bhi lagta h tumhare dil me mere liye soft corner hai
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                kabhi by chance tumhare andar kuch feelings wagrah aajaye to chipana mat(jo tum hamesha karti ho), bata dena kyuki me utna cold nhi hu.
+                            </p>
                         </div>
                     </div>
 
