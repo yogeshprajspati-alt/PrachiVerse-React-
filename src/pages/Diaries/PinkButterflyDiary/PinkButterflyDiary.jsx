@@ -281,13 +281,13 @@ const PinkButterflyDiary = () => {
                             <div className={styles.caseNo}>PG. 02</div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                Aur is baar bhi tum sab zabardasti mere upar thop rahi thi—“move on karo, move on karo.” Nahi hota bhaiya mujhse. Aur na hi mere liye aisa kuch exist karta hai.
+                                Aur is baar bhi tum sab zabardasti mere upar thop rahi thi—“move on karo, move on karo.” Nahi hota bhaiya mujhse. Aur na hi mere liye aisa kuch exist karta hai. Meri sabse badi galati yahi thi ki mene itne serious time pe ye line boldi, ki "I should move on now". 
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Tumhe kya lagta hai, main gadha hoon jo itne saalon se latka hi hua hoon? Madam, main har ek cheez try karke dekh chuka hoon.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Aur feelings hain toh dikh hi jaati hain, chahe kitna bhi try karo na dikhane ka. Or Pata hota hai toh normal aur basic cheezein bhi wahi dikhne lagti hain samne wale ko.
+                                Aur feelings hain toh dikh hi jaati hain, chahe kitna bhi try karo na dikhane ka. Or Pata hota hai samne wale ko toh normal aur basic cheezein bhi wahi dikhne lagti hain samne wale ko.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur tumne hi toh bola tha ki main bahut zyada notice karta hoon. Tumne bhi kiya tha na jab maine tumhara Snap ek din tak nahi dekha tha—kyun? Kyunki tumhe bhi kahin na kahin unusual laga tha. Bas wahi cheez mere saath bhi hai. Mujhe bhi kuch unusual lagta hai toh main apne aap notice kar leta hoon. Ismein main jaan-bujhkar kuch dhoondhne nahi baithta.
@@ -465,7 +465,7 @@ const PinkButterflyDiary = () => {
                                 Aur ye main koi baatein nahi bana raha. Ye mera khud ka experience hai. Maine jo dekha aur feel kiya, wahi tumhe bata diya. Sir ki gathering mein usse dekhte hi mera dimaag kharab ho gaya tha. Isiliye main har thodi der mein wahan se nikalne ke baare mein soch raha tha.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Aur Riya ko kaun pasand karta hai, agar tumhare dimaag mein ye baat abhi tak atki hui hai, toh kahin na kahin mere Pushpendra bol dene se tumhare andar hope jagi hogi. Shayad tumne poocha ho aur woh Vinay nikla ho. Toh sorry, agar meri wajah se ye misunderstanding create hui aur tumhe uske regarding hope mili. Shayad jo ladka tumhe pasand tha, woh Vinay hi ho.
+                                Aur Riya ko kaun pasand karta hai, agar tumhare dimaag mein ye baat abhi tak atki hui hai, toh kahin na kahin mere Pushpendra bol dene se tumhare andar hope jagi hogi. Shayad tumne poocha ho aur woh Vinay nikla ho. Toh sorry, agar meri wajah se ye misunderstanding create hui aur tumhe uske regarding hope mili. Shayad jo ladka tumhe pasand tha, woh Vinay hi ho. Maybe Utkarsh ya uska wo ek cousin ho, ya jo bhi ho abh.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Bas ek baat bata doon—kisi bhi sadak chalte insaan par bharosa kar lena, lekin Vinay par nahi. Uska nature mujhe wahi laga hai: jab tak tum uske liye useful ho, woh tumhare saath rahega. Uska matlab khatam, toh tumhe kachre ki tarah fek dega.
@@ -474,7 +474,7 @@ const PinkButterflyDiary = () => {
                                 Woh tumhara crush tha, toh honestly accha hi hua usne naa bol diya. Kyunki at the end, mujhe lagta hai woh tumhe bhi used hi feel karata.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                or ye vinay wali baat mene tuhe isiliye ab batai kyuki me bhi chahta hu tum bhi bata do jao bata do, waise bhi me kisi se nhi darta or mera koi kuch bigad bhi nhi sakta. wo to me hi hu jo faltoo natak na ho isiliye holdback kar leta hu, naa ki gundon ki tarah pretend karu, jaise wo karta firta h.
+                                or ye vinay wali baat mene tuhe isiliye ab batai kyuki me bhi chahta hu tum bhi bata do, jao bata do, waise bhi me kisi se nhi darta or mera koi kuch bigad bhi nhi sakta. wo to me hi hu jo faltoo natak na ho isiliye holdback kar leta hu, naa ki gundon ki tarah pretend karu, jaise wo karta firta h.
                             </p>
                         </div>
                     </div>
@@ -488,13 +488,13 @@ const PinkButterflyDiary = () => {
                                 Aur maine isiliye tumse respect wali baat boli thi, kyunki nahi dikh rahi thi mujhe. Ye aise ulte jawab deke chale jaana bhi ek part hai. Har cheez mein meri hi negative personality bana dena bhi ek reason hai. Aur phir mujhe hi bura lagta hai toh main maafi maangne aa jaata hoon, explanation ke saath, ki ye gussa hoke chali na jaaye.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Warna khoon jalega iska phir se. 😂 Aur tum ho gusse wali, short-tempered ho tum bhi. Zara-zara si baaton mein chid jaati ho, lekin usmein koi buri baat nahi hai. Cute lagti ho waise.
+                                Warna khoon jalega iska phir se. 😂 Aur tum ho gusse wali, short-tempered ho tum bhi. Zara-zara si baaton mein chid jaati ho, lekin usmein koi buri baat nahi hai. Cute lagti ho waise. Or mujhe to tumhara ne nakchadapan hi pasand tha.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Tum bas faltu overthinking karne lagti ho. Phir jab main acche mood mein hota hoon aur normally talk karne aata hoon, tum sab patak deti ho udhar hi. Phir main bhi ghabra jaata hoon aur phir sab ulat-pulat hone lagta hai.
+                                Tum bas faltu overthinking karne lagti ho. Phir jab main acche mood mein hota hoon aur normally talk karne aata hoon, tum sab daal deti ho udhar hi. Phir main bhi ghabra jaata hoon aur phir sab ulat-pulat hone lagta hai.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Tumko khud initiate karne mein kya dikkat hoti hai, I don't understand. Kya izzat wagairah kam ho jaati hai? Ya thoda aur khoon jalta hai? 😏 Ya tumhare chashme ka number thoda aur badh jaata hai? Ya daant tedhe ho jaate hain thode se? Aur batao, kya dikkat hoti hai pehle text karne mein?
+                                Tumko khud initiate karne mein kya dikkat hoti hai, jab tumko koi problem hai ya shikayat hai to store kyun karna, text karo/call karo tab batao, I don't understand. Kya izzat wagairah kam ho jaati hai? Ya thoda aur khoon jalta hai? 😏 Ya tumhare chashme ka number thoda aur badh jaata hai? kya dikkat hoti hai pehle text karne mein?
                             </p>
                         </div>
                     </div>
@@ -530,12 +530,12 @@ const PinkButterflyDiary = () => {
                                 Mera toh ho gaya bhaiya ab. Bahut try kar liya, bohot wait bhi kar liya, bahut koshish ho gayi samajhne aur samjhane ki. Ab agar koi thaan ke baitha hai ki main toh galat hi hoon hamesha se, bina mera perception jaane, toh jaisa tumhe lage tum socho.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Agar ek baar baat ko to the point karke clear kar lo toh dikkat bhi hoti hai. Dimaag mein khichdi pakao aur usmein hi store karo. Jab sad jaaye toh daal do saamne wale pe.
+                                Agar ek baar baat ko to the point karke clear kar lo toh dikkat bhi hoti hai. Dimaag mein khichdi pakao aur usmein hi store karo.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur main toh bol raha hoon kyunki ab main tumhare contact mein hi nahi hoon. 😎 Na main tumhare Insta pe added hoon, na tumhare WhatsApp pe, aur na hi kabhi call karunga. Bas do hi jagah rahi, jinmein se ek maine delete kar di. Bas Telegram bacha hai, toh kar lo uspe... Lekin tum karogi hi nahi 😂 kyunki tumhari naak kuch zyada hi badi hai.
                             </p>
-                        </div>
+                        </div>s
                     </div>
 
                     {/* PAGE 14 */}
@@ -579,7 +579,7 @@ const PinkButterflyDiary = () => {
                                 Tum mera move on nahi chahti, right? Tum chahti ho ki main chala jaun. Bina tumpe burden daale. Theek hai, ye bhi main tumhare liye kar dunga. Move on toh nahi ho payega mujhse, lekin tumhare liye separation maintain kar sakta hoon.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Aur main jaanta hoon ki main bhi tumhare heart mein ek soft corner hold karta tha, aur mere chances bhi the. Lekin idk kyun, achanak se tum dar gayi ho ya phir kuch aur ho gaya hai.
+                                Aur main jaanta hoon ki main bhi tumhare heart mein ek soft corner hold karta tha, aur mere chances bhi the. Lekin idk kyun, achanak se tum dar gayi ho ya phir kuch aur ho gaya hai. 
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur ab toh meri bhi samajh nahi aa raha, guys, ki aurat ko chahiye kya. 😂 Tumne khud bola tha na ki tum usi ke saath jaogi jo tumhara dhyaan rakhega aur hamesha respect dega. Lekin dekh lo ab. 😂 Zyada care ki wajah se hi madam door chali gayi.
@@ -608,7 +608,7 @@ const PinkButterflyDiary = () => {
                                 And here, madam, I am not going to talk to you further, kyunki ab tumne is baar had kar di hai. Is baar agar mujhe lagega bhi, tab bhi nahi karunga main baat. Karogi toh tum hi, warna rehne do ab.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Maine tumhe pehle hi warn kiya tha ki main ek baar decide kar loon ki mujhe ye nahi karna, toh kitna bhi important person ho, main nahi karta phir.
+                                Maine tumhe pehle hi warn kiya tha ki main ek baar decide kar loon ki mujhe ye nahi karna, toh kitna bhi important person ho, main nahi karta phir. Wo alag baat hai ki me kitne bhi gusse me jau lekin tumse 5 min baat karne ke baad mujhe fir kisi bacche jaisa feel hone lagta h. Or saara gussa disappear ho jata h.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Aur rahi baat dosti ki, jo us din tum bachane ki baat kar rahi thi, toh main bata doon: agar main us dosti ko meri feelings ki wajah se drag na karta toh Shayad abhi tak nahi tikti wo dosti.
@@ -623,10 +623,10 @@ const PinkButterflyDiary = () => {
                                 Main bas cheezein aur feelings build karne par bharosa karta tha. Aur tum maano ya na maano, maine tumhari friendship bhi achieve kar li thi, tumhare un upar wale statements ke bawajood. Tumhare woh sab kehne ke baad mere paas bhi option tha ki gusse mein cutoff kar doon. Lekin mujhe khud par bharosa tha. Main jo decide kar leta hoon, uske liye genuinely efforts lagata hoon aur eventually achieve karne ki koshish karta hoon.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Aur idhar bhi mujhe lagta tha ki main tumhare mann mein apni jagah bana leta, agar tum beech mein aisi harkatein na karti. Lekin in sab cheezon ke baad mere andar itna gussa bhar gaya ki shayad main properly state bhi nahi kar paunga.
+                                Aur idhar bhi mujhe lagta tha ki main tumhare mann mein apni jagah bana leta, agar tum beech mein aisi cheezen na hotii. Lekin in sab cheezon ke baad mere andar itna gussa bhar gaya ki shayad main properly state bhi nahi kar paunga.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                or mujhe ab koi umeed bhi nhi hai ki tum kabhi mere liy kuch feel karogi bhi, kyuki abhi tk na tumne kabhi kosish kari, effots dekh ke bhi nhi, to sepration ke baad kya hi hoga. Shyd saath hote to mil bhi lete kabhi hangout kar lete kuch time sab saath me lekin aisa ho hi nhi paya, shyd tum nhi ho meri destiny me or ab wait karke koi fayeda nhi h.
+                                or mujhe ab koi umeed bhi nhi hai ki tum kabhi mere liye kuch feel karogi bhi, kyuki abhi tk na tumne kabhi kosish kari, effots dekh ke bhi nhi, to sepration ke baad kya hi hoga. Shyd saath hote to mil bhi lete kabhi hangout kar lete kuch time sab saath me lekin aisa ho hi nhi paya, shyd tum nhi ho meri destiny me or ab wait karke koi fayeda nhi h.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 or mujhe ab koi guilt nhi h kyuki aisa kuch nhi bacha jo mene kiya naa ho
