@@ -152,7 +152,7 @@ const CinderellaDiary = () => {
                         <div className={styles.coverInner}>
                             <h1 className={styles.cTitle}>GLASS<br/>SLIPPER<br/>DIARY</h1>
                             <div className={`${styles.cMatch} ${styles.sticker}`}>🐾</div>
-                            <div className={styles.cSub}></div>
+                            <div className={styles.cSub}>FOR THE PRINCESS<br/>(Yeah You)</div>
                         </div>
                     </div>
 
@@ -165,13 +165,13 @@ const CinderellaDiary = () => {
                             
                             <div className={styles.itemBox}>
                                 <p className={styles.handWritten} style={{marginTop: '1.5rem'}}>
-                                   ............................
+                                    Hey Prachi... Kabhi dhyan diya hai ki tum aur Cinderella kitne similar ho? Itni adorable, itni kind, par andar se ekdum fiercely independent.
                                 </p>
                                 <p className={styles.handWritten} style={{marginTop: '1rem'}}>
-                                    ................................. 
+                                    Or ek baat, tumhara naam sunke hi ekdum alag feel aata hai... samjho bina matlab ke smile aa jata hai. Control nahi hota bas. 
                                 </p>
                                 <div className={styles.elegantQuote} style={{marginTop: '1.5rem'}}>
-                                    .............................................
+                                    "Kuch shikayatein hain waise princess se meri thodi. Matlab dekho, aise type karne me hi dar lag raha hai... lil complaints."
                                 </div>
 
                                 <div className={styles.polaroidContainer}>
@@ -182,13 +182,13 @@ const CinderellaDiary = () => {
                                         </div>
                                     </div>
                                     <div className={`${styles.tape} ${styles.tapeBottom}`}>
-                                        .............................................
+                                        "Literally the best. ✨"
                                     </div>
                                 </div>
                             </div>
                             
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeSparkle}`} style={{marginTop: '3rem', position: 'relative'}}>
-                                ..
+                                EKDUM SEEDHI BAAT
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@ const CinderellaDiary = () => {
                                         buttonText="[ TAP TO REVEAL ]" 
                                     />
                                     <p className={styles.handWritten} style={{marginTop: '2rem'}}>
-                                        ... 
+                                        Cinderella theek 12 baje bhag jati thi kyunki usko lagta tha uska magic khatam ho jayega... Aur tum? Jab bhi tum accha feel nahi karti, tum bhi achanak gayab ho jati ho. Sab se disconnect kar leti ho khud ko. 
                                     </p>
                                 </div>
                         </div>
@@ -225,11 +225,12 @@ const CinderellaDiary = () => {
                                 </div>
                             </div>
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeMidnight}`}>
-                                🌸
+                                Kahan chali jati ho? 🌸
                             </div>
                         </div>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>
-                                ......</p>
+                                Jab tum aise chup-chaap gayab hoti ho, tab saamne wale ko waisa hi feel hota hai jaise Prince holding the glass slipper... confuse aur pareshan ki tum aakhir gayi kahan, kyun gai, kab aayegi.
+                            </p>
                             <div style={{marginTop: '2.5rem', textAlign: 'center'}}>
                                 <span className={styles.scrapbookCutout}>BINA BATAYE</span>
                                 <span className={styles.scrapbookCutout}>No Reason</span>
@@ -261,10 +262,10 @@ const CinderellaDiary = () => {
                                 </ul>
                             </div>
                             <p className={styles.handWritten} style={{marginTop: '2rem'}}>
-                                ............
+                                Today this isn't about disappearing, but a lil explanation and request. No trolling, no teasing. Ye itna dramatic tarika maine isiliye chuna kyunki main life me kabhi ye regret nahi rakhna chahta tha ki 'kash main tumko sab kuch theek se samjha pata'. (Waise sach kahu toh ye diary abhi incomplete hi thi, isme bohot kuch hona baaki tha... par tumne isko time se pehle hi dekh liya).
                             </p>
-                            <p className={styles.handWritten} style={{marginTop: '2rem'}}>..................</p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem'}}>...</p>
+                            <p className={styles.handWritten} style={{marginTop: '2rem'}}>Dekho I have noticed tum bohot time se bohot jyada changed ho, or kuch bhi bina karan nhi hota.</p>
+                            <p className={styles.handWritten} style={{marginTop: '1rem'}}>Small change ya mood shift thode time ke liye samajh aata hai, not for months... kuch-kuch rude bhi rehne lagi ho kuch time se.</p>
                         </div>
                     </div>
 
@@ -275,31 +276,31 @@ const CinderellaDiary = () => {
                             <h2 className={styles.mainTitle} style={{marginTop: '2rem'}}>Point to be noted 🛫 </h2>
                             <div className={styles.glassyBox}>
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '0.2s'}}>
-                                    ....... 
+                                    Point ki baat is, Dekho yr, Chanchal has been really good to me, aur achanak se tumhare behaviour se mujhe lagne laga tha ki kahin koi badi problem toh nahi ho gayi. Main worst case imagine karne laga tha. Shayad mamla utna serious ho bhi na, par it felt like kuch toh karna padega. 
                                 </p>
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s'}}>
-                                    .....
+                                    Or tumne bataya bhi kaafi kam tha... jo starting me bola us se toh laga ki family bohot zyada strict hogi, you said:
                                 </p>
                                 <ul className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s', fontWeight: 'bold', margin: '0.5rem 0 0.5rem 2rem'}}>
-                                    <li>...</li>
-                                    <li>...</li>
-                                    <li>.....</li>
+                                    <li>"Ladke toh hai nahi hum ki muh uthaya aur mil liya"</li>
+                                    <li>"Unse toh koi kuch kehta nahi hai"</li>
+                                    <li>"Nahi hum toh aawara hain"</li>
                                 </ul>
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '1.2s'}}>
-                                    ..........
+                                    ye sab sunke kya hi lagega yr? Tum khud hi socho kya tum meri jagah hoti toh tumko kaise feel hota. Mera darr toh genuine tha na.
                                 </p>
                                 <div className={`${styles.neonText} ${styles.magicalFadeIn}`} style={{animationDelay: '2.2s'}}>
-                                    ...........
+                                    Listen Princess
                                 </div>
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '3.2s'}}>
-                                    .....
+                                    The reason I am using princess notation repeatedly, is just to show that I am putting my points forward with respect.
                                 </p>
                                 <p className={`${styles.handWritten} ${styles.magicalFadeIn}`} style={{animationDelay: '4.2s'}}>
-                                    ......
+                                    Aur main judge nahi kar raha tha, ek normal insaan jo karta wahi kiya. Chanchal ko ye sab mat batana, aur agar batao toh ye bhi batana ki tumne iske pehle kya context diya tha, taaki fairness rahe (I cannot afford her hate for me, aur aisi cheezon se uska bharosa toot jayega mere upar se).
                                 </p>
                             </div>
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeSparkle}`} style={{position: 'relative', marginTop: '3rem', width: '90%', transform: 'rotate(-2deg)'}}>
-                                ,.....
+                                THINK FROM MY PERESPECTIVE TOO
                             </div>
                         </div>
                     </div>
@@ -312,27 +313,29 @@ const CinderellaDiary = () => {
                             
                             <div className={styles.glassyBox}>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
-                                    ...
+                                    At last you said...
                                 </p>
                                 <ul className={styles.handWritten} style={{fontWeight: '900', fontSize: '1.2rem', paddingLeft: '2rem', textAlign: 'left', width: 'fit-content', margin: '0 auto'}}>
-                                    <li>..</li>
-                                    <li>...</li>
+                                    <li>"Use bohot princess treatment milta hai ghar pe"</li>
+                                    <li>"Sabke ghar ki baat alag hoti hai, tumhare ghar par bhi toh tum logon ka mindset alag hai"</li>
                                 </ul>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem', marginTop: '0.5rem'}}>
-                                    ......
+                                    Princess you are a lovely girl. Lekin kabhi kabhi ajeeb lagta hai.
                                 </p>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
-                                    .
+                                    Prachi I know tum bas meri wo baat ki wajah se hi bol rahi thi kyunki tum hurt ho gayi thi, aur tumhe laga hoga ki tumhari wajah se hai, lekin aisa kuch nahi hai. Main meri marzi se wahan gaya tha. Kyunki tum bohot achhi ladki ho.. aur accha treatment deserve karti ho.
                                 </p>
                                 <div style={{textAlign: 'center', margin: '1rem 0'}}>
                                     <span className={styles.bouncingEmoji}>🎃</span>
                                     <span className={styles.bouncingEmoji} style={{animationDelay: '1s'}}>✨</span>
                                 </div>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
-                                    .....
+                                    Aur wo funding wala word hi maine soch ke bola tha taaki kharab na lage. Mujhe bas bohot zyada chinta ho rahi thi. <br></br><br></br>
+                                    Tumne galat samajh liya. I was thinking ki itne saal ho gaye, you still don't notice ki main kabhi aisa kuch nahi sochta jis se Prachi ko bura lage.
                                 </p>
                                 <p className={styles.handWritten} style={{textAlign: 'center', fontWeight: '900', fontSize: '1.2rem'}}>
-                                    .....
+                                    Aur mujhe tumse relationship chahiye bhi nahi tha kabhi (maybe haan agar tum agree karti), bas some affection, understanding, aur bharosa ki Deepak sab kar dega. Aur tumhara trust bhi. <br></br><br></br>
+                                    I wanted to give you something better, kuch aisa jo tumhe chubhe na kabhi. I wanted to be your favorite person. Someone you can always trust, and rely on, jahan judgment ka darr naa ho, kyunki main toh tumhari hi side lunga bhale tum kisi ka murder kardo 🤨. Saari cheezen batao ki kya kya hua. Bas itnaa.
                                 </p>
                             </div>
                         </div>
@@ -344,10 +347,11 @@ const CinderellaDiary = () => {
                             <div className={styles.caseNo}>PG. 07</div>
                             <h2 className={styles.mainTitle} style={{marginTop: '2rem'}}>WHAT ACTUALLY HURTS 🌧️</h2>
                             <p className={styles.handWritten}>
-                                ...
+                                For some recent snaps and aawara wali line for boys, I would like to say... jo ladki un snaps me thi uska accident ho gaya tha. Jin logon ko wo dost bolti thi wo 500m door se bhi uski help karne nahi aaye.<br></br><br></br> She called me and she was crying wagerah wagerah, toh main aur Arindam isiliye gaye the raat ke 12 baje ke aaspass taaki uski dressing ho sake, medicines de sake aur ghar chhod sake. Kyunki ye itni badi city me akele, unsafe toh lagta hai na. Aur koi paas me bhi nahi the, humlog se 28km door thi wo ladki, isiliye bhi itna late ho gaya tha.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1.5rem'}}>
-                                .
+                                Aur main raat ko 10 ke baad kahin nahi jata. Jata hu toh kisi aur ke karan (koi dukhi aatma!).<br></br>
+                                Moreover, main bhi ghar me mummy ki permission ke bina ghoomne firne nahi jata, despite being this big.
                             </p>
                             <div className={styles.polaroidContainer}>
                                     <div className={styles.pin}></div>
@@ -357,7 +361,7 @@ const CinderellaDiary = () => {
                                         </div>
                                     </div>
                                     <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeMidnight}`}>
-                                        ......
+                                        "Ab ye mt bolna bahar to gaye the bina bataye 👾 Wo kaam ki wajah se."
                                     </div>
                             </div>
                             <div className={styles.doodlesLeft} style={{bottom: '1rem'}}>
@@ -377,14 +381,14 @@ const CinderellaDiary = () => {
                                         </div>
                                     </div>
                                     <div className={`${styles.tape} ${styles.tapeBottom}`}>
-                                        .....
+                                        "For that trip."
                                     </div>
                                 </div>
                             <p className={styles.handWritten} style={{marginTop: '2rem', textAlign: 'center'}}>
-                                .  
+                                Wo Deeksha mere papa ke dost ki beti hai. Wo 2 ladke log uske cousins the, aur ek ladki bhi Deeksha ki dost thi. Wo ladki ka naam Mandvi tha, aur wo man-hater thi.... Isiliye bulaya tha Deeksha ne hum dono ko taaki uska perception change ho jaaye hum dono se milke, jo ho bhi gaya.  
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', textAlign: 'center'}}>
-                                .... 
+                                And maybe I was not supposed to explain so much, lekin if those things disappointed you, then you should know the details, not the overview by snaps. Wo snaps sabko jaate bhi nahi hain, wo toh bas you, Chanchal, sometimes my sister and Anukriti sometimes... bas. 
                             </p>
                         </div>
                     </div>
@@ -408,14 +412,17 @@ const CinderellaDiary = () => {
                                 </div>
 
                             <p className={styles.handWritten}>
-                                .... 
+                                Sorry na Prachiii, dekho ye time accha nahi tha... bohot se logon ke karan main thoda rage me tha toh nikal gaya muh se. I won't say it again.<br></br><br></br>
+                                Wo toh bas andar ka bhara hua nikal gaya.<br></br><br></br> 
+                                Aur itne dinon se toh tumne snaps bhi band kar diye, maine toh start hi tumhari wajah se kara tha. Toh jab most important insaan hi interest naa le toh kya matlab snaps banane ka. <br></br><br></br> 
+                                Lekin mujhe pata hai, kabhi kabhi aisa hota hai ki kisi se koi baat karne ka mann nahi karta, aur repeated convo bhi acchi nahi lagti daily daily. Related to food, day, and study. Boriyat aajati hai. I Understand.... 
                             </p>
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeSparkle}`} style={{position: 'relative', marginTop: '4rem', width: '90%', transform: 'rotate(-2deg)'}}>
-                                ....
+                                waise wo apology express sahi se fit na ho browser me, to tum naa - Three dots pe click karna - uske baad desktop site pe click kar dena. fir enjoy.
                             </div>
                             <div className={styles.glassyBox} style={{marginTop: '3rem', transform: 'rotate(1deg)', padding: '1.2rem', background: 'rgba(255, 255, 255, 0.5)', borderRadius: '12px', border: '2px dashed #bbaacc'}}>
                                 <p className={styles.handWritten} style={{fontSize: '1.05rem', lineHeight: '1.5', margin: 0}}>
-                                    ....
+                                    <strong style={{color: '#886699'}}>P.S. 🛠️</strong> Dekho is baar koi glitch, lag ya hang ho toh ye last time adjust kar lena. Main koi designer ya website developer nahi hu, main ek AI Engineer hu. Sach kahu toh difference utna hi hai jitna ki ek Cardiologist aur ek Pulmonologist mein hota hai... Doctors toh dono hain lekin field alag hai! Isiliye upgrade ke pehle padhna padta hai yr 🫣(Deepak Ke efforts) Ye Apology Express actually tumhare birthday ke liye bna rha tha lekin time se pehle idhar use karni padi abh... isiliye ye toh abhi bhi incomplete hi hai. Isme bohot saari cheezen sochi thi mene 13 january ke liye.
                                 </p>
                             </div>
                         </div>
@@ -428,9 +435,9 @@ const CinderellaDiary = () => {
                             <h2 className={styles.mainTitle} style={{textAlign: 'center', marginTop: '1rem'}}>BEFORE MIDNIGHT...</h2>
                             <div className={styles.chargesSection}>
                                 <ul className={styles.checklist}>
-                                    <li><span className={styles.checkbox}>1</span> .</li>
-                                    <li><span className={styles.checkbox}>2</span> .</li>
-                                    <li><span className={styles.checkbox}>3</span> .</li>
+                                    <li><span className={styles.checkbox}>1</span> Low feel karne par gayab mat hua karo. Talk about it.</li>
+                                    <li><span className={styles.checkbox}>2</span> Always remember how immensely STRONG you are.</li>
+                                    <li><span className={styles.checkbox}>3</span> Apna dhyaan rakho, you are a princess.</li>
                                 </ul>
                             </div>
                             <div style={{display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '2rem'}}>
@@ -448,68 +455,68 @@ const CinderellaDiary = () => {
                             
                             <div style={{marginTop: '1.5rem', textAlign: 'left', padding: '0 10px'}}>
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .... 
+                                    And I know tumhare paas bohot mitra mandali hai, shayad sab ke sab mere se bohot saari cheezon me acche bhi ho. Aur jo main feel karta hu, wo cheez common bhi ho sakti hai, koi badi baat nahi. Par shayad tumhare is denial aur baar-baar door chale jaane ke peeche bhi kuch aisa ho jo main nahi jaanta... 
                                 </p>
                                 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    ....
+                                    Tumko mere se better mil sakta hai, lekin I know koi itne dramatically maafi nahi maang payega 😂 Mujhe khud nahi pata main aisi bacchon wali harkaten kyun karta tha. Maybe you pulled the child inside me, itna kisi ko hold back nahi karta main... Aur pata nahi kismat se sab kaand tumhare side hi kyun ho jaate hain mere, baaki jagah toh nahi hote, wahan toh sab perfect chalta hai as planned.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                .
+                                    Tum reject toh kar deti ho, still wo 'naa' me bhi mujhe 'haa' hi dikhti thi yr. Aur tumhara wo reason, ki tum hamesha single rahogi? Come on, we both know ye sach nahi hai. Likh ke le lo, college pahuchte hi mind change ho jayega. I know well it's not going to be me, theek hai yr. Lekin at least rejection ka koi ek genuine reason toh bata do, taaki mujhe apne aap ko blame karne ke liye koi toh kami mil jaye.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Mujhe efforts daalne ki aadat hi thi, kyunki life me kuch bhi readymade nahi mila. Mujhe laga shayad kabhi toh Prachi ka dil pighal jaye, koi magic ho jaye... socha tha koi nahi aaya toh mera chance 100% hai. Lekin jab bhi poochna chahta hu, tumhare paas jawab nahi rehta. Tum achanak se silent aur ignorant ho jati ho. It actually breaks my heart to see you this way. Ekdum abandoned feel hota hai us waqt.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                        ..
+                                    I always thought of this quote, jo mujhe ye wait karna worth it feel karwata tha: 'If I leave then I lose you. If I wait then it will never be me. And if I move on it will never be you. So what do I do? Do I make a left where there is nothing right? Or a right where there is nothing left?'
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    ....
+                                    And honestly, something we humans call 'move-on' is just cutting off what matters most and suppressing everything you have. Kyunki jab feelings itni deep ho, toh move on bas ek temporary distraction hota hai jiska relapse bohot bura hota hai. Aur uske baad aane wale guilt ka kya? Aur ye stable solution hai bhi nahi, ek baar bas thought aa jaye toh sab restore, saari mehnat kharab. Toh kya hi matlab aisi cheez karne se jiski ambiguity zyada hai aur stability kam.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    ....
+                                    Sach kahu toh mujhe aise latke rehne me, ya aur wait karne me bhi koi dikkat nahi hai. Kyunki sach bataun? Wait karna toh ab mera hi comfort ban chuka hai. Lekin darr lagta hai yr... darr lagta hai ki tum achanak se hamesha ki tarah bina kisi reason ya explanation ke disappear ho jaogi, aur main yahan akele bas wait hi karta reh jaunga... And hell yes, I know tum khud se toh kabhi reach out karogi hi nahi.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                        .
+                                    Lekin haan, if you think there is even a 1% chance... toh restore everything. Us 1 kya, 0.1% chance me bhi main apne 1000% efforts ka multiply kar dunga. Prachi yr, agar thoda sa bhi chance ho manane ka aur tumhare hurted heart ko cure karne ka, toh bhale clear mat batao, lekin ishara hi de do. Main kuch bhi karke mana lunga tumko, 100 baar try kar lunga 1000 different ways me... Ya fir currently chalne do jo jaisa chal raha tha pehle.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    !!!
+                                    One thing I always think about is... is this the end?? Itni baar sab almost khatam hone ko hota hai, but then God sab theek kar dete hain. Is baar bhi kya? End ya restoration? And if it's the end, then why the hell did He make things align like this!!!
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Sometimes I feel ki shayad main tumhare layak hi nahi hu kisi bhi case me... tummmmm..... tum toh princess ho. 👑 Aur waise I'm sure enough, tumko mere jaisa princess treatment koi doctor bhi nahi de sakta.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Prachiiiee, ye 'princess' ya 'billu' bulana bas chhoti bacchi jaise treatment ka part hai, naa ki koi cringe feeling ka. Haan, tries toh karta aaya hu 😂 ki tum thoda pighal jao, lekin itna nahi ki ye sab chubh jaye tumko. Overthinking karne se better hai baat karna... acche se poochna ki what was it, why it was.
                                 </p>
                                 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Tumhare kuch feel na karne ke reasons ye ho sakte hain ki shayad main always available rehta hu, hamesha dab ke rehta hu, aur main samne bhi nahi hu. Ye koi judgement nahi hai, bas kuch points hain jo attraction killers hain. Lekin main fir bhi ye nahi badal sakta, kyunki bure cases ko ignore nahi kiya jaa sakta. Mujhe toh samajh hi nahi aata kabhi kabhi karu toh karu kya. Kuch hard karu toh tum hurt hogi.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Aur mere dost log tumhe 'bhabhiji' isiliye nahi bulate kyunki main tumse shaadi ke sapne dekh raha hu❌, wo toh bas isliye hai kyunki logon ne shayad aisi care kisi ko karte nahi dekhi hongi... jo log relationships me rehte hain unhone bhi nahi. Kyunki mistakenly wo sketches, aur jo cheezen main lectures me banata tha wo unhone dekh li. Unhe bhi pata hai ki mehnat toh lagti hai yr. Maine kuch khaas bataya nahi hai, na unhone tumko dekha hai. Wo bas dikhate hain ki wo tumhari respect karte hain.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem'}}>
-                                    .
+                                    Maybe you deserve someone jis se tum naturally attract hooo (wo fake naa kare bas). And I don't know what I deserve... maybe someone jo thoda sa appreciate kare, thoda sa meri doings ke peeche ka soche, thoda sa... bassssssss.
                                 </p>
 
                                 <p className={styles.handWritten} style={{fontSize: '1.1rem', lineHeight: '1.6'}}>
-                                    ...
+                                    Aur aisa bhi nahi hai ki mere sath tum fasi hui ho... jab chahe free ho sakti ho, bas feedback jaisa ek reason deti jao aur bsss...
                                 </p>
                             </div>
                             
                             <div className={`${styles.tape} ${styles.tapeBottom} ${styles.tapeSparkle}`} style={{position: 'relative', marginTop: '3rem'}}>
-                                ... ✨
+                                I'm still holding your glass slipper. Bas dooriyan itni mat badha lena ki main tum tak pahunch hi na saku... ✨
                             </div>
                         </div>
                     </div>
