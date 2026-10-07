@@ -138,6 +138,11 @@
     margin-top: 8px;
     color: #ffd700;
 }
+.hiddenPrompt {
+    opacity: 0 !important;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
 
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -308,7 +313,7 @@
     text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
 }
 .heartTag {
-    font-family: \'Caveat\', cursive;
+    font-family: 'Caveat', cursive;
     color: #a89f91;
     font-size: 1.5rem;
     letter-spacing: 2px;
@@ -328,7 +333,7 @@
     background: transparent;
     border: 1px solid rgba(212, 175, 55, 0.4);
     color: #d4af37;
-    font-family: \'Playfair Display\', serif;
+    font-family: 'Playfair Display', serif;
     font-size: 1rem;
     letter-spacing: 2px;
     border-radius: 30px;

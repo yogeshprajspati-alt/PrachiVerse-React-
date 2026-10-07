@@ -4,6 +4,16 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
+                title: "Probably Finally Last Here",
+                icon: "🌻",
+                description: ".........",
+                date: "06 oct 2026",
+                badge: "New",
+                link: "/diaries/last-entry",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
                 title: "Pink Butterfly Diary",
                 icon: "🦋",
                 description: "Watchman's exact words.",
@@ -23,16 +33,7 @@ export const dashboardData = [
                 isExternal: true,
                 isAbsolute: true
             },
-            {
-                title: "Cyndrella wali diary",
-                icon: "👑",
-                description: "Cinderella wali diary",
-                date: "15-23 sept 2026",
-                badge: "New",
-                link: "/diaries/cinderella-diary",
-                isExternal: false,
-                isAbsolute: false
-            },
+            
 
             {
                 id: "Prachify(GEET)",
