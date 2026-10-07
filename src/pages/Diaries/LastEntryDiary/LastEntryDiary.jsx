@@ -215,6 +215,9 @@ const LastEntryDiary = () => {
                         <p>Is cheez ka guilt mat rakhna ki tum Deepak ke efforts dekh nahi paati (tumne hi bola na ki kami hai tumhare andar ki nahi dekh paati tum), kyuki dekhogi to jab wo dikhayega, jo dikhaaye hi nahi wo kaise dikhenge? Aur jo dikhte the to tum thodi koi coder ya programmer ho ya engineer ki tum dekh sako, tum to bio wali ho, ab jo dikhta tha wo to shayad lagta hi ho ki normal hai yr..... Isme tumhari kya galti, koi galti nahi hai.</p>
                         <p>Aur chalo, ab tumhe mere efforts ka guilt haunt na kare, to me inko bhi thoda dilute aur neutralize kiye deta hu. Dekho billu, aisa hai ki mene kaha tha na tumse ki tumhare jaisi ladkiyon ke liye pehle log wars pe jaate the, impress karne ke liye. To tum bas itna samajh lo — modern princess ko modern solutions se impress kiya ja raha tha, that's all. 😂</p>
                         <p>Aur ek aur cheez jo me kehna chahunga — you are a princess, not an object jo ek hi jagah chained rahe. Tumhari marzi hai kab, kahan jaana hai, kis se milna hai, aur kab kaun pasand hai. Ye sab completely normal cheezein hain, isme itna pressure lene ki zarurat nahi hai.</p>
+                        <p>Mene iske pehle wali diaries ke liye bhi kabhi nahi kaha tha ki tum jaake dekhooo... tumne apne aap dekh li thi. To ab is wali ko bhi bas waise hi chhod deta hu. Kabhi kisi din tumhara mann hua aur dekh li, to accha lagega. 👀
+                            Aur agar kabhi padhogi, to shayad tumhe khud samajh aa jayega ki Deepak ko billu itni acchi kyun lagti thi. 😂🫶himmat nhi h ab kuch kehne ki.. Chalo Bye Guys..!!
+                        </p>
                     </div>
 
                     {/* End Marker */}
