@@ -144,6 +144,49 @@
     transition: opacity 0.5s ease;
 }
 
+/* --- PROGRESS BAR & INDICATOR --- */
+.progressBarContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 200;
+}
+.progressBar {
+    height: 100%;
+    background: linear-gradient(90deg, #d4af37, #ffd700);
+    transition: width 0.1s ease-out;
+}
+
+.keepReadingIndicator {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffd700;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    z-index: 100;
+    pointer-events: none;
+    animation: bounceIndicator 2s infinite ease-in-out;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+.keepReadingIndicator i {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+@keyframes bounceIndicator {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+    50% { transform: translate(-50%, -10px); opacity: 1; }
+}
+
+
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -385,4 +428,45 @@
     font-size: 0.9rem;
     color: #4a4a4a;
     letter-spacing: 1px;
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    .grandTitle {
+        font-size: 2.2rem;
+    }
+    .subTitle {
+        font-size: 1.5rem;
+    }
+    .textCard {
+        padding: 1.5rem 1.2rem;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+    .dropCap {
+        font-size: 2.8rem;
+        line-height: 2.5rem;
+    }
+    .highlightText {
+        font-size: 1.6rem;
+    }
+    .signatureName {
+        font-size: 3.2rem;
+    }
+    .topControls {
+        top: 15px;
+        left: 15px;
+        right: 15px;
+    }
+    .iconBtn {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+    .storySection {
+        padding: 3vh 4vw 15vh 4vw;
+    }
+    .contentWrapper {
+        gap: 5vh;
+    }
 }

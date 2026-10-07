@@ -4,9 +4,10 @@ import styles from './LastEntryDiary.module.css';
 
 const LastEntryDiary = () => {
     const navigate = useNavigate();
-    const [isPlaying, setIsPlaying] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
-    const audioRef = useRef(null);
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [scrollProgress, setScrollProgress] = useState(0);
+    const observerRefs = useRef([]);
 
     const [particles] = useState(() =>
         Array.from({ length: 25 }).map((_, i) => ({
@@ -18,39 +19,12 @@ const LastEntryDiary = () => {
         }))
     );
 
-    
     const handleClose = () => {
         setIsClosing(true);
-        if (audioRef.current) {
-            let vol = audioRef.current.volume;
-            const fadeInterval = setInterval(() => {
-                if (vol > 0.05) {
-                    vol -= 0.05;
-                    audioRef.current.volume = vol;
-                } else {
-                    audioRef.current.pause();
-                    clearInterval(fadeInterval);
-                }
-            }, 150);
-        }
         setTimeout(() => {
             navigate('/');
-        }, 4000);
+        }, 1500);
     };
-
-    const toggleAudio = () => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.pause();
-            } else {
-                audioRef.current.play().catch(() => console.log("Audio play failed"));
-            }
-            setIsPlaying(!isPlaying);
-        }
-    };
-
-    const [isScrolled, setIsScrolled] = useState(false);
-    const observerRefs = useRef([]);
 
     const setRef = (el) => {
         if (el && !observerRefs.current.includes(el)) {
@@ -59,7 +33,14 @@ const LastEntryDiary = () => {
     };
 
     const handleScroll = (e) => {
-        if (e.target.scrollTop > 50) {
+        const target = e.target;
+        const scrolled = target.scrollTop;
+        const maxScroll = target.scrollHeight - target.clientHeight;
+        const progress = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+        
+        setScrollProgress(progress);
+
+        if (scrolled > 50) {
             setIsScrolled(true);
         } else {
             setIsScrolled(false);
@@ -84,7 +65,11 @@ const LastEntryDiary = () => {
 
     return (
         <div className={`${styles.mobileDiaryContainer} ${isClosing ? styles.fadingOut : ''}`} onScroll={handleScroll}>
-            <audio ref={audioRef} loop src="/assets/diaries/lavender-mist/background.mp3" />
+            
+            {/* Progress Bar fixed at top */}
+            <div className={styles.progressBarContainer}>
+                <div className={styles.progressBar} style={{ width: `${scrollProgress}%` }}></div>
+            </div>
 
             <div className={styles.particlesOverlay}>
                 {particles.map(p => (
@@ -106,10 +91,15 @@ const LastEntryDiary = () => {
                 <div className={styles.iconBtn} onClick={() => navigate('/')} aria-label="Go back">
                     <i className="fas fa-arrow-left"></i>
                 </div>
-                <div className={styles.iconBtn} onClick={toggleAudio} aria-label={isPlaying ? "Mute background music" : "Play background music"}>
-                    <i className={`fas ${isPlaying ? 'fa-volume-up' : 'fa-volume-mute'}`}></i>
-                </div>
             </div>
+
+            {/* Floating indicator while reading */}
+            {scrollProgress > 0 && scrollProgress < 98 && (
+                <div className={styles.keepReadingIndicator}>
+                    <span>Keep scrolling...</span>
+                    <i className="fas fa-chevron-down"></i>
+                </div>
+            )}
 
             <div className={styles.parallaxBg}></div>
 
