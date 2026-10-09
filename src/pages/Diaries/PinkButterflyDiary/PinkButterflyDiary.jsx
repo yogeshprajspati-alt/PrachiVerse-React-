@@ -267,7 +267,7 @@ const PinkButterflyDiary = () => {
                                 Ye tumhare liye thiii hi nhi, galati se display pe dal gai or tumne padhli, isiliye me ise hata raha hu. Mujhe nhi pta tha tum idhar visit karti ho isiliye itna dhyn bhi nhi gaya mera.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Or ye mene meri Rage ko control me laane ke liye likh di thi, naa ki tumhe dikhane ke liye.
+                                Or ye mene meri Rage ko control me laane ke liye likh di thi, naa ki tumhe dikhane ke liye. Iske jaisi 17 aur hain Prachiverse ke andar jo tum nhi dekh sakti, this was supposed to be one of the 18th one, mistakenly appeard along with ordinary ones.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 ....
