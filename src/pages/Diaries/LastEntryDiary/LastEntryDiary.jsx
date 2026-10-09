@@ -208,6 +208,7 @@ const LastEntryDiary = () => {
                         <p>Mene iske pehle wali diaries ke liye bhi kabhi nahi kaha tha ki tum jaake dekhooo... tumne apne aap dekh li thi. To ab is wali ko bhi bas waise hi chhod deta hu. Kabhi kisi din tumhara mann hua aur dekh li, to accha lagega. 👀
                             Aur agar kabhi padhogi, to shayad tumhe khud samajh aa jayega ki Deepak ko Prachi itni acchi kyun lagti thi. 😂🫶himmat nhi h ab kuch kehne ki.. Chalo Bye Prachi..!!
                         </p>
+                        <p>explain karne ka soch rha tha lekin dekh liya ki situations mere against hain, to misunderstanding ho jayegi hamesha ki tarah.</p>
                     </div>
 
                     {/* End Marker */}
