@@ -264,10 +264,10 @@ const PinkButterflyDiary = () => {
                             <h2 className={styles.mainTitle} style={{marginTop: '1rem'}}>LOVE & CRUSHES</h2>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                Ye tumhare liye thiii hi nhi, galati se display pe dal gai or tumne padhli, isiliye me ise hata raha hu ma'am. Mujhe nhi pta tha tum idhar visit karti ho isiliye itna dhyn bhi nhi gaya mera.
+                                Ye tumhare liye thiii hi nhi, galati se display pe dal gai or tumne padhli, isiliye me ise hata raha hu. Mujhe nhi pta tha tum idhar visit karti ho isiliye itna dhyn bhi nhi gaya mera.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ......
+                                Or ye mene meri Rage ko control me laane ke liye likh di thi, naa ki tumhe dikhane ke liye.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 ....
