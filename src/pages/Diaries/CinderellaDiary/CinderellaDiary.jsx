@@ -165,7 +165,7 @@ const CinderellaDiary = () => {
                             
                             <div className={styles.itemBox}>
                                 <p className={styles.handWritten} style={{marginTop: '1.5rem'}}>
-                                   ............................
+                                   Ye tumne tab padhli jab ye incomplete thiii... additions deletions hone the, isiliye me ise hata raha hu ma'am.
                                 </p>
                                 <p className={styles.handWritten} style={{marginTop: '1rem'}}>
                                     ................................. 

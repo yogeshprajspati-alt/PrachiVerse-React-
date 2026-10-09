@@ -257,14 +257,14 @@ const PinkButterflyDiary = () => {
                         </div>
                     </div>
 
-                                                            {/* PAGE 1 */}
+                    {/* PAGE 1 */}
                     <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(1) ? styles.flipped : ''}`} style={{ zIndex: zIdx(1) }}>
                         <div className={styles.content}>
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
                             <h2 className={styles.mainTitle} style={{marginTop: '1rem'}}>LOVE & CRUSHES</h2>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                -......
+                                Ye tumhare liye thiii hi nhi, galati se display pe dal gai or tumne padhli, isiliye me ise hata raha hu ma'am. Mujhe nhi pta tha tum idhar visit karti ho isiliye itna dhyn bhi nhi gaya mera.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 ......
