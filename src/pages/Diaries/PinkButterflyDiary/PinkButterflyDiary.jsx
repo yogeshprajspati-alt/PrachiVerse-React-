@@ -267,10 +267,10 @@ const PinkButterflyDiary = () => {
                                 Ye tumhare liye thiii hi nhi, galati se display pe dal gai or tumne padhli, isiliye me ise hata raha hu. Mujhe nhi pta tha tum idhar visit karti ho isiliye itna dhyn bhi nhi gaya mera.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Or ye mene meri Rage ko control me laane ke liye likh di thi, naa ki tumhe dikhane ke liye. Iske jaisi 17 aur hain Prachiverse ke andar jo tum nhi dekh sakti, this was supposed to be one of the 18th one, mistakenly appeard along with ordinary ones.
+                                Or ye mene meri Rage ko control me laane ke liye likh di thi, naa ki tumhe dikhane ke liye. Iske jaisi 17 aur hain Prachiverse ke andar jo tum nhi dekh sakti, this was supposed to be the 18th one, mistakenly appeard along with ordinary ones.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ....
+                                Mera concern ye nhi tha ki tum initiate nhi karti, normal talks me it was okay, but for serious talks like fighting, ya kuch aur jo tumhe kehna h wo tumko initiate karna chaiye. Bata do ki we'll be talking about this tomorrow ya after an hour to atleast mentally prepared rehte hain. Aise achanak happy mood me aisi cheezen aajati hain, to ghabrahat aati hai, fir ghume hue answers se aur chid chid hone lagti hai to fir sab gadbad hoti h ye kehna tha mujhe.
                             </p>
                         </div>
                     </div>
@@ -281,16 +281,16 @@ const PinkButterflyDiary = () => {
                             <div className={styles.caseNo}>PG. 02</div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                ..... 
+                                Tumko Vinay Pasand tha, wo theek h, me bs shock ho gaya tha bohot bura isiliye itna ajeeb behave kar rha tha. Pehli baat to mujhe wo chutiya ladka ek percent nhi pasand tha. Or tumhare description ke hisab se ek bhi quality nhi thi uske andar, na hi wo kind h, na hi usme esteem hai, or na hi wo thankful rehta h. Lekin khair wo tumhari marzi hai, tumhari choice hai, me us cheez se bahar hu or baat nhi karna chahta is topic pe ab.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ....
+                                Or wo chance se mera mtlb tha, ki tum mere se 12 me mili thi tab me bohot alag tha, ab me bohot alag hu. I was thinking we'll meet someday formally, isiliye physique or appearance dono improve kar liye the.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .....
+                                Or not considered se bhi mera mtlb wahi tha, na tumne mujhe dekha na hi behaviour dekha, in-person milne me hi kuch feel hota h aise text me kuch nhi hota. Mera mtlb kuch galat nhi tha, bs wording or timing or situations thodi odd thi.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .....
+                                Or ab Jab tumne distance create kar li h to me uski respect karunga. OR me bata du ki iske pahle jo tumne galati se padh liya wo bs mera anger kahi drop karne ka way tha, us sab ka tumse koi lena dena nhi h.
                             </p>
                         </div>
                     </div>
