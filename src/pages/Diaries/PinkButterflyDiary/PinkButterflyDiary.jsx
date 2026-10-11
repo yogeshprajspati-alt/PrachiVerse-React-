@@ -283,6 +283,9 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
                                 Tumko Vinay Pasand tha, wo theek h, me bs shock ho gaya tha bohot bura isiliye itna ajeeb behave kar rha tha. Pehli baat to mujhe wo chutiya ladka ek percent nhi pasand tha. Or tumhare description ke hisab se ek bhi quality nhi thi uske andar, na hi wo kind h, na hi usme esteem hai, or na hi wo thankful rehta h. Lekin khair wo tumhari marzi hai, tumhari choice hai, me us cheez se bahar hu or baat nhi karna chahta is topic pe ab.
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Vinay naa hi ho to accha h, utkarsh ya saumithra ho. Vinay to ghatiya ladka hai meri nazron me. Waise bhi mene bola tha jo tumhe pasand ho bata dena, ye to bs saari baaten achanak se aa gain to digest karne me dikkat ho gai thi.
+                            </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Or wo chance se mera mtlb tha, ki tum mere se 12 me mili thi tab me bohot alag tha, ab me bohot alag hu. I was thinking we'll meet someday formally, isiliye physique or appearance dono improve kar liye the.
                             </p>
@@ -290,7 +293,7 @@ const PinkButterflyDiary = () => {
                                 Or not considered se bhi mera mtlb wahi tha, na tumne mujhe dekha na hi behaviour dekha, in-person milne me hi kuch feel hota h aise text me kuch nhi hota. Mera mtlb kuch galat nhi tha, bs wording or timing or situations thodi odd thi.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                Or ab Jab tumne distance create kar li h to me uski respect karunga. OR me bata du ki iske pahle jo tumne galati se padh liya wo bs mera anger kahi drop karne ka way tha, us sab ka tumse koi lena dena nhi h.
+                                Or ab Jab tumne distance create kar li h to me uski respect karunga. OR me bata du ki iske pahle jo tumne galati se padh liya wo bs mera anger kahi drop karne ka way tha, us sab ka tumse koi lena dena nhi h. Tum Perfect ho!!
                             </p>
                         </div>
                     </div>
