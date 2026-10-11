@@ -295,6 +295,9 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Or ab Jab tumne distance create kar li h to me uski respect karunga. OR me bata du ki iske pahle jo tumne galati se padh liya wo bs mera anger kahi drop karne ka way tha, us sab ka tumse koi lena dena nhi h. Tum Perfect ho!!
                             </p>
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
+                                Or ho sake to ye sab dil se nikal dena, bechani ho rhi hai us din se. Baat mt karo bhale bs wo sab mt socho. 
+                            </p>
                         </div>
                     </div>
 
