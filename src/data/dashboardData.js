@@ -4,6 +4,17 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
+                id: "Locked",
+                title: "Locked",
+                icon: "🎂",
+                description: "Locked Until 13 Jan 2027",
+                date: "2026",
+                badge: "New",
+                link: "/",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
                 title: "Probably Finally Last Here",
                 icon: "🌻",
                 description: ".........",
@@ -35,17 +46,7 @@ export const dashboardData = [
             },
             
 
-            {
-                id: "Prachify(GEET)",
-                title: "Prachify(GEET)",
-                icon: "🎵",
-                description: "Personalised Music App",
-                date: "2026",
-                badge: "New",
-                link: "https://prachify.vercel.app/",
-                isExternal: true,
-                isAbsolute: false
-            },
+            
 
 
         ]
@@ -534,6 +535,17 @@ export const dashboardData = [
                 badge: "New",
                 link: "/neet-stuff/mock-test-2",
                 isExternal: false
+            },
+            {
+                id: "jules",
+                title: "Jules",
+                icon: "🦘",
+                description: "NCERT Focused Study App",
+                date: "2026",
+                badge: "Essential",
+                link: "https://jules-buddy.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
             }
 
         ]
@@ -610,7 +622,19 @@ export const dashboardData = [
                 link: "/prachi-neet-app",
                 isExternal: false,
                 isAbsolute: false
-            }
+            },
+            {
+                id: "Prachify(GEET)",
+                title: "Prachify(GEET)",
+                icon: "🎵",
+                description: "Personalised Music App",
+                date: "2026",
+                badge: "New",
+                link: "https://prachify.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
+            },
+
         ]
     }
 ];

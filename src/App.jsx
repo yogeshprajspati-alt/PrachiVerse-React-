@@ -9,6 +9,7 @@ import MainLayout from './layouts/MainLayout';
 import SplashScreen from './components/SplashScreen/SplashScreen';
 import PageWrapper from './components/PageWrapper/PageWrapper';
 import MagneticCursor from './components/MagneticCursor/MagneticCursor';
+import SupportPopup from './components/SupportPopup/SupportPopup';
 
 // Lazy load route components
 const Login = lazy(() => import('./pages/Login/Login'));
@@ -122,7 +123,12 @@ function App() {
         {!appReady && <SplashScreen onComplete={() => setAppReady(true)} />}
 
         <Suspense fallback={null}>
-          {appReady && <AnimatedRoutes />}
+          {appReady && (
+            <>
+              <SupportPopup />
+              <AnimatedRoutes />
+            </>
+          )}
         </Suspense>
       </HashRouter>
     </AuthProvider>
