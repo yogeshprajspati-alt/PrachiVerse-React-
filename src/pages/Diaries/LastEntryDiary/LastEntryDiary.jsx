@@ -212,6 +212,7 @@ const LastEntryDiary = () => {
                             Aur agar kabhi padhogi, to shayad tumhe khud samajh aa jayega ki Deepak ko Prachi itni acchi kyun lagti thi. 😂🫶himmat nhi h ab kuch kehne ki.. Chalo Bye Prachi..!!
                         </p>
                         <p>explain karne ka soch rha tha lekin dekh liya ki situations mere against hain, to misunderstanding ho jayegi hamesha ki tarah.</p>
+                        <p>Tum bhale mujhe dost na maano, lekin Prachi ab bhi meri dost hai, mere dil ke utne hi kareeb jitni pehle thiii. From my side, nothing will end... So feel free to come back after a long break.</p>
                         <p>agar kabhi meri prachi mujhe miss karne lagti h, to turant comebackkkkk......, you are not allowed to force her and hurt her, is that Clearrr......!!!!</p>
                     </div>
 
