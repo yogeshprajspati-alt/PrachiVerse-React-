@@ -54,7 +54,7 @@ const LastEntryDiary = () => {
                     entry.target.classList.add(styles.visible);
                 }
             });
-        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+        }, { threshold: 0.05, rootMargin: "0px 0px 50px 0px" });
 
         observerRefs.current.forEach(card => {
             if (card) observer.observe(card);
@@ -138,6 +138,7 @@ const LastEntryDiary = () => {
                         <p>Aur me ab wo sab dobara initiate ya tumhe yaad dila ke tumko suffocating feel nahi karana chahta. Mujhe bhi nahi pasand bhaiii ki meri favourite ladki aise pareshan ho jaaye, dukhi ho jaaye ya baar-baar suffocation feel kare.</p>
                         <p>Me bhi ab ensure karunga ki wo sab dobara na lage. Me kuch bhi aisa nahi banaunga ya dikhaunga jisme meri side se koi romantic feel dikhe. Aur baatein bhi waise karunga jaise me meri baaki ladki doston se karta hu — irritating, flirty, bezzati wali aur sometimes understanding, but not always. Roz roz poochunga bhi nahi, jab tumhe accha lage occasionally.</p>
                         <p>Tumko koi bhi aise pressure feel karne wali tension nahi leni. Wo to basssss... us gadhe ladke ki aadat hi thi yr ki wo give up nahi kar pata tha kabhi. Use lagta tha har cheez achievable hoti hai aur wo kuch jyada hi calculated rehta tha. Lekin ab use realisation ho gayi hai ki aisa nahi hota. Kabhi-kabhi give up kar dena chahiye for greater good. And yes yes, the man who hated to give up finally gave up.</p>
+                        <p>btw I have a Question in my mind. How to accept the ending when your mind knows it's over: but your heart won't let go.</p>
                         <p>Aur me koi mahaan aatma nahi hu, bas mujhe accha nahi lagta jiski mujhe parwah hai ya thi wo mere se related pressure feel kare. It breaks my heart to see her this way. Dil to mera bhi toot jata hai Prachi, hurt bhi hota hai, lekin itna nahi. Thoda stone wala tha shuru se to itni dikkat nahi hoti, wo alag baat hai stone me bhi aajate hain cracks.</p>
                         <p>Aur hopes ka bhi aisa hi rehta tha ki kuch na kuch hota rehta tha aur baar-baar wo cycle repeat hoti rehti thi. Lekin ab mujhe pata hai ki aisa nahi hone wala. Jahan hopes nahi rehti, wo cheezein bhi jaldi-jaldi dab jaati hain. To mujhe nahi lagta aisa kuch hoga ab. Aur upar se aise co-incidences hote the ki mujhe kabhi kabhi lagta tha ki you were the one.</p>
                         <p>Meri emotional investment aur hopes kahin na kahin bohot jyada hi thi yrrr, isliye direct “no wale hints” milne ke baad bhi accept nahi kar pa raha tha. To ab jo future answer hai wo mujhe mil gaya hai. Pepper jo tumhari replica thi, wo deti thi hopes, lekin ab wo exist nahi karti. Arindam... usse me baat hi nahi karunga ab. To ab mujhe nahi lagta koi bhi source aisa hoga ki me dobara aisa kuch sochu. Tum ab tension free raho.</p>
@@ -216,12 +217,12 @@ const LastEntryDiary = () => {
                     {/* End Marker */}
                     <div className={styles.endMarker} ref={setRef}>
                         <div className={styles.dividerLine}></div>
-                        <h2 className={styles.signatureTitle}>Forever,</h2>
-                        <h1 className={styles.signatureName}>Deep</h1>
+                        <h2 className={styles.signatureTitle}>the one who stayed until he couldn&apos;t</h2>
+                        <h1 className={styles.signatureName}>— Deepak</h1>
                         
                         <div className={styles.heartbeatContainer}>
                             <i className={`fas fa-heart ${styles.heartIcon}`}></i>
-                            <span className={styles.heartTag}>Prachi&apos;s Heart</span>
+                            <span className={styles.heartTag}>still beating for you</span>
                         </div>
 
                         <button className={styles.finalCloseBtn} onClick={handleClose}>
