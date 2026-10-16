@@ -126,7 +126,7 @@ const PinkButterflyDiary = () => {
     const [shake, setShake] = useState(false);
     const [sparkle, setSparkle] = useState(false);
 
-    const TOTAL = 23; // Cover + 6 pages + back
+    const TOTAL = 12; // Cover + 10 pages + back
 
     const spin = (i) => setDials(d => d.map((v, k) => k === i ? (v + 1) % 10 : v));
 
@@ -304,39 +304,37 @@ const PinkButterflyDiary = () => {
                     {/* PAGE 3 */}
                     <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(3) ? styles.flipped : ''}`} style={{ zIndex: zIdx(3) }}>
                         <div className={styles.content}>
-                             <div className={styles.caseNo}>PG. 03</div>
-                             
+                            <div className={styles.caseNo}>PG. 03</div>
+                            <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
+                            
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .....
+                                Tumhe yaad hai, tumne ek series suggest kari thi — <em>The Summer I Turned Pretty</em>. Usmein bhi Belly naam ki ek ladki thi. Pehle use Conrad Fisher pasand nahi tha, lekin Conrad uske liye bahut efforts karta tha aur hamesha uske achhe ke baare mein sochta tha. I know, mere jaisa hi hai woh.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ..
+                                Phir Belly ko koi aur pasand aa jaata hai, aur Conrad ka dil toot jaata hai. Lekin itna sab hone ke baad bhi woh Belly ke liye waisa hi rehta hai. Last season ke last episode tak aate-aate Belly ko Conrad ke efforts saaf dikhne lagte hain, aur use bhi Conrad se pyaar ho jaata hai.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ...
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ...
+                                Mujhe laga tha, shayad… you know, kabhi meri bhi kismat chamak jaaye aur mere saath bhi aisa kuch ho jaaye! Who knows, bhai. ❤️ And I'll wait for that day.
                             </p>
                         </div>
                     </div>
 
                     {/* PAGE 4 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${flipped(4) ? styles.flipped : ''}`} style={{ zIndex: zIdx(4) }}>
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(4) ? styles.flipped : ''}`} style={{ zIndex: zIdx(4) }}>
                         <div className={styles.content}>
-                             <div className={styles.caseNo}>PG. 04</div>
-                             
+                            <div className={styles.caseNo}>PG. 04</div>
+                            
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
+                                But this was the edge case, guys. Lekin jaisa tumne bola na, agar koi aur hai, ya woh ladka jo tumhe abhi pasand hai, toh…
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ...
+                                I cannot pray for you, kyunki mujhe lagta hai meri prayers shayad God sunta hi nahi hai. Lekin I can manifest ki tumhe woh sab mile jo tum deserve karti ho (mere POV se, tumhare nahi 😭).
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ...
+                                Jo ladka tumhe pasand hai na, woh bhi tumhe utna hi pasand kare. Tumhe khush rakhe, tumhare liye efforts kare, tumhe pampered feel karaye, bina bole tumhari baatein samajh jaaye. Kabhi tumhe used feel na karaye, kabhi pressured feel na karaye. Tumhe kabhi aisa na lage ki tumhe kisi cheez ke liye khud ko force karna pad raha hai.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                Bas, tumhe koi aisa mile jo tumhe genuinely samjhe, tumhari care kare aur tumhe khush rakhe. ❤️
                             </p>
                         </div>
                     </div>
@@ -345,35 +343,27 @@ const PinkButterflyDiary = () => {
                     <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(5) ? styles.flipped : ''}`} style={{ zIndex: zIdx(5) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 05</div>
+                            <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
+                                Aur tumne recently bola tha na ki maafi mat maango, warna baad mein yahi kahoge ki galat jagah time waste kar diya. Dekho, agar mujhe dikh raha hai ki meri Prachi hurt hai, toh main at least kuch toh karunga hi na. I agree, aise meri self-respect girti hai, lekin main uska toota hua dil nahi dekh sakta, guys.
                             </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ....
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ?
+                            <p className={styles.handWritten} style={{marginTop: '1.2rem', fontSize: '1.3rem'}}>
+                                Aur agar mujhe pata ho ki main bas reply receive karne wale se thoda zyada hoon, toh main ek baar nahi, roz maafi maang loon, chahe galti meri ho ya tumhari. Woh bhi har roz alag-alag tareekon se. Prachi was important to me, guys.
                             </p>
                         </div>
                     </div>
 
                     {/* PAGE 6 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${flipped(6) ? styles.flipped : ''}`} style={{ zIndex: zIdx(6) }}>
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(6) ? styles.flipped : ''}`} style={{ zIndex: zIdx(6) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 06</div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
+                                Aur pata hai, main kabhi apne muh se batana hi nahi chahta tha ki maine kya-kya kiya aur kya nahi kiya. Lekin tum har baar mere baare mein negative hi soch rahi thi, toh mujhe laga ki shayad main apni taraf ki kuch achhi cheezein bataunga toh tumhara perspective thoda sa change ho jaayega. 👉👈
                             </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ..
+                            <p className={styles.handWritten} style={{marginTop: '1.2rem', fontSize: '1.3rem'}}>
+                                Mujhe kya pata tha ki main bataunga toh tum aur bura sochne lagogi… pressured feel karogi, ghutne lagogi. Mujhe laga tha shayad ek-aadh cheez bata dunga toh tumhari nazron mein meri image thodi positive ho jaayegi, lekin woh toh aur minus ho gayi. 👉👈
                             </p>
                         </div>
                     </div>
@@ -382,395 +372,77 @@ const PinkButterflyDiary = () => {
                     <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(7) ? styles.flipped : ''}`} style={{ zIndex: zIdx(7) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 07</div>
+                            <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
+                                Lekin jo hua, theek hi huaaaa. At least mujhe kuch-kuch cheezein pata toh chal gayiiii… ki mujhe bas replies hi milte the, ki you do not belong to me, you're someone else's… aur sabse aakhir mein, it was never a two-sided friendship, guys.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                And you said I was wasting my time here. But honestly, I'm proud of myself, kyunki jab tak mujhe ek ladki pasand rahi, maine kabhi kisi aur ko entertain nahi kiya. At least main har random ladki ke paas toh nahi gaya, guys.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                Tum bhale hi usse a one-sided relationship bolo, lekin mere liye woh meri loyalty ka ek chhota sa piece tha. ❤️
                             </p>
                         </div>
                     </div>
 
                     {/* PAGE 8 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(8) ? styles.flipped : ''}`} style={{ zIndex: zIdx(8) }}>
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(8) ? styles.flipped : ''}`} style={{ zIndex: zIdx(8) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 08</div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
+                                Aur pehle main soch raha tha ki woh galat Snap wali baat ki wajah se yeh sab hua. Lekin abbbbb… it feels like agar woh nahi hota, toh shayad mujhe yeh sab pata hi nahi chalta. Woh toh tumne galat diary padh li, isiliye woh sab tumhare dimaag mein aa gaya, warna shayad aisa nahi hota.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                Theek hai yaar, jo hua so hua. It can make me step back a little, lekin itna bhi nahi ki tum mujhse reach out hi na kar sako.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                Or maybe, someday, some random night, Prachi ko bhi main pasand aa jaaun, Belly ki tarah. Who knows? ❤️
                             </p>
                         </div>
                     </div>
 
                     {/* PAGE 9 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(9) ? styles.flipped : ''}`} style={{ zIndex: zIdx(9) }}>
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(9) ? styles.flipped : ''}`} style={{ zIndex: zIdx(9) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 09</div>
+                            <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                ...
+                                Btw, tumhara birthday present ab tak ki shayad sabse best cheez hai. Jaanti ho kyun? Kyunki maine woh jiske baare mein sochkar banaya tha na, woh mere liye sabse best ladki thi.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ?
+                                Tum stunned reh jaogi use dekhkar. Kuch aisa hai woh, jise dekhkar shayad tumhare andar se woh self-doubt thoda kam ho jaaye jo meri woh mistakenly added diary padhne ke baad aaya tha. Woh insecurities, woh dard dene wale words…
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
+                                And maybe, just maybe, someday that day will come.
                             </p>
                         </div>
                     </div>
 
                     {/* PAGE 10 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(10) ? styles.flipped : ''}`} style={{ zIndex: zIdx(10) }}>
+                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(10) ? styles.flipped : ''}`} style={{ zIndex: zIdx(10) }}>
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 10</div>
+                            <div className={`${styles.sticker} ${styles.stickerRandom1}`} style={{top: '15px', right: '25px', transform: 'rotate(12deg) scale(0.9)'}}></div>
                             
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 11 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(11) ? styles.flipped : ''}`} style={{ zIndex: zIdx(11) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 11</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                ?
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 12 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(12) ? styles.flipped : ''}`} style={{ zIndex: zIdx(12) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 12</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                😕
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                 .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 13 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(13) ? styles.flipped : ''}`} style={{ zIndex: zIdx(13) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 13</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                ....
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>s
-                    </div>
-
-                    {/* PAGE 14 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(14) ? styles.flipped : ''}`} style={{ zIndex: zIdx(14) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 14</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 15 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(15) ? styles.flipped : ''}`} style={{ zIndex: zIdx(15) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 15</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 16 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(16) ? styles.flipped : ''}`} style={{ zIndex: zIdx(16) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 16</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                                        {/* PAGE 17 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(17) ? styles.flipped : ''}`} style={{ zIndex: zIdx(17) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 17</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 18 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(18) ? styles.flipped : ''}`} style={{ zIndex: zIdx(18) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 18</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 19 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(19) ? styles.flipped : ''}`} style={{ zIndex: zIdx(19) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 19</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem', fontWeight: 'bold'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 20 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(20) ? styles.flipped : ''}`} style={{ zIndex: zIdx(20) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 20</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                        </div>
-                    </div>
-
-                    {/* PAGE 21 */}
-                    <div className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(21) ? styles.flipped : ''}`} style={{ zIndex: zIdx(21) }}>
-                        <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 21</div>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            
-                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-
-
-
-
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
-                                .
-                            </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                            <p className={styles.handWritten} style={{marginTop: '2.5rem', fontSize: '1.35rem'}}>
                                 always feel free to reach because someone will still try to treat you the right way
                             </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.35rem'}}>
                                 waise mujhe abhi bhi lagta h tumhare dil me mere liye soft corner hai
                             </p>
-                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                            <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.35rem'}}>
                                 kabhi by chance tumhare andar kuch feelings wagrah aajaye to chipana mat(jo tum hamesha karti ho), bata dena kyuki me utna cold nhi hu.
                             </p>
                         </div>
                     </div>
 
-                    {/* PAGE 22 (Last Page) */}
+                    {/* PAGE 11 (Last Page) */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(22) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(22) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(11) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(11) }}
                     >
                         <div className={styles.content} style={{justifyContent: 'center', alignItems: 'center'}}>
                             <div className={styles.polaroidBox} style={{transform: 'rotate(-2deg)', width: '90%', padding: '20px 20px 60px 20px', boxShadow: '4px 10px 25px rgba(0,0,0,0.15)'}}>
