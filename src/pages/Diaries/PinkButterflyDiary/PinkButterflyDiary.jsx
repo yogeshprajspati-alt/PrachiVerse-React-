@@ -296,7 +296,7 @@ const PinkButterflyDiary = () => {
                                 Or ab Jab tumne distance create kar li h to me uski respect karunga. OR me bata du ki iske pahle jo tumne galati se padh liya wo bs mera anger kahi drop karne ka way tha, us sab ka tumse koi lena dena nhi h. Tum Perfect ho!!
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                Or ho sake to ye sab dil se nikal dena, bechani ho rhi hai us din se. Baat mt karo bhale bs wo sab mt socho. 
+                                Or ho sake to ye sab dil se nikal dena, bechani ho rhi hai us din se, chain hi nhi mil rha tha us sab ke baad. Baat mt karo bhale bs wo sab mt socho, or khabardaar prachiii me kami nikali tooo.
                             </p>
                         </div>
                     </div>
@@ -410,7 +410,7 @@ const PinkButterflyDiary = () => {
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
                             
                             <p className={styles.handWritten} style={{marginTop: '1.5rem', fontSize: '1.3rem'}}>
-                                Btw, tumhara birthday present ab tak ki shayad sabse best cheez hai. Jaanti ho kyun? Kyunki maine woh jiske baare mein sochkar banaya tha na, woh mere liye sabse best ladki thi.
+                                Btw, tumhara birthday present ab tak ki shayad sabse best cheez hai. Jaanti ho kyun? Kyuki wo bohot time leke banaya hai mene. Kyunki maine woh jiske baare mein sochkar banaya tha na, woh mere liye sabse best ladki thi.
                             </p>
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Tum stunned reh jaogi use dekhkar. Kuch aisa hai woh, jise dekhkar shayad tumhare andar se woh self-doubt thoda kam ho jaaye jo meri woh mistakenly added diary padhne ke baad aaya tha. Woh insecurities, woh dard dene wale words…
