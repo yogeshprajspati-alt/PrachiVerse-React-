@@ -383,6 +383,11 @@ const PinkButterflyDiary = () => {
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Tum bhale hi usse a one-sided relationship bolo, lekin mere liye woh meri loyalty ka ek chhota sa piece tha. ❤️
                             </p>
+
+                            <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
+                                Or dekho me bhale telegram nhi chalata jyada, lekin tum ye mt sochna ki tum kuch text karogi to pta nhi me dekhunga ya nhi. Tumhari chat ke notifications on hai baaki sab OFF hain, to me ASAP dekh lunga, bhale mera lastseen pooarana dikha rha ho.
+                            </p>
+                            
                         </div>
                     </div>
 
