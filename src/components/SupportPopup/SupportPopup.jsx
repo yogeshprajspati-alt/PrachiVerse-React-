@@ -33,7 +33,7 @@ const SupportPopup = () => {
                             <br />
                             PrachiVerse will be supported until Prachi lives.                        </p>
 
-                        <p className={styles.date}>15 January 2027</p>
+                        <p className={styles.date}>Forever🌻</p>
 
                         <button
                             className={styles.button}
