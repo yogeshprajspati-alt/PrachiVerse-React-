@@ -386,6 +386,7 @@ const PinkButterflyDiary = () => {
 
                             <p className={styles.handWritten} style={{marginTop: '1rem', fontSize: '1.3rem'}}>
                                 Or dekho me bhale telegram nhi chalata jyada, lekin tum ye mt sochna ki tum kuch text karogi to pta nhi me dekhunga ya nhi. Tumhari chat ke notifications on hai baaki sab OFF hain, to me ASAP dekh lunga, bhale mera lastseen pooarana dikha rha ho.
+                                Yr pta nhi thoda ajeeb sa lagta h abh pahle karne me👉👈 like mn to abhi bhi bohot karta haii.. lekin fir thought ata h ki kahi tumko kharab laga too... isiliye kabhi kabhi send karke delete karna padta haii... 👉👈 Like tumne bhale keh diya ho ki tum ab mere se gussa nhi hoo.. Lekin narazgi to abhi bhi hai, or koi ek hona chaiye kami batane wala.. lekin fir ye sab.. thoda accha accha nhi lagta. 
                             </p>
                             
                         </div>
