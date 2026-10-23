@@ -29,10 +29,9 @@ const SupportPopup = () => {
                         <h2 className={styles.title}>A Little Update</h2>
 
                         <p className={styles.message}>
-                            Since there is no maintainer now,
+                            Prachi Forever, therefore prachiverse forever.
                             <br />
-                            PrachiVerse will be supported until
-                        </p>
+                            PrachiVerse will be supported until Prachi lives.                        </p>
 
                         <p className={styles.date}>15 January 2027</p>
 
@@ -40,7 +39,7 @@ const SupportPopup = () => {
                             className={styles.button}
                             onClick={() => setVisible(false)}
                         >
-                            Okay 💜
+                            Hn Hn 🤨
                         </button>
                     </motion.div>
                 </motion.div>
