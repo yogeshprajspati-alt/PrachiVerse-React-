@@ -4,6 +4,16 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
+                title: "Sunflower Valley",
+                icon: "🌻",
+                description: "Under Review",
+                date: "23 Oct 2026",
+                badge: "New",
+                link: "/",
+                isExternal: false,
+                isAbsolute: false
+            },
+            {
                 id: "Locked",
                 title: "Locked",
                 icon: "🎂",
@@ -21,16 +31,6 @@ export const dashboardData = [
                 date: "06 oct 2026",
                 badge: "New",
                 link: "/diaries/last-entry",
-                isExternal: false,
-                isAbsolute: false
-            },
-            {
-                title: "Pink Butterfly Diary",
-                icon: "🦋",
-                description: "Watchman's exact words.",
-                date: "3 Oct 2026",
-                badge: "New",
-                link: "/diaries/pink-butterfly-diary",
                 isExternal: false,
                 isAbsolute: false
             },
