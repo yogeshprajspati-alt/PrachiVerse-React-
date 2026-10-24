@@ -9,9 +9,9 @@ export const dashboardData = [
                 description: "Under Review",
                 date: "23 Oct 2026",
                 badge: "New",
-                link: "/",
-                isExternal: false,
-                isAbsolute: false
+                link: "https://prachi-sunflower-garden.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
             },
             {
                 id: "Locked",
