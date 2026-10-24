@@ -6,7 +6,7 @@ export const dashboardData = [
             {
                 title: "Sunflower Valley",
                 icon: "🌻",
-                description: "Under Review",
+                description: "Ready to view",
                 date: "23 Oct 2026",
                 badge: "New",
                 link: "https://prachi-sunflower-garden.vercel.app/",
