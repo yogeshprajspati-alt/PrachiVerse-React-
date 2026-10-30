@@ -16,12 +16,12 @@ export const dashboardData = [
             {
                 title: "Sunflower Valley",
                 icon: "🌻",
-                description: "Under Review",
+                description: "Ready to view",
                 date: "23 Oct 2026",
                 badge: "New",
-                link: "/",
-                isExternal: false,
-                isAbsolute: false
+                link: "https://prachi-sunflower-garden.vercel.app/",
+                isExternal: true,
+                isAbsolute: true
             },
             {
                 id: "Locked",
