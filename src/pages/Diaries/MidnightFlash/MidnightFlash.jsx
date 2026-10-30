@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useEscapeBack from '../../../hooks/useEscapeBack';
 import styles from './MidnightFlash.module.css';
 
-const AUDIO_SRC = '/assets/Jan23/background.mp3';
+const AUDIO_SRC = '/assets/music/LoveStoryPianoCover.mp3';
 
 // ─── Interactive Scratch Card Component ──────────────────────────────────────
 const ScratchToReveal = ({ children, coverText = "Rub to reveal secret wish ✨" }) => {
@@ -170,7 +170,7 @@ const MidnightFlash = () => {
     const [shake, setShake] = useState(false);
     const [sparkle, setSparkle] = useState(false);
 
-    const TOTAL = 17; // Cover + 15 Story Pages + Back Cover
+    const TOTAL = 18; // Cover + 16 Story Pages + Back Cover
 
     const spin = (i) => setDials(d => d.map((v, k) => k === i ? (v + 1) % 10 : v));
 
@@ -358,7 +358,7 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 2: ALWAYS IN YOUR FAVOUR (Dost bura-bhala & Misunderstandings) ─── */}
+                                        {/* ─── PAGE 2: ALWAYS IN YOUR FAVOUR (Dost bura-bhala & Misunderstandings) ─── */}
                     <div
                         className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(2) ? styles.flipped : ''}`}
                         style={{ zIndex: zIdx(2) }}
@@ -372,23 +372,44 @@ const MidnightFlash = () => {
                                 Tum darti ho ki tumhare baare mein mere dost bura-bhala kahenge.... Aisa kabhi nhi hoga Prachi. Me bhi, you know, maine bas 1-2 din hi bola tha, woh bhi directly tumse, naa ki kisi aur se. Aur 1-2 din ke baad me firse tumhare favour mein aa gaya tha.
                             </p>
 
-                            <div className={styles.elegantQuote}>
-                                Very much possible hai ki tumhe lekar meri thinking mein kuch galat ho, ya tumhari kuch cheezein mujhe samajh na aayi hon, but that doesn't mean ki main tumhare against ho jaunga.
-                            </div>
-
                             <p className={styles.handWritten} style={{ marginTop: '0.4rem' }}>
                                 Tumhare baare mein koi kuch bhi bole, toh main har baar usse agree karunga, aisa thodi hai yr. Main tumhe jaanta hoon, aur sirf kuch baaton ya misunderstandings ki wajah se tumhare baare mein apni poori thinking change nahi kar sakta.
                             </p>
+
+                            <div className={styles.elegantQuote} style={{ marginTop: '0.6rem' }}>
+                                Very much possible hai ki tumhe lekar meri thinking mein kuch galat ho, ya tumhari kuch cheezein mujhe samajh na aayi hon, but that doesn't mean ki main tumhare against ho jaunga. 🌸
+                            </div>
                         </div>
                     </div>
 
-                    {/* ─── PAGE 3: DON'T FEEL FLOODED (Why Deepak creates things) ─── */}
+                    {/* ─── PAGE 3: THE LIVING PROOF (Arindam's Side & Protection) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(3) ? styles.flipped : ''}`}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(3) ? styles.flipped : ''}`}
                         style={{ zIndex: zIdx(3) }}
                     >
                         <div className={styles.content}>
                             <div className={styles.caseNo}>PG. 03</div>
+                            <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
+
+                            <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>THE LIVING PROOF</h2>
+
+                            <p className={styles.handWritten} style={{ marginTop: '0.4rem' }}>
+                                Yr tum khud soch ke dekho naa, jab bhi apni ladai hoti thi arindam tumhari side kyun leta thaa.. jabki dost to wo mera hai.. or tumse to interaction bhi nhi hue.. technically usko meri side leni chaiye na?? Kyuki batata bhi to me hu mere pov se??
+                            </p>
+
+                            <div className={styles.elegantQuote} style={{ marginTop: '0.8rem' }}>
+                                Wo isiliye hai kyuki me tumhare against sun hi nhi sakta kuchh.. usko bhi pta hai ye cheez.. or yahi cheez sabke upar applicable hai. ❤️
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ─── PAGE 4: DON'T FEEL FLOODED (Why Deepak creates things) ─── */}
+                    <div
+                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(4) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(4) }}
+                    >
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 04</div>
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>NEVER FEEL FLOODED</h2>
@@ -408,10 +429,10 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 4: PRESSED FLOWERS (Apni Khushi Se Karta Hoon & Return) ─── */}
+                    {/* ─── PAGE 5: PRESSED FLOWERS (Apni Khushi Se Karta Hoon & Return) ─── */}
                     <div
-                        className={`${styles.page} ${styles.flowerPage} ${flipped(4) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(4) }}
+                        className={`${styles.page} ${styles.flowerPage} ${flipped(5) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(5) }}
                     >
                         <div className={styles.content} style={{ justifyContent: 'flex-end', paddingBottom: '25px' }}>
                             <div className={styles.flowerParchmentCard}>
@@ -422,13 +443,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 5: APAN KI BONDING ─── */}
+                    {/* ─── PAGE 6: APAN KI BONDING ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(5) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(5) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(6) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(6) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 05</div>
+                            <div className={styles.caseNo}>PG. 06</div>
                             <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>BEST FRIENDS BONDING</h2>
@@ -445,13 +466,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 6: DIL SE MAAFI (Arindam & Realization) ─── */}
+                    {/* ─── PAGE 7: DIL SE MAAFI (Arindam & Realization) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(6) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(6) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(7) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(7) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 06</div>
+                            <div className={styles.caseNo}>PG. 07</div>
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>DIL SE MAAFI</h2>
@@ -476,13 +497,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 7: MISS PERFECT & BLESSED ─── */}
+                    {/* ─── PAGE 8: MISS PERFECT & BLESSED ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(7) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(7) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(8) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(8) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 07</div>
+                            <div className={styles.caseNo}>PG. 08</div>
                             <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>MISS PERFECT & BLESSED</h2>
@@ -503,13 +524,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 8: AT LEAST BEST FRIEND TOH HO NA? (Relationship & Ladna) ─── */}
+                    {/* ─── PAGE 9: AT LEAST BEST FRIEND TOH HO NA? (Relationship & Ladna) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(8) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(8) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(9) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(9) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 08</div>
+                            <div className={styles.caseNo}>PG. 09</div>
                             <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>BEST FRIEND TOH HO NA?</h2>
@@ -530,13 +551,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 9: PRESENT OVER FUTURE (Sapne & Bechaini) ─── */}
+                    {/* ─── PAGE 10: PRESENT OVER FUTURE (Sapne & Bechaini) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(9) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(9) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(10) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(10) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 09</div>
+                            <div className={styles.caseNo}>PG. 10</div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>PRESENT OVER FUTURE</h2>
 
@@ -554,13 +575,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 10: GO WITH THE FLOW (Efforts & No Guilt) ─── */}
+                    {/* ─── PAGE 11: GO WITH THE FLOW (Efforts & No Guilt) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(10) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(10) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(11) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(11) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 10</div>
+                            <div className={styles.caseNo}>PG. 11</div>
                             <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>GO WITH THE FLOW</h2>
@@ -581,13 +602,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 11: ZERO BETRAYAL (Uncertainty & Respect) ─── */}
+                    {/* ─── PAGE 12: ZERO BETRAYAL (Uncertainty & Respect) ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(11) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(11) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(12) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(12) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 11</div>
+                            <div className={styles.caseNo}>PG. 12</div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>ZERO BETRAYAL</h2>
 
@@ -607,19 +628,19 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 12: SAHELI & PROTEIN LOGIC ─── */}
+                    {/* ─── PAGE 13: SAHELI & PROTEIN LOGIC ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(12) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(12) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(13) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(13) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 12</div>
+                            <div className={styles.caseNo}>PG. 13</div>
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>SAHELI PROTOCOL 💅🏻</h2>
 
                             <div className={styles.elegantQuote}>
-                                If not your man, thennnn I'll be your bestfriend 😂❤️ har jagah support dene ke liye....
+                                If not your man, thennnn I'll be your saheli 😂❤️ har jagah support dene ke liye....
                             </div>
 
                             <TapeReveal
@@ -629,13 +650,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 13: CUTOFF SOLUTION NAHI HOTA ─── */}
+                    {/* ─── PAGE 14: CUTOFF SOLUTION NAHI HOTA ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(13) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(13) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.gridPage} ${flipped(14) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(14) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 13</div>
+                            <div className={styles.caseNo}>PG. 14</div>
                             <div className={`${styles.tape} ${styles.tapeTopRight}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>NO CUTOFFS</h2>
@@ -660,13 +681,13 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 14: CLEAR & FREE ─── */}
+                    {/* ─── PAGE 15: CLEAR & FREE ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(14) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(14) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(15) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(15) }}
                     >
                         <div className={styles.content}>
-                            <div className={styles.caseNo}>PG. 14</div>
+                            <div className={styles.caseNo}>PG. 15</div>
                             <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
 
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>CLEAR & FREE</h2>
@@ -691,10 +712,10 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 15: AARAM SE SOCHNA & CLOSURE ─── */}
+                    {/* ─── PAGE 16: AARAM SE SOCHNA & CLOSURE ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(15) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(15) }}
+                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(16) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(16) }}
                     >
                         <div className={styles.content} style={{ justifyContent: 'center', alignItems: 'center' }}>
                             <p className={styles.handWritten} style={{ margin: '4px 0 10px', textAlign: 'center' }}>
@@ -727,10 +748,10 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 16: ANTIQUE LEATHER BACK COVER ─── */}
+                    {/* ─── PAGE 17: ANTIQUE LEATHER BACK COVER ─── */}
                     <div
-                        className={`${styles.page} ${styles.backCover} ${flipped(16) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(16) }}
+                        className={`${styles.page} ${styles.backCover} ${flipped(17) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(17) }}
                     >
                         <div className={styles.waxSeal}>
                             <span className={styles.waxSealIcon}>✦</span>
