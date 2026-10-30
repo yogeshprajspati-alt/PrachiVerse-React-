@@ -619,7 +619,7 @@ const MidnightFlash = () => {
                             <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>SAHELI PROTOCOL 💅🏻</h2>
 
                             <div className={styles.elegantQuote}>
-                                If not your man, thennnn I'll be your saheli 😂❤️ har jagah support dene ke liye....
+                                If not your man, thennnn I'll be your bestfriend 😂❤️ har jagah support dene ke liye....
                             </div>
 
                             <TapeReveal
