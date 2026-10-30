@@ -52,6 +52,7 @@ const LavenderDiary = lazy(() => import('./pages/Diaries/LavenderDiary/BurnBookD
 const CinderellaDiary = lazy(() => import('./pages/Diaries/CinderellaDiary/CinderellaDiary'));
 const PinkButterflyDiary = lazy(() => import('./pages/Diaries/PinkButterflyDiary/PinkButterflyDiary'));
 const LastEntryDiary = lazy(() => import('./pages/Diaries/LastEntryDiary/LastEntryDiary'));
+const MidnightFlash = lazy(() => import('./pages/Diaries/MidnightFlash/MidnightFlash'));
 
 
 const AnimatedRoutes = () => {
@@ -97,6 +98,7 @@ const AnimatedRoutes = () => {
             <Route path="/diaries/cinderella-diary" element={<PageWrapper><CinderellaDiary /></PageWrapper>} />
             <Route path="/diaries/pink-butterfly-diary" element={<PageWrapper><PinkButterflyDiary /></PageWrapper>} />
             <Route path="/diaries/last-entry" element={<PageWrapper><LastEntryDiary /></PageWrapper>} />
+            <Route path="/diaries/midnight-flash" element={<PageWrapper><MidnightFlash /></PageWrapper>} />
 
             <Route path="/view" element={<PageWrapper><LegacyViewer /></PageWrapper>} />
             <Route path="/diaries/jan-23-native" element={<PageWrapper><Jan23Diary /></PageWrapper>} />
