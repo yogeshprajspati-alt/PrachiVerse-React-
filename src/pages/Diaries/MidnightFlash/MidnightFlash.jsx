@@ -170,7 +170,7 @@ const MidnightFlash = () => {
     const [shake, setShake] = useState(false);
     const [sparkle, setSparkle] = useState(false);
 
-    const TOTAL = 14; // Cover + 12 Story Pages + Back Cover
+    const TOTAL = 15; // Cover + 13 Story Pages + Back Cover
 
     const spin = (i) => setDials(d => d.map((v, k) => k === i ? (v + 1) % 10 : v));
 
@@ -590,6 +590,10 @@ const MidnightFlash = () => {
                                 Aur ek baat aur.... cutoff solution thodi hota hai yr 😂😂 Woh toh bas problem ko ignore karna hota hai, fix thodi karna hai usse. Haan, kabhi-kabhi distance lena zaroori hota hai, aur main ye bhi samajhta hoon ki har cheez ko baith kar sort karna possible nahi hota. Lekin agar kisi bond mein achha bhi bahut kuch raha ho, toh kya usko samajhne aur better karne ka ek chance bhi nahi hona chahiye?
                             </p>
 
+                            <div className={styles.elegantQuote}>
+                                Chahe kuch bhi ho jaaye me tumhara saath nhi chhorunga, bhale kuch bhi ho jaaye. ❤️
+                            </div>
+
                             <p className={styles.handWritten} style={{ marginTop: '0.4rem' }}>
                                 Main ye nahi keh raha ki har cheez pehle jaisi hi ho jaye, ya tum zabardasti kuch maintain karo. Bas itna ki jo bhi decision ho, woh gusse, guilt ya overthinking mein nahi, balki aaram se soch kar ho.
                             </p>
@@ -602,14 +606,45 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 12: AARAM SE SOCHNA & CLOSURE ─── */}
+                    {/* ─── PAGE 12: CLEAR & FREE ─── */}
                     <div
-                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(12) ? styles.flipped : ''}`}
+                        className={`${styles.page} ${styles.innerPage} ${styles.dottedPage} ${flipped(12) ? styles.flipped : ''}`}
                         style={{ zIndex: zIdx(12) }}
+                    >
+                        <div className={styles.content}>
+                            <div className={styles.caseNo}>PG. 12</div>
+                            <div className={`${styles.tape} ${styles.tapeTopLeft}`}></div>
+
+                            <h2 className={styles.mainTitle} style={{ marginTop: '0.6rem' }}>CLEAR & FREE</h2>
+
+                            <p className={styles.handWritten} style={{ marginTop: '0.4rem' }}>
+                                Me apni side se bohot clear hu is baar se, tum har cheez ke liye free ho. Or me bhi, kisi cheez ka koi pressure nhi h kisi pe abse.
+                            </p>
+
+                            <div className={styles.elegantQuote}>
+                                Kuch hota h to good, nhi hota tab bhi good. And nothing's gonna change.
+                            </div>
+
+                            <p className={styles.handWritten} style={{ marginTop: '0.4rem' }}>
+                                If you find somebody, i'll not cutoff lekin thoda sa distance bsss... koi ni milta to same cheez chalti rahegi. Mujhe milti h to me bhi wahi karunga..
+                            </p>
+
+                            <div className={styles.quoteParchmentCard} style={{ marginTop: '0.6rem' }}>
+                                <p className={styles.handWritten} style={{ margin: 0 }}>
+                                    Tum bs bekar ka pressure nhi liya karo. Or me tumhara bura nhi karne wala kabhi, ye 4-4.5 saal me nhi kiya ab kya karunga.... ab to parwah aur badh gai h 😂❤️
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* ─── PAGE 13: AARAM SE SOCHNA & CLOSURE ─── */}
+                    <div
+                        className={`${styles.page} ${styles.innerPage} ${styles.ruledPage} ${flipped(13) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(13) }}
                     >
                         <div className={styles.content} style={{ justifyContent: 'center', alignItems: 'center' }}>
                             <p className={styles.handWritten} style={{ margin: '4px 0 10px', textAlign: 'center' }}>
-                                Baaki madam, tum aaram se sochna. Main tumse abhi koi final answer ya promise nahi maang raha. Jo tum genuinely feel karti ho, wohi batana. Main bas nahi chahta ki apan ki achhi bonding ko hum apne hi dimaag mein itna complicated bana dein ki jo achha hai, woh bhi achha na reh paaye.
+                                Baaki madam, tum aaram se sochna. Main tumse abhi koi final answer ya promise nahi maang raha. Jo tum genuinely feel karti ho, wohi batana. Bas apne dil se poochna woh kya chahta hai, jo first time mein nikle wahi karna, kisi se suggestion nahi lena. Main bas nahi chahta ki apan ki achhi bonding ko hum apne hi dimaag mein itna complicated bana dein ki jo achha hai, woh bhi achha na reh paaye.
                             </p>
 
                             <ScratchToReveal coverText="Rub for final midnight note 🌙">
@@ -638,10 +673,10 @@ const MidnightFlash = () => {
                         </div>
                     </div>
 
-                    {/* ─── PAGE 13: ANTIQUE LEATHER BACK COVER ─── */}
+                    {/* ─── PAGE 14: ANTIQUE LEATHER BACK COVER ─── */}
                     <div
-                        className={`${styles.page} ${styles.backCover} ${flipped(13) ? styles.flipped : ''}`}
-                        style={{ zIndex: zIdx(13) }}
+                        className={`${styles.page} ${styles.backCover} ${flipped(14) ? styles.flipped : ''}`}
+                        style={{ zIndex: zIdx(14) }}
                     >
                         <div className={styles.waxSeal}>
                             <span className={styles.waxSealIcon}>✦</span>
