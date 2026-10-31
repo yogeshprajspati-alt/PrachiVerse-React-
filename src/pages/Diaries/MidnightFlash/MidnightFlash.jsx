@@ -706,7 +706,7 @@ const MidnightFlash = () => {
 
                             <div className={styles.quoteParchmentCard} style={{ marginTop: '0.6rem' }}>
                                 <p className={styles.handWritten} style={{ margin: 0 }}>
-                                    Tum na tension nhi liya karo, bs bekar ka pressure nhi liya karo. Or me tumhara bura nhi karne wala kabhi, ye 4-4.5 saal me nhi kiya ab kya karunga.... ab to parwah aur badh gai h 😂❤️
+                                    Tum na tension nhi liya karo, bs bekar ka pressure nhi liya karo. Or me tumhara bura nhi karne wala kabhi, Please prachi please me tab bohot gusse me tha yr, ange se me aisa kabhi nhi karunga. I promise I'll work on it. 
                                 </p>
                             </div>
                         </div>
