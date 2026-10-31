@@ -4,16 +4,6 @@ export const dashboardData = [
         icon: "✨",
         items: [
             {
-                title: "22:05 — Midnight Flash",
-                icon: "📸",
-                description: "Raat ke 22:05 ka monochrome flash aur ek thahar gaya pal.",
-                date: "29 Oct 2026",
-                badge: "Brand New",
-                link: "/diaries/midnight-flash",
-                isExternal: false,
-                isAbsolute: false
-            },
-            {
                 title: "Sunflower Valley",
                 icon: "🌻",
                 description: "Ready to view",
